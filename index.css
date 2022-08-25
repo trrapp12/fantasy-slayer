@@ -6,9 +6,39 @@
   font-style: normal;
 }
 
+:root {
+/* Color Theme Swatches in Hex */
+  --dark-blue-hex: #1A1E26;
+  --medium-blue-hex: #465E73;
+  --light-blue-hex: #6D8BA6;
+  --royal-brown-hex: #433626;
+  --sand-hex: #D9B68B;
+
+/* Color Theme Swatches in RGBA */
+  --dark-blue-rgba: rgba(26, 30, 38, 1);
+  --medium-blue-rgba: rgba(70, 94, 115, 1);
+  --light-blue-rgba: rgba(109, 139, 166, 1);
+  --royal-brown-rgba: rgba(67, 54, 38, 1);
+  --sand-rgba: rgba(217, 182, 139, 1);
+
+/* Color Theme Swatches in HSLA */
+  --dark-blue-hsla: hsla(219, 18, 12, 1);
+  --medium-blue-hsla: hsla(208, 24, 36, 1);
+  --light-blue-hsla: hsla(208, 24, 53, 1);
+  --royal-brown-hsla: hsla(33, 27, 20, 1);
+  --sand-hsla: hsla(33, 50, 69, 1);
+
+
+}
+
 * {
   padding: 0px;
   margin: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Aboreto', cursive;
 }
 
 .angars-ruins {
@@ -16,21 +46,34 @@
 }
 
 .card {
-  background-color: red;
+  background-color: ;
 }
 
 .title {
   font-size: 5rem;
   text-align: center;
   letter-spacing: 3px;
+  color: var(--royal-brown-hex);
+  text-shadow: 0px 0px 10px rgba(248, 248, 248, 1);
 }
 
 footer {
   padding: 1rem;
+  position: absolute;
+  height: 81px;
+  top: calc(100vh - (81px + 2rem));
+  width: calc(100vw - 2rem);
 }
 
 footer > p {
-  font-size: 10px;
+  font-size: 12px;
+  color: var(--sand-hex)
 }
 
-
+.main-container {
+  position: absolute;
+  background: linear-gradient(to right, #1C1B17 0%, 14.319808781147003%, #5E7386 28.639617562294006%, 64.319808781147%, #0D0E12 100%);
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+}
