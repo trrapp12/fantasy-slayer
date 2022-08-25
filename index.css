@@ -1,8 +1,36 @@
+@font-face {
+  font-family: 'angars-runes';
+  src: url('angars_ruins/AngarsRunes.woff2') format('woff2'),
+       url('angars_ruins/AngarsRunes.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   padding: 0px;
   margin: 0px;
 }
 
+.angars-ruins {
+  font-family: angars-runes;
+}
+
 .card {
   background-color: red;
 }
+
+.title {
+  font-size: 5rem;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+footer {
+  padding: 1rem;
+}
+
+footer > p {
+  font-size: 10px;
+}
+
+
