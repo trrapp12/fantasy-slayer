@@ -53,6 +53,22 @@ html {
     justify-content: space-between;
 }
 
+.display-none {
+  display: none;
+}
+
+.modal-height {
+    padding: 1rem;
+    position: absolute;
+    height: 358px;
+    top: calc(100vh - (358px + 2rem));
+    width: calc(100vw - 2rem);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: red;
+}
+
 .card {
   background-color: ;
 }
