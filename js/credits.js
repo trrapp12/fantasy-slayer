@@ -1,19 +1,16 @@
 (()=> {
-  const modalContainer = document.getElementById('credit-modal-container');
   const modal = document.getElementById('credits-modal');
   const footer = document.getElementById('footer');
+  const creditsDefault = document.getElementById('credits-default')
 
-  function toggleFooterHeight () {
-    footer.classList.toggle('modal-height')
+  function toggleClass (el, className) {
+    el.classList.toggle(className)
   }
 
-  function toggleModalDisplay () {
-    modal.classList.toggle('display-none')
-  }
-
-  modalContainer.addEventListener('click', () => {
-    toggleFooterHeight();
-    toggleModalDisplay();
+  footer.addEventListener('click', () => {
+    toggleClass(footer, 'modal-height');
+    toggleClass(modal, 'display-none');
+    toggleClass(creditsDefault, 'display-none');
   })
 
 })();

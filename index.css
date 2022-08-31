@@ -37,6 +37,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  border: solid red 1px;
 }
 
 html {
@@ -53,20 +54,27 @@ html {
     justify-content: space-between;
 }
 
+.credits-modal > p {
+  font-size: .70rem;
+  color: white;
+  margin-bottom: .25rem;
+}
+
 .display-none {
   display: none;
 }
 
 .modal-height {
-    padding: 1rem;
-    position: absolute;
-    height: 358px;
-    top: calc(100vh - (358px + 2rem));
-    width: calc(100vw - 2rem);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    background-color: red;
+  padding: 1rem;
+  position: absolute;
+  height: 195px;
+  top: calc(100vh - (195px + 2rem));
+  width: calc(100vw - 2rem);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: rgba(255, 255, 255, .15);  
+  backdrop-filter: blur(5px);
 }
 
 .card {
