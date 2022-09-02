@@ -31,6 +31,17 @@
     let Vliecke = new Character();
     // Middle Dutch, etymological origin of flechier/fletcher, or arrow maker
 
-    document.getElementById('player1').innerHTML = ``;
-    document.getElementById('player2').innerHTML = ``;
+    const player1Container = document.getElementById('character-1-art');
+    const player2Container = document.getElementById('character-2-art');
+
+    function renderCharacter (data) {
+        player1Container.innerHTML = `
+            <div class="hero">
+                    <img src="assets/assets/conscript.png"
+                        alt="Elephant at sunset">
+            </div>
+        `
+    }
+
+    renderCharacter()
 })()

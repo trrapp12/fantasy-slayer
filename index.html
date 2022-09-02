@@ -13,8 +13,24 @@
   </head>
   <body>
     <div class="main-container">
+      <nav class="nav" id="nav">
+        <div class="footer-slider">
+          <i class="fi fi-rr-dice-d4"></i>
+          <i class="fi fi-rr-dice-d6"></i>
+          <i class="fi fi-rr-dice-d8"></i>
+          <i class="fi fi-rr-dice-d10"></i>
+          <i class="fi fi-rr-dice-d12"></i>
+          <i class="fi fi-rr-dice-d20"></i>
+          <i class="fi fi-rr-meteor"></i>
+          <i class="fi fi-rr-bow-arrow"></i>
+          <i class="fi fi-rr-bolt"></i>
+          <i class="fi fi-rr-wheat"></i>
+          <i class="fi fi-rr-running"></i>
+          <i class="fi fi-rr-eye-dropper"></i>
+        </div>
+      </nav>
       <div class="top-third">
-        <h1 class="angars-ruins title">Fantasy + Slayer</h1>
+        <h1 class="angars-ruins title" id="title">Fantasy + Slayer</h1>
         <section id="player1" class="card"></section>
       </div>
       <div class="middle-third">
@@ -30,23 +46,10 @@
       <div class="bottom-third">
         <section id="player2" class="card"></section>
       </div>
-      <footer id="footer">
-        <div class="footer-slider">
-          <i class="fi fi-rr-dice-d4"></i>
-          <i class="fi fi-rr-dice-d6"></i>
-          <i class="fi fi-rr-dice-d8"></i>
-          <i class="fi fi-rr-dice-d10"></i>
-          <i class="fi fi-rr-dice-d12"></i>
-          <i class="fi fi-rr-dice-d20"></i>
-          <i class="fi fi-rr-meteor"></i>
-          <i class="fi fi-rr-bow-arrow"></i>
-          <i class="fi fi-rr-bolt"></i>
-          <i class="fi fi-rr-wheat"></i>
-          <i class="fi fi-rr-running"></i>
-          <i class="fi fi-rr-eye-dropper"></i>
-        </div>
+      <footer id="footer" class="footer">
+
         <div class="credits-modal-container" id="credit-modal-container">
-          <p id="credits-default">Credits:<p>
+          <!-- <p id="credits-default">Credits:<p> -->
           <section class="credits-modal display-none" id="credits-modal">
             <p>Title font "Angars Ruins" created by <a href="http://www.mansgreback.com/">Mans Greback</a>. Used under non-profit license QF121285258G as this is a public facing site, but with no way nor desire of making a profit.</p>
             <p>Images created by "Travel Dawn," licensed under Adobe Standard license.</p>
@@ -59,5 +62,6 @@
 
     <script src="js/index.js"></script>
     <script src="js/credits.js"></script>
+    <script src="js/animation.js"></script>
   </body>
 </html>

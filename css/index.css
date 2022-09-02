@@ -30,7 +30,26 @@
   --royal-brown-hsla: hsla(33, 27, 20, 1);
   --sand-hsla: hsla(33, 50, 69, 1);
 
-
+  /* box shadows */
+  --shadow-color: 220deg 30% 4%;
+  --shadow-elevation-low:
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+  --shadow-elevation-medium:
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+  --shadow-elevation-high:
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
+    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
+    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
+    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
+    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
+    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
+    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
 }
 
 * {
@@ -75,6 +94,11 @@ html {
   backdrop-filter: blur(5px);
 }
 
+.backlight {
+  animation-name: backlight;
+  animation-duration: 10250ms;
+}
+
 .card {
   background-color: ;
 }
@@ -87,19 +111,20 @@ html {
   text-shadow: 0px 0px 10px rgba(248, 248, 248, 1);
 }
 
-footer {
-  padding: 1rem;
+nav {
+  padding: 2rem 3rem;
   position: fixed;
-  height: min-content;
-  top: calc(100vh - (150px + 2rem));
-  width: calc(100vw - 2rem);
+  height: 100vh;
+  width: 5vw;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  bottom: 100vh;
+  transition: ease 250ms;
+  top: 0px;
+  left: 0px;
 }
 
-footer > p {
+nav > p {
   font-size: 12px;
   color: var(--sand-hex)
 }
@@ -112,15 +137,72 @@ footer > p {
   margin-bottom: 1rem;
 }
 
+nav:hover,
+nav:focus {
+  background-color: rgba(255, 255, 255, .15);  
+  backdrop-filter: blur(5px);
+}
+
 i {
   text-shadow: 0px 0px 10px rgb(248 248 248);
-  font-size: 2.25rem;
+  font-size: 1.8rem;
+  transition: ease 250ms;
+}
+
+i:hover, 
+i:focus {
+  font-size: 3rem;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  box-shadow: var(--shadow-elevation-medium);
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
 }
 
 .main-container {
   position: absolute;
-  background: linear-gradient(to right, #1C1B17 0%, 14.319808781147003%, #5E7386 28.639617562294006%, 64.319808781147%, #0D0E12 100%);
+  /* background: linear-gradient(to right, #1C1B17 0%, 14.319808781147003%, #5E7386 28.639617562294006%, 64.319808781147%, #0D0E12 100%); */
+  background-image: url('../assets/assets/AdobeStock_460700032.jpeg');
   width: 100vw;
   height: 100vh;
   padding: 1rem;
+  background-size: cover;
+  padding-left: 5rem;
+}
+
+/* .main-container::after {
+  background-image: url('assets/assets/AdobeStock_354200072.jpeg') no-repeat;
+  width: auto;
+  height: 100vh;
+  content: '';
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+} */
+
+.middle-third {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+img {
+  height: 60vh;
+  width: auto;
+}
+
+.top-third {
+  margin-bottom: 2rem;
+}
+
+@keyframes backlight {
+  0% {text-shadow:-12px 0px 10px rgb(248 248 248)}
+  50% {text-shadow:12px 0px 2px rgb(169 201 215)}
+  100% {text-shadow:0px 0px 10px rgb(248 248 248)}
 }
