@@ -37,7 +37,7 @@
     function renderCharacter (data) {
         player1Container.innerHTML = `
             <div class="hero">
-                    <img src="assets/assets/conscript.png"
+                    <img src="assets/assets/soulforge.png"
                         alt="Elephant at sunset">
             </div>
         `
