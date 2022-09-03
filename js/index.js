@@ -36,8 +36,12 @@
 
     function renderCharacter (data) {
         player1Container.innerHTML = `
-            <div class="hero">
+            <div class="hero c1">
                     <img src="assets/assets/soulforge.png"
+                        alt="Elephant at sunset">
+            </div>
+            <div class="hero c2">
+                    <img src="assets/assets/mage.png"
                         alt="Elephant at sunset">
             </div>
         `

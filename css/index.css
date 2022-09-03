@@ -66,6 +66,23 @@ html {
   font-family: angars-runes;
 }
 
+.c1 {
+    grid-area: 1, 2;
+    grid-area: 1 / 2;
+}
+
+.c2 {
+    grid-area: 1, 2;
+    grid-area: 1 / 2;
+}
+
+.character-art {
+    display: grid;
+    grid-template-columns: 80vw, 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content;
+}
+
 .credits-modal > p {
   font-size: .70rem;
   color: white;
