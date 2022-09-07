@@ -1,8 +1,6 @@
 (() => {
 
-    class Character {
-        constructor (_elId, _name, _avatar, _race, _health, _weapon, _skill, _speed, _strength, _distance, _backstory, _catchphrase, _weakness, _relationship, _intelligence) {
-            console.log("character being created")
+    function Character (data){
             this.elId = _elId;
             this.name = _name; 
             this.avatar = _avatar; 
@@ -18,8 +16,19 @@
             this.weakness = _weakness; 
             this.relationship = _relationship; 
             this.intelligence = _intelligence;
+
+            this.renderCharacter = function () {
+                const {elId, name, avatar, race, health, weapon, skill, speed, strength, distance, backstory, catchphrase, weakness, relationship, intelligence} = this;
+
+                document.getElementById(elId).innerHTML = `
+                <div class="hero c1">
+                    <img src="assets/assets/soulforge.png"
+                        alt="Elephant at sunset">
+                </div>
+                `
+
+            }
         }
-    }
     
     let Conscript = new Character()
     let Mage = new Character();
