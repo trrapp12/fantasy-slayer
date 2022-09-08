@@ -1,7 +1,9 @@
 
-const conscript = {
+console.log('characyerInfo fired')
+
+let conscript = {
   elId : 'conscript',
-  characterClass : 'hero'
+  characterClass : 'hero',
   characterName : 'Marcus Skia', 
   avatar : 'assets/assets/conscript.png', 
   race : 'human', 
@@ -18,7 +20,7 @@ const conscript = {
   intelligence : 89,
 }
 
-const ignisfatuus = {
+let ignisfatuus = {
   elId : 'ignisfatuus',
   characterClass : 'hero',
   characterName : 'Iggie', 
@@ -37,7 +39,7 @@ const ignisfatuus = {
   intelligence : 100,
 }
 
-const soulforge = {
+let soulforge = {
   elId : 'soulforge',
   characterClass : 'hero',
   characterName : '', 
@@ -56,7 +58,7 @@ const soulforge = {
   intelligence : 89,
 }
 
-const naqualk = {
+let naqualk = {
   elId : 'naqualk',
   characterClass : 'hero',
   characterName : '', 
@@ -75,7 +77,7 @@ const naqualk = {
   intelligence : 89,
 }
 
-const mage = {
+let mage = {
   elId : 'mage',
   characterClass : 'hero',
   characterName : 'Hatchala',
@@ -94,4 +96,4 @@ const mage = {
   intelligence : 1000,
 }
 
-
+export { conscript, ignisfatuus, soulforge, naqualk, mage };
