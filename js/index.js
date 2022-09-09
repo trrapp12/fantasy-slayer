@@ -3,7 +3,7 @@ import { conscript, ignisfatuus, soulforge, naqualk, mage } from '/js/characterI
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 
-function Character (data){
+function CharacterFront (data){
     
     Object.assign(this, data)
 
@@ -22,7 +22,7 @@ function Character (data){
 // let Conscript = new Character(conscript);
 // let IgnisFatuus = new Character(ignisfatuus);
 // let SoulForge = new Character(soulforge);
-let Naqalk =  new Character(naqualk);
+let Naqalk =  new CharacterFront(naqualk);
 // let Mage = new Character(mage);
 
 Naqalk.renderCharacter()
