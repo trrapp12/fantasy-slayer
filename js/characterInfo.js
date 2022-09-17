@@ -1,5 +1,3 @@
-
-
 let conscript = {
   elId : 'conscript',
   characterClass : 'hero',
@@ -17,6 +15,7 @@ let conscript = {
   weakness : ['hunger','anger','greed'], 
   relationship : 'hardened', 
   intelligence : 89,
+  alive: true,
 }
 
 let ignisfatuus = {
@@ -36,6 +35,7 @@ let ignisfatuus = {
   weakness : ['rules','strength', 'secrets', 'youth'], 
   relationship : 'loyal', 
   intelligence : 100,
+  alive: true,
 }
 
 let soulforge = {
@@ -55,6 +55,7 @@ let soulforge = {
   weakness : ['hunger','anger','greed'], 
   relationship : 'empty', 
   intelligence : 89,
+  alive: true,
 }
 
 let naqualk = {
@@ -74,6 +75,7 @@ let naqualk = {
   weakness : ['hunger','anger','greed'], 
   relationship : 'extrovert', 
   intelligence : 89,
+  alive: true,
 }
 
 let mage = {
@@ -93,6 +95,28 @@ let mage = {
   weakness : ['remembering'],
   relationship : 'patriarchal',
   intelligence : 1000,
+  alive: true,
 }
 
-export { conscript, ignisfatuus, soulforge, naqualk, mage };
+let zedfire = {
+  elId : 'zedfire',
+  characterClass : 'villain',
+  characterName : 'the fire that scorcheth humanity',
+  avatar : 'assets/assets/zed-fire.png',
+  race : 'unknown',
+  health : 1000,
+  weapon : 'dark-magic, fire',
+  skill : 'none',
+  speed : 50, 
+  strength : 80,
+  distance : 10, 
+  backstory : 'The original darkness.  The one who opposed humanities creation.  Born in the flames of the Gods wrath.',
+  catchphrase : 'I am the fire that scorcheth humanity',
+  weakness : ['non-fire elemental weapons'],
+  relationship : 'adversarial',
+  intelligence : 100,
+  alive: true,
+}
+
+
+export { conscript, ignisfatuus, soulforge, naqualk, mage, zedfire };
