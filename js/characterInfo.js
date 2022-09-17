@@ -1,5 +1,4 @@
 
-console.log('characyerInfo fired')
 
 let conscript = {
   elId : 'conscript',

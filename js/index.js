@@ -1,9 +1,9 @@
-import { conscript, ignisfatuus, soulforge, naqualk, mage } from '/js/characterInfo.js'
+import { conscript, ignisfatuus, soulforge, naqualk, mage } from './characterInfo.js'
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 
-function CharacterFront (data){
+function CharacterFront (data) {
     
     Object.assign(this, data)
 
