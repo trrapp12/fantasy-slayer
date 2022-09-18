@@ -19,11 +19,11 @@ function Character (data) {
         }
     }
 
-// let Conscript = new Character(conscript);
+let Conscript = new Character(conscript);
 // let IgnisFatuus = new Character(ignisfatuus);
 // let SoulForge = new Character(soulforge);
 // let Naqalk =  new CharacterFront(naqualk);
 // let Mage = new Character(mage);
-let Zedfire = new Character(zedfire);
+// let Zedfire = new Character(zedfire);
 
-Zedfire.renderCharacter()
+Conscript.renderCharacter()
