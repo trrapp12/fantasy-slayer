@@ -14,4 +14,4 @@ function renderDicePlaceHolderArray(totalDiceCount, diceSides) {
     }).join('')
 }
 
-export {getDiceRollArray, renderDicePlaceHolderArray}
+export { getDiceRollArray, renderDicePlaceHolderArray } 
