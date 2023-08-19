@@ -3,14 +3,15 @@ import { getDiceRollArray, renderDicePlaceHolderArray} from "./utils.js"
 function Character(data) {
     Object.assign(this, data);
 
-    this.diceArray = renderDicePlaceHolderArray(totalDiceCount);
+    this.diceArray = renderDicePlaceHolderArray(this.totalDiceCount);
 
     this.getDiceHTML = function (totalDiceCount) {
-        return getDiceRollArray(totalDiceCount).map((num) => {
+        this.currentDiceScore = getDiceRollArray(this.totalDiceCount)
+        this.diceArray = this.currentDiceScore.map((num) => {
             return `
                     <div class="dice">${num}</div>
                 `
-        }).join('');
+        }).join('')
     }
 
     this.renderCharacter = function () {

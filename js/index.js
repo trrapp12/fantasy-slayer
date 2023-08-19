@@ -6,51 +6,52 @@ const player2Container = document.getElementById('character-2-art');
 const characterChoiceButton = document.getElementById('character-choice--button')
 const characterChoiceInput = document.getElementById('character-choice--input').value
 
-let currentCharacter = '';
+// window.addEventListener('load', setCharacter)
 
-window.addEventListener('load', setCharacter)
+// function setCharacter() {
+//     switch(characterChoiceInput) {
+//         case 'conscript':
+//             currentCharacter = 'conscript';
+//             break;
+//         case 'ignisfatuus':
+//             currentCharacter = 'ignisfatuus';
+//             break;
+//         case 'mage':
+//             currentCharacter = 'mage';
+//             break;
+//         case 'naqualk':
+//             currentCharacter = 'naqualk';
+//             break;
+//         case 'conscript':
+//             currentCharacter = 'soulforge';
+//             break;
+//         case 'conscript':
+//             currentCharacter = 'soulforge';
+//             break;
+//         default:
+//             currentCharacter = 'conscript'
+//     }
+//     return currentCharacter
+// }
 
-function setCharacter() {
-    switch(characterChoiceInput) {
-        case 'conscript':
-            currentCharacter = 'conscript';
-            break;
-        case 'ignisfatuus':
-            currentCharacter = 'ignisfatuus';
-            break;
-        case 'mage':
-            currentCharacter = 'mage';
-            break;
-        case 'naqualk':
-            currentCharacter = 'naqualk';
-            break;
-        case 'conscript':
-            currentCharacter = 'soulforge';
-            break;
-        case 'conscript':
-            currentCharacter = 'soulforge';
-            break;
-        default:
-            currentCharacter = 'conscript'
-    }
-    return currentCharacter
-}
+// characterChoiceButton.addEventListener('click', setCharacter)
 
-characterChoiceButton.addEventListener('click', setCharacter)
-
-function render(currentCharacter, villian) {
-    player1Container.innerHTML = hero.getCharacterHTML();
-    player2Container.innerHTML = villain.getCharacterHTML();
+function render() {
+    player1Container.innerHTML = hero.renderCharacter();
+    player2Container.innerHTML = villain.renderCharacter();
 }
 
 function attack() {
-    console.log('attack happened')
+    hero.getDiceHTML();
+    villain.getDiceHTML();
     render()
 }
 
 document.getElementById('attack-button').addEventListener('click', attack)
 
-const hero = new Character(characterData.${currentCharacter})
-const villian = new Character(characterData.zedfire)
+// create characters
+const hero = new Character(characterData.soulforge)
+const villain = new Character(characterData.zedfire)
+console.log(villain)
 
 render();
