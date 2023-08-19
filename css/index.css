@@ -149,6 +149,10 @@ nav>p {
   grid-template-rows: min-content;
 }
 
+.character-stats--container>ul>li {
+  color: white;
+}
+
 .credits-modal>p {
   font-size: .70rem;
   color: white;
@@ -252,13 +256,16 @@ button {
 
 .main-container {
   position: absolute;
-  /* background: linear-gradient(to right, #1C1B17 0%, 14.319808781147003%, #5E7386 28.639617562294006%, 64.319808781147%, #0D0E12 100%); */
+  background: linear-gradient(to right, #1C1B17 0%, 14.319808781147003%, #5E7386 28.639617562294006%, 64.319808781147%, #0D0E12 100%);
   background-image: url('../assets/assets/AdobeStock_460700032.jpeg');
   width: 100vw;
   height: 100vh;
   padding: 1rem;
   background-size: cover;
   padding-left: 5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .middle-third {
