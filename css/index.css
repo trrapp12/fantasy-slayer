@@ -93,8 +93,9 @@ img {
   height: 60vh;
   width: auto;
   max-width: 95vw;
-  transform: perspective(1100px)rotate3d(0, 1, 0, 160deg) translate(10%, -3%);
+  transform: perspective(1100px)rotate3d(0, 1, 0, 160deg) translate(2%, -3%);
   border: solid rgba(67, 54, 38, .30) 5px;
+  min-width: 100%;
 }
 
 nav {
