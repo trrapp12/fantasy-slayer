@@ -44,6 +44,8 @@ function render() {
 function attack() {
     hero.getDiceHTML();
     villain.getDiceHTML();
+    hero.takeDamage();
+    villain.takeDamage();
     render()
 }
 

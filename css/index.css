@@ -127,6 +127,23 @@ nav>p {
   font-family: angars-runes;
 }
 
+.attributes {
+  color: white;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  line-height: 2.0;
+}
+
+.attributes-value {
+  margin: 0em 0em 0em 1em;
+}
+
+.attributes-key {
+  font-weight: 900;
+}
+
 .backlight {
   animation-name: backlight;
   animation-duration: 10250ms;
@@ -147,10 +164,6 @@ nav>p {
   grid-template-columns: 80vw, 1fr;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: min-content;
-}
-
-.character-stats--container>ul>li {
-  color: white;
 }
 
 .credits-modal>p {
@@ -256,29 +269,26 @@ button {
 }
 
 .main-container {
-  position: absolute;
   background: linear-gradient(to right, #1C1B17 0%, 14.319808781147003%, #5E7386 28.639617562294006%, 64.319808781147%, #0D0E12 100%);
   background-image: url('../assets/assets/AdobeStock_460700032.jpeg');
   width: 100vw;
   height: 100vh;
-  padding: 1rem;
   background-size: cover;
-  padding-left: 5rem;
   display: grid;
-  grid-template-rows: 1em repeat(10, 1fr) 1em;
+  grid-template-rows: 1em repeat(auto-fill, 100px) 1em;
   grid-template-columns: 1em repeat(18, auto 1fr) 1em;
 }
 
 .middle-third {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 100%;
+  grid-row: 3 / 10;
+  grid-column: 2 / 38;
 }
 
-.middle-third-left-column {
-  min-width: fit-content;
-  width: 543px;
-}
+.middle-third-left-column {}
 
 .modal-height {
   padding: 1rem;
@@ -302,7 +312,9 @@ button {
 }
 
 .top-third {
-  margin-bottom: 2rem;
+  grid-row: 2 / 3;
+  width: 100%;
+  grid-column: 1 / -1;
 }
 
 @keyframes backlight {

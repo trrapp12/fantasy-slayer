@@ -131,7 +131,7 @@ const characterData = {
     backstory : 'The original darkness.  The one who opposed humanities creation.  Born in the flames of the Gods wrath.',
     catchphrase : 'I am the fire that scorcheth humanity',
     characterClass : 'villain',
-    characterName : 'the fire that scorcheth humanity',
+    characterName : 'Zedfire',
     currentDiceScore : [],
     distance : 10, 
     elId : 'zedfire',
