@@ -247,6 +247,8 @@ button {
   position: absolute;
   top: 101vh;
   animation: 48000ms linear scroll;
+  /* turned off during testing so I don't have to see the scrolling menu every time */
+  display: none;
 }
 
 .intro-modal-text-container>p {
@@ -262,9 +264,9 @@ button {
   padding: 1rem;
   background-size: cover;
   padding-left: 5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: 1em repeat(10, 1fr) 1em;
+  grid-template-columns: 1em repeat(18, auto 1fr) 1em;
 }
 
 .middle-third {
