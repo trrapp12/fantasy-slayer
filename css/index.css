@@ -68,6 +68,12 @@
 }
 
 /* *******************************************ELEMENTS******************************************* */
+body {
+  background: linear-gradient(to right, #1C1B17 0%, 14.319808781147003%, #5E7386 28.639617562294006%, 64.319808781147%, #0D0E12 100%);
+  background-image: url('../assets/assets/AdobeStock_460700032.jpeg');
+  background-attachment: fixed;
+  background-size: cover;
+}
 
 html {
   font-family: 'Aboreto', cursive;
@@ -98,6 +104,20 @@ img {
   min-width: 100%;
 }
 
+img:hover {
+  border-radius: 25px;
+  box-shadow: var(--shadow-elevation-medium);
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+  height: 60vh;
+  width: auto;
+  max-width: 95vw;
+  transform: perspective(1100px)rotate3d(0, 1, 0, 180deg) translate(2%, -3%);
+  border: solid rgba(67, 54, 38, .30) 5px;
+  min-width: 100%;
+}
+
 nav {
   padding: 2rem 3rem;
   position: fixed;
@@ -123,13 +143,23 @@ nav>p {
   color: var(--sand-hex)
 }
 
+video {
+  position: absolute;
+  z-index: -200;
+  opacity: .4;
+  top: 0;
+  bottom: 100vh;
+  left: 0;
+  right: 100vw;
+}
+
 /* *******************************************IMPORT STATEMENTS******************************************* */
 .angars-ruins {
   font-family: angars-runes;
 }
 
 .attributes {
-  color: white;
+  color: #ffffffd6;
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -160,11 +190,46 @@ nav>p {
   grid-area: 1 / 2;
 }
 
-.character-art {
-  /* display: grid; */
-  grid-template-columns: 80vw, 1fr;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: min-content;
+.character-art>h4 {
+  width: 100%;
+  font-size: 3em;
+  margin-bottom: 2em;
+  color: #ffffff82;
+  text-align: center;
+  margin-top: .5em;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.character-stats--container {
+  order: -1;
+  flex-shrink: 1;
+  flex-basis: min-content;
+  margin: 0px;
+  flex-grow: 1;
+  padding: 1em;
+}
+
+.character-stats--health {
+  width: 100%;
+  font-size: 4em;
+  text-align: center;
+  padding: .5em;
+  font-weight: 900;
+  color: white;
+  box-shadow: ;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #d8e4f0;
+  text-shadow: 3px 2px 3px rgba(216, 228, 240, 0.3);
+  color: #fff0;
+  /* background: rgba(171, 171, 171, 0.8); */
+  backdrop-filter: saturate(100%) blur(10px);
+  opacity: .5;
+  margin: auto;
 }
 
 .credits-modal>p {
@@ -192,15 +257,13 @@ nav>p {
 
 .dice-container {
   height: fit-content;
-  bottom: 0;
-  left: 0px;
-  right: 0;
   background: #ffffff00;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: .5rem;
   align-self: flex-end;
+  width: 100%;
 }
 
 .dice-container .placeholder-dice {
@@ -270,11 +333,8 @@ button {
 }
 
 .main-container {
-  background: linear-gradient(to right, #1C1B17 0%, 14.319808781147003%, #5E7386 28.639617562294006%, 64.319808781147%, #0D0E12 100%);
-  background-image: url('../assets/assets/AdobeStock_460700032.jpeg');
   width: 100vw;
   height: 100vh;
-  background-size: cover;
   display: grid;
   grid-template-rows: 1em repeat(auto-fill, 100px) 1em;
   grid-template-columns: 1em repeat(18, auto 1fr) 1em;
@@ -289,7 +349,22 @@ button {
   grid-column: 2 / 38;
 }
 
-.middle-third-left-column {}
+.middle-third-left-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 40%;
+  border: 5px solid var(--royal-brown-hex);
+}
+
+.middle-third-right-column {
+  width: 40%;
+  flex-shrink: 1;
+  border: 5px solid var(--royal-brown-hex);
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: flex;
+}
 
 .modal-height {
   padding: 1rem;
