@@ -302,7 +302,7 @@ button {
 }
 
 .intro-modal {
-  background-color: rgba(10, 10, 10, .50);
+  background-color: rgba(1, 1, 1, 0.5);
   height: 100vh;
   width: 100vw;
   display: block;
@@ -325,7 +325,6 @@ button {
   top: 101vh;
   animation: 48000ms linear scroll;
   /* turned off during testing so I don't have to see the scrolling menu every time */
-  display: none;
 }
 
 .intro-modal-text-container>p {
