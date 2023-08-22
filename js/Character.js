@@ -5,17 +5,21 @@ function Character(data) {
 
     this.diceArray = renderDicePlaceHolderArray(this.totalDiceCount);
 
-    this.getDiceHTML = function (totalDiceCount) {
-        this.currentDiceScore = getDiceRollArray(this.totalDiceCount)
+    this.getDiceHTML = function () {
+        this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6)
         this.diceArray = this.currentDiceScore.map((num) => {
             return `
-                    <div class="dice">${num}</div>
+                    <div class="dice">
+                        <div class="dice-inset">
+                        ${num}
+                        </div>
+                    </div>
                 `
         }).join('')
     }
 
-    this.takeDamage = function () {
-        console.log(`{this.name} took damage`)
+    this.takeDamage = function() {
+        console.log(`${this.characterName} took damage`)
     }
 
     this.renderCharacter = function () {

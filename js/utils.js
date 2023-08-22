@@ -6,7 +6,7 @@ function getDiceRollArray(totalDiceCount, diceSides) {
     // then immediately map over it to fill it with random values
 }
 
-function renderDicePlaceHolderArray(totalDiceCount, diceSides) {
+function renderDicePlaceHolderArray(totalDiceCount) {
     return new Array(totalDiceCount).fill(0).map(()=> {
         return `
             <div class="placeholder-dice">+</div>

@@ -154,8 +154,21 @@ video {
 }
 
 /* *******************************************IMPORT STATEMENTS******************************************* */
+.actions-container {
+  margin: 2em 0em 0em 0em;
+  width: 80%;
+  margin: 2em auto auto auto;
+}
+
 .angars-ruins {
   font-family: angars-runes;
+}
+
+.attack-button {
+  padding: 1em 2em;
+  margin: auto;
+  border: 2px solid aliceblue;
+  width: fit-content;
 }
 
 .attributes {
@@ -248,11 +261,16 @@ video {
   height: 5.5vh;
   width: 5.5vh;
   background: #fff;
-  border-radius: 5px;
-  border: 1px solid #666;
+  border-radius: 9px;
   color: #000721;
   text-align: center;
   line-height: 6vh;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 1px 1px 2px #c5c5c5, -1px -1px 2px #fbfbfb;
+}
+
+.dice:nth-child(1) {
+  color: black;
 }
 
 .dice-container {
@@ -264,6 +282,24 @@ video {
   gap: .5rem;
   align-self: flex-end;
   width: 100%;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 2em;
+}
+
+.dice-inset {
+  height: 4vh;
+  width: 4vh;
+  position: relative;
+  margin: auto;
+  top: 7px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 10px #d0c4c4, inset -5px -5px 10px #f0f0f0;
+  z-index: 9;
+  line-height: 1.5;
+  color: var(--sand-hex);
+  font-size: 1.5em;
 }
 
 .dice-container .placeholder-dice {
@@ -334,9 +370,6 @@ button {
 .main-container {
   width: 100vw;
   height: 100vh;
-  display: grid;
-  grid-template-rows: 1em repeat(auto-fill, 100px) 1em;
-  grid-template-columns: 1em repeat(18, auto 1fr) 1em;
 }
 
 .middle-third {
@@ -344,8 +377,6 @@ button {
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  grid-row: 3 / 10;
-  grid-column: 2 / 38;
 }
 
 .middle-third-left-column {

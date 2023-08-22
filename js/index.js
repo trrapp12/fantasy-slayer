@@ -42,6 +42,7 @@ function render() {
 }
 
 function attack() {
+    console.log(hero, villain)
     hero.getDiceHTML();
     villain.getDiceHTML();
     hero.takeDamage();
