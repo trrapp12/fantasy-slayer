@@ -9,9 +9,21 @@ function getDiceRollArray(totalDiceCount, diceSides) {
 function renderDicePlaceHolderArray(totalDiceCount) {
     return new Array(totalDiceCount).fill(0).map(()=> {
         return `
-            <div class="placeholder-dice">+</div>
+            <div class="dice">
+                <div class="dice-inset placeholder-dice">0</div>
+            </div>
         `;
     }).join('')
 }
 
-export { getDiceRollArray, renderDicePlaceHolderArray } 
+function renderDefenseDicePlaceHolderArray(totalDiceCount) {
+    return new Array(totalDiceCount).fill(0).map(()=> {
+        return `
+            <div class="dice defend-dice">
+                <div class="dice-inset">0</div>
+            </div>
+        `;
+    }).join('')
+}
+
+export { getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

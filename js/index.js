@@ -42,11 +42,12 @@ function render() {
 }
 
 function attack() {
-    console.log(hero, villain)
     hero.getDiceHTML();
     villain.getDiceHTML();
-    hero.takeDamage();
-    villain.takeDamage();
+    hero.getDefendDiceHTML();
+    villain.getDefendDiceHTML();
+    hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
+    villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
     render()
 }
 

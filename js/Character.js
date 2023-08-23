@@ -1,9 +1,28 @@
-import { getDiceRollArray, renderDicePlaceHolderArray} from "./utils.js"
+import { getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray} from "./utils.js"
 
 function Character(data) {
     Object.assign(this, data);
 
     this.diceArray = renderDicePlaceHolderArray(this.totalDiceCount);
+    // this is part of the tutorial.  total totalDiceCount is different for each character, found on character data
+
+    this.defendDiceArray = renderDefenseDicePlaceHolderArray(1);
+    // this is my own function.  renderDicePlaceHolderArray 
+
+    this.getDefendDiceHTML = function(){
+        this.currentDefendDiceScore = getDiceRollArray(1, 10)
+        // currentDefendDiceScore is internal to this function only.  
+        this.defendDiceArray = this.currentDefendDiceScore.map((num) => {
+            return `
+                <div class="dice defend-dice">
+                    <div class="dice-inset">
+                        ${num}
+                    </div>
+                </div>
+            `
+        })
+
+    }
 
     this.getDiceHTML = function () {
         this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6)
@@ -18,14 +37,18 @@ function Character(data) {
         }).join('')
     }
 
-    this.takeDamage = function() {
-        console.log(`${this.characterName} took damage`)
+    this.takeDamage = function(attackScoreArray, currentDefendDiceScore) {
+        const initialDamage = 0;
+        const totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, initialDamage);
+        console.log(`totaldamage is ${totalDamage}`)
+        const bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
+        console.log(`${this.characterName} took damage, Attack array was ${attackScoreArray}, defendDiceArray was ${currentDefendDiceScore}.Total damage was ${bufferedDamage}`)
     }
 
     this.renderCharacter = function () {
         const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, totalDiceCount, distance, elId, catchphrase, characterClass, health, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
 
-            let diceHTML = this.getDiceHTML(totalDiceCount)
+
             return `
             <h4>${characterName}</h4>
                 <div class="character-card" style="flex-direction: ${characterCardFlexDirection}">
@@ -51,6 +74,9 @@ function Character(data) {
                     </div>
                     <div class="dice-container">
                     ${this.diceArray}
+                    </div>
+                    <div class="dice-container">
+                    ${this.defendDiceArray}
                     </div>
                     
                 </div>

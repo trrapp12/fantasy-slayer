@@ -256,6 +256,11 @@ video {
   justify-content: center;
 }
 
+.dice-container>.defend-dice {
+  background: linear-gradient(145deg, #e17373, #673333);
+  box-shadow: 1px 1px 2px #e16f6f, -1px -1px 2px #f6a2a2;
+}
+
 .dice,
 .placeholder-dice {
   height: 5.5vh;
@@ -296,6 +301,21 @@ video {
   border-radius: 50%;
   background: #e0e0e0;
   box-shadow: inset 5px 5px 10px #d0c4c4, inset -5px -5px 10px #f0f0f0;
+  z-index: 9;
+  line-height: 1.5;
+  color: var(--sand-hex);
+  font-size: 1.5em;
+}
+
+.defend-dice>.dice-inset {
+  height: 4vh;
+  width: 4vh;
+  position: relative;
+  margin: auto;
+  top: 7px;
+  border-radius: 50%;
+  background: #d04f4f;
+  box-shadow: inset 5px 5px 10px #675858, inset -5px -5px 10px #e17979;
   z-index: 9;
   line-height: 1.5;
   color: var(--sand-hex);
