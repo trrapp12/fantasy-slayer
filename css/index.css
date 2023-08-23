@@ -75,6 +75,25 @@ body {
   background-size: cover;
 }
 
+button {
+  margin-top: .5rem;
+  font-family: 'MedievalSharp', cursive;
+  background-color: #fcc02a;
+  border: 2px solid #963404;
+  outline: none;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #963404;
+  height: 9vh;
+  box-shadow: 0px 6px 10px -4px rgba(0, 0, 0, 0.4);
+}
+
 html {
   font-family: 'Aboreto', cursive;
 }
@@ -169,6 +188,17 @@ video {
   margin: auto;
   border: 2px solid aliceblue;
   width: fit-content;
+  font-weight: 900;
+  border-radius: 0px;
+  background: linear-gradient(145deg, #f0f0f030, #cacaca29);
+  box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px #ffffff;
+}
+
+.attack-button:hover {
+  color: var(--royal-brown-hex);
+  border-radius: 0px;
+  background: linear-gradient(145deg, #f0f0f030, #cacaca29);
+  box-shadow: 1px 1px 3px #c1c1c1, -1px -1px 3px #ffffff;
 }
 
 .attributes {
@@ -192,6 +222,7 @@ video {
   animation-name: backlight;
   animation-duration: 10250ms;
 }
+
 
 .c1 {
   grid-area: 1, 2;
@@ -326,27 +357,15 @@ video {
   background-color: transparent;
 }
 
-button {
-  margin-top: .5rem;
-  font-family: 'MedievalSharp', cursive;
-  background-color: #fcc02a;
-  border: 2px solid #963404;
-  outline: none;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #963404;
-  height: 9vh;
-  box-shadow: 0px 6px 10px -4px rgba(0, 0, 0, 0.4);
-}
 
 .display-none {
   display: none;
+}
+
+.extended {
+  position: fixed;
+  left: 0;
+  width: auto;
 }
 
 .footer-slider {
@@ -357,39 +376,64 @@ button {
   margin-bottom: 1rem;
 }
 
+.fi-rr-dice-d4::before {
+  content: "\f403";
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+  display: flex;
+  /* justify-content: center; */
+  /* align-content: center; */
+  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
+}
+
 .intro-modal {
   background-color: rgba(1, 1, 1, 0.5);
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   display: block;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   z-index: 50;
   overflow: hidden;
   animation: 44000ms linear identifier;
+  top: 0;
+  left: 0;
 }
 
 .intro-modal-text-container {
   color: white;
   font-family: 'Aboreto';
   font-size: 1rem;
-  left: 10%;
   line-height: 1.5rem;
-  max-width: 65%;
-  margin: auto;
+  max-width: 60%;
+  margin: auto auto auto 10%;
   position: absolute;
   top: 101vh;
-  animation: 48000ms linear scroll;
-  /* turned off during testing so I don't have to see the scrolling menu every time */
+  animation: 50000ms linear scroll;
+  padding: 0em 25% 0em 5%;
+  border-left: 20px solid var(--sand-hex);
+}
+
+.intro-modal-text-container>.bold {
+  color: var(--sand-hex);
+  font-style: unset;
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 6rem;
 }
 
 .intro-modal-text-container>p {
   margin-bottom: 1rem;
+  line-height: 2.0rem;
+  text-transform: capitalize;
+  font-style: italic;
 }
 
 .main-container {
   width: 100vw;
   height: 100vh;
+  padding-top: 2rem;
 }
 
 .middle-third {
@@ -429,12 +473,25 @@ button {
   backdrop-filter: blur(5px);
 }
 
+.nav--toaster-text {
+  position: absolute;
+  left: -100vw;
+  min-width: 100vw;
+  z-index: 100;
+  font-size: 1.5rem;
+  color: white;
+  background-color: red;
+  top: 1.5rem;
+  transition: all 1s linear;
+}
+
 .title {
   font-size: 5rem;
   text-align: center;
   letter-spacing: 3px;
   color: var(--royal-brown-hex);
   text-shadow: 0px 0px 10px rgba(248, 248, 248, 1);
+  margin-bottom: 2rem;
 }
 
 .top-third {
@@ -463,7 +520,7 @@ button {
   }
 
   100% {
-    top: -115vh;
+    top: -250vh;
   }
 }
 

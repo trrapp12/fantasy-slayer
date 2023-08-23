@@ -44,7 +44,8 @@ function Character(data) {
         this.health = this.health - Math.floor(bufferedDamage);
 
         if (this.health <= 0) {
-            this.health = 0
+            this.dead = true;
+            this.health = 0;
         }
  }
 

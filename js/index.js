@@ -48,7 +48,14 @@ function attack() {
     villain.getDefendDiceHTML();
     hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
     villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
+    if (hero.dead || villain.dead) {
+        endGame()
+    }
     render()
+}
+
+function endGame() {
+    console.log('game ended')
 }
 
 document.getElementById('attack-button').addEventListener('click', attack)

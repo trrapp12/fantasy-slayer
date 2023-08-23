@@ -1,6 +1,5 @@
 const characterData = {
   conscript : {
-    alive: true,
     avatar : 'assets/assets/conscript.png', 
     backstory : 'Rose to the rank of captain during the Simerian wars.  In one night he saw his company run through with the arrows of the Naqalkuan archers.  To add to his shame they refused to take him prisoner, but sent him home to bear his shame in front of his land and people.  He vowed he would not return until his honor was restored.  So for ten years he lay in the wilderness, learning every type of war nature wages, from the persistence of the sun to the brutality of a hungry mother bear, to the coordination of an invading ant colony, to the stealth of moon-silk spider. Now he stands ready to complete his vow.', 
     catchphrase : 'Bravery only takes you so far.', 
@@ -10,6 +9,7 @@ const characterData = {
     cssOrder: -1,
     currentDiceScore : [],
     currentDefendDiceScore : [],
+    dead : false,
     distance : 67, 
     elId : 'conscript',
     health : 100, 
@@ -24,7 +24,6 @@ const characterData = {
     weapon : 'Broad Sword'
   },
   ignisfatuus : {
-    alive: true,
     avatar : 'assets/assets/ignisfatuus.png', 
     backstory : 'For centuries humans have wondered about the jack-o-wisps that have wandered the edge of the Elven forests, never being able to discover the truth behind this Elvish secret, until one day Iggie fell in love with a young human girl.  Once the secret slipped, he was banished forever, and his betrothed was so scared he never saw her again.', 
     catchphrase : 'Wanna hear a secret?', 
@@ -34,6 +33,7 @@ const characterData = {
     cssOrder: -1,
     currentDiceScore : [],
     currentDefendDiceScore : [],
+    dead : false,
     distance : 89, 
     elId : 'ignisfatuus',
     health : 45, 
@@ -48,7 +48,6 @@ const characterData = {
     weapon : 'bow', 
   },
   mage : {
-    alive: true,
     avatar : 'assets/assets/mage.png',
     backstory : 'Though his memory reaches beyond life before the Shadow of the Great War brought upon the world the Trials of Dauus, and even the moment the first rays of light broke over the Great Mountains of Fire before they were tamed by the Ignis Fatuii, he cannot remember the face of a mother.  He was here before all other races. Only time, and magic, and nature are older than He.',
     catchphrase : 'Choose not to be harmed—and you won\'t feel harmed. Don\'t feel harmed—and you haven\'t been.',
@@ -59,6 +58,7 @@ const characterData = {
     currentDiceScore : [],
     currentDefendDiceScore : [],
     distance : 10, 
+    dead : false, 
     elId : 'mage',
     health : 50,
     intelligence : 1000,
@@ -72,7 +72,6 @@ const characterData = {
     weapon : 'magic',
   },
   naqualk : {
-    alive: true,
     avatar : 'assets/assets/naqualk.png', 
     backstory : 'put info here', 
     catchphrase : 'Horizons are boundaries set by the mind, but broken by the heart', 
@@ -83,6 +82,7 @@ const characterData = {
     currentDiceScore : [],
     currentDefendDiceScore : [],
     distance : 67, 
+    dead : false,
     elId : 'naqualk',
     health : 100, 
     intelligence : 89,
@@ -96,7 +96,6 @@ const characterData = {
     weapon : 'Staff', 
   },
   ogre : {
-    alive: true,
     avatar : '',
     backstory : '',
     catchphrase : '',
@@ -107,6 +106,7 @@ const characterData = {
     currentDiceScore : [],
     currentDefendDiceScore : [],
     distance : 10, 
+    dead : false,
     elId : '',
     health : 1000,
     intelligence : 100,
@@ -120,7 +120,6 @@ const characterData = {
     weapon : 'battle axe',
   },
   soulforge : {
-    alive: true,
     avatar : 'assets/assets/soulforge.png', 
     backstory : 'To the priest the process is called dismorgrification.  To the commoner it is called "soul-tearing" and "soul-forging."  The first is the process that happened while yet alive.  The dismorgrified must have commited an act so insidiously horrible the anatomy of their soul is literally ripped apart.  The second part of the process is what most term as "hell."  It is the absolutely solitary act of stitching together their own soul, one act of redemption at time. No one knows if it can actually be done, but everyone has a tale of the screams of the Soul Forge stalking the late hours.', 
     catchphrase : 'Death may be the greatest of all human blessings', 
@@ -131,6 +130,7 @@ const characterData = {
     currentDiceScore : [],
     currentDefendDiceScore : [],
     distance : 67, 
+    dead : false,
     elId : 'soulforge',
     health : 100, 
     intelligence : 89,
@@ -144,7 +144,6 @@ const characterData = {
     weapon : 'Broad Sword', 
   },
   zedfire : {
-    alive: true,
     avatar : 'assets/assets/zed-fire.png',
     backstory : 'The original darkness.  The one who opposed humanities creation.  Born in the flames of the Gods wrath.',
     catchphrase : 'I am the fire that scorcheth humanity',
@@ -155,6 +154,7 @@ const characterData = {
     currentDiceScore : [],
     currentDefendDiceScore : [],
     distance : 10, 
+    dead : false,
     elId : 'zedfire',
     health : 1000,
     intelligence : 100,
