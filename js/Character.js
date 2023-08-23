@@ -40,11 +40,13 @@ function Character(data) {
     this.takeDamage = function(attackScoreArray, currentDefendDiceScore) {
         const initialDamage = 0;
         const totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, initialDamage);
-        console.log(`totaldamage is ${totalDamage}`)
         const bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
         this.health = this.health - Math.floor(bufferedDamage);
-        console.log(`${this.characterName} took damage, Attack array was ${attackScoreArray}, defendDiceArray was ${currentDefendDiceScore}.Total damage was ${bufferedDamage}`)
-    }
+
+        if (this.health <= 0) {
+            this.health = 0
+        }
+ }
 
     this.renderCharacter = function () {
         const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, totalDiceCount, distance, elId, catchphrase, characterClass, health, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
