@@ -42,6 +42,7 @@ function Character(data) {
         const totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, initialDamage);
         console.log(`totaldamage is ${totalDamage}`)
         const bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
+        this.health = this.health - Math.floor(bufferedDamage);
         console.log(`${this.characterName} took damage, Attack array was ${attackScoreArray}, defendDiceArray was ${currentDefendDiceScore}.Total damage was ${bufferedDamage}`)
     }
 
