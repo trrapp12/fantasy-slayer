@@ -213,6 +213,7 @@ video {
 
 .attack-defend-label {
   color: var(--sand-hex);
+  width: 100%;
 }
 
 .attributes {
@@ -483,11 +484,9 @@ video {
   margin: auto auto auto 10%;
   position: absolute;
   top: 101vh;
-  /* animation: 50000ms linear scroll;  also turn this off until production ready */
+  animation: 50000ms linear scroll;
   padding: 0em 25% 0em 5%;
   border-left: 20px solid var(--sand-hex);
-  /* turn off display until development done */
-  display: none;
 }
 
 .intro-modal-text-container>.bold {
@@ -570,7 +569,7 @@ video {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1em;
-  width: 100%;
+  min-width: fit-content;
   justify-content: end;
   justify-self: self-end;
 }

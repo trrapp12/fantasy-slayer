@@ -8,11 +8,12 @@ function Character(data) {
 
     this.defendDiceArray = renderDefenseDicePlaceHolderArray(1);
     // this is my own function.  renderDicePlaceHolderArray 
-
+    this.globalDefendDiceHTML = ''
     this.getDefendDiceHTML = function(){
         this.currentDefendDiceScore = getDiceRollArray(1, 10)
         // currentDefendDiceScore is internal to this function only.  
         this.defendDiceArray = this.currentDefendDiceScore.map((num) => {
+            this.globalDefendDiceHTML = num
             return `
                 <div class="dice defend-dice">
                     <div class="dice-inset">
@@ -52,7 +53,7 @@ function Character(data) {
     this.renderCharacter = function () {
         const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, dead, totalDiceCount, distance, elId, catchphrase, characterClass, health, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
 
-            console.log(`WEAKNESS IS ${weakness}`)
+            console.log(`WEAKNESS IS ${weakness.join(' ')}`)
             return `
 
             <h4>${characterName}</h4>
@@ -70,7 +71,7 @@ function Character(data) {
                             <li class="attributes speed"><p class="attributes-key">Speed: </p><p class="attributes-value"> ${speed}</p></li>
                             <li class="attributes strength"><p class="attributes-key">Strength: </p><p class="attributes-value"> ${strength}</p></li>
                             <li class="attributes intelligence"><p class="attributes-key">Intelligence: </p><p class="attributes-value"> ${intelligence}</p></li>
-                            <li class="attributes weakness"><p class="attributes-key">Weakness: </p><p class="attributes-value"> ${weakness}</p></li>
+                            <li class="attributes weakness"><p class="attributes-key">Weakness: </p><p class="attributes-value"> ${weakness.join(', ')}</p></li>
                             <li class="attributes weapon">
                         </ul>
                     </div>
@@ -97,7 +98,7 @@ function Character(data) {
                         
                         </div>
                         <div class="dice-container">
-                        <p class="attack-defend-label">Defend</p>
+                        <p class="attack-defend-label">Defend: ${characterName === 'Zedfire' ? 'It' : 'You'} defended ${this.globalDefendDiceHTML}0%</p>
                         <div class="real-dice-container">
                         ${this.defendDiceArray}
                         </div>
