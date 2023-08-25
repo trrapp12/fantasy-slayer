@@ -50,16 +50,20 @@ function Character(data) {
  }
 
     this.renderCharacter = function () {
-        const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, totalDiceCount, distance, elId, catchphrase, characterClass, health, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
+        const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, dead, totalDiceCount, distance, elId, catchphrase, characterClass, health, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
 
-
+            console.log(`WEAKNESS IS ${weakness}`)
             return `
+
             <h4>${characterName}</h4>
                 <div class="character-card" style="flex-direction: ${characterCardFlexDirection}">
                     
                     <div class="character-stats--container" style="order: ${cssOrder}">
                         <ul>
-                            <li class="attributes alive"><p class="attributes-key">Status: </p><p class="attributes-value">${alive}</p>
+                            <li class="attributes alive"><p class="attributes-key">Status: </p><p class="attributes-value">${health >= 75 ? 'Belligerent'
+                             : health >= 50 ? 'unwielding'
+                              : health >= 1 ? 'distraught'
+                               : 'dead'}</p>
                             </li>
                             <li class="attributes race"><p class="attributes-key">Race: </p><p class="attributes-value">${race}</p></li>
                             <li class="attributes skill"><p class="attributes-key">Skills: </p><p class="attributes-value"> ${skill}</p></li>
@@ -70,17 +74,34 @@ function Character(data) {
                             <li class="attributes weapon">
                         </ul>
                     </div>
-                    <div class="${characterClass}">
-                        <img src=${avatar} alt="sketch of ${characterName}, a ${race} character.">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="${characterClass}">
+                                    <img src=${avatar} alt="sketch of ${characterName}, a ${race} character.">
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="backstory">${backstory}</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="character-stats--health">
                     ${health}
                     </div>
-                    <div class="dice-container">
-                    ${this.diceArray}
-                    </div>
-                    <div class="dice-container">
-                    ${this.defendDiceArray}
+                    <div class="both-dice-container">
+                        <div class="dice-container">
+                        <p class="attack-defend-label">Attack</p>
+                        <div class="real-dice-container">
+                        ${this.diceArray}</div>
+                        
+                        </div>
+                        <div class="dice-container">
+                        <p class="attack-defend-label">Defend</p>
+                        <div class="real-dice-container">
+                        ${this.defendDiceArray}
+                        </div>
+                        </div>
                     </div>
                     
                 </div>

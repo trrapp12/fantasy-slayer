@@ -6,6 +6,19 @@ const player2Container = document.getElementById('character-2-art');
 const characterChoiceButton = document.getElementById('character-choice--button')
 const characterChoiceInput = document.getElementById('character-choice--input').value
 
+let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge']
+
+console.log(characterOrder(myArray))
+
+const characterOrder = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]
+    };
+    return array
+};
+
+
 // window.addEventListener('load', setCharacter)
 
 // function setCharacter() {
@@ -49,19 +62,34 @@ function attack() {
     hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
     villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
     if (hero.dead || villain.dead) {
-        endGame()
+        if (characterOrder.length > 0) {
+            setNextCharacter(characterOrder)
+        } else {
+            endGame()
+        }
     }
     render()
 }
 
+function setNextCharacter() {
+    const nextCharacterData = characterData[characterOrder.shift()]
+    return nextCharacterData ? new Character(nextCharacterData) : {}
+}
+
 function endGame() {
-    console.log('game ended')
+    if (villain.health <=0 && hero.health <=0) {
+        console.log('both are dead')
+    } else if (villain.health <=0) {
+        console.log('villain is dead')
+    } else {
+        console.log('all heroes are dead.  The Quest is lost.')
+    }
 }
 
 document.getElementById('attack-button').addEventListener('click', attack)
 
 // create characters
-const hero = new Character(characterData.soulforge)
+const hero = setNextCharacter()
 const villain = new Character(characterData.zedfire)
 console.log(villain)
 
