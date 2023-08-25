@@ -57,10 +57,10 @@ console.log(typeof characterOrder(myArray))
 function endGame() {
     const mainContainer = document.getElementById('main-container');
     const videoSource = document.getElementById('background-video')
-    const villainMovieHTML = `<h1 style="padding: 2em" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...Zedfire has won!</h1><video id="background-video" autoplay muted>
+    const villainMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...Zedfire has won!</h1><video id="background-video" autoplay muted>
     <source id="video-source" src="./assets/assets/AdobeStock_630909246.mov" type="video/mp4">
   </video>`
-    const heroMovieHTML = `<video id="background-video" autoplay muted>
+    const heroMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >Only the integrity and fielty of a hero, combined with the unforseeable but infatigable friendship of this group of misfits could have saved us from such evil.</h1><video id="background-video" autoplay muted>
     <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
   </video>`
 

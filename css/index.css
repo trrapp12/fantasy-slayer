@@ -386,6 +386,7 @@ video {
   z-index: 9;
   line-height: 1.5;
   color: var(--sand-hex);
+  background: none;
   font-size: 1.5em;
 }
 
@@ -497,7 +498,7 @@ video {
   position: fixed;
   z-index: 50;
   overflow: hidden;
-  animation: 44000ms linear identifier;
+  animation: 65000ms linear identifier;
   top: 0;
   left: 0;
 }
@@ -511,7 +512,7 @@ video {
   margin: auto auto auto 10%;
   position: absolute;
   top: 101vh;
-  animation: 50000ms linear scroll;
+  animation: 68000ms linear scroll;
   padding: 0em 25% 0em 5%;
   border-left: 20px solid var(--sand-hex);
 }
