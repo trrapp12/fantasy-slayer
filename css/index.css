@@ -332,6 +332,19 @@ video {
   box-shadow: 1px 1px 2px #c5c5c5, -1px -1px 2px #fbfbfb;
 }
 
+.middle-third-right-column>.character-art>.character-card>.both-dice-container>.dice-container>.real-dice-container>.dice:not(.defend-dice) {
+  height: 5.5vh;
+  width: 5.5vh;
+  background: #fff;
+  border-radius: 9px;
+  color: #000721;
+  text-align: center;
+  line-height: 6vh;
+  background: linear-gradient(145deg, #767676, #1e1e1e);
+  box-shadow: 1px 1px 2px #c5c5c5, -1px -1px 2px #fbfbfb;
+}
+
+
 .dice:nth-child(1) {
   color: black;
 }
@@ -356,6 +369,20 @@ video {
   border-radius: 50%;
   background: #e0e0e0;
   box-shadow: inset 5px 5px 10px #d0c4c4, inset -5px -5px 10px #f0f0f0;
+  z-index: 9;
+  line-height: 1.5;
+  color: var(--sand-hex);
+  font-size: 1.5em;
+}
+
+.middle-third-right-column>.character-art>.character-card>.both-dice-container>.dice-container>.real-dice-container>.dice>.dice-inset:not(.defend-dice>.dice-inset) {
+  height: 4vh;
+  width: 4vh;
+  position: relative;
+  margin: auto;
+  top: 7px;
+  border-radius: 50%;
+  box-shadow: inset 5px 5px 10px #474242, inset -5px -5px 10px #696969;
   z-index: 9;
   line-height: 1.5;
   color: var(--sand-hex);

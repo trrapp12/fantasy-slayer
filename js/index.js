@@ -19,14 +19,14 @@ function attack() {
     hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
     villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
     if (villain.dead) {
-        endGame()
+        setTimeout(() => {endGame()}, 1000)
     } else if(hero.dead) {
         if (shuffledArray.length > 0) {
             hero = setNextCharacter();
-            render()
+            setTimeout(() => {render()}, 1999)
         }
         else {
-            endGame()
+            setTimeout(() => {endGame()}, 1000)
         }
     }
     render()
@@ -55,12 +55,26 @@ function setNextCharacter() {
 console.log(typeof characterOrder(myArray))
 
 function endGame() {
+    const mainContainer = document.getElementById('main-container');
+    const videoSource = document.getElementById('background-video')
+    const villainMovieHTML = `<h1 style="padding: 2em" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...Zedfire has won!</h1><video id="background-video" autoplay muted>
+    <source id="video-source" src="./assets/assets/AdobeStock_630909246.mov" type="video/mp4">
+  </video>`
+    const heroMovieHTML = `<video id="background-video" autoplay muted>
+    <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
+  </video>`
+
+        console.log(videoSource)
     if (villain.health <=0 && hero.health <=0) {
         console.log('both are dead')
     } else if (villain.health <=0) {
         console.log('villain is dead')
+        mainContainer.innerHTML = heroMovieHTML;
+        videoSource.load()
     } else {
+        mainContainer.innerHTML = villainMovieHTML;
         console.log('all heroes are dead.  The Quest is lost.')
+        videoSource.load()
     }
 }
 

@@ -53,7 +53,6 @@ function Character(data) {
     this.renderCharacter = function () {
         const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, dead, totalDiceCount, distance, elId, catchphrase, characterClass, health, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
 
-            console.log(`WEAKNESS IS ${weakness.join(' ')}`)
             return `
 
             <h4>${characterName}</h4>
