@@ -1,4 +1,4 @@
-import { getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray} from "./utils.js"
+import { diceRoll, getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray} from "./utils.js"
 
 function Character(data) {
     Object.assign(this, data);
@@ -36,6 +36,7 @@ function Character(data) {
                     </div>
                 `
         }).join('')
+        
     }
 
     this.takeDamage = function(attackScoreArray, currentDefendDiceScore) {
@@ -51,7 +52,7 @@ function Character(data) {
  }
 
     this.renderCharacter = function () {
-        const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, dead, totalDiceCount, distance, elId, catchphrase, characterClass, health, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
+        const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, dead, totalDiceCount, distance, elId, catchphrase, characterClass, health, originalHealth, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
 
             return `
 
@@ -60,8 +61,11 @@ function Character(data) {
                     
                     <div class="character-stats--container" style="order: ${cssOrder}">
                         <ul>
-                            <li class="attributes alive"><p class="attributes-key">Status: </p><p class="attributes-value">${health >= 75 ? 'Belligerent'
-                             : health >= 50 ? 'unwielding'
+                            <li class="attributes alive"><p class="attributes-key">Status: </p><p class="attributes-value ${health >= .75 * originalHealth ? 'Belligerent'
+                            : health >= .5 * originalHealth ? 'unwielding'
+                             : health >= 1 ? 'distraught'
+                              : 'dead'}">${health >= .75 * originalHealth ? 'Belligerent'
+                             : health >= .5 * originalHealth ? 'unwielding'
                               : health >= 1 ? 'distraught'
                                : 'dead'}</p>
                             </li>
@@ -97,7 +101,7 @@ function Character(data) {
                         
                         </div>
                         <div class="dice-container">
-                        <p class="attack-defend-label">Defend: ${characterName === 'Zedfire' ? 'It' : 'You'} defended ${this.globalDefendDiceHTML}0%</p>
+                        <p class="attack-defend-label">Defend: ${characterName === 'Zedfire' ? 'The ' : 'You'} defended ${this.globalDefendDiceHTML}0%</p>
                         <div class="real-dice-container">
                         ${this.defendDiceArray}
                         </div>

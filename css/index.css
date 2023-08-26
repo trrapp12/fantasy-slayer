@@ -174,7 +174,7 @@ video {
   right: 100vw;
 }
 
-/* *******************************************IMPORT STATEMENTS******************************************* */
+/* *******************************************Classes arranged alphabeticallys******************************************* */
 .actions-container {
   margin: 2em 0em 0em 0em;
   width: 80%;
@@ -263,9 +263,10 @@ video {
   width: 100%;
   font-size: 3em;
   margin-bottom: 2em;
-  color: #ffffff99;
+  color: white;
   text-align: center;
   margin-top: .5em;
+  opacity: .9;
 }
 
 .character-card {
@@ -330,6 +331,7 @@ video {
   line-height: 6vh;
   background: linear-gradient(145deg, #f0f0f0, #cacaca);
   box-shadow: 1px 1px 2px #c5c5c5, -1px -1px 2px #fbfbfb;
+
 }
 
 .middle-third-right-column>.character-art>.character-card>.both-dice-container>.dice-container>.real-dice-container>.dice:not(.defend-dice) {
@@ -436,6 +438,7 @@ video {
   grid-column: 2 / -1;
   /* Remove this if you don't want the 3D effect */
   transform: perspective(1100px) rotate3d(0, 1, 0, 170deg);
+  -webkit-transform: perspective(1100px) rotate3d(0, 1, 0, 170deg);
 }
 
 .flip-card-inner {
@@ -445,10 +448,13 @@ video {
   text-align: center;
   transition: transform 2s;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .flip-card:hover .flip-card-inner {
   transform: perspective(1100px) rotate3d(0, 1, 0, 180deg);
+  -webkit-transform: perspective(1100px) rotate3d(0, 1, 0, 180deg);
+  backface-visibility: hidden;
 }
 
 .flip-card-front,
@@ -459,7 +465,6 @@ video {
   -webkit-backface-visibility: hidden;
   /* Safari */
   backface-visibility: hidden;
-  transform: rotateY();
 }
 
 .flip-card-front {
@@ -471,11 +476,14 @@ video {
   padding: 2em;
   color: var(--sand-hex);
   transform: perspective(1100px) rotate3d(0, 1, 0, -170deg);
+  -webkit-transform: perspective(1100px) rotate3d(0, 1, 0, -170deg);
   line-height: 1.5;
+  min-height: 60vh;
 }
 
 .flip-card-back>p {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .fi-rr-dice-d4::before {
@@ -602,12 +610,16 @@ video {
   justify-self: self-end;
 }
 
+.roll-animation {
+  animation: roll 2s linear;
+}
+
 .title {
-  font-size: 5rem;
+  font-size: 8rem;
   text-align: center;
   letter-spacing: 3px;
   color: var(--royal-brown-hex);
-  text-shadow: 0px 0px 10px rgba(248, 248, 248, 1);
+  text-shadow: 0px 0px 10px rgb(255, 255, 255);
   margin-bottom: 2rem;
 }
 
@@ -615,6 +627,39 @@ video {
   grid-row: 2 / 3;
   width: 100%;
   grid-column: 1 / -1;
+}
+
+/* classes specific to player status */
+/* : health >= 50 ? 'unwielding'
+: health >= 1 ? 'distraught'
+ : 'dead'}">${health >= 75 ? 'Belligerent'
+: health >= 50 ? 'unwielding'
+ : health >= 1 ? 'distraught'
+  : 'dead'}</p> */
+
+.belligerent {
+  color: var(--light-blue-hex);
+}
+
+.distraught {
+  color: #FFCB99;
+  font-weight: 900;
+}
+
+.unwielding {
+  color: #F2A341;
+  font-weight: 900;
+}
+
+.distraught {
+  color: #BF0404;
+  font-weight: 900;
+}
+
+.dead {
+  color: white;
+  font-weight: 900;
+  text-decoration: line-through;
 }
 
 @keyframes backlight {
@@ -666,5 +711,31 @@ video {
 
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  50% {
+    transform: rotateZ(360)
+  }
+
+  75% {
+    transform: rotateZ(540deg);
+  }
+
+  88% {
+    transform: rotateZ(675deg)
+  }
+
+  94% {
+    transform: rotateZ(697deg)
+  }
+
+  100% {
+    transform: rotateZ(720deg)
   }
 }

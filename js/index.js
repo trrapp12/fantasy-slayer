@@ -1,10 +1,13 @@
 import characterData from './characterData.js'
 import Character from './Character.js'
+import { diceRoll } from './utils.js';
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 const characterChoiceButton = document.getElementById('character-choice--button')
 const characterChoiceInput = document.getElementById('character-choice--input').value
+
+let isWaiting = false;
 
 function render() {
     player1Container.innerHTML = hero.renderCharacter();
@@ -12,24 +15,33 @@ function render() {
 }
 
 function attack() {
-    hero.getDiceHTML();
-    villain.getDiceHTML();
-    hero.getDefendDiceHTML();
-    villain.getDefendDiceHTML();
-    hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
-    villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
-    if (villain.dead) {
-        setTimeout(() => {endGame()}, 1000)
-    } else if(hero.dead) {
-        if (shuffledArray.length > 0) {
-            hero = setNextCharacter();
-            setTimeout(() => {render()}, 1999)
+    if (!isWaiting) {
+        hero.getDiceHTML();
+        villain.getDiceHTML();
+        hero.getDefendDiceHTML();
+        villain.getDefendDiceHTML();
+        diceRoll('.dice')
+        hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
+        villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
+        render()
+        if (villain.dead) {
+            endGame();
+        } else if(hero.dead) {
+            isWaiting = true
+            if (shuffledArray.length > 0) {
+                setTimeout(() => {
+                    hero = setNextCharacter();
+                    render()
+                    isWaiting = false
+                }, 1000)
+            } else {
+                setTimeout(() => {
+                    endGame()
+                }, 1000)
+            }
         }
-        else {
-            setTimeout(() => {endGame()}, 1000)
-        }
+
     }
-    render()
 }
 
 let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge']
@@ -39,22 +51,18 @@ const characterOrder = (array) => {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]]
     };
-    console.log(array)
     return array
 };
 
 let shuffledArray = characterOrder(myArray)
 
 function setNextCharacter() {
-    console.log(characterOrder)
     const nextCharacterData = characterData[shuffledArray.shift()]
     return nextCharacterData ? new Character(nextCharacterData) : {}
 }
 
-
-console.log(typeof characterOrder(myArray))
-
 function endGame() {
+    isWaiting = true;
     const mainContainer = document.getElementById('main-container');
     const videoSource = document.getElementById('background-video')
     const villainMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...Zedfire has won!</h1><video id="background-video" autoplay muted>
