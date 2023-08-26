@@ -4,8 +4,6 @@ import { diceRoll } from './utils.js';
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
-const characterChoiceButton = document.getElementById('character-choice--button')
-const characterChoiceInput = document.getElementById('character-choice--input').value
 
 let isWaiting = false;
 

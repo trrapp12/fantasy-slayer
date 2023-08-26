@@ -9,11 +9,11 @@
     setTimeout(() => {
       title.classList.add('backlight');
       console.log('animation.js fired')
-    }, 66005)
+    }, 68005)
     setTimeout(() => {
       introModal.style.display = "none"
       console.log('animation.js fired')
-    }, 66000)
+    }, 68000)
     
   })
 })();

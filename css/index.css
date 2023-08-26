@@ -520,7 +520,7 @@ video {
   margin: auto auto auto 10%;
   position: absolute;
   top: 101vh;
-  animation: 68000ms linear scroll;
+  animation: 72000ms linear scroll;
   padding: 0em 25% 0em 5%;
   border-left: 20px solid var(--sand-hex);
 }

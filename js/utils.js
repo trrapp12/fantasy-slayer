@@ -28,7 +28,6 @@ function renderDefenseDicePlaceHolderArray(totalDiceCount) {
 
 function diceRoll(elClass) {
     const dices = document.querySelectorAll(elClass)
-    console.log(dices)
     for (const die of dices) {
         die.classList.toggle('roll-animation')
     }

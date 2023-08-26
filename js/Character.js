@@ -9,7 +9,7 @@ function Character(data) {
     this.defendDiceArray = renderDefenseDicePlaceHolderArray(1);
     // this is my own function.  renderDicePlaceHolderArray 
     this.globalDefendDiceHTML = ''
-    this.getDefendDiceHTML = function(){
+    this.getDefendDiceHTML = () => {
         this.currentDefendDiceScore = getDiceRollArray(1, 10)
         // currentDefendDiceScore is internal to this function only.  
         this.defendDiceArray = this.currentDefendDiceScore.map((num) => {
@@ -25,7 +25,7 @@ function Character(data) {
 
     }
 
-    this.getDiceHTML = function () {
+    this.getDiceHTML = () => {
         this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6)
         this.diceArray = this.currentDiceScore.map((num) => {
             return `
@@ -39,7 +39,7 @@ function Character(data) {
         
     }
 
-    this.takeDamage = function(attackScoreArray, currentDefendDiceScore) {
+    this.takeDamage = (attackScoreArray, currentDefendDiceScore) => {
         const initialDamage = 0;
         const totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, initialDamage);
         const bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
@@ -51,7 +51,7 @@ function Character(data) {
         }
  }
 
-    this.renderCharacter = function () {
+    this.renderCharacter = () => {
         const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, dead, totalDiceCount, distance, elId, catchphrase, characterClass, health, originalHealth, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
 
             return `
