@@ -37,11 +37,23 @@ function hasDuplicates (arr){
     return new Set(arr.size) !== arr.length;
 }
 
-function calculateEnhancedScore (obj){
+function calculateEnhancedScore (obj, arr){
+    // obj is the result of calling findDuplicateIndices(attackScoreArray)  Returns and obj like { '1' : [2, 4]} where the 1 is the number repeated on the dice, and the array 
+    // is the indices where they appear on the dice
+    // arr is the original attackScoreArray, brought back in again to take into account numbers which weren't repeated
     let total = 0;
-    for (const prop in obj) {
-      total += (Number(prop) ** obj[prop].length)
+    // need to keep this total in here.  Without doing a += within the loop, it can't account for two sets of pairs
+    console.log(`calculateEnhancedScore fired. obj is ${JSON.stringify(obj, null, 2)}`)
+    let addends;
+    let multiplicant;
+    for (const [key, value] of Object.entries(obj)) {
+        multiplicant = Number(key) ** value.length;
+        addends = arr.filter(arrValue => arrValue !== Number(key)).reduce((acc, curr) => acc += curr) 
+        console.log(multiplicant, addends)
+        total += addends + multiplicant
     }
+    
+    console.log(`total ${total} = ${addends} + ${multiplicant}`)
     return total
   }
 export { calculateEnhancedScore, diceAnimation, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

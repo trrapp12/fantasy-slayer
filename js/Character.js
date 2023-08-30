@@ -1,4 +1,11 @@
-import { diceAnimation, calculateEnhancedScore, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray} from "./utils.js"
+import { 
+    diceAnimation, 
+    calculateEnhancedScore, 
+    getDiceRollArray, 
+    hasDuplicates, 
+    renderDicePlaceHolderArray, 
+    renderDefenseDicePlaceHolderArray
+} from "./utils.js"
 
 function Character(data) {
     Object.assign(this, data);
@@ -26,8 +33,6 @@ function Character(data) {
 
     }
 
-
-
     this.diceScoreIndexesOfMatches = (arr) => {
         const indexOfDuplicates = [];
         const seenIndexes = {};
@@ -46,7 +51,6 @@ function Character(data) {
     this.getDiceHTML = () => {
         this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6);
         this.indicesToChange = this.diceScoreIndexesOfMatches(this.currentDiceScore)
-        // console.log(`this.currentDiceScore ${this.currentDiceScore}`)
 
         this.diceArray = this.currentDiceScore.map((num) => {
             return `
@@ -71,9 +75,7 @@ function Character(data) {
         this.duplicates = {};
         let totalDamage;
         let bufferedDamage;
-        this.duplicateCheck;
 
-    
         const findDuplicateIndices = (arr) => {
                 
             arr.forEach((value, index) => {
@@ -90,13 +92,14 @@ function Character(data) {
         };
 
         if (hasDuplicates(attackScoreArray)) {
-            this.duplicateCheck = true
-            totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray))
+            this.duplicateCheck = true;
+            totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)
+            console.log(`has duplicates totalDamage = ${totalDamage} attackScoreArray is ${attackScoreArray}, findDuplicateIndices is ${findDuplicateIndices(attackScoreArray)}`)
             bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
             this.health = this.health - Math.floor(bufferedDamage);
     
         } else {
-            this.duplicateCheck = false
+            this.duplicateCheck = false;
             totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, initialDamage);
             bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
             this.health = this.health - Math.floor(bufferedDamage);
@@ -109,7 +112,30 @@ function Character(data) {
  }
 
     this.renderCharacter = () => {
-        const { alive, avatar, backstory, characterCardFlexDirection, characterName, cssOrder, dead, totalDiceCount, distance, elId, catchphrase, characterClass, health, originalHealth, race, relationship, skill, speed, strength, intelligence, weakness, weapon} = this;
+        const { 
+            alive, 
+            avatar, 
+            backstory, 
+            characterCardFlexDirection, 
+            characterName, 
+            cssOrder, 
+            dead, 
+            totalDiceCount, 
+            distance, 
+            elId, 
+            catchphrase, 
+            characterClass, 
+            health, 
+            originalHealth, 
+            race, 
+            relationship, 
+            skill, 
+            speed, 
+            strength, 
+            intelligence, 
+            weakness, 
+            weapon
+        } = this;
 
             return `
 
