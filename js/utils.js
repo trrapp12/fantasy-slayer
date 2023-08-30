@@ -32,4 +32,16 @@ function diceAnimation(elClass) {
         die.classList.add('roll-animation')
     }
 }
-export { diceAnimation, getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
+
+function hasDuplicates (arr){
+    return new Set(arr.size) !== arr.length;
+}
+
+function calculateEnhancedScore (obj){
+    let total = 0;
+    for (const prop in obj) {
+      total += (Number(prop) ** obj[prop].length)
+    }
+    return total
+  }
+export { calculateEnhancedScore, diceAnimation, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
