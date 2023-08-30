@@ -1,6 +1,6 @@
 import characterData from './characterData.js'
 import Character from './Character.js'
-import { diceRoll } from './utils.js';
+import { diceAnimation } from './utils.js';
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
@@ -18,7 +18,7 @@ function attack() {
         villain.getDiceHTML();
         hero.getDefendDiceHTML();
         villain.getDefendDiceHTML();
-        diceRoll('.dice')
+        diceAnimation('.dice')
         hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
         villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
         render()
@@ -70,16 +70,12 @@ function endGame() {
     <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
   </video>`
 
-        console.log(videoSource)
     if (villain.health <=0 && hero.health <=0) {
-        console.log('both are dead')
     } else if (villain.health <=0) {
-        console.log('villain is dead')
         mainContainer.innerHTML = heroMovieHTML;
         videoSource.load()
     } else {
         mainContainer.innerHTML = villainMovieHTML;
-        console.log('all heroes are dead.  The Quest is lost.')
         videoSource.load()
     }
 }
@@ -89,6 +85,5 @@ document.getElementById('attack-button').addEventListener('click', attack)
 // create characters
 let hero = setNextCharacter()
 const villain = new Character(characterData.zedfire)
-console.log(villain)
 
 render();

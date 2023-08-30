@@ -1,18 +1,15 @@
 (()=> {
-  const modal = document.getElementById('credits-modal');
-  const footer = document.getElementById('footer');
-  const creditsDefault = document.getElementById('credits-default')
-  const mainElement = document.querySelector('.main-container')
+  const modal = document.getElementById('credit-modal-container')
+  const textContainer = document.getElementById('credits-modal')
 
-  function toggleClass (el, className) {
-    el.classList.toggle(className)
+  document.getElementById('history').addEventListener('click', () => {
+    modal.classList.toggle('modal-height');
+    textContainer.classList.toggle('display-none')
+  })
 
-  }
-
-  footer.addEventListener('click', () => {
-    toggleClass(footer, 'modal-height');
-    toggleClass(modal, 'display-none');
-    toggleClass(creditsDefault, 'display-none');
+  document.getElementById('exit-button').addEventListener('click', () => {
+    modal.classList.toggle('modal-height');
+    textContainer.classList.toggle('display-none')
   })
 
 })();

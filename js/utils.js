@@ -26,10 +26,10 @@ function renderDefenseDicePlaceHolderArray(totalDiceCount) {
     }).join('')
 }
 
-function diceRoll(elClass) {
+function diceAnimation(elClass) {
     const dices = document.querySelectorAll(elClass)
     for (const die of dices) {
-        die.classList.toggle('roll-animation')
+        die.classList.add('roll-animation')
     }
 }
-export { diceRoll, getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
+export { diceAnimation, getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
