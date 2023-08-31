@@ -1,5 +1,4 @@
 import { 
-    diceAnimation, 
     calculateEnhancedScore, 
     getDiceRollArray, 
     hasDuplicates, 
@@ -11,14 +10,11 @@ function Character(data) {
     Object.assign(this, data);
 
     this.diceArrayForRendering = renderDicePlaceHolderArray(this.totalDiceCount);
-    // this is part of the tutorial.  total totalDiceCount is different for each character, found on character data
 
     this.defendDiceArray = renderDefenseDicePlaceHolderArray(1);
-    // this is my own function.  renderDicePlaceHolderArray 
     this.globalDefendDiceHTML = ''
     this.getDefendDiceHTML = () => {
         this.currentDefendDiceScore = getDiceRollArray(1, 10)
-        // currentDefendDiceScore is internal to this function only.  
         this.defendDiceArray = this.currentDefendDiceScore.map((num) => {
             this.globalDefendDiceHTML = num
             return `
@@ -29,7 +25,6 @@ function Character(data) {
                 </div>
             `
         })
-        // console.log(`this.defendDiceArray ${this.defendDiceArray}`)
 
     }
 
@@ -48,8 +43,10 @@ function Character(data) {
         return Array.from(new Set(indexOfDuplicates)).sort((a,b) => a-b);
     }
 
-    this.getDiceHTML = () => {
+    this.getDiceHTML = (attackScoreArray) => {
+
         this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6);
+        this.renderBanner = hasDuplicates(this.currentDiceScore)
         this.indicesToChange = this.diceScoreIndexesOfMatches(this.currentDiceScore)
 
         this.diceArray = this.currentDiceScore.map((num) => {
@@ -69,8 +66,16 @@ function Character(data) {
         this.diceArrayForRendering = this.diceArray.join('');
     }
 
+    // this.specialAttack = (elId, turns) => {
+    //     let wait;
+    //     if (turns % 5 === 0) {
+    //         wait = false;
+    //     } else {
+    //         wait = true
+    //     }
+    // }
+
     this.takeDamage = (attackScoreArray, currentDefendDiceScore) => {
-        const initialDamage = 0;
         const valueToIndices = {};
         this.duplicates = {};
         let totalDamage;
@@ -82,6 +87,7 @@ function Character(data) {
                 if (!valueToIndices[value]) {
                     valueToIndices[value] = [index];
                 } else if (valueToIndices[value].length === 1) {
+                    
                     valueToIndices[value].push(index);
                     this.duplicates[value] = valueToIndices[value];
                 } else {
@@ -92,15 +98,12 @@ function Character(data) {
         };
 
         if (hasDuplicates(attackScoreArray)) {
-            this.duplicateCheck = true;
             totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)
-            console.log(`has duplicates totalDamage = ${totalDamage} attackScoreArray is ${attackScoreArray}, findDuplicateIndices is ${findDuplicateIndices(attackScoreArray)}`)
             bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
             this.health = this.health - Math.floor(bufferedDamage);
     
         } else {
-            this.duplicateCheck = false;
-            totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, initialDamage);
+            totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);
             bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
             this.health = this.health - Math.floor(bufferedDamage);
     
@@ -116,23 +119,25 @@ function Character(data) {
             alive, 
             avatar, 
             backstory, 
+            catchphrase, 
             characterCardFlexDirection, 
+            characterClass, 
             characterName, 
             cssOrder, 
             dead, 
-            totalDiceCount, 
             distance, 
             elId, 
-            catchphrase, 
-            characterClass, 
             health, 
+            intelligence, 
             originalHealth, 
             race, 
             relationship, 
             skill, 
             speed, 
             strength, 
-            intelligence, 
+            renderBanner,
+            totalDiceCount, 
+            turns,
             weakness, 
             weapon
         } = this;
@@ -144,7 +149,7 @@ function Character(data) {
                     
                     <div class="character-stats--container" style="order: ${cssOrder}">
                         <ul>
-                            <li class="attributes alive"><p class="attributes-key">Status: </p><p class="attributes-value ${health >= .75 * originalHealth ? 'Belligerent'
+                            <li class="attributes alive"><p class="attributes-key">Status: </p><p class="attributes-value ${health >= .75 * originalHealth ? 'belligerent'
                             : health >= .5 * originalHealth ? 'unwielding'
                              : health >= 1 ? 'distraught'
                               : 'ofslægen-slain'}">${health >= .75 * originalHealth ? 'Belligerent'
@@ -181,21 +186,22 @@ function Character(data) {
                         <div class="real-dice-container">
                         ${this.diceArrayForRendering}
                         </div>
-                        <p class="attack-defend-label"> <strong>Feohtende / Attack</strong> </p>
+                        <p class="attack-defend-label"> <strong>Feohtende  ( Attack ) </strong> </p>
                         </div>
                         <div class="dice-container">
                         <div class="real-dice-container">
                         ${this.defendDiceArray}
                         </div>
-                        <p class="attack-defend-label"> <strong> Werede / Defend:</strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${this.globalDefendDiceHTML}0%</p>
+                        <p class="attack-defend-label"> <strong> Werede  ( Defend ): </strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${this.globalDefendDiceHTML}0%</p>
                         <div class="elemental"></div>
-                        <div class="power-hit">
+                        <div class="power-hit-hero-container">
                             ${
-                             this.duplicateCheck && characterClass === 'hero' ? `<p class="power-hit-p">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to${this.duplicates} </p>`
-                                : this.duplicateCheck && characterClass === 'villain' ? `<p class="power-hit-p">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${this.duplicates} </p>` 
-                                :  false && characterClass === 'hero' ? `<p></p>` 
-                                :  false && characterClass === 'villain' ? `<p></p>`
-                                : `<p></p>`
+                                this.renderBanner === true && characterClass === 'hero' ? `<p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to${this.duplicates} </p>` : `<p></p>`
+                            }
+                        </div>
+                        <div class="power-hit-villain-container">
+                            ${
+                                this.renderBanner === true && characterClass === 'villain' ? `<p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${this.duplicates} </p>` : `<p></p>`
                             }
                         </div>
                         </div>

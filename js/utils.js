@@ -2,7 +2,8 @@ function getDiceRollArray(totalDiceCount, diceSides) {
     return new Array(totalDiceCount).fill(0).map(() => {
         return Math.floor((Math.random() * diceSides) + 1)
     })
-    // new Array creates a new array with the length of dicecount, .fill fills each spot with the parameter provided (bad things happen if you fill an array with emptyness),
+    // new Array creates a new array with the length of dicecount, .fill fills each spot with the parameter provided.
+    // Bad things happen if you fill an array with emptyness.
     // then immediately map over it to fill it with random values
 }
 
@@ -34,26 +35,30 @@ function diceAnimation(elClass) {
 }
 
 function hasDuplicates (arr){
-    return new Set(arr.size) !== arr.length;
+    let x = new Set();
+    for (const value in arr) {
+        x.add((arr[value]))
+    }
+    return x.size !== Object.keys(arr).length
+    // if the size of the set does not match the length of the array 
+    // (i.e. the length of the array is longer), then there are duplicates, 
+    // because a set can only have unique values, where the array would have that same value multiple times
 }
 
 function calculateEnhancedScore (obj, arr){
-    // obj is the result of calling findDuplicateIndices(attackScoreArray)  Returns and obj like { '1' : [2, 4]} where the 1 is the number repeated on the dice, and the array 
-    // is the indices where they appear on the dice
+    // obj is the result of calling findDuplicateIndices(attackScoreArray)  
+    // Returns an obj like { '1' : [2, 4]} where the 1 is the number repeated on the dice, 
+    //and the array is the indices where they appear on the dice
     // arr is the original attackScoreArray, brought back in again to take into account numbers which weren't repeated
     let total = 0;
-    // need to keep this total in here.  Without doing a += within the loop, it can't account for two sets of pairs
-    console.log(`calculateEnhancedScore fired. obj is ${JSON.stringify(obj, null, 2)}`)
+    // need to keep this total in here.  Without doing a += within the loop, it can't account for two sets of pairs i.e. a dice roll of [2, 2, 3, 3, 3]
     let addends;
     let multiplicant;
     for (const [key, value] of Object.entries(obj)) {
         multiplicant = Number(key) ** value.length;
-        addends = arr.filter(arrValue => arrValue !== Number(key)).reduce((acc, curr) => acc += curr) 
-        console.log(multiplicant, addends)
+        addends = arr.filter(arrValue => arrValue !== Number(key)).reduce((acc, curr) => { return acc += curr}, 0) 
         total += addends + multiplicant
     }
-    
-    console.log(`total ${total} = ${addends} + ${multiplicant}`)
     return total
   }
 export { calculateEnhancedScore, diceAnimation, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

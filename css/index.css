@@ -253,6 +253,9 @@ video {
 
 .belligerent {
   color: var(--light-blue-hex);
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
 }
 
 .bold-underline {
@@ -391,6 +394,9 @@ video {
   color: white;
   font-weight: 900;
   text-decoration: line-through;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 .dice,
@@ -480,6 +486,8 @@ video {
 .distraught {
   color: #BF0404;
   font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
 }
 
 .credits-modal>.exit-button {
@@ -738,17 +746,44 @@ video {
   z-index: 100;
 }
 
-.power-hit {
-  width: 100%;
-}
-
-.power-hit-p {
+.power-hit-hero {
   border-style: inset;
   border: 5px inset;
-  color: white;
+  color: var(--sand-hex);
   font-size: .9em;
   opacity: .7;
-  padding: 1em;
+  padding: 2em;
+}
+
+.power-hit-hero-container {
+  width: 100%;
+  position: absolute;
+  left: -50vw;
+  top: -35vh;
+  z-index: 200;
+  background-color: var(--dark-blue-hex);
+  width: 14vw;
+  animation: fly-in-left 4500ms linear;
+}
+
+.power-hit-villain {
+  border-style: inset;
+  border: 5px inset;
+  color: var(--sand-hex);
+  font-size: .9em;
+  opacity: .7;
+  padding: 2em;
+}
+
+.power-hit-villain-container {
+  width: 100%;
+  position: absolute;
+  right: -50vw;
+  top: -35vh;
+  z-index: 200;
+  background-color: var(--dark-blue-hex);
+  width: 14vw;
+  animation: fly-in-right 4500ms linear;
 }
 
 .real-dice-container>.defend-dice {
@@ -788,6 +823,8 @@ video {
 .unwielding {
   color: #F2A341;
   font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
 }
 
 @keyframes backlight {
@@ -866,5 +903,41 @@ video {
 
   100% {
     top: -250vh;
+  }
+}
+
+@keyframes fly-in-right {
+  0% {
+    right: -50vw;
+  }
+
+  20% {
+    right: -13.5vw;
+  }
+
+  80% {
+    right: -13.5vw;
+  }
+
+  100% {
+    right: -50vw
+  }
+}
+
+@keyframes fly-in-left {
+  0% {
+    left: -50vw;
+  }
+
+  20% {
+    left: -13.5vw;
+  }
+
+  80% {
+    left: -13.5vw;
+  }
+
+  100% {
+    left: -50vw
   }
 }
