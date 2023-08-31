@@ -1,0 +1,46 @@
+BEGIN:VCALENDAR
+PRODID:-//VA//Veterans Affairs//EN
+VERSION:2.0
+BEGIN:VEVENT
+DTSTAMP:20230831T052428Z
+DTSTART:20230901T200000Z
+DURATION:PT30M
+SUMMARY:VA Video Connect appointment
+UID:1c377547-0292-46be-93b9-d8de937dba74
+LOCATION:VA Video Connect Appointment
+DESCRIPTION:
+  This is a reminder about your upcoming VA Video Connect visit:\n\n
+  To Join the VA Video Connect appointment scheduled for 09/01/2023 14:00 MDT with VA Clinician: JANATA\n\n
+  Click Here\n
+  https://veteran.apps.va.gov/go/yq4UNEzlqVaBcdjV\n\n
+  If unable to join by video, join by phone (audio only) +1 866-304-9173,,033192067#,,,972206#\n Or dial +1 866-304-9173, Conference 033192067, PIN 972206 US Toll free\n\n
+  If you are new to VA Video Connect you can:\n
+  Test your connection. To test on your mobile device, text 'V' to 83293 or 323-621-3589. Standard text messaging rates may apply. https://care.va.gov/vvc-app/?name=TestPatient&conference=TestWaitingRoom@care.va.gov&pin=5678#\n
+  Learn more about VA Video connect. https://mobile.va.gov/app/va-video-connect\n\n
+  For the best experience on a mobile device, please download the VA Video Connect App: \n
+  For Android on Google Play: https://play.google.com/store/apps/details?id=gov.va.vamf.vavideoconnect \n
+  For Apple iPad and iPhone on the Apple App Store: https://itunes.apple.com/us/app/va-video-connect/id1224250949?mt=8.\n\n
+  Need Help?\n
+  Please call 1-866-651-3180 to speak with an Office of Connected Care Help Desk (OCCHD) Representative. The OCCHD is available 24 hours a day, 7 days a week. For TTY assistance, dial 711.\n\n
+  Appointment Instructions:\n
+  Ensure you are in a private and safe place with good internet connectivity. Please treat your visit as if you were seeing your provider in-person (e.g., dress appropriately, do not drive or use alcohol/other substances or engage in other activities, etc.).\n\n
+  Review your care team's guidance for a successful VVC visit. https://vaots.blackboard.com/bbcswebdav/xid-1214283_1\n\n
+  Please have the following information available:\n\n
+    1. Phone number: How we can reach you by telephone, if the video call drops.\n
+    2. Address: Your location during the visit.\n
+    3. Emergency Contact: Name, phone number, and relationship of a person who we can contact in an emergency.\n\n
+   Group Terms of Engagement:\n
+   For new group visits, your group leader will ask you to read and accept the Group Telehealth Agreement.\n
+     View the Agreement. https://vaots.blackboard.com/bbcswebdav/xid-1044499_1 \n\n
+  Need to Reschedule?\n
+  Do not reply to this message. This message is sent from an unmonitored mailbox. For any questions or concerns please contact your VA Facility https://www.va.gov/find-locations/ or VA Clinical Team.\n\n
+  If you have received this email in error, please contact Office of Connected Care Help Desk at 1-866-651-3180.
+PRIORITY:3
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:REMINDER
+TRIGGER;RELATED=START:-PT00H15M00S
+END:VALARM
+END:VEVENT
+END:VCALENDAR

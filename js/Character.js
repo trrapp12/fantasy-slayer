@@ -3,7 +3,7 @@ import {
     getDiceRollArray, 
     hasDuplicates, 
     renderDicePlaceHolderArray, 
-    renderDefenseDicePlaceHolderArray
+    renderDefenseDicePlaceHolderArray,
 } from "./utils.js"
 
 function Character(data) {
@@ -80,6 +80,7 @@ function Character(data) {
         this.duplicates = {};
         let totalDamage;
         let bufferedDamage;
+        
 
         const findDuplicateIndices = (arr) => {
                 
@@ -97,10 +98,29 @@ function Character(data) {
             return this.duplicates;
         };
 
+         const renderMultiplesForFlyOutMessage = (obj) => {
+            console.log('what is obj in renderMultiplesForFlyOutMessage' , obj)
+            // 
+            let phrase = ''
+            // numOfKeys says if there are one or two pairs to be worried about
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    let numTimesRepeated = obj[Object.keys(obj)].length
+                    // obj[Object.keys(obj)].map( phrase => phrase += ` X ${key}`)
+                    return `what is obj in renderMultiplesForFlyOutMessage in for loop ${numTimesRepeated}. Object.keys(obj) ${key}, phrase ${phrase}`
+                }
+            }
+
+
+        }
+
+
         if (hasDuplicates(attackScoreArray)) {
             totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)
             bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
             this.health = this.health - Math.floor(bufferedDamage);
+            console.log(this.duplicates)
+            console.log(renderMultiplesForFlyOutMessage(this.duplicates))
     
         } else {
             totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);

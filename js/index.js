@@ -70,7 +70,7 @@ function endGame() {
     <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
   </video>`
   const tieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >The Gods have not seen fit to determine how to which side to tip the scales of justice.  Both Hero and Villain have languised.  It seems it will lay with another to determine the outcome of this story.</h1><video id="background-video" autoplay muted>
-  <source id="video-source" src="./assets/assets/AdobeStock_583211956_Video_HD_Preview.mov" type="video/mp4">
+  <source id="video-source" src="./assets/assets/AdobeStock_583211956.mov" type="video/mp4">
 </video>`
 
     if (villain.health <=0 && hero.health <=0) {
