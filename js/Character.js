@@ -71,19 +71,14 @@ class Character {
 
     renderMultiplesForFlyOutMessage = (obj) => {
         console.log('what is obj in renderMultiplesForFlyOutMessage', obj);
-        let messagesArr = [];
-        let displayMessageObj;
-        
+        let messagesArr = [];  
         for (const [key, value] of Object.entries(obj)) {
             // Repeat the key for value.length times
             let repeatedKey = Array(value.length).fill(key).join(" X ");
             messagesArr.push(`${repeatedKey}`);
-            displayMessageObj = messagesArr.map(message => `${message}`)
-            console.log('displayMessageObj' , displayMessageObj)
         }
-        this.masterString = displayMessageObj.join(' X ')
-        console.log(this.masterString)
-        return this.masterString;
+        console.log(`[...messagesArr].join(' X ') is ${[...messagesArr].join(' X ')}`)
+        return [...messagesArr].join(' X ')
     }
 
     // this.specialAttack = (elId, turns) => {
