@@ -66,6 +66,21 @@ function Character(data) {
         this.diceArrayForRendering = this.diceArray.join('');
     }
 
+
+    this.renderMultiplesForFlyOutMessage = (obj) => {
+        console.log('what is obj in renderMultiplesForFlyOutMessage', obj);
+    
+        let messages = [];
+    
+        for (const [key, value] of Object.entries(obj)) {
+            // Repeat the key for value.length times
+            let repeatedKey = Array(value.length).fill(key).join(" X ");
+            messages.push(`${repeatedKey}`);
+        }
+        
+        return messages;
+    }
+
     // this.specialAttack = (elId, turns) => {
     //     let wait;
     //     if (turns % 5 === 0) {
@@ -98,29 +113,14 @@ function Character(data) {
             return this.duplicates;
         };
 
-         const renderMultiplesForFlyOutMessage = (obj) => {
-            console.log('what is obj in renderMultiplesForFlyOutMessage' , obj)
-            // 
-            let phrase = ''
-            // numOfKeys says if there are one or two pairs to be worried about
-            for (const key in obj) {
-                if (obj.hasOwnProperty(key)) {
-                    let numTimesRepeated = obj[Object.keys(obj)].length
-                    // obj[Object.keys(obj)].map( phrase => phrase += ` X ${key}`)
-                    return `what is obj in renderMultiplesForFlyOutMessage in for loop ${numTimesRepeated}. Object.keys(obj) ${key}, phrase ${phrase}`
-                }
-            }
-
-
-        }
 
 
         if (hasDuplicates(attackScoreArray)) {
             totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)
             bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
             this.health = this.health - Math.floor(bufferedDamage);
-            console.log(this.duplicates)
-            console.log(renderMultiplesForFlyOutMessage(this.duplicates))
+            this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)
+            this.displayMessages = this.messages.map(message => `${message}`)
     
         } else {
             totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);
@@ -145,8 +145,12 @@ function Character(data) {
             characterName, 
             cssOrder, 
             dead, 
+            duplicates,
+            defendDiceArray,
+            diceArrayForRendering,
             distance, 
             elId, 
+            globalDefendDiceHTML,
             health, 
             intelligence, 
             originalHealth, 
@@ -156,6 +160,7 @@ function Character(data) {
             speed, 
             strength, 
             renderBanner,
+            renderMultiplesForFlyOutMessage,
             totalDiceCount, 
             turns,
             weakness, 
@@ -204,24 +209,24 @@ function Character(data) {
                     <div class="both-dice-container">
                         <div class="dice-container">
                         <div class="real-dice-container">
-                        ${this.diceArrayForRendering}
+                        ${diceArrayForRendering}
                         </div>
                         <p class="attack-defend-label"> <strong>Feohtende  ( Attack ) </strong> </p>
                         </div>
                         <div class="dice-container">
                         <div class="real-dice-container">
-                        ${this.defendDiceArray}
+                        ${defendDiceArray}
                         </div>
-                        <p class="attack-defend-label"> <strong> Werede  ( Defend ): </strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${this.globalDefendDiceHTML}0%</p>
+                        <p class="attack-defend-label"> <strong> Werede  ( Defend ): </strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${globalDefendDiceHTML}0%</p>
                         <div class="elemental"></div>
                         <div class="power-hit-hero-container">
                             ${
-                                this.renderBanner === true && characterClass === 'hero' ? `<p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to${this.duplicates} </p>` : `<p></p>`
+                                renderBanner === true && characterClass === 'hero' ? `<p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to ${renderMultiplesForFlyOutMessage(duplicates).join(' ')} </p>` : `<p></p>`
                             }
                         </div>
                         <div class="power-hit-villain-container">
                             ${
-                                this.renderBanner === true && characterClass === 'villain' ? `<p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${this.duplicates} </p>` : `<p></p>`
+                                renderBanner === true && characterClass === 'villain' ? `<p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${renderMultiplesForFlyOutMessage(duplicates).join(' ')} </p>` : `<p></p>`
                             }
                         </div>
                         </div>

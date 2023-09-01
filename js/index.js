@@ -18,7 +18,6 @@ function attack() {
         villain.getDiceHTML(villain.currentDiceScore);
         hero.getDefendDiceHTML();
         villain.getDefendDiceHTML();
-        diceAnimation('.dice')
         hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
         villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
         render()
