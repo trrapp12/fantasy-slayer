@@ -81,15 +81,6 @@ class Character {
         return [...messagesArr].join(' X ')
     }
 
-    // this.specialAttack = (elId, turns) => {
-    //     let wait;
-    //     if (turns % 5 === 0) {
-    //         wait = false;
-    //     } else {
-    //         wait = true
-    //     }
-    // }
-
     takeDamage = (attackScoreArray, currentDefendDiceScore) => {
         const valueToIndices = {};
         this.duplicates = {};
@@ -123,9 +114,7 @@ class Character {
             // the opponent is the percentage of the number they roll...i.e roll a 9 means you defended 90% of the attack, a 10 -> 10%
             this.health = this.health - Math.floor(bufferedDamage);
             this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)
-            
-            // this.displayMessageString = 
-            console.log('typeof this.displayMessageObj ${typeof(this.displayMessageObj)}' , this.displayMessageObj)
+            console.log('this.messages in hasDuplicates(attackScoreArray)', this.messages)
     
         } else {
             totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);
@@ -232,12 +221,12 @@ class Character {
                         <div class="elemental"></div>
                         <div class="power-hit-hero-container">
                             ${
-                                renderBanner === true && characterClass === 'hero' ? `<p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to ${masterString} </p>` : `<p></p>`
+                                renderBanner === true && characterClass === 'hero' ? `<p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to ${this.messages} </p>` : `<p></p>`
                             }
                         </div>
                         <div class="power-hit-villain-container">
                             ${
-                                renderBanner === true && characterClass === 'villain' ? `<p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${masterString} </p>` : `<p></p>`
+                                renderBanner === true && characterClass === 'villain' ? `<p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${this.messages} </p>` : `<p></p>`
                             }
                         </div>
                         </div>
