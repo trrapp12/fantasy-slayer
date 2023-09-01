@@ -16,8 +16,8 @@ function attack() {
     if (!isWaiting) {
         hero.getDiceHTML(hero.currentDiceScore);
         villain.getDiceHTML(villain.currentDiceScore);
-        hero.getDefendDiceHTML();
-        villain.getDefendDiceHTML();
+        hero.setDefendDiceHTML();
+        villain.setDefendDiceHTML();
         hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
         villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
         render()

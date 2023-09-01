@@ -13,7 +13,7 @@ function Character(data) {
 
     this.defendDiceArray = renderDefenseDicePlaceHolderArray(1);
     this.globalDefendDiceHTML = ''
-    this.getDefendDiceHTML = () => {
+    this.setDefendDiceHTML = () => {
         this.currentDefendDiceScore = getDiceRollArray(1, 10)
         this.defendDiceArray = this.currentDefendDiceScore.map((num) => {
             this.globalDefendDiceHTML = num
@@ -28,7 +28,7 @@ function Character(data) {
 
     }
 
-    this.diceScoreIndexesOfMatches = (arr) => {
+    this.getIndexesOfDiceScoreMatches = (arr) => {
         const indexOfDuplicates = [];
         const seenIndexes = {};
     
@@ -47,7 +47,7 @@ function Character(data) {
 
         this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6);
         this.renderBanner = hasDuplicates(this.currentDiceScore)
-        this.indicesToChange = this.diceScoreIndexesOfMatches(this.currentDiceScore)
+        this.indicesToChange = this.getIndexesOfDiceScoreMatches(this.currentDiceScore)
 
         this.diceArray = this.currentDiceScore.map((num) => {
             return `

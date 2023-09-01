@@ -13,7 +13,7 @@ function renderDicePlaceHolderArray(totalDiceCount) {
             <div class="dice">
                 <div class="dice-inset placeholder-dice">0</div>
             </div>
-        `;
+        `
     }).join('')
 }
 
@@ -23,7 +23,7 @@ function renderDefenseDicePlaceHolderArray(totalDiceCount) {
             <div class="dice defend-dice">
                 <div class="dice-inset">0</div>
             </div>
-        `;
+        `
     }).join('')
 }
 
@@ -55,7 +55,7 @@ function calculateEnhancedScore (obj, arr){
     let addends;
     let multiplicant;
     for (const [key, value] of Object.entries(obj)) {
-        multiplicant = Number(key) ** value.length;
+        multiplicant = Number(key) ** value.length
         addends = arr.filter(arrValue => arrValue !== Number(key)).reduce((acc, curr) => { return acc += curr}, 0) 
         total += addends + multiplicant
     }
