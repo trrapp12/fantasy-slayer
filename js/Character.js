@@ -86,8 +86,7 @@ class Character {
         this.duplicates = {};
         let totalDamage;
         let bufferedDamage;
-        
-        
+            
         const findDuplicateIndices = (arr) => {
             // I decided not to make this a utility function because if you move it out of here, it can't find valueToIndices, and if I move valueToIndices
             // inside the function then it can't find this.duplicates.
@@ -105,7 +104,6 @@ class Character {
             return this.duplicates;
         };
         
-        console.log(`${this.characterName} duplicates after takeDamage:`, this.duplicates);
         if (hasDuplicates(attackScoreArray)) {
             totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)
             // here we have detected there are multiples, so we are iterating over them to find which ones, 
@@ -115,6 +113,7 @@ class Character {
             this.health = this.health - Math.floor(bufferedDamage);
             this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)
             console.log('this.messages in hasDuplicates(attackScoreArray)', this.messages)
+            console.log(`${this.characterName} duplicates after takeDamage:`, this.duplicates, typeof(this.duplicates));
     
         } else {
             totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);
@@ -151,6 +150,7 @@ class Character {
             health, 
             intelligence, 
             masterString,
+            messages,
             originalHealth, 
             race, 
             relationship, 
@@ -158,14 +158,13 @@ class Character {
             speed, 
             strength, 
             renderBanner,
-            renderMultiplesForFlyOutMessage,
             totalDiceCount, 
             turns,
             weakness, 
             weapon
         } = this;
 
-        console.log(`${characterName} duplicates in renderCharacter:`, duplicates);
+        console.log(`${characterName} duplicates in renderCharacter:`, messages);
 
             return `
 
@@ -221,12 +220,12 @@ class Character {
                         <div class="elemental"></div>
                         <div class="power-hit-hero-container">
                             ${
-                                renderBanner === true && characterClass === 'hero' ? `<p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to ${this.messages} </p>` : `<p></p>`
+                                renderBanner === true && characterClass === 'hero' ? `<p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to ${messages ? messages : ''} </p>` : `<p></p>`
                             }
                         </div>
                         <div class="power-hit-villain-container">
                             ${
-                                renderBanner === true && characterClass === 'villain' ? `<p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${this.messages} </p>` : `<p></p>`
+                                renderBanner === true && characterClass === 'villain' ? `<p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${this.messages ? this.messages : ''} </p>` : `<p></p>`
                             }
                         </div>
                         </div>
