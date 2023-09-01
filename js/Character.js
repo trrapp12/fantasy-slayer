@@ -70,7 +70,7 @@ class Character {
 
 
     renderMultiplesForFlyOutMessage = (obj) => {
-        console.log('what is obj in renderMultiplesForFlyOutMessage', obj);
+        // console.log('what is obj in renderMultiplesForFlyOutMessage', obj);
         let messagesArr = [];  
         for (const [key, value] of Object.entries(obj)) {
             // Repeat the key for value.length times
