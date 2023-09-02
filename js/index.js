@@ -5,6 +5,7 @@ import { diceAnimation } from './utils.js';
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 
+
 let isWaiting = false;
 
 function render() {
@@ -15,11 +16,15 @@ function render() {
 function attack() {
     if (!isWaiting) {
         hero.getDiceHTML(hero.currentDiceScore);
+        console.log(hero.currentDiceScore)
         villain.getDiceHTML(villain.currentDiceScore);
+        console.log(villain.currentDiceScore)
         hero.setDefendDiceHTML();
         villain.setDefendDiceHTML();
-        hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
-        villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
+        hero.takeDamage(hero.currentDiceScore, hero.currentDefendDiceScore);
+        console.log(`hero ${hero.characterClass}`)
+        villain.takeDamage(villain.currentDiceScore, villain.currentDefendDiceScore);
+        console.log(`villain ${villain.characterClass}`)
         render()
         if (villain.dead) {
             endGame();

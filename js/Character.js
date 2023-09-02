@@ -13,6 +13,7 @@ class Character {
         this.diceArrayForRendering = renderDicePlaceHolderArray(this.totalDiceCount);
         this.defendDiceArray = renderDefenseDicePlaceHolderArray(1);
         this.globalDefendDiceHTML = ''
+        // let this.attackScoreArray;
     }
 
     setDefendDiceHTML = () => {
@@ -74,14 +75,15 @@ class Character {
         let messagesArr = [];  
         for (const [key, value] of Object.entries(obj)) {
             // Repeat the key for value.length times
-            let repeatedKey = Array(value.length).fill(key).join(" X ");
+            let repeatedKey = Array(value.length).fill(key).join(" x ");
             messagesArr.push(`${repeatedKey}`);
         }
-        console.log(`[...messagesArr].join(' X ') is ${[...messagesArr].join(' X ')}`)
-        return [...messagesArr].join(' X ')
+        console.log(`[...messagesArr].join(' x ') is ${[...messagesArr].join(' x ')}`)
+        return [...messagesArr].join(' x ')
     }
 
     takeDamage = (attackScoreArray, currentDefendDiceScore) => {
+        console.log(this.attackScoreArray, currentDefendDiceScore)
         const valueToIndices = {};
         this.duplicates = {};
         let totalDamage;
@@ -105,6 +107,7 @@ class Character {
         };
         
         if (hasDuplicates(attackScoreArray)) {
+            // attackScoreArray is the opposite character, not the this character
             totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)
             // here we have detected there are multiples, so we are iterating over them to find which ones, 
             // what the values are, and then timesing them together instead of adding them
@@ -133,6 +136,7 @@ class Character {
         const { 
             alive, 
             avatar, 
+            attackScoreArray,
             backstory, 
             catchphrase, 
             characterCardFlexDirection, 
@@ -165,7 +169,30 @@ class Character {
         } = this;
 
         console.log(`${characterName} duplicates in renderCharacter:`, messages);
+        console.log(`characterClass ${characterClass}`)
+        console.log(attackScoreArray)
 
+        let heroDisplayLogic;
+
+        if (renderBanner === true && characterClass === 'hero') {
+            console.log(`#1characterClass ${characterClass}`)
+            heroDisplayLogic = `<div class="power-hit-hero-container"><p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to</p><div class="message">${(messages) ? messages : ''}</div></div>
+            `} else {
+            heroDisplayLogic =''
+        }
+
+
+        let villainDisplayLogic;
+
+            if (renderBanner === true && characterClass === 'villain') {
+                console.log(`#2characterClass ${characterClass}`)
+                villainDisplayLogic =  `<div class="power-hit-villain-container"><p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to</p><div class="message">${(messages) ? messages : ''}</div></div>`
+            } else {
+                villainDisplayLogic = ''
+            }        
+            // break out into full conditional block, if / else statements
+
+            console.log(heroDisplayLogic)
             return `
 
             <h4>${characterName}</h4>
@@ -207,26 +234,19 @@ class Character {
                     </div>
                     <div class="both-dice-container">
                         <div class="dice-container">
-                        <div class="real-dice-container">
-                        ${diceArrayForRendering}
-                        </div>
-                        <p class="attack-defend-label"> <strong>Feohtende  ( Attack ) </strong> </p>
+                            <div class="real-dice-container">
+                            ${diceArrayForRendering}
+                            </div>
+                            <p class="attack-defend-label"> <strong>Feohtende  ( Attack ) </strong> </p>
                         </div>
                         <div class="dice-container">
-                        <div class="real-dice-container">
-                        ${defendDiceArray}
-                        </div>
-                        <p class="attack-defend-label"> <strong> Werede  ( Defend ): </strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${globalDefendDiceHTML}0%</p>
-                        <div class="elemental"></div>
-                        <div class="power-hit-hero-container">
-                            ${
-                                renderBanner === true && characterClass === 'hero' ? `<p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to ${messages ? messages : ''} </p>` : `<p></p>`
-                            }
-                        </div>
-                        <div class="power-hit-villain-container">
-                            ${
-                                renderBanner === true && characterClass === 'villain' ? `<p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to ${this.messages ? this.messages : ''} </p>` : `<p></p>`
-                            }
+                            <div class="real-dice-container">
+                            ${defendDiceArray}
+                            </div>
+                            <p class="attack-defend-label"> <strong> Werede  ( Defend ): </strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${globalDefendDiceHTML}0%</p>
+                            <div class="elemental"></div>
+                            ${heroDisplayLogic}
+                            ${villainDisplayLogic}
                         </div>
                         </div>
                     </div>

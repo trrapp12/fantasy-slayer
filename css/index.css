@@ -692,6 +692,12 @@ video {
   width: 100vw;
 }
 
+.message {
+  font-size: 2em;
+  height: auto;
+  text-align: center;
+}
+
 .middle-third {
   display: flex;
   flex-direction: row;
@@ -747,12 +753,10 @@ video {
 }
 
 .power-hit-hero {
-  border-style: inset;
-  border: 5px inset;
   color: var(--sand-hex);
   font-size: .9em;
   opacity: .7;
-  padding: 2em;
+  margin-bottom: 1em;
 }
 
 .power-hit-hero-container {
@@ -764,15 +768,16 @@ video {
   background-color: var(--dark-blue-hex);
   width: 14vw;
   animation: fly-in-left 4500ms linear;
+  padding: 2em;
+  border: 5px inset;
+  color: var(--sand-hex);
 }
 
 .power-hit-villain {
-  border-style: inset;
-  border: 5px inset;
   color: var(--sand-hex);
   font-size: .9em;
   opacity: .7;
-  padding: 2em;
+  margin-bottom: 1em;
 }
 
 .power-hit-villain-container {
@@ -784,6 +789,9 @@ video {
   background-color: var(--dark-blue-hex);
   width: 14vw;
   animation: fly-in-right 4500ms linear;
+  padding: 2em;
+  border: 5px inset;
+  color: var(--sand-hex);
 }
 
 .real-dice-container>.defend-dice {
