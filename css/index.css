@@ -84,6 +84,7 @@ body {
   background-image: url('../assets/assets/AdobeStock_460700032.jpeg');
   background-attachment: fixed;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 button {

@@ -18,13 +18,15 @@ function attack() {
         hero.getDiceHTML(hero.currentDiceScore);
         console.log(hero.currentDiceScore)
         villain.getDiceHTML(villain.currentDiceScore);
-        console.log(villain.currentDiceScore)
+        // console.log(villain.currentDiceScore)
         hero.setDefendDiceHTML();
         villain.setDefendDiceHTML();
-        hero.takeDamage(hero.currentDiceScore, hero.currentDefendDiceScore);
-        console.log(`hero ${hero.characterClass}`)
-        villain.takeDamage(villain.currentDiceScore, villain.currentDefendDiceScore);
-        console.log(`villain ${villain.characterClass}`)
+        hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
+        // console.log(`hero ${hero.characterClass}`)
+        villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
+        // console.log(`villain ${villain.characterClass}`)
+        hero.renderMultiplesForFlyOutMessage(villain.duplicates);
+        villain.renderMultiplesForFlyOutMessage(hero.duplicates)
         render()
         if (villain.dead) {
             endGame();

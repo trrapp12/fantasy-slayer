@@ -12,26 +12,10 @@ class Character {
         Object.assign(this, data);
         this.diceArrayForRendering = renderDicePlaceHolderArray(this.totalDiceCount);
         this.defendDiceArray = renderDefenseDicePlaceHolderArray(1);
-        this.globalDefendDiceHTML = ''
-        // let this.attackScoreArray;
+        this.defendDiceValue = ''
     }
-
-    setDefendDiceHTML = () => {
-        this.currentDefendDiceScore = getDiceRollArray(1, 10)
-        this.defendDiceArray = this.currentDefendDiceScore.map((num) => {
-            this.globalDefendDiceHTML = num
-            return `
-                <div class="dice defend-dice">
-                    <div class="dice-inset">
-                        ${num}
-                    </div>
-                </div>
-            `
-        })
-
-    }
-
-    getIndexesOfDiceScoreMatches = (arr) => {
+    
+    getIndexesOfDiceScoreMatches (arr) {
         const indexOfDuplicates = [];
         const seenIndexes = {};
     
@@ -46,13 +30,31 @@ class Character {
         return Array.from(new Set(indexOfDuplicates)).sort((a,b) => a-b);
     }
 
-    getDiceHTML = (attackScoreArray) => {
+    setDefendDiceHTML () {
+        this.defendDiceScore = getDiceRollArray(1, 10)
+        // this is hard coded because each player will always only have 1 10-sided die
+        this.defendDiceArray = this.defendDiceScore.map((num) => {
+            this.defendDiceValue = num
+            // defendDiceValue gets the same number printed out on the defend dice without rendering the dice
+            return `
+                <div class="dice defend-dice">
+                    <div class="dice-inset">
+                        ${num}
+                    </div>
+                </div>
+            `
+        })
 
+    }
+
+    getDiceHTML () {
         this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6);
+        console.log(`this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6);`)
+        console.log(this.characterName, this.currentDiceScore)
         this.renderBanner = hasDuplicates(this.currentDiceScore)
         this.indicesToChange = this.getIndexesOfDiceScoreMatches(this.currentDiceScore)
-
         this.diceArray = this.currentDiceScore.map((num) => {
+            console.log(`dicearray creation`, num)
             return `
                     <div class="dice">
                         <div class="dice-inset">
@@ -70,24 +72,26 @@ class Character {
     }
 
 
-    renderMultiplesForFlyOutMessage = (obj) => {
-        // console.log('what is obj in renderMultiplesForFlyOutMessage', obj);
+    renderMultiplesForFlyOutMessage (obj) {
+        console.log('what is obj in renderMultiplesForFlyOutMessage', obj , 'for character' , this.characterName);
         let messagesArr = [];  
         for (const [key, value] of Object.entries(obj)) {
             // Repeat the key for value.length times
             let repeatedKey = Array(value.length).fill(key).join(" x ");
             messagesArr.push(`${repeatedKey}`);
         }
-        console.log(`[...messagesArr].join(' x ') is ${[...messagesArr].join(' x ')}`)
+        // console.log(`[...messagesArr].join(' x ') is ${[...messagesArr].join(' x ')}`)
+        this.messages = [...messagesArr].join(' x ');
+        console.log('renderMultiplesForFlyOutMessage(this.duplicates, this.duplicates is' , this.characterName , ' this.messages is ' , this.messages)
         return [...messagesArr].join(' x ')
     }
 
-    takeDamage = (attackScoreArray, currentDefendDiceScore) => {
-        console.log(this.attackScoreArray, currentDefendDiceScore)
+    takeDamage (attackScoreArray, defendDiceScore) {
+        // attackScoreArray begins here as an arbitrarily named parameter.  It is the opposite characters attack
+        console.log(`character ${this.characterName}; attackScore (what he is being attacked with) ${attackScoreArray}, this.currentDiceScore ${this.currentDiceScore} defendDiceScore ${this.defendDiceScore}`)
         const valueToIndices = {};
-        this.duplicates = {};
-        let totalDamage;
-        let bufferedDamage;
+        // this.totalDamage;
+        // this.bufferedDamage;
             
         const findDuplicateIndices = (arr) => {
             // I decided not to make this a utility function because if you move it out of here, it can't find valueToIndices, and if I move valueToIndices
@@ -103,27 +107,92 @@ class Character {
                     this.duplicates[value].push(index);
                 }
             });   
+
             return this.duplicates;
         };
         
         if (hasDuplicates(attackScoreArray)) {
-            // attackScoreArray is the opposite character, not the this character
-            totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)
+            // currentDiceScore should not be used to calculate the attack, only to check for duplicates.  attackScoreArray is the opposite character, not the this character
+            console.log(`if attackScoreArray(this.currentDiceScore)`);
+            console.table([
+                [ 'character name', this.characterName],
+                [ 'defend dice array', this.defendDiceArray],
+                [ 'attack score array (what they are being attacked with)', attackScoreArray],
+                [ 'current dice score ', this.currentDiceScore]
+             ])
+            // totalDamage = calculateEnhancedScore(findDuplicateIndices(this.currentDiceScore), this.currentDiceScore)
+            //  ^^^^^^^ ERROR IS HERE ^^^^^^^.  ALL THE NUMBERS ARE CORRECT UNTIL TOTALDAMAGE IS CALCULATED ON THIS LINE
+            this.totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)
+            // ^^^^^^^^^ ATTEMPT TO FIX ERROR ^^^^^^^^^^^^^^^
+            console.log(`this.totalDamage = calculateEnhancedScore(findDuplicateIndices(attackScoreArray), attackScoreArray)`)
+            console.table([
+                [ 'character name', this.characterName],
+                [ 'defend dice array', this.defendDiceArray],
+                [ 'attack score array (what they are being attacked with)', attackScoreArray],
+                [ 'current dice score ', this.currentDiceScore]
+             ])
             // here we have detected there are multiples, so we are iterating over them to find which ones, 
             // what the values are, and then timesing them together instead of adding them
-            bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
+            this.bufferedDamage = this.totalDamage - (this.totalDamage * (this.defendDiceScore[0] * .10));
+            console.log(`this.bufferedDamage = this.totalDamage - (this.totalDamage * (this.defendDiceScore[0] * .10));`)
+            console.table([
+                [ 'character name', this.characterName],
+                [ 'defend dice array', this.defendDiceArray],
+                [ 'attack score array (what they are being attacked with)', attackScoreArray],
+                [ 'current dice score ', this.currentDiceScore]
+             ])
             // the opponent is the percentage of the number they roll...i.e roll a 9 means you defended 90% of the attack, a 10 -> 10%
-            this.health = this.health - Math.floor(bufferedDamage);
-            this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)
-            console.log('this.messages in hasDuplicates(attackScoreArray)', this.messages)
-            console.log(`${this.characterName} duplicates after takeDamage:`, this.duplicates, typeof(this.duplicates));
+            this.health = this.health - Math.floor(this.bufferedDamage);
+            console.log(`this.health = this.health - Math.floor(this.bufferedDamage);`)
+            console.table([
+                [ 'character name', this.characterName],
+                [ 'defend dice array', this.defendDiceArray],
+                [ 'attack score array (what they are being attacked with)', attackScoreArray],
+                [ 'current dice score ', this.currentDiceScore]
+             ])
+
+            // this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)
+            console.log(`this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)`)
+                        console.table([
+                [ 'character name', this.characterName],
+                [ 'defend dice array', this.defendDiceArray],
+                [ 'attack score array (what they are being attacked with)', attackScoreArray],
+                [ 'current dice score ', this.currentDiceScore]
+             ])
+            // console.log('this.messages in hasDuplicates(attackScoreArray)', this.messages)
+            // console.log(`${this.characterName} duplicates after takeDamage:`, this.duplicates, typeof(this.duplicates));
     
         } else {
-            totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);
+            console.log(`ENTERED THE ELSE`)
+            this.totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);
+            console.log(`this.totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);`)
+                        console.log(`this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)`)
+                        console.table([
+                [ 'character name', this.characterName],
+                [ 'defend dice array', this.defendDiceArray],
+                [ 'attack score array (what they are being attacked with)', attackScoreArray],
+                [ 'current dice score ', this.currentDiceScore]
+             ])
             // here .reduce can be used because if no dice are repeated we are simply adding them together
-            bufferedDamage = totalDamage - (totalDamage * (currentDefendDiceScore[0] * .10));
+            this.bufferedDamage = this.totalDamage - (this.totalDamage * (this.defendDiceScore[0] * .10));
+            console.log(`this.bufferedDamage = this.totalDamage - (this.totalDamage * (this.defendDiceScore[0] * .10));`)
+                        console.log(`this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)`)
+                        console.table([
+                [ 'character name', this.characterName],
+                [ 'defend dice array', this.defendDiceArray],
+                [ 'attack score array (what they are being attacked with)', attackScoreArray],
+                [ 'current dice score ', this.currentDiceScore]
+             ])
             // the opponent is the percentage of the number they roll...i.e roll a 9 means you defended 90% of the attack, a 10 -> 10%
-            this.health = this.health - Math.floor(bufferedDamage);
+            this.health = this.health - Math.floor(this.bufferedDamage);
+            console.log(`this.health = this.health - Math.floor(this.bufferedDamage);`)
+            console.log(`this.messages = this.renderMultiplesForFlyOutMessage(this.duplicates)`)
+            console.table([
+                [ 'character name', this.characterName],
+                [ 'defend dice array', this.defendDiceArray],
+                [ 'attack score array (what they are being attacked with)', attackScoreArray],
+                [ 'current dice score ', this.currentDiceScore]
+             ])
     
         }
         if (this.health <= 0) {
@@ -132,11 +201,11 @@ class Character {
         }
  }
 
-    renderCharacter = () => {
+    renderCharacter () {
         const { 
             alive, 
             avatar, 
-            attackScoreArray,
+            currentDiceScore,
             backstory, 
             catchphrase, 
             characterCardFlexDirection, 
@@ -144,13 +213,13 @@ class Character {
             characterName, 
             cssOrder, 
             dead, 
+            defendDiceArray,
             displayMessageObj,
             duplicates,
-            defendDiceArray,
             diceArrayForRendering,
             distance, 
             elId, 
-            globalDefendDiceHTML,
+            defendDiceValue,
             health, 
             intelligence, 
             masterString,
@@ -168,14 +237,14 @@ class Character {
             weapon
         } = this;
 
-        console.log(`${characterName} duplicates in renderCharacter:`, messages);
-        console.log(`characterClass ${characterClass}`)
-        console.log(attackScoreArray)
+        // console.log(`${characterName} duplicates in renderCharacter:`, messages);
+        // console.log(`characterClass ${characterClass}`)
+        // console.log(this.currentDiceScore)
 
         let heroDisplayLogic;
 
         if (renderBanner === true && characterClass === 'hero') {
-            console.log(`#1characterClass ${characterClass}`)
+            // console.log(`#1characterClass ${characterClass}`)
             heroDisplayLogic = `<div class="power-hit-hero-container"><p class="power-hit-hero">The Spinner, the Giver, and the Inflexible looked warmly upon your fate and blessed your dice with matching pairs.  Your ${characterName}'s attack is increased to</p><div class="message">${(messages) ? messages : ''}</div></div>
             `} else {
             heroDisplayLogic =''
@@ -185,14 +254,14 @@ class Character {
         let villainDisplayLogic;
 
             if (renderBanner === true && characterClass === 'villain') {
-                console.log(`#2characterClass ${characterClass}`)
+                // console.log(`#2characterClass ${characterClass}`)
                 villainDisplayLogic =  `<div class="power-hit-villain-container"><p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to</p><div class="message">${(messages) ? messages : ''}</div></div>`
             } else {
                 villainDisplayLogic = ''
             }        
             // break out into full conditional block, if / else statements
 
-            console.log(heroDisplayLogic)
+            // console.log(heroDisplayLogic)
             return `
 
             <h4>${characterName}</h4>
@@ -243,7 +312,7 @@ class Character {
                             <div class="real-dice-container">
                             ${defendDiceArray}
                             </div>
-                            <p class="attack-defend-label"> <strong> Werede  ( Defend ): </strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${globalDefendDiceHTML}0%</p>
+                            <p class="attack-defend-label"> <strong> Werede  ( Defend ): </strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${defendDiceValue}0%</p>
                             <div class="elemental"></div>
                             ${heroDisplayLogic}
                             ${villainDisplayLogic}
