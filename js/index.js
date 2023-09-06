@@ -23,8 +23,8 @@ function attack() {
         villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
         hero.renderMultiplesForFlyOutMessage(villain.duplicates);
         villain.renderMultiplesForFlyOutMessage(hero.duplicates);
-        hero.duplicates = {};
-        villain.duplicates = {};
+        hero.resetMultiplesForFlyOutMessage();
+        villain.resetMultiplesForFlyOutMessage();
         render()
         if (villain.dead) {
             endGame();
@@ -35,11 +35,11 @@ function attack() {
                     hero = setNextCharacter();
                     render()
                     isWaiting = false
-                }, 1000)
+                }, 4510)
             } else {
                 setTimeout(() => {
                     endGame()
-                }, 1000)
+                }, 4510)
             }
         }
 

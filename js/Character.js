@@ -80,7 +80,7 @@ class Character {
     }
 
     resetMultiplesForFlyOutMessage () {
-        this.messages = ''
+        this.duplicates = {}
     }
 
     takeDamage (attackScoreArray, defendDiceScore) {

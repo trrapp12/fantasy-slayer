@@ -3,8 +3,8 @@ function getDiceRollArray(totalDiceCount, diceSides) {
         return Math.floor((Math.random() * diceSides) + 1)
     })
     // new Array creates a new array with the length of dicecount, .fill fills each spot with the parameter provided.
-    // Bad things happen if you fill an array with emptyness.
-    // then immediately map over it to fill it with random values
+    // (Bad things happen if you fill an array with emptyness)
+    // It then immediately map over it to fill it with random values
 }
 
 function renderDicePlaceHolderArray(totalDiceCount) {
@@ -47,8 +47,8 @@ function hasDuplicates (arr){
 
 function calculateEnhancedScore (obj, arr){
     // obj is the result of calling findDuplicateIndices(attackScoreArray)  
-    // Returns an obj like { '1' : [2, 4]} where the 1 is the number repeated on the dice, 
-    //and the array is the indices where they appear on the dice
+    // Returns an obj in the form { '1' : [2, 4]} where the 1 is the number repeated on the dice, 
+    // and the values in the array are the indices where 1 would appear on the dice
     // arr is the original attackScoreArray, brought back in again to take into account numbers which weren't repeated
     let total = 0;
     // need to keep this total in here.  Without doing a += within the loop, it can't account for two sets of pairs i.e. a dice roll of [2, 2, 3, 3, 3]
