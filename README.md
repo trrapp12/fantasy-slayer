@@ -38,7 +38,7 @@ This is an example of using Object constructors and classes in Javascript.
 
 ### QUICKSTART GUIDE: 
 
-To use the app simply click on the ```View Project``` button or visit <a href="https://trrapp12.github.io/Product-Page/">https://trrapp12.github.io/Product-Page/</a>. 
+To use the app simply click on the ```View Project``` button or visit <a href="https://fantasy-slayer.com">https://fantasy-slayer.com/</a>. 
 
 ---
 
