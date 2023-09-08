@@ -492,17 +492,25 @@ video {
 }
 
 .credits-modal>.exit-button {
-  font-size: 5rem;
+  font-size: 2rem;
   color: var(--sand-hex);
   position: sticky;
   top: 0rem;
   left: 5vw;
   transform: translateX(-21vw) translateY(-5vh);
   cursor: pointer;
+  padding: .25em;
+  align-self: start;
+  justify-self: left;
+  box-shadow: 0 0 10px;
+  border: 1px solid var(--sand-hex);
+  max-width: fit-content;
 }
 
-.exit-button:hover {
+.credits-modal>.exit-button:hover {
   color: var(--light-blue-hex);
+  box-shadow: 0 0 10px;
+  border: 2px solid (var--light-blue-hex);
 }
 
 .extended {
