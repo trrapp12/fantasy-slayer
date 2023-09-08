@@ -1,10 +1,7 @@
 export function tutorial() {
-    console.log('tutorial.js fired')
     const docBody = document.getElementsByTagName('body')[0];
-    console.log(docBody)
     const container = document.createElement('div')
     container.setAttribute('id', 'tutorial-modal-container')
-    console.log(container)
     const content = `
         <h1>Welcome to Fantasy Slayer</h1>
         <br/>
@@ -26,7 +23,6 @@ export function tutorial() {
         </div>`
     container.classList.add('tutorial-modal')
     container.innerHTML = content
-    console.log('container', container)
     docBody.insertAdjacentElement("afterbegin", container)
     document.getElementById('quest-button').addEventListener('click', () => {
         container.style.display = 'none'
