@@ -677,6 +677,7 @@ video {
   padding: 0em 25% 0em 5%;
   position: absolute;
   top: 101vh;
+  /* take out display:none when ready for production */
   /* display: none; */
   border-image: linear-gradient(#F4FAFC00, #D9B68B, #F4FAFC00) 1 50 100;
 }
@@ -806,6 +807,38 @@ video {
   color: var(--sand-hex);
 }
 
+button.quest-button {
+  border: none;
+  font-family: angars-runes;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin: 6rem auto 0rem auto;
+  width: fit-content;
+  cursor: pointer;
+  justify-self: center;
+  background-color: black;
+  box-shadow: 0px 0px 20px white;
+  transition: 200ms all linear;
+}
+
+button.quest-button:hover {
+  border: none;
+  font-family: angars-runes;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin: 6rem auto 0rem auto;
+  width: fit-content;
+  cursor: pointer;
+  justify-self: center;
+  background-color: rgba(19, 19, 19, 0.073);
+  box-shadow: 0px 0px 10px white;
+  transform: scale(1.1);
+  transition: 200ms all linear;
+}
+
+
 .real-dice-container>.defend-dice {
   background: linear-gradient(145deg, #e17373, #673333);
   box-shadow: 1px 1px 2px #e16f6f, -1px -1px 2px #f6a2a2;
@@ -838,6 +871,61 @@ video {
   grid-column: 1 / -1;
   grid-row: 2 / 3;
   width: 100%;
+}
+
+.tutorial-modal {
+  min-width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 300;
+  background-color: #000000f2;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 100vh;
+  padding: 0% 33%;
+  line-height: 1.5;
+  font-size: 1rem;
+  overflow: scroll;
+  color: var(--light-blue-hex);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tutorial-modal>h1 {
+  font-family: angars-runes;
+  width: 100%;
+  margin: 5% 0% 0% 0%;
+  font-size: 5rem;
+  text-align: center;
+  text-shadow: 0px 0px 10px white;
+  color: var(--royal-brown-hex);
+}
+
+.tutorial-inner-border>p {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #c7d6d8;
+}
+
+.tutorial-modal>div>ol>li {
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.tutorial-inner-border {
+  border-image: linear-gradient (to bottom, rgba(217, 182, 139, 10), #D9B68B, rgba(217, 182, 139, 10)) 1 100%;
+  margin: auto;
+  background-color: black;
+  padding: 12%;
+  margin-top: 5%;
+  border: 2px solid var(--royal-brown-hex);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .unwielding {
