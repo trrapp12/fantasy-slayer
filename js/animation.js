@@ -8,10 +8,10 @@
   window.addEventListener('load', () => {
     setTimeout(() => {
       title.classList.add('backlight');
-    }, 69005)
+    }, 66005)
     setTimeout(() => {
       introModal.style.display = "none"
-    }, 69000)
+    }, 66000)
     
   })
 })();
