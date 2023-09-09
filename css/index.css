@@ -213,6 +213,7 @@ video {
   top: 102vh;
   transition: all 1s ease;
   width: 14vw;
+  background-color: var(--dark-blue-hex);
 }
 
 .attack-button:hover {

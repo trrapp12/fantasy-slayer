@@ -83,7 +83,10 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
           fill="none"
           stroke="${color}";
           stroke-width="8";
-          stroke-dasharray="${healthPercentage * c}, ${c}"
+          stroke-dasharray="${healthPercentage * 220}, ${220}"
+          // so I previously had 220 represented by c, the circumference, but for some reason it was such a large number it drew itself
+          // three or four loops and the player would get a ton of hits and never show any damage until suddenly they did.  So I had to 
+          // test a number, albeit arbitrarily that stopped as soon as the number connected.  It was 220.
         />
       </svg>
     `
