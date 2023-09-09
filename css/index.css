@@ -286,7 +286,6 @@ video {
 }
 
 .character-art {
-  /* max-height: min-content; */
   display: grid;
   grid-template-columns: repeat(1, auto);
   grid-template-rows: 10em auto 2em;
@@ -295,7 +294,6 @@ video {
 .character-art>h4 {
   width: 100%;
   font-size: 3em;
-  /* margin-bottom: 1em; */
   color: white;
   text-align: center;
   margin-top: .5em;
@@ -305,7 +303,6 @@ video {
 }
 
 .character-card {
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   display: grid;
@@ -314,6 +311,11 @@ video {
   max-height: 100vh;
   grid-row: 2 / -1;
   grid-column: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  position: static;
 }
 
 .character-stats--container {
@@ -332,16 +334,31 @@ video {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #d8e4f0;
   color: #fff0;
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: 900;
   grid-row: 5 / 7;
   grid-column: 1 / -1;
-  /* background: rgba(171, 171, 171, 0.8); */
   margin: auto;
-  opacity: .5;
   text-align: center;
   text-shadow: 3px 2px 3px rgba(216, 228, 240, 0.3);
   width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: -100;
+  transition: all 250ms linear;
+}
+
+.character-stats--health-number {
+  font-size: 5rem;
+}
+
+.character-stats--health-graph {
+  width: 67%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-38%) translateX(24%);
 }
 
 .credits-modal {
@@ -661,7 +678,7 @@ video {
   width: 100%;
   z-index: 50;
   /* take out display:none when ready for production */
-  /* display: none; */
+  display: none;
 }
 
 .intro-modal-text-container {
@@ -678,7 +695,7 @@ video {
   position: absolute;
   top: 101vh;
   /* take out display:none when ready for production */
-  /* display: none; */
+  display: none;
   border-image: linear-gradient(#F4FAFC00, #D9B68B, #F4FAFC00) 1 50 100;
 }
 
@@ -879,7 +896,6 @@ button.quest-button:hover {
   position: fixed;
   z-index: 300;
   background-color: #000000f2;
-  display: block;
   top: 0;
   left: 0;
   bottom: 100vh;

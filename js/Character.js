@@ -6,6 +6,10 @@ import {
     renderDefenseDicePlaceHolderArray,
 } from "./utils.js"
 
+import {
+    renderHealthChart,
+} from "./renderHealthChart.js"
+
 class Character {
 
     constructor(data) {
@@ -179,7 +183,13 @@ class Character {
                 villainDisplayLogic =  `<div class="power-hit-villain-container"><p class="power-hit-villain">The Furies, the Fates, the Death-Daimones and Thanatos himself have conspired for your demise.  ${characterName}'s attack is increased to</p><div class="message">${(messages) ? messages : ''}</div></div>`
             } else {
                 villainDisplayLogic = ''
-            }        
+            }       
+            
+        let graph = renderHealthChart(health , originalHealth)
+        
+        console.log(graph)
+
+
         
         return `
 
@@ -217,8 +227,13 @@ class Character {
                             </div>
                         </div>
                     </div>
-                    <div class="character-stats--health">
-                    ${health}
+                    <div class="character-stats--health" id="character-stats-health">
+                        <div class="character-stats--health-graph">
+                        ${graph ? graph : ''}
+                        </div>
+                        <div class="character-stats--health-number">
+                        ${health}
+                        </div>
                     </div>
                     <div class="both-dice-container">
                         <div class="dice-container">
