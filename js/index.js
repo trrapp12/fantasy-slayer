@@ -35,11 +35,11 @@ function attack() {
                     hero = setNextCharacter();
                     render()
                     isWaiting = false
-                }, 4510)
+                }, 2510)
             } else {
                 setTimeout(() => {
                     endGame()
-                }, 4510)
+                }, 2510)
             }
         }
 

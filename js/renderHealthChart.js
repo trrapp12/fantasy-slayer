@@ -56,23 +56,20 @@ function setYInit(width, diameter) {
 
 function renderHealthChart(currentHealthForBar, totalHealth) {
     let color = setColor(currentHealthForBar, totalHealth)
-    console.log(color)
+    let healthPercentage = (currentHealthForBar / totalHealth)
     let aspect = getAspectRatio(containerWidth, containerWidth)
     let w = getBoxWidth(containerWidth, 100)
     let h = getBoxHeight(w, aspect)
     let c = findCircumference(w, 2)
-    console.log('c is ', c)
+    let nc = healthPercentage * 220;
     let r = findRadius(c)
     let d = findDiameter(r)
     let coord = findCenterCoordinates(containerWidth, w, containerWidth, h)
     let strokeWidth = setStrokeWidth(20)
     // let currentHealth = 360;
     // let totalHealth = 1000;
-    let healthPercentage = (currentHealthForBar / totalHealth)
     let xInit = setXInit(containerWidth)
     let yInit = setYInit(containerWidth, d)
-    console.log('health percentage', healthPercentage)
-    console.log(containerWidth, containerWidth, aspect, w, h)
     
     const container = `
       <svg viewBox="0 0 ${w} ${w}">
@@ -83,7 +80,7 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
           fill="none"
           stroke="${color}";
           stroke-width="8";
-          stroke-dasharray="${healthPercentage * 220}, ${220}"
+          stroke-dasharray="${nc}, ${220}"
           // so I previously had 220 represented by c, the circumference, but for some reason it was such a large number it drew itself
           // three or four loops and the player would get a ton of hits and never show any damage until suddenly they did.  So I had to 
           // test a number, albeit arbitrarily that stopped as soon as the number connected.  It was 220.
