@@ -87,7 +87,6 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
         />
       </svg>
     `
-    console.log(container)
     return container
 }
 

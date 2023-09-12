@@ -187,10 +187,6 @@ class Character {
             
         let graph = renderHealthChart(health , originalHealth)
         
-        console.log(graph)
-
-
-        
         return `
 
             <h4>${characterName}</h4>
