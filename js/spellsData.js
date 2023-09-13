@@ -1,4 +1,5 @@
 const spellData = [
+
 {   "spell_id" : 1,
     "spell_name" : "Strength",
     "spell_meaning" : "Courage, Inner Strength, Control",
@@ -92,8 +93,8 @@ const spellData = [
     "spell_magnification" : 25,
     "spell_skills_it_magnifies" : ["elemental", "stealth", "infiltration"],
     "spell_drain_effect" : 6,
-    "spell_heal_effect" : 0,
-    "spell_description" : "Strength spells yield both courage and physical strength to the benefactor.  Evocation Mastery level spell. Extra 25 point damage if combined with skills of 'elemental' or 'stealth.'",
+    "spell_heal_effect" : 25,
+    "spell_description" : "When used with stealh or infiltration, creates an astral projection of oneself.  Can also have healing properties.  Evocation Mastery level spell. Extra 25 point damage if combined with skills of 'elemental' or 'stealth.'",
     "spell_asset_front" : "./assets/assets/cards_small/front.png",
     "spell_asset_back" : "./assets/cards_small/the_moon_small.jpg"
 },
@@ -107,7 +108,7 @@ const spellData = [
     "spell_skills_it_magnifies" : ["honor"],
     "spell_drain_effect" : 15,
     "spell_heal_effect" : 0,
-    "spell_description" : "Strength spells yield both courage and physical strength to the benefactor.  Evocation Mastery level spell. Extra 25 point damage if combined with skills of 'honor.'",
+    "spell_description" : "Justice projects an understanding of truth within the mind of the caster and the bewitched, causing immense discomfort for anyone with evil intentions.  Evocation Mastery level spell. Extra 25 point damage if combined with skills of 'honor.'",
     "spell_asset_front" : "./assets/assets/cards_small/front.png",
     "spell_asset_back" : "./assets/cards_small/justice_small.jpg"
 },
@@ -121,7 +122,7 @@ const spellData = [
     "spell_skills_it_magnifies" : ["magic", "chaos"],
     "spell_drain_effect" : 41,
     "spell_heal_effect" : 0,
-    "spell_description" : "Strength spells yield both courage and physical strength to the benefactor.  Arcane Domain level spell. Extra 25 point damage if combined with skills of 'magic' or 'chaos.'",
+    "spell_description" : "Has the ability to temporarily combine competing realities to create a blended, sometimes controllable outcome.  Arcane Domain level spell. Extra 25 point damage if combined with skills of 'magic' or 'chaos.'",
     "spell_asset_front" : "./assets/assets/cards_small/front.png",
     "spell_asset_back" : "./assets/cards_small/the_magician_small.jpg"
 },
