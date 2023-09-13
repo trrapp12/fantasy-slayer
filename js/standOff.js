@@ -21,6 +21,10 @@ console.log(spellData)
 
 // calculate magnitude
 
+// render display of total lost
+
+
+
 // calculate final effect
 // escape
 // automatic win
