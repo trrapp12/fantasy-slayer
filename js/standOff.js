@@ -1,11 +1,26 @@
 // import the data file
 import { spellData } from "./spellsData.js"
 
-console.log(spellData)
 
 // randomize the data
+function shuffleArr (arr) {
+    for (let i = arr.length - 1; i > 0; i--) { 
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [arr[i], arr[j]] = [arr[j], arr[i]]; 
+      } 
+      return arr; 
+}
+
+const shuffledSpellArr = shuffleArr(spellData);
+console.log(shuffledSpellArr)
 
 // grab 3 items
+function pickThreeCards(arr) {
+    console.log(arr.slice(0,3))
+    return arr.slice(0,3)
+}
+
+pickThreeCards(shuffledSpellArr)
 
 // remove those 3 items from the deck
 

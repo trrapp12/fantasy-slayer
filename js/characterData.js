@@ -80,7 +80,7 @@ const characterData = {
     strength : 75,
     totalDiceCount: 4,
     turns : 0,
-    weakness : ['remembrance', 'chaos'],
+    weakness : ['remembrance'],
     weapon : 'magic',
   },
   naqualk : {
@@ -103,7 +103,7 @@ const characterData = {
     messages: '',
     race : 'Desert Elf', 
     relationship : 'extrovert', 
-    skill : ['stealth', 'infiltration', 'elemental', 'honor'], 
+    skill : ['stealth', 'infiltration', 'elemental', 'honor', 'femininity'], 
     speed : 30, 
     strength : 75, 
     totalDiceCount: 3,
@@ -164,7 +164,7 @@ const characterData = {
     strength : 90, 
     totalDiceCount: 3,
     turns : 0,
-    weakness : ['rage','chaos'], 
+    weakness : ['rage'], 
     weapon : 'Broad Sword', 
   },
   zedfire : {
