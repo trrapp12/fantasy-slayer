@@ -14,27 +14,27 @@ function shuffleArr (arr) {
 const shuffledSpellArr = shuffleArr(spellData);
 console.log(shuffledSpellArr)
 
-// grab 3 items
-function pickThreeCards(arr) {
-    console.log(arr.slice(0,3))
-    return arr.slice(0,3)
+// grab 3 items / remove three items from the deck
+function pickThreeCards (arr) {
+    return arr.splice(0,3)
 }
 
-pickThreeCards(shuffledSpellArr)
-
-// remove those 3 items from the deck
+let nextThreeCards = pickThreeCards(shuffledSpellArr)
+console.log(shuffledSpellArr)
 
 // display 3 items
 
-// let player position items
-
-// let player hit button to confirm selection
+// let player choose card
 
 // calculate spell
 
-// calculate ????
-
 // calculate magnitude
+
+// calculate healing
+
+// change bad guy health
+
+// change good guy health
 
 // render display of total lost
 
