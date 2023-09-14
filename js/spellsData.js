@@ -11,7 +11,7 @@ const spellData = [
     "spell_heal_effect" : 25,
     "spell_description" : "Strength spells yield both courage and physical strength to the benefactor.  Extra 25 point damage if combined with skills of 'honor' or 'rage,' or 'survival'",
     "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
-    "spell_asset_back" : "./assets/assets/cards_small/strength_small.jpg",
+    "spell_asset_back" : "./assets/cards_small/strength_small.jpg",
     "spell_xp" : "Evocation Mastery"
 },
 {

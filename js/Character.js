@@ -10,13 +10,16 @@ import {
     renderHealthChart,
 } from "./renderHealthChart.js"
 
+// import Spells from "./castSpells.js"
+
 class Character {
 
-    constructor(data) {
+    constructor(data, spells = null) {
         Object.assign(this, data);
         this.diceArrayForRendering = renderDicePlaceHolderArray(this.totalDiceCount);
         this.defendDiceArray = renderDefenseDicePlaceHolderArray(1);
         this.defendDiceValue = ''
+        this.spells = spells
     }
     
     getIndexesOfDiceScoreMatches (arr) {
@@ -130,6 +133,8 @@ class Character {
             this.dead = true;
             this.health = 0;
         }
+        this.numberOfTurns = this.numberOfTurns + 1;
+
  }
 
     renderCharacter () {

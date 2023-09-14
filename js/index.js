@@ -1,6 +1,6 @@
 import characterData from './characterData.js'
 import Character from './Character.js'
-import { diceAnimation } from './utils.js';
+import Spells from "./castSpells.js"
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
@@ -14,32 +14,38 @@ function render() {
 }
 
 function attack() {
+    console.log(hero)
     if (!isWaiting) {
-        hero.getDiceHTML(hero.currentDiceScore);
-        villain.getDiceHTML(villain.currentDiceScore);
-        hero.setDefendDiceHTML();
-        villain.setDefendDiceHTML();
-        hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
-        villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
-        hero.renderMultiplesForFlyOutMessage(villain.duplicates);
-        villain.renderMultiplesForFlyOutMessage(hero.duplicates);
-        hero.resetMultiplesForFlyOutMessage();
-        villain.resetMultiplesForFlyOutMessage();
-        render()
-        if (villain.dead) {
-            endGame();
-        } else if(hero.dead) {
-            isWaiting = true
-            if (shuffledArray.length > 0) {
-                setTimeout(() => {
-                    hero = setNextCharacter();
-                    render()
-                    isWaiting = false
-                }, 2510)
-            } else {
-                setTimeout(() => {
-                    endGame()
-                }, 2510)
+        if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
+            console.log(hero.numberOfTurns, hero.spells)
+            // put spell logic in here
+        } else {
+            hero.getDiceHTML(hero.currentDiceScore);
+            villain.getDiceHTML(villain.currentDiceScore);
+            hero.setDefendDiceHTML();
+            villain.setDefendDiceHTML();
+            hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
+            villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
+            hero.renderMultiplesForFlyOutMessage(villain.duplicates);
+            villain.renderMultiplesForFlyOutMessage(hero.duplicates);
+            hero.resetMultiplesForFlyOutMessage();
+            villain.resetMultiplesForFlyOutMessage();
+            render()
+            if (villain.dead) {
+                endGame();
+            } else if(hero.dead) {
+                isWaiting = true
+                if (shuffledArray.length > 0) {
+                    setTimeout(() => {
+                        hero = setNextCharacter();
+                        render()
+                        isWaiting = false
+                    }, 2510)
+                } else {
+                    setTimeout(() => {
+                        endGame()
+                    }, 2510)
+                }
             }
         }
 
@@ -60,7 +66,7 @@ let shuffledArray = characterOrder(myArray)
 
 function setNextCharacter() {
     const nextCharacterData = characterData[shuffledArray.shift()]
-    return nextCharacterData ? new Character(nextCharacterData) : {}
+    return nextCharacterData ? new Character(nextCharacterData, Spells) : {}
 }
 
 function endGame() {
