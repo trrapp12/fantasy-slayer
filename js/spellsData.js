@@ -10,7 +10,7 @@ const spellData = [
     "spell_drain_effect" : 0,
     "spell_heal_effect" : 25,
     "spell_description" : "Strength spells yield both courage and physical strength to the benefactor.  Evocation Mastery level spell. Extra 25 point damage if combined with skills of 'honor' or 'rage,' or 'survival'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/assets/cards_small/strength_small.jpg"
 },
 {
@@ -24,7 +24,7 @@ const spellData = [
     "spell_drain_effect" : 18,
     "spell_heal_effect" : 0,
     "spell_description" : "'The Tower' instills chaos wherever it is called.  Evocation Mastery level spell. Extra 25 point damage if combined with skills of 'chaos' or 'foolery.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_tower_small.jpg"
 },
 {
@@ -38,8 +38,8 @@ const spellData = [
     "spell_drain_effect" : 48,
     "spell_heal_effect" : 300,
     "spell_description" : "Opposite of chaos, the hermit brings inner peace and introspection unable to be touched by external forces.  An Arcane Domain level spell. Extra 25 point damage if combined with skills of 'survival' or 'magic.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
-    "spell_asset_back" : "./assets/cards_small/the_lovers_small.jpg"
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
+    "spell_asset_back" : "./assets/cards_small/the_hermit_small.jpg"
 },
 {
     "spell_id" : 4,
@@ -53,7 +53,7 @@ const spellData = [
     "spell_heal_effect" : 0,
     "spell_secondary_weaknesses_which_trigger_effect" : [""],
     "spell_description" : "A debased magic used in thievery and priestcraft to instill belief or conformity.  Cantrips level spell. Extra 25 point damage if combined with skills of 'honor' or 'infiltration.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_hierophant_small.jpg"
 },
 {
@@ -67,7 +67,7 @@ const spellData = [
     "spell_drain_effect" : 5,
     "spell_heal_effect" : 150,
     "spell_description" : "Inspires subject with hope, faith, renewal.  Intermediate Elemental level spell. Extra 25 point damage if combined with skills of 'elemental' or 'strategem.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_star_small.jpg"
 },
 {
@@ -81,7 +81,7 @@ const spellData = [
     "spell_drain_effect" : 25,
     "spell_heal_effect" : 90,
     "spell_description" : "Represents a new beginning, spontaneity.  Increases faith, unfortunately it enhances neither wisdom or knowledge with it.  Spoken Arcana level spell. Extra 25 point damage if combined with skills of 'foolery' or 'chaos,' or 'infiltration'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_fool_small.jpg"
 },
 {
@@ -95,7 +95,7 @@ const spellData = [
     "spell_drain_effect" : 6,
     "spell_heal_effect" : 25,
     "spell_description" : "When used with stealh or infiltration, creates an astral projection of oneself.  Can also have healing properties.  Evocation Mastery level spell. Extra 25 point damage if combined with skills of 'elemental' or 'stealth.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_moon_small.jpg"
 },
 {
@@ -109,7 +109,7 @@ const spellData = [
     "spell_drain_effect" : 15,
     "spell_heal_effect" : 0,
     "spell_description" : "Justice projects an understanding of truth within the mind of the caster and the bewitched, causing immense discomfort for anyone with evil intentions.  Evocation Mastery level spell. Extra 25 point damage if combined with skills of 'honor.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/justice_small.jpg"
 },
 {
@@ -123,7 +123,7 @@ const spellData = [
     "spell_drain_effect" : 41,
     "spell_heal_effect" : 0,
     "spell_description" : "Has the ability to temporarily combine competing realities to create a blended, sometimes controllable outcome.  Arcane Domain level spell. Extra 25 point damage if combined with skills of 'magic' or 'chaos.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_magician_small.jpg"
 },
 {
@@ -137,7 +137,7 @@ const spellData = [
     "spell_drain_effect" : 27,
     "spell_heal_effect" : 0,
     "spell_description" : "Represents a circle, or cycle, of unpredictable fate.  Spoken Arcana level spell. Extra 25 point damage if combined with skills of 'foolery' or 'magic.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/wheel_of_fortune_small.jpg"
 },
 {
@@ -151,7 +151,7 @@ const spellData = [
     "spell_drain_effect" : 8,
     "spell_heal_effect" : 68,
     "spell_description" : "To those who have walked the path of peace, it's light brings restorative life.  To the rest a burning consumption.  Intermediate Elemental level spell. Extra 25 point damage if combined with skills of 'honor' or 'elemental.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_sun_small.jpg"
 },
 {
@@ -164,8 +164,8 @@ const spellData = [
     "spell_skills_it_magnifies" : ["honor", "foolery"],
     "spell_drain_effect" : 1,
     "spell_heal_effect" : 0,
-    "spell_description" : "Represents completion.  Either ncreases subjects resoluteness, or blinds them to the consequences.  Either way, pushing them to decisive action.  Cantrips level spell. Extra 25 point damage if combined with skills of 'honor' or 'rage.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_description" : "Represents completion.  Either increases subjects resoluteness, or blinds them to the consequences.  Either way, pushing them to decisive action.  Cantrips level spell. Extra 25 point damage if combined with skills of 'honor' or 'rage.'",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_world_small.jpg"
 },
 {
@@ -179,7 +179,7 @@ const spellData = [
     "spell_drain_effect" : 29,
     "spell_heal_effect" : 0,
     "spell_description" : "Unites and enhances any relationship based on love, trust, passion, or fate.  Spoken Arcana level spell. Extra 25 point damage if combined with skills of 'honor' or 'foolery,' or 'survival.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/the_lovers_small.jpg"
 },
 {
@@ -193,7 +193,7 @@ const spellData = [
     "spell_drain_effect" : 25,
     "spell_heal_effect" : 0,
     "spell_description" : "The vessel of absolution and the ferrier to either judgement or peace.  Known as one of The Cosmic Pair, mastery can only be bestowed by a celestial power.",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/death_small.jpg"
 },
 {
@@ -207,7 +207,7 @@ const spellData = [
     "spell_drain_effect" : 45,
     "spell_heal_effect" : 0,
     "spell_description" : "Summons the unconscious knowledge .  Arcane Domain level spell. Extra 25 point damage if combined with skills of 'honor' or 'rage' or 'femininity'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/high_priestess_small.jpg"
 },
 {
@@ -221,7 +221,7 @@ const spellData = [
     "spell_drain_effect" : 0,
     "spell_heal_effect" : 0,
     "spell_description" : "The Emperor spell influences all authorities within range to bring their armies to defend the spell caster, unfortunately it usually only influences the honorable or the insane.  Cantrips level spell. Extra 25 point damage if combined with skills of 'honor' or 'rage.'",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/emperor_small.jpg"
 },
 {
@@ -235,7 +235,7 @@ const spellData = [
     "spell_drain_effect" : 25,
     "spell_heal_effect" : 0,
     "spell_description" : "Represents total absolution and finality.  Known as one of The Cosmic Pair, mastery can only be bestowed by a celestial power.",
-    "spell_asset_front" : "./assets/assets/cards_small/front.png",
+    "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
     "spell_asset_back" : "./assets/cards_small/judgement_small.jpg"
 },
 ]

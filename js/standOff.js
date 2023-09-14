@@ -22,7 +22,42 @@ function pickThreeCards (arr) {
 let nextThreeCards = pickThreeCards(shuffledSpellArr)
 console.log(shuffledSpellArr)
 
-// display 3 items
+// render 3 items
+function renderCards(arr) {
+    console.log(arr[0].spell_damage)
+    const rendering = arr.map((card) => {
+        // console.log(card)
+        return `
+            <div class="spell-card-container">
+                <img src="assets/${card.spell_asset_back}" alt="${card.spell_description}">
+                <ul>
+                    <li>
+                        <span class="topic">Damage: </span><span class="information">${card.spell_damage}</span>
+                    </li>
+                    <li>
+                        <span class="topic">Healing Factor: </span><span class="information">${card.spell_heal_effect}</span>
+                    </li>
+                    <li>
+                        <span class="topic">Life needed to cast spell: </span><span class="information">${card.spell_drain_effect}</span>
+                    </li>
+                    <li>
+                        <span class="description">${card.spell_description}</span>
+                    </li>
+                </ul>
+            </div>
+        `
+    })
+    return rendering
+}
+
+const cards = renderCards(nextThreeCards).join('')
+console.log(cards)
+
+// append cards into DOM
+const parentDiv = document.createElement('div')
+parentDiv.setAttribute('class', 'spells-container')
+parentDiv.innerHTML = cards
+document.getElementById('main-container').appendChild(parentDiv)
 
 // let player choose card
 

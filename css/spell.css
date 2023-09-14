@@ -1,0 +1,106 @@
+/* *******************************************IMPORT STATEMENTS******************************************* */
+
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
+
+/* *******************************************FONTS******************************************* */
+
+@font-face {
+    font-family: 'angars-runes';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/angars_ruins/AngarsRunes.woff2') format('woff2'),
+        url('../assets/angars_ruins/AngarsRunes.woff') format('woff');
+}
+
+/* *******************************************VARIABLES******************************************* */
+
+:root {
+    /* Color Theme Swatches in Hex */
+    --dark-blue-hex: #1A1E26;
+    --medium-blue-hex: #465E73;
+    --light-blue-hex: #6D8BA6;
+    --royal-brown-hex: #433626;
+    --sand-hex: #D9B68B;
+
+    /* Color Theme Swatches in RGBA */
+    --dark-blue-rgba: rgba(26, 30, 38, 1);
+    --medium-blue-rgba: rgba(70, 94, 115, 1);
+    --light-blue-rgba: rgba(109, 139, 166, 1);
+    --royal-brown-rgba: rgba(67, 54, 38, 1);
+    --sand-rgba: rgba(217, 182, 139, 1);
+
+    /* Color Theme Swatches in HSLA */
+    --dark-blue-hsla: hsla(219, 18, 12, 1);
+    --medium-blue-hsla: hsla(208, 24, 36, 1);
+    --light-blue-hsla: hsla(208, 24, 53, 1);
+    --royal-brown-hsla: hsla(33, 27, 20, 1);
+    --sand-hsla: hsla(33, 50, 69, 1);
+
+    /* box shadows */
+    --shadow-color: 220deg 30% 4%;
+    --shadow-elevation-low:
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+        0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+        1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+    --shadow-elevation-medium:
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+        0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+        2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+        5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+    --shadow-elevation-high:
+        0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+        1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
+        2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
+        4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
+        7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
+        11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
+        17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
+        25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
+}
+
+/* *******************************************NORMALIZING******************************************* */
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.spell-card-container>ul>li {
+    color: var(--sand-hex);
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.spell-card-container {
+    height: clamp(400px 40vh 850px);
+    width: fit-content;
+    /* border: 2px solid red; */
+    background-color: black;
+    max-width: min-content;
+    line-height: 2;
+    text-align: center;
+    padding: 2em;
+    border-radius: 20px;
+    border: 2px solid var(--sand-hex)
+}
+
+.spell-card-container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid #2273ff;
+    border-radius: 15px;
+}
+
+.description {
+    margin-top: 2em;
+    text-align: justify;
+}
