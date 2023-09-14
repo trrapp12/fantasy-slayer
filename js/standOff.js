@@ -32,15 +32,23 @@ function renderCards(arr) {
                 <img src="assets/${card.spell_asset_back}" alt="${card.spell_description}">
                 <ul>
                     <li>
-                        <span class="topic">Damage: </span><span class="information">${card.spell_damage}</span>
+                        <div class="icon-container">
+                            <span class="sword"></span>
+                            <span class="information">${card.spell_damage}</span>
+                            <span class="caduceus"></span>
+                            <span class="information">${card.spell_heal_effect}</span>
+                            <span class="skull"></span>
+                            <span class="information information-border">${card.spell_drain_effect} </span>
+                        </div>
                     </li>
                     <li>
-                        <span class="topic">Healing Factor: </span><span class="information">${card.spell_heal_effect}</span>
-                    </li>
-                    <li>
-                        <span class="topic">Life needed to cast spell: </span><span class="information">${card.spell_drain_effect}</span>
-                    </li>
-                    <li>
+                        <div class="xp-container">
+                            <span class="xp">
+                            </span>
+                            <span class="xp-text">
+                                ${card.spell_xp}
+                            </span>
+                        </div>
                         <span class="description">${card.spell_description}</span>
                     </li>
                 </ul>

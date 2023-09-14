@@ -67,13 +67,22 @@
     box-sizing: border-box;
 }
 
-.spell-card-container>ul>li {
+.spells-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.spell-card-container>ul>li>.icon-container {
     color: var(--sand-hex);
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: calc(100% - 2rem);
+    margin: 2rem auto auto auto;
 }
 
 .spell-card-container {
@@ -89,18 +98,84 @@
     border: 2px solid var(--sand-hex)
 }
 
-.spell-card-container::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border: 2px solid #2273ff;
-    border-radius: 15px;
+.spell-card-container {
+    height: clamp(400px 40vh 850px);
+    width: fit-content;
+    background-color: black;
+    max-width: min-content;
+    line-height: 2;
+    text-align: center;
+    padding: 2em;
+    border-radius: 20px;
+    border: 2px solid var(--sand-hex);
+    padding: 4rem;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .description {
-    margin-top: 2em;
+    margin-top: 2rem;
     text-align: justify;
+    color: var(--sand-hex);
+    width: fit-content;
+    display: block;
+}
+
+.icon-container {
+    margin-top: 2rem;
+}
+
+.information {
+    border-right: 1px solid var(--sand-hex);
+    font-size: 1.5rem;
+    padding-right: calc(13% - (35px / 4));
+}
+
+.icon-container>.information-border {
+    border: none;
+    padding: 0px;
+}
+
+.sword {
+    width: 35px;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    background: center / contain no-repeat url("../assets/assets/sword.png");
+}
+
+.xp {
+    width: 35px;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    background: center / contain no-repeat url("../assets/assets/xp.png");
+}
+
+.xp-container {
+    color: var(--sand-hex);
+    margin: 2rem 0rem 0rem 0rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.caduceus {
+    width: 35px;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    background: center / contain no-repeat url("../assets/assets/caduceus.png");
+}
+
+.skull {
+    width: 35px;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    background: center / contain no-repeat url("../assets/assets/skull.png");
 }
