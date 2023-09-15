@@ -1,5 +1,6 @@
 import characterData from './characterData.js'
 import Character from './Character.js'
+import spellData from './spellsData.js'
 import Spells from "./castSpells.js"
 
 const player1Container = document.getElementById('character-1-art');
@@ -17,8 +18,30 @@ function attack() {
     console.log(hero)
     if (!isWaiting) {
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
-            console.log(hero.numberOfTurns, hero.spells)
             // put spell logic in here
+            let shuffledSpellArr = hero.spells.shuffleArr(spellData);
+            // console.log(shuffledSpellArr)
+            let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
+            console.log(nextThreeCards)
+            let cards = hero.spells.renderCards(nextThreeCards).join('')
+            hero.spells.appendCards(cards)
+            hero.spells.handleCardChoice(hero, nextThreeCards)
+            if (villain.dead) {
+                endGame();
+            } else if(hero.dead) {
+                isWaiting = true
+                if (shuffledArray.length > 0) {
+                    setTimeout(() => {
+                        hero = setNextCharacter();
+                        render()
+                        isWaiting = false
+                    }, 2510)
+                } else {
+                    setTimeout(() => {
+                        endGame()
+                    }, 2510)
+                }
+            }
         } else {
             hero.getDiceHTML(hero.currentDiceScore);
             villain.getDiceHTML(villain.currentDiceScore);
@@ -66,7 +89,7 @@ let shuffledArray = characterOrder(myArray)
 
 function setNextCharacter() {
     const nextCharacterData = characterData[shuffledArray.shift()]
-    return nextCharacterData ? new Character(nextCharacterData, Spells) : {}
+    return nextCharacterData ? new Character(nextCharacterData, new Spells()) : {}
 }
 
 function endGame() {
