@@ -100,7 +100,7 @@ const spellData = [
         "spell_skills_it_magnifies" : ["elemental", "stealth", "infiltration"],
         "spell_drain_effect" : 6,
         "spell_heal_effect" : 25,
-        "spell_description" : "When used with stealh or infiltration, creates an astral projection of oneself.  Can also have healing properties.  Extra 25 point damage if combined with skills of 'elemental' or 'stealth.'",
+        "spell_description" : "When used with stealh or infiltration, creates an astral projection of oneself.  Can also have healing properties.  Extra 25 point damage if combined with skills of 'elemental', 'stealth,' or 'infiltration.'",
         "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
         "spell_asset_back" : "./assets/cards_small/the_moon_small.jpg",
         "spell_xp" : "Evocation Mastery"

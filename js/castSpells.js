@@ -85,8 +85,13 @@ class Spells {
                     cardClicked = e.target.id
                     char.health = char.health + (arr[cardClicked].spell_heal_effect - arr[cardClicked].spell_drain_effect)
                     // checked health is going up, but doesn't show on card because the character and healthbar need a re-render
+                    console.log('char.skill is ', char.skill , 'arr[cardClicked] is ' , arr[cardClicked] , 'arr[cardClick].spell_skills_it_magnifies is ' , arr[cardClicked].spell_skills_it_magnifies)
+                    if (char.skill.filter(e => arr[cardClicked].spell_skills_it_magnifies.includes(e))) {
+                        // if () logic check here for magnitude before applying damage to bad guy.  Possibly break this out?
+                        console.log("need to increase magnitude")
+                    } else {
 
-                    // if () logic check here for magnitude before applying damage to bad guy.  Possibly break this out?
+                    }
                     // apply damage to opponent
 
                     // 
