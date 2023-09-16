@@ -25,7 +25,9 @@ function attack() {
             console.log(nextThreeCards)
             let cards = hero.spells.renderCards(nextThreeCards).join('')
             hero.spells.appendCards(cards)
-            hero.spells.handleCardChoice(hero, nextThreeCards)
+            hero.spells.handleCardChoice(hero, nextThreeCards, villain)
+            render()
+            console.log('render()')
             if (villain.dead) {
                 endGame();
             } else if(hero.dead) {

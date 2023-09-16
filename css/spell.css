@@ -81,12 +81,12 @@
     color: var(--sand-hex);
     width: fit-content;
     display: block;
+    font-size: .85rem;
 }
 
 .icon-container {
     margin-top: 2rem;
 }
-
 
 .icon-container>.information-border {
     border: none;
@@ -140,7 +140,7 @@
     border: solid rgba(67, 54, 38, .30) 5px;
     border-radius: 25px;
     box-shadow: var(--shadow-elevation-medium);
-    height: 47vh;
+    max-height: 70%;
     max-width: 95vw;
     width: auto;
 }

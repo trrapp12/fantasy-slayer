@@ -91,7 +91,9 @@ class Character {
     }
 
     takeDamage (attackScoreArray, defendDiceScore) {
-        // attackScoreArray begins here as an arbitrarily named parameter.  It is the opposite characters attack
+        // attackScoreArray begins here as an arbitrarily named parameter.  
+        // It is what the current character is getting attacked by, 
+        // not what they are attacking the other person with.
         const valueToIndices = {};
     
         const findDuplicateIndices = (arr) => {
