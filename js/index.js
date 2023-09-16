@@ -15,22 +15,16 @@ function render() {
 }
 
 function attack() {
-    console.log(hero)
     if (!isWaiting) {
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
-            // put spell logic in here
             let shuffledSpellArr = hero.spells.shuffleArr(spellData);
-            // console.log(shuffledSpellArr)
             let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
-            console.log(nextThreeCards)
-            let cards = hero.spells.renderCards(nextThreeCards).join('')
-            hero.spells.appendCards(cards)
-            hero.spells.handleCardChoice(hero, nextThreeCards, villain)
-            render()
-            console.log('render()')
+            let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
+            hero.spells.appendCards(cardRendering)
+            hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render))
             if (villain.dead) {
                 endGame();
-            } else if(hero.dead) {
+            } else if (hero.dead) {
                 isWaiting = true
                 if (shuffledArray.length > 0) {
                     setTimeout(() => {

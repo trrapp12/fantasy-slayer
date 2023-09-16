@@ -59,7 +59,6 @@ function calculateEnhancedScore (obj, arr){
         addends = arr.filter(arrValue => arrValue !== Number(key)).reduce((acc, curr) => { return acc += curr}, 0) 
         total += addends + multiplicant
     }
-    console.log(`calculateEnhancedScore total ${total}`)
     return total
   }
 export { calculateEnhancedScore, diceAnimation, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
