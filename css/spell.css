@@ -75,6 +75,7 @@
     background: center / contain no-repeat url("../assets/assets/caduceus.png");
 }
 
+
 .description {
     margin-top: 2rem;
     text-align: justify;
@@ -108,9 +109,8 @@
     min-width: 100vw;
     top: 0px;
     background-color: #151515;
-    min-height: 100vh;
+    height: 100vh;
     z-index: 500;
-    align-content: center;
     background-color: rgba(0, 0, 0, 1);
     opacity: 1;
     background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#24170a 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #24170a 0.8px, rgba(0, 0, 0, 1) 0.8px) -0.4px 0;
@@ -145,7 +145,7 @@
     width: auto;
 }
 
-.spell-card-container>ul>li>.icon-container {
+.icon-container {
     color: var(--sand-hex);
     list-style: none;
     display: flex;
@@ -154,6 +154,45 @@
     justify-content: space-between;
     width: calc(100% - 2rem);
     margin: 2rem auto auto auto;
+}
+
+/* controls the front back flip animation */
+.card-front-back-container {
+    width: 28.55vw;
+    height: auto;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    top: 5vh;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.spell-card-front {
+    background: url("../assets/assets/cards_small/front.png");
+    width: 100%;
+    height: clamp(400px, 90vh, 1040px);
+    background-color: black;
+    border-radius: 20px;
+    border: 2px solid var(--sand-hex);
+    padding: 5rem;
+    background-size: 132%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    /* z-index: 500; */
+    backface-visibility: hidden;
+    transition: all 1500ms;
+}
+
+.spell-card-back {
+    position: absolute;
+    /* z-index: 500; */
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    transition: all 1500ms;
 }
 
 .skull {

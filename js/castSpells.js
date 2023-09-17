@@ -4,7 +4,7 @@ class Spells {
         this.opponent = opponent
     }
 
-    cardClicked; 
+    cardClickedIndex; 
 
     shuffleArr (arr) {
         for (let i = arr.length - 1; i > 0; i--) { 
@@ -19,13 +19,15 @@ class Spells {
         return arr.splice(0,3)
     }
 
-
     // COME BACK AND GET CARDS SET UP WITH CLASS SO THEY ARE TURNED AROUND.
     
     renderCards(arr) {
         const rendering = arr.map((card) => {
             return `
-                <div class="spell-card-container" id="${arr.indexOf(card)}" data-card-number="${arr.indexOf(card)}">
+            <div class="card-front-back-container" id="${arr.indexOf(card)}">
+                <div class="spell-card-front">
+                </div>
+                <div class="spell-card-container spell-card-back" data-card-number="${arr.indexOf(card)}">
                     <img src="assets/${card.spell_asset_back}" alt="${card.spell_description}">
                     <ul>
                         <li>
@@ -46,10 +48,12 @@ class Spells {
                                     ${card.spell_xp}
                                 </span>
                             </div>
-                            <span class="description">${card.spell_description}</span>
+                                <span class="description">${card.spell_description}
+                                </span>
                         </li>
                     </ul>
                 </div>
+            </div>
             `
         })
         return rendering
@@ -63,26 +67,43 @@ class Spells {
         document.getElementById('main-container').appendChild(parentDiv)
     }
 
-    handleCardChoice (char, arr, opp, func, evt) {
 
-        return function (evt) {
-            let cardClicked = evt.target.id || evt.target.closest('.spell-card-container').id
-                if (char.skill.filter(item => arr[cardClicked].spell_skills_it_magnifies.includes(item)).length > 0) {
-                    // [cardClicked] is set as the id in the rendering earlier to the same index as the array it's in, so it was an easy way to grab that info again instead of creating a global variable
-                    opp.health = opp.health - (arr[cardClicked].spell_magnification + arr[cardClicked].spell_damage)
+    // create a function to unappend cards???? ^^^^^
+
+    handleCardChoice (char, arr, opp, renderFunc) {
+        console.log(char, arr, opp, renderFunc)
+        return function(evt) {
+            // console.log(evt , evt.target, evt.target.closest('.card-front-back-container').id)
+            let cardClickedIndex = evt.target.id || evt.target.closest('.card-front-back-container').id
+                if (char.skill.filter(item => arr[cardClickedIndex].spell_skills_it_magnifies.includes(item)).length > 0) {
+
+                    // [cardClickedIndex] is set as the id in the rendering earlier to the same index as the array it's in, so it was an easy way to grab that info again instead of creating a global variable
+                    opp.health = opp.health - (arr[cardClickedIndex].spell_magnification + arr[cardClickedIndex].spell_damage)
                 } else {
-                    opp.health = opp.health - arr[cardClicked].spell_damage
+                    opp.health = opp.health - arr[cardClickedIndex].spell_damage
+                    console.log(opp.health)
                 }
-                char.health = (char.health + arr[cardClicked].spell_heal_effect) - arr[cardClicked].spell_drain_effect
+                char.health = (char.health + arr[cardClickedIndex].spell_heal_effect) - arr[cardClickedIndex].spell_drain_effect
                 // func() is the render function that updates the characters new stats visually
-                func()
+                document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
+                renderFunc()
+                setTimeout(() => {
+                    document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
+                },4000)
         }
     }
     
     setCardChoiceHandler (handler) {
-        document.querySelectorAll('.spell-card-container').forEach(el => el.addEventListener('click', (evt) => {
-            handler(evt)
-        }))
+        const cards = document.querySelectorAll('.card-front-back-container')
+        let isCardClicked = false;
+
+        function cardClickListener(evt) {
+            if (!isCardClicked) {
+                handler(evt)
+                isCardClicked = true;
+            }
+        }
+        cards.forEach(el => el.addEventListener('click', cardClickListener))
     }
 
     // FLIP CARD THAT IS CHOSEN
