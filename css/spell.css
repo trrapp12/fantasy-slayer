@@ -156,7 +156,7 @@
     margin: 2rem auto auto auto;
 }
 
-/* controls the front back flip animation */
+/* -------------------------controls the front back flip animation ------------------------*/
 .card-front-back-container {
     width: 28.55vw;
     height: auto;
@@ -164,6 +164,15 @@
     transform-style: preserve-3d;
     perspective: 1500px;
     top: 5vh;
+}
+
+.card-front-back-container>div:hover {
+    /* filter: invert(100%) hue-rotate(172deg); */
+    transform: scale(1.02);
+    transition: all 500ms ease;
+    box-shadow: 0px 0px 23px 5px rgba(193, 173, 109, 0.64), 0px 0px 50px 19px rgba(199, 31, 31, 0.07), 0px 0px 50px 0px rgba(255, 0, 0, 0.17);
+    -webkit-box-shadow: 0px 0px 23px 5px rgba(193, 173, 109, 0.64), 0px 0px 50px 19px rgba(199, 31, 31, 0.07), 0px 0px 50px 0px rgba(255, 0, 0, 0.17);
+    -moz-box-shadow: 0px 0px 23px 5px rgba(193, 173, 109, 0.64), 0px 0px 50px 19px rgba(199, 31, 31, 0.07), 0px 0px 50px 0px rgba(255, 0, 0, 0.17)
 }
 
 .flip {
@@ -193,6 +202,20 @@
     backface-visibility: hidden;
     transform: rotateY(180deg);
     transition: all 1500ms;
+}
+
+.gather-left-cards {
+    animation-name: 'gather-left-card';
+    animation-delay: 4500ms;
+    animation-duration: 2000ms;
+    animation-timing-function: ease;
+}
+
+.gather-right-cards {
+    animation-name: 'gather-right-card';
+    animation-delay: 4500ms;
+    animation-duration: 2000ms;
+    animation-timing-function: ease;
 }
 
 .skull {
@@ -227,4 +250,24 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
+}
+
+@keyframes gather-left-card {
+    from {
+        transform: rotate(0deg) translateX(0%) translateY(0%);
+    }
+
+    to {
+        transform: rotate(-10deg) translateX(104%) translateY(8%);
+    }
+}
+
+@keyframes gather-right-card {
+    from {
+        transform: rotate(0deg) translateX(0%) translateY(0%);
+    }
+
+    to {
+        transform: rotate(11deg) translateX(-98%) translateY(5%);
+    }
 }

@@ -101,13 +101,15 @@ class Spells {
             if (!isCardClicked) {
                 handler(evt)
                 isCardClicked = true;
+                cards[0].classList.toggle('gather-left-cards');
+                cards[2].classList.toggle('gather-right-cards')
             }
         }
         cards.forEach(el => el.addEventListener('click', cardClickListener))
     }
 
     // FLIP CARD THAT IS CHOSEN
-    flipCard (el) {
+    gatherCards (el) {
 
     }
     // MAKE OTHER CARDS DISAPPEAR
