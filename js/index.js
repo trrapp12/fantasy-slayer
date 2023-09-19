@@ -6,22 +6,22 @@ import Spells from "./castSpells.js"
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 
-
-let isWaiting = false;
-
 function render() {
     player1Container.innerHTML = hero.renderCharacter();
     player2Container.innerHTML = villain.renderCharacter();
 }
 
+let isWaiting = false;
+
+
 function attack() {
     if (!isWaiting) {
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
-            let shuffledSpellArr = hero.spells.shuffleArr(spellData);
             let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
             let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
             hero.spells.appendCards(cardRendering)
-            hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render))
+            hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render), hero.spells.removeAppendedCards)
+            render()
             if (villain.dead) {
                 endGame();
             } else if (hero.dead) {
@@ -67,7 +67,7 @@ function attack() {
                 }
             }
         }
-
+        
     }
 }
 
@@ -94,14 +94,14 @@ function endGame() {
     const videoSource = document.getElementById('background-video')
     const villainMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...Zedfire has won!</h1><video id="background-video" autoplay muted>
     <source id="video-source" src="./assets/assets/AdobeStock_630909246.mov" type="video/mp4">
-  </video>`
+    </video>`
     const heroMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >Only the integrity and fielty of a hero, combined with the unforseeable but infatigable friendship of this group of misfits could have saved us from such evil.</h1><video id="background-video" autoplay muted>
     <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
-  </video>`
-  const tieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >The Gods have not seen fit to determine how to which side to tip the scales of justice.  Both Hero and Villain have languised.  It seems it will lay with another to determine the outcome of this story.</h1><video id="background-video" autoplay muted>
-  <source id="video-source" src="./assets/assets/AdobeStock_583211956.mov" type="video/mp4">
-</video>`
-
+    </video>`
+    const tieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >The Gods have not seen fit to determine how to which side to tip the scales of justice.  Both Hero and Villain have languised.  It seems it will lay with another to determine the outcome of this story.</h1><video id="background-video" autoplay muted>
+    <source id="video-source" src="./assets/assets/AdobeStock_583211956.mov" type="video/mp4">
+    </video>`
+    
     if (villain.health <=0 && hero.health <=0) {
         mainContainer.innerHTML = tieHTML;
         videoSource.load()
@@ -116,8 +116,9 @@ function endGame() {
 
 document.getElementById('attack-button').addEventListener('click', attack)
 
-// create characters
+// create characters.  Don't move these up to the top or you get issues with initializing character's methods before characters are initialized
 let hero = setNextCharacter()
+let shuffledSpellArr = hero.spells.shuffleArr(spellData);
 const villain = new Character(characterData.zedfire)
 
 render();

@@ -255,6 +255,67 @@ const spellData = [
         "spell_asset_back" : "./assets/cards_small/judgement_small.jpg",
         "spell_xp" : "Cosmic"
     },
+    {
+        "spell_id" : 18,
+        "spell_name" : "Empress",
+        "spell_meaning" : "Motherhood, nurturing, abundance",
+        "spell_type" : "Honor",
+        "spell_damage" : 142,
+        "spell_magnification" : 25,
+        "spell_skills_it_magnifies" : ["survival", "femininity", "honor"],
+        "spell_drain_effect" : 85,
+        "spell_heal_effect" : 250,
+        "spell_description" : "Represents fertility, nurturing and abundance. Signifies creation.",
+        "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
+        "spell_asset_back" : "./assets/cards_small/empress_small.jpg",
+        "spell_xp" : "Arcane Domain"
+    },
+    {
+        "spell_id" : 19,
+        "spell_name" : "The Chariot",
+        "spell_meaning" : "Control, willpower, and victory",
+        "spell_type" : "Honor",
+        "spell_damage" : 125,
+        "spell_magnification" : 0,
+        "spell_skills_it_magnifies" : ["elemental", "foolery"],
+        "spell_drain_effect" : 25,
+        "spell_heal_effect" : 0,
+        "spell_description" : "The chariot spell brings progression to the casters intentions.",
+        "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
+        "spell_asset_back" : "./assets/cards_small/the_chariot_small.jpg",
+        "spell_xp" : "Intermediate Elemental"
+    },
+    {
+        "spell_id" : 20,
+        "spell_name" : "Temperance",
+        "spell_meaning" : "Balance, moderation and harmony",
+        "spell_type" : "Honor",
+        "spell_damage" : 50,
+        "spell_magnification" : 25,
+        "spell_skills_it_magnifies" : ["chaos"],
+        "spell_drain_effect" : 100,
+        "spell_heal_effect" : 50,
+        "spell_description" : "Temperance finds virtue in positioning itself exactly between evil and goodness, hence this spell deals exactly the same damage to the bearer as the enemy",
+        "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
+        "spell_asset_back" : "./assets/cards_small/temperance_small.jpg",
+        "spell_xp" : "Cantrips"
+
+    },
+    {
+        "spell_id" : 21,
+        "spell_name" : "The Hanged Man",
+        "spell_meaning" : "Letting go, surrender",
+        "spell_type" : "Honor",
+        "spell_damage" : 104,
+        "spell_magnification" : 0,
+        "spell_skills_it_magnifies" : ["survival", "honor"],
+        "spell_drain_effect" : 100,
+        "spell_heal_effect" : 0,
+        "spell_description" : "While this spell deals moderate damage, the act of surrender deals an exceptional toll on the caster.",
+        "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
+        "spell_asset_back" : "./assets/cards_small/hanged_man_small.jpg",
+        "spell_xp" : "Intermediate Elemental"
+    }
 ]
 
 export default spellData

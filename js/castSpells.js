@@ -67,11 +67,14 @@ class Spells {
         document.getElementById('main-container').appendChild(parentDiv)
     }
 
-
+    removeAppendedCards() {
+        let parentNode = document.getElementById('main-container')
+        let childNode = document.getElementById('spells-container')
+        parentNode.removeChild(childNode)
+    }
     // create a function to unappend cards???? ^^^^^
 
     handleCardChoice (char, arr, opp, renderFunc) {
-        console.log(char, arr, opp, renderFunc)
         return function(evt) {
             // console.log(evt , evt.target, evt.target.closest('.card-front-back-container').id)
             let cardClickedIndex = evt.target.id || evt.target.closest('.card-front-back-container').id
@@ -81,11 +84,12 @@ class Spells {
                     opp.health = opp.health - (arr[cardClickedIndex].spell_magnification + arr[cardClickedIndex].spell_damage)
                 } else {
                     opp.health = opp.health - arr[cardClickedIndex].spell_damage
-                    console.log(opp.health)
+
                 }
                 char.health = (char.health + arr[cardClickedIndex].spell_heal_effect) - arr[cardClickedIndex].spell_drain_effect
                 // func() is the render function that updates the characters new stats visually
                 document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
+                char.numberOfTurns = char.numberOfTurns + 1;
                 renderFunc()
                 setTimeout(() => {
                     document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
@@ -93,7 +97,7 @@ class Spells {
         }
     }
     
-    setCardChoiceHandler (handler) {
+    setCardChoiceHandler (handler, callback) {
         const cards = document.querySelectorAll('.card-front-back-container')
         let isCardClicked = false;
 
@@ -103,18 +107,19 @@ class Spells {
                 isCardClicked = true;
                 cards[0].classList.toggle('gather-left-cards');
                 cards[2].classList.toggle('gather-right-cards')
+                setTimeout( () => {
+                    document.getElementById('spells-container').classList.toggle('disappear')
+                },3000)
+                setTimeout(callCallBack,7000)
             }
+        }
+
+        function callCallBack () {
+            cards.forEach(el => el.removeEventListener('click', cardClickListener))
+            callback();
         }
         cards.forEach(el => el.addEventListener('click', cardClickListener))
     }
-
-    // FLIP CARD THAT IS CHOSEN
-    gatherCards (el) {
-
-    }
-    // MAKE OTHER CARDS DISAPPEAR
-
-    // AFTER DELAY, MAKE WHOLE CANVAS DISAPPEAR AND GO BACK TO PLAYING THE GAME
 
     returnToGame () {
 
