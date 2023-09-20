@@ -109,7 +109,7 @@ class Spells {
                 cards[2].classList.toggle('gather-right-cards')
                 setTimeout( () => {
                     document.getElementById('spells-container').classList.toggle('disappear')
-                },3000)
+                },5500)
                 setTimeout(callCallBack,7000)
             }
         }

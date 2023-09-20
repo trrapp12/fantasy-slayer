@@ -166,14 +166,13 @@
     top: 5vh;
 }
 
-.card-front-back-container>div:hover {
-    /* filter: invert(100%) hue-rotate(172deg); */
+/* .card-front-back-container>div:hover {
     transform: scale(1.02);
     transition: all 500ms ease;
     box-shadow: 0px 0px 23px 5px rgba(193, 173, 109, 0.64), 0px 0px 50px 19px rgba(199, 31, 31, 0.07), 0px 0px 50px 0px rgba(255, 0, 0, 0.17);
     -webkit-box-shadow: 0px 0px 23px 5px rgba(193, 173, 109, 0.64), 0px 0px 50px 19px rgba(199, 31, 31, 0.07), 0px 0px 50px 0px rgba(255, 0, 0, 0.17);
     -moz-box-shadow: 0px 0px 23px 5px rgba(193, 173, 109, 0.64), 0px 0px 50px 19px rgba(199, 31, 31, 0.07), 0px 0px 50px 0px rgba(255, 0, 0, 0.17)
-}
+} */
 
 .disappear {
     animation: 1500ms ease 7000ms;
@@ -184,6 +183,41 @@
 .flip {
     transform: rotateY(180deg);
 }
+
+.no-more-spells {
+    position: fixed;
+    z-index: 600;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    /* color: var(--sand-hex); */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* gap: 3em; */
+    background: url("../assets/assets/starry_sooth_sayer.jpeg");
+    background-size: cover;
+}
+
+.no-spells-message {
+
+    font-size: 3em;
+    height: auto;
+    text-align: center;
+    filter: hue-rotate(245deg);
+    mix-blend-mode: overlay;
+    color: white;
+    /* margin-bottom: auto; */
+    text-shadow: -4px 5px 14px black;
+
+}
+
 
 .spell-card-front {
     background: url("../assets/assets/cards_small/front.png");

@@ -5,37 +5,75 @@ import Spells from "./castSpells.js"
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
+const mainContainer = document.getElementById('main-container');
 
 function render() {
     player1Container.innerHTML = hero.renderCharacter();
     player2Container.innerHTML = villain.renderCharacter();
 }
 
+function displayNoManaMessage () {
+    hasNotDisplayedTheMessageBefore = false
+    let messageDiv = document.createElement('div')
+    messageDiv.setAttribute('class', 'no-more-spells')
+    messageDiv.setAttribute('id', 'no-more-spells')
+    messageDiv.innerHTML = `
+    <div class="no-spells-message">
+        <h1>Mana has been depleted</h1>
+        <p>You must continue without any more magical prowess</p>
+    </div>`
+    mainContainer.appendChild(messageDiv)
+
+    setTimeout(() => {
+        document.getElementById('no-more-spells').classList.add('disappear');
+        messageDiv.addEventListener('animationend', () => {
+            messageDiv.style.display = "none"
+        })
+    },5000)
+}
+
+function castSpells () {
+    let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
+    console.log('nextThreeCard' , nextThreeCards)
+    let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
+    hero.spells.appendCards(cardRendering)
+    hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render), hero.spells.removeAppendedCards)
+}
+
 let isWaiting = false;
+let hasNotDisplayedTheMessageBefore = true
 
 
 function attack() {
     if (!isWaiting) {
+        // creates a pause
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
-            let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
-            let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
-            hero.spells.appendCards(cardRendering)
-            hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render), hero.spells.removeAppendedCards)
-            render()
-            if (villain.dead) {
-                endGame();
-            } else if (hero.dead) {
-                isWaiting = true
-                if (shuffledArray.length > 0) {
-                    setTimeout(() => {
-                        hero = setNextCharacter();
-                        render()
-                        isWaiting = false
-                    }, 2510)
+            // spell every 5th turn
+            if (shuffledSpellArr.length === 0) {
+                // have we run out of spells?
+                if (hasNotDisplayedTheMessageBefore) {
+                    displayNoManaMessage();
                 } else {
-                    setTimeout(() => {
-                        endGame()
-                    }, 2510)
+                    console.log('has already seen mana message')
+                }
+            } else {
+                castSpells();
+                render()
+                if (villain.dead) {
+                    endGame();
+                } else if (hero.dead) {
+                    isWaiting = true
+                    if (shuffledArray.length > 0) {
+                        setTimeout(() => {
+                            hero = setNextCharacter();
+                            render()
+                            isWaiting = false
+                        }, 2510)
+                    } else {
+                        setTimeout(() => {
+                            endGame()
+                        }, 2510)
+                    }
                 }
             }
         } else {
@@ -67,9 +105,10 @@ function attack() {
                 }
             }
         }
-        
     }
+        
 }
+
 
 let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge']
 
@@ -90,7 +129,7 @@ function setNextCharacter() {
 
 function endGame() {
     isWaiting = true;
-    const mainContainer = document.getElementById('main-container');
+    
     const videoSource = document.getElementById('background-video')
     const villainMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...Zedfire has won!</h1><video id="background-video" autoplay muted>
     <source id="video-source" src="./assets/assets/AdobeStock_630909246.mov" type="video/mp4">
@@ -119,6 +158,7 @@ document.getElementById('attack-button').addEventListener('click', attack)
 // create characters.  Don't move these up to the top or you get issues with initializing character's methods before characters are initialized
 let hero = setNextCharacter()
 let shuffledSpellArr = hero.spells.shuffleArr(spellData);
+console.log('shuffledSpellArr' , shuffledSpellArr, 'spelldata', spellData)
 const villain = new Character(characterData.zedfire)
 
 render();
