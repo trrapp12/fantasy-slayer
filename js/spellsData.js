@@ -39,7 +39,7 @@ const spellData = [
         "spell_skills_it_magnifies" : ["survical", "magic"],
         "spell_drain_effect" : 48,
         "spell_heal_effect" : 300,
-        "spell_description" : "Opposite of chaos, the hermit brings inner peace and introspection unable to be touched by external forces.  Extra 25 point damage if combined with skills of 'survival' or 'magic.'",
+        "spell_description" : "Opposite of chaos, the hermit brings inner peace that cannot be touched by external forces.  Extra 25 point damage if combined with skills of 'survival' or 'magic.'",
         "spell_asset_front" : "./assets/assets/cards_small/front.jpg",
         "spell_asset_back" : "./assets/cards_small/the_hermit_small.jpg",
         "spell_xp" : "Arcane Domain"

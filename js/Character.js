@@ -120,13 +120,12 @@ class Character {
             // here we have detected there are multiples, so we are iterating over them to find which ones, 
             // what the values are, and then timesing them together instead of adding them
             this.bufferedDamage = this.totalDamage - (this.totalDamage * (this.defendDiceScore[0] * .10));
-            // the opponent is the percentage of the number they roll...i.e roll a 9 means you defended 90% of the attack, a 10 -> 10%
+            // the defendDiceScore is the percentage of the number they roll...i.e roll a 9 means you defended 90% of the attack, a 10 -> 10%
             this.health = this.health - Math.floor(this.bufferedDamage);
         } else {
             this.totalDamage = attackScoreArray.reduce((accumulator, currentVal) => {return accumulator + currentVal}, 0);
             // here .reduce can be used because if no dice are repeated we are simply adding them together
             this.bufferedDamage = this.totalDamage - (this.totalDamage * (this.defendDiceScore[0] * .10));
-            // the opponent is the percentage of the number they roll...i.e roll a 9 means you defended 90% of the attack, a 10 -> 10%
             this.health = this.health - Math.floor(this.bufferedDamage);
 
     

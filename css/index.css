@@ -87,7 +87,7 @@ body {
   overflow-x: hidden;
 }
 
-button {
+button:not(.attack-button) {
   background-color: #fcc02a;
   border: 2px solid #963404;
   border-radius: 6px;
@@ -205,6 +205,8 @@ video {
   box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px #ffffff;
   color: white;
   font-weight: 900;
+  font-family: 'Aboreto';
+  font-size: 1.25rem;
   left: calc(50vw - 7vw);
   margin: auto;
   padding: 1em 2em;

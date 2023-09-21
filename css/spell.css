@@ -175,7 +175,7 @@
 } */
 
 .disappear {
-    animation: 1500ms ease 7000ms;
+    animation: 1500ms ease 3000ms;
     animation-name: disappear;
     animation-fill-mode: forwards;
 }

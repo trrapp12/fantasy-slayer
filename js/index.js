@@ -6,10 +6,13 @@ import Spells from "./castSpells.js"
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 const mainContainer = document.getElementById('main-container');
+const attackButton = document.getElementById('attack-button')
+console.log(attackButton)
 
 function render() {
     player1Container.innerHTML = hero.renderCharacter();
     player2Container.innerHTML = villain.renderCharacter();
+    setTimeout(enableAttackButton, 5000)
 }
 
 function displayNoManaMessage () {
@@ -29,7 +32,27 @@ function displayNoManaMessage () {
         messageDiv.addEventListener('animationend', () => {
             messageDiv.style.display = "none"
         })
-    },5000)
+    },500)
+}
+
+function handleFlyOuts() {
+    hero.renderMultiplesForFlyOutMessage(villain.duplicates);
+    villain.renderMultiplesForFlyOutMessage(hero.duplicates);
+    hero.resetMultiplesForFlyOutMessage();
+    villain.resetMultiplesForFlyOutMessage();
+    disableAttackButton()
+}
+
+function disableAttackButton () {
+    console.log('attackButton.disabled', attackButton.disabled)
+    attackButton.disabled = true;
+    console.log('attackButton.disabled', attackButton.disabled)
+}
+
+function enableAttackButton () {
+    console.log('attackButton.disabled', attackButton.disabled)
+    attackButton.disabled = false
+    console.log('attackButton.disabled', attackButton.disabled)
 }
 
 function castSpells () {
@@ -44,19 +67,18 @@ let isWaiting = false;
 let hasNotDisplayedTheMessageBefore = true
 
 
-function attack() {
+async function attack() {
     if (!isWaiting) {
         // creates a pause
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
             // spell every 5th turn
+            if (!hasNotDisplayedTheMessageBefore)
+            return 
+
             if (shuffledSpellArr.length === 0) {
-                // have we run out of spells?
-                if (hasNotDisplayedTheMessageBefore) {
-                    displayNoManaMessage();
-                } else {
-                    console.log('has already seen mana message')
-                }
-            } else {
+                displayNoManaMessage();
+            }
+            else {
                 castSpells();
                 render()
                 if (villain.dead) {
@@ -83,11 +105,10 @@ function attack() {
             villain.setDefendDiceHTML();
             hero.takeDamage(villain.currentDiceScore, hero.currentDefendDiceScore);
             villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
-            hero.renderMultiplesForFlyOutMessage(villain.duplicates);
-            villain.renderMultiplesForFlyOutMessage(hero.duplicates);
-            hero.resetMultiplesForFlyOutMessage();
-            villain.resetMultiplesForFlyOutMessage();
+            disableAttackButton();
+            handleFlyOuts();
             render()
+            // enableAttackButton();
             if (villain.dead) {
                 endGame();
             } else if(hero.dead) {
