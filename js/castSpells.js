@@ -79,15 +79,16 @@ class Spells {
             // console.log(evt , evt.target, evt.target.closest('.card-front-back-container').id)
             let cardClickedIndex = evt.target.id || evt.target.closest('.card-front-back-container').id
                 if (char.skill.filter(item => arr[cardClickedIndex].spell_skills_it_magnifies.includes(item)).length > 0) {
-
                     // [cardClickedIndex] is set as the id in the rendering earlier to the same index as the array it's in, so it was an easy way to grab that info again instead of creating a global variable
                     opp.health = opp.health - (arr[cardClickedIndex].spell_magnification + arr[cardClickedIndex].spell_damage)
                 } else {
                     opp.health = opp.health - arr[cardClickedIndex].spell_damage
-
                 }
                 char.health = (char.health + arr[cardClickedIndex].spell_heal_effect) - arr[cardClickedIndex].spell_drain_effect
                 // func() is the render function that updates the characters new stats visually
+                char.health <= 0 ? char.health = 0 : char.health = char.health;
+                opp.health <= 0 ? opp.health = 0 : opp.health = opp.health;
+                // prevents character health from displaying a negative number
                 document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
                 char.numberOfTurns = char.numberOfTurns + 1;
                 renderFunc()
