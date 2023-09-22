@@ -227,6 +227,13 @@ video {
   transition: all 1s ease;
 }
 
+button:disabled {
+  border: 2px solid white;
+  background-color: rgba(88, 22, 22, 0.278);
+  color: rgb(149, 149, 149);
+  pointer-events: none;
+}
+
 .attack-defend-label {
   color: var(--sand-hex);
   width: 100%;
