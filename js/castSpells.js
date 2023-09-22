@@ -113,12 +113,18 @@ class Spells {
                 setTimeout(callCallBack,7000)
             }
         }
-
+        
+        
         function callCallBack () {
             cards.forEach(el => el.removeEventListener('click', cardClickListener))
             callback();
         }
-        cards.forEach(el => el.addEventListener('click', cardClickListener))
+      
+        setTimeout(() => {
+  // remove setTimout.  Just putting it here so I can fix a CSS issue without them disappearing on me
+            cards.forEach(el => el.addEventListener('click', cardClickListener))
+        }, 300)
+        
     }
 
     returnToGame () {

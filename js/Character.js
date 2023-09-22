@@ -209,11 +209,11 @@ class Character {
                                : 'ofslægen / slain'}</p>
                             </li>
                             <li class="attributes race"><p class="attributes-key">Race: </p><p class="attributes-value">${race}</p></li>
-                            <li class="attributes skill"><p class="attributes-key">Skills: </p><p class="attributes-value"> ${skill}</p></li>
+                            <li class="attributes skill"><p class="attributes-key">Skills: </p><p class="attributes-value"> ${skill.join(" ")}</p></li>
                             <li class="attributes speed"><p class="attributes-key">Speed: </p><p class="attributes-value"> ${speed}</p></li>
                             <li class="attributes strength"><p class="attributes-key">Strength: </p><p class="attributes-value"> ${strength}</p></li>
                             <li class="attributes intelligence"><p class="attributes-key">Intelligence: </p><p class="attributes-value"> ${intelligence}</p></li>
-                            <li class="attributes weakness"><p class="attributes-key">Weakness: </p><p class="attributes-value"> ${weakness.join(', ')}</p></li>
+                            <li class="attributes weakness"><p class="attributes-key">Weakness: </p><p class="attributes-value"> ${weakness.join(" ")}</p></li>
                             <li class="attributes weapon">
                         </ul>
                     </div>

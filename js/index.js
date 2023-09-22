@@ -7,7 +7,6 @@ const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 const mainContainer = document.getElementById('main-container');
 const attackButton = document.getElementById('attack-button')
-console.log(attackButton)
 
 function render() {
     player1Container.innerHTML = hero.renderCharacter();
@@ -66,7 +65,8 @@ function castSpells () {
 let isWaiting = false;
 let hasNotDisplayedTheMessageBefore = true
 
-function attack() {
+
+async function attack() {
     if (!isWaiting) {
         // creates a pause
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {

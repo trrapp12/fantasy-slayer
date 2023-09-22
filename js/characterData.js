@@ -194,7 +194,7 @@ const characterData = {
     messages: '',
     race : 'unknown',
     relationship : 'adversarial',
-    skill : 'none',
+    skill : [],
     speed : 50, 
     strength : 80,
     totalDiceCount: 5,

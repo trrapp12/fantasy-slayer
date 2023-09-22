@@ -242,6 +242,7 @@
     backface-visibility: hidden;
     transform: rotateY(180deg);
     transition: all 1500ms;
+    width: 100%;
 }
 
 .gather-left-cards {
