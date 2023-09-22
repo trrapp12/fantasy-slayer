@@ -12,7 +12,7 @@ console.log(attackButton)
 function render() {
     player1Container.innerHTML = hero.renderCharacter();
     player2Container.innerHTML = villain.renderCharacter();
-    setTimeout(enableAttackButton, 5000)
+    setTimeout(enableAttackButton, 2500)
 }
 
 function displayNoManaMessage () {
@@ -66,8 +66,7 @@ function castSpells () {
 let isWaiting = false;
 let hasNotDisplayedTheMessageBefore = true
 
-
-async function attack() {
+function attack() {
     if (!isWaiting) {
         // creates a pause
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
