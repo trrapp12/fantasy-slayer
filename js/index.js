@@ -9,6 +9,7 @@ const mainContainer = document.getElementById('main-container');
 const attackButton = document.getElementById('attack-button')
 
 function render() {
+    console.log('inside render function', player1Container, player2Container, hero, villain)
     player1Container.innerHTML = hero.renderCharacter();
     player2Container.innerHTML = villain.renderCharacter();
     setTimeout(enableAttackButton, 2500)
@@ -25,11 +26,12 @@ function displayNoManaMessage () {
         <p>You must continue without any more magical prowess</p>
     </div>`
     mainContainer.appendChild(messageDiv)
-
     setTimeout(() => {
+        console.log('entered set timeout inside displaynoManaMessage')
         document.getElementById('no-more-spells').classList.add('disappear');
         messageDiv.addEventListener('animationend', () => {
             messageDiv.style.display = "none"
+            console.log("messageDiv", messageDiv)
         })
     },500)
 }
@@ -54,12 +56,14 @@ function enableAttackButton () {
     console.log('attackButton.disabled', attackButton.disabled)
 }
 
-function castSpells () {
+function castSpells (renderFunc) {
     let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
     console.log('nextThreeCard' , nextThreeCards)
     let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
     hero.spells.appendCards(cardRendering)
     hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render), hero.spells.removeAppendedCards)
+    // set choice handler applies the handler function, handlerCardChoice is the handler
+    render()
 }
 
 let isWaiting = false;
@@ -67,19 +71,27 @@ let hasNotDisplayedTheMessageBefore = true
 
 
 function attack() {
+    console.log(hero.numberOfTurns)
+    hero.numberOfTurns = hero.numberOfTurns + 1;
+    console.log("attack function firing" , hero.numberOfTurns)
     if (!isWaiting) {
+        console.log('is not waiting')
         // creates a pause
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
+            console.log('fifth turn, casting spells')
             // spell every 5th turn
-            if (!hasNotDisplayedTheMessageBefore)
-            return 
-
-            if (shuffledSpellArr.length === 0) {
+            console.log('!hasNotDisplayedTheMessageBefore' , !hasNotDisplayedTheMessageBefore)
+            if (!hasNotDisplayedTheMessageBefore) {
+                return 
+            } else if (shuffledSpellArr.length === 0) {
+                console.log('mana has displayed before')
                 displayNoManaMessage();
-            }
-            else {
-                castSpells();
-                render()
+                return
+            } else {
+                console.log('entering else statement for casting spells')
+                castSpells(render);
+                console.log('after castSpells, before render')
+                // render()
                 if (villain.dead) {
                     endGame();
                 } else if (hero.dead) {
@@ -98,6 +110,7 @@ function attack() {
                 }
             }
         } else {
+            console.log('hitting the attack else statement')
             hero.getDiceHTML(hero.currentDiceScore);
             villain.getDiceHTML(villain.currentDiceScore);
             hero.setDefendDiceHTML();

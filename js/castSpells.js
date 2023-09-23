@@ -90,7 +90,7 @@ class Spells {
                 opp.health <= 0 ? opp.health = 0 : opp.health = opp.health;
                 // prevents character health from displaying a negative number
                 document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
-                char.numberOfTurns = char.numberOfTurns + 1;
+                // char.numberOfTurns = char.numberOfTurns + 1;
                 renderFunc()
                 setTimeout(() => {
                     document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')

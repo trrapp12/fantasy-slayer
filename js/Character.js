@@ -134,7 +134,7 @@ class Character {
             this.dead = true;
             this.health = 0;
         }
-        this.numberOfTurns = this.numberOfTurns + 1;
+        // this.numberOfTurns = this.numberOfTurns + 1;
 
  }
 
@@ -169,7 +169,6 @@ class Character {
             strength, 
             renderBanner,
             totalDiceCount, 
-            turns,
             weakness, 
             weapon
         } = this;
