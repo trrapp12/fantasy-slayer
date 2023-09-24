@@ -8,11 +8,15 @@ const player2Container = document.getElementById('character-2-art');
 const mainContainer = document.getElementById('main-container');
 const attackButton = document.getElementById('attack-button')
 
+let isWaiting = false;
+let hasNotDisplayedTheMessageBefore = true
+let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
+
 function render() {
     console.log('inside render function', player1Container, player2Container, hero, villain)
     player1Container.innerHTML = hero.renderCharacter();
     player2Container.innerHTML = villain.renderCharacter();
-    setTimeout(enableAttackButton, 2500)
+    setTimeout(enableAttackButton, 1000)
 }
 
 function displayNoManaMessage () {
@@ -33,7 +37,7 @@ function displayNoManaMessage () {
             messageDiv.style.display = "none"
             console.log("messageDiv", messageDiv)
         })
-    },500)
+    }, 2500)
 }
 
 function handleFlyOuts() {
@@ -42,6 +46,39 @@ function handleFlyOuts() {
     hero.resetMultiplesForFlyOutMessage();
     villain.resetMultiplesForFlyOutMessage();
     disableAttackButton()
+}
+
+function handleSpellDeath (hero, villain) {
+
+    console.log('checking if someone is dead after spells were cast', hero.health, villain.health)
+    if (hero.health <= 0 || villain.health <= 0) {
+        console.log('one of them has health less than 0')
+        if (hero.health <= 0 && villain.health <= 0) {
+            console.log('tie')
+            setTimeout(() => {
+                endGame()
+            }, 2510)
+        } else if (hero.health <= 0) {
+            hero.dead = true;
+            console.log('hero died from casting the spell') }
+            console.log('hero is dead')
+            isWaiting = true
+            if (shuffledArray.length > 0) {
+                console.log('new character available')
+                setTimeout(() => {
+                    console.log('in new character setTimeout')
+                    hero = setNextCharacter();
+                    console.log('setNextCharacter to: ', hero)
+                    render()
+                    isWaiting = false
+                }, 2510)
+            } else {
+                villain.dead = true;
+                console.log('villain died after casting the spell')
+                endGame();
+            }
+    } 
+    render()
 }
 
 function disableAttackButton () {
@@ -61,23 +98,19 @@ function castSpells (renderFunc) {
     console.log('nextThreeCard' , nextThreeCards)
     let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
     hero.spells.appendCards(cardRendering)
-    hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render), hero.spells.removeAppendedCards)
-    // set choice handler applies the handler function, handlerCardChoice is the handler
-    render()
+    hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
+    handleSpellDeath(hero, villain)
+    // render()
 }
-
-let isWaiting = false;
-let hasNotDisplayedTheMessageBefore = true
-
 
 function attack() {
     console.log(hero.numberOfTurns)
-    hero.numberOfTurns = hero.numberOfTurns + 1;
     console.log("attack function firing" , hero.numberOfTurns)
     if (!isWaiting) {
         console.log('is not waiting')
         // creates a pause
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
+            hero.numberOfTurns = hero.numberOfTurns + 1;
             console.log('fifth turn, casting spells')
             // spell every 5th turn
             console.log('!hasNotDisplayedTheMessageBefore' , !hasNotDisplayedTheMessageBefore)
@@ -91,24 +124,8 @@ function attack() {
                 console.log('entering else statement for casting spells')
                 castSpells(render);
                 console.log('after castSpells, before render')
-                // render()
-                if (villain.dead) {
-                    endGame();
-                } else if (hero.dead) {
-                    isWaiting = true
-                    if (shuffledArray.length > 0) {
-                        setTimeout(() => {
-                            hero = setNextCharacter();
-                            render()
-                            isWaiting = false
-                        }, 2510)
-                    } else {
-                        setTimeout(() => {
-                            endGame()
-                        }, 2510)
-                    }
-                }
             }
+
         } else {
             console.log('hitting the attack else statement')
             hero.getDiceHTML(hero.currentDiceScore);
@@ -120,14 +137,18 @@ function attack() {
             disableAttackButton();
             handleFlyOuts();
             render()
-            // enableAttackButton();
             if (villain.dead) {
+                console.log('villain dead')
                 endGame();
             } else if(hero.dead) {
+                console.log('hero is dead')
                 isWaiting = true
                 if (shuffledArray.length > 0) {
+                    console.log('new character available')
                     setTimeout(() => {
+                        console.log('in new character setTimeout')
                         hero = setNextCharacter();
+                        console.log('setNextCharacter to: ', hero)
                         render()
                         isWaiting = false
                     }, 2510)
@@ -142,9 +163,6 @@ function attack() {
         
 }
 
-
-let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge']
-
 const characterOrder = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -156,7 +174,9 @@ const characterOrder = (array) => {
 let shuffledArray = characterOrder(myArray)
 
 function setNextCharacter() {
+    console.log('entered set next characters')
     const nextCharacterData = characterData[shuffledArray.shift()]
+    console.log(nextCharacterData)
     return nextCharacterData ? new Character(nextCharacterData, new Spells()) : {}
 }
 
@@ -188,10 +208,13 @@ function endGame() {
 
 document.getElementById('attack-button').addEventListener('click', attack)
 
+
+
 // create characters.  Don't move these up to the top or you get issues with initializing character's methods before characters are initialized
+
 let hero = setNextCharacter()
-let shuffledSpellArr = hero.spells.shuffleArr(spellData);
-console.log('shuffledSpellArr' , shuffledSpellArr, 'spelldata', spellData)
 const villain = new Character(characterData.zedfire)
+// shuffledSpellArr has to be below hero
+let shuffledSpellArr = hero.spells.shuffleArr(spellData);
 
 render();

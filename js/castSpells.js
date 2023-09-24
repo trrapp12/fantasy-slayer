@@ -74,24 +74,28 @@ class Spells {
     }
     // create a function to unappend cards???? ^^^^^
 
-    handleCardChoice (char, arr, opp, renderFunc) {
+    handleCardChoice (hero, arr, villain, renderFunc, handleSpellDeath) {
+        console.log('entered handleCardChoice')
         return function(evt) {
+            console.log(evt, evt.target.id)
             // console.log(evt , evt.target, evt.target.closest('.card-front-back-container').id)
             let cardClickedIndex = evt.target.id || evt.target.closest('.card-front-back-container').id
-                if (char.skill.filter(item => arr[cardClickedIndex].spell_skills_it_magnifies.includes(item)).length > 0) {
+                if (hero.skill.filter(item => arr[cardClickedIndex].spell_skills_it_magnifies.includes(item)).length > 0) {
                     // [cardClickedIndex] is set as the id in the rendering earlier to the same index as the array it's in, so it was an easy way to grab that info again instead of creating a global variable
-                    opp.health = opp.health - (arr[cardClickedIndex].spell_magnification + arr[cardClickedIndex].spell_damage)
+                    villain.health = villain.health - (arr[cardClickedIndex].spell_magnification + arr[cardClickedIndex].spell_damage)
                 } else {
-                    opp.health = opp.health - arr[cardClickedIndex].spell_damage
+                    villain.health = villain.health - arr[cardClickedIndex].spell_damage
                 }
-                char.health = (char.health + arr[cardClickedIndex].spell_heal_effect) - arr[cardClickedIndex].spell_drain_effect
+                hero.health = (hero.health + arr[cardClickedIndex].spell_heal_effect) - arr[cardClickedIndex].spell_drain_effect
                 // func() is the render function that updates the characters new stats visually
-                char.health <= 0 ? char.health = 0 : char.health = char.health;
-                opp.health <= 0 ? opp.health = 0 : opp.health = opp.health;
+                hero.health <= 0 ? hero.health = 0 : hero.health = hero.health;
+                villain.health <= 0 ? villain.health = 0 : villain.health = villain.health;
                 // prevents character health from displaying a negative number
+                console.log('inside handleCardChoice', hero.health, villain.health)
                 document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
-                // char.numberOfTurns = char.numberOfTurns + 1;
-                renderFunc()
+                // hero.numberOfTurns = hero.numberOfTurns + 1;
+                // renderFunc()
+                handleSpellDeath(hero, villain)
                 setTimeout(() => {
                     document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
                 },4000)

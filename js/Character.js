@@ -55,7 +55,9 @@ class Character {
     }
 
     getDiceHTML () {
+        console.log('getDiceHTML() firing')
         this.currentDiceScore = getDiceRollArray(this.totalDiceCount, 6);
+        console.log('this.currentDiceScore', this.currentDiceScore)
         this.renderBanner = hasDuplicates(this.currentDiceScore)
         this.indicesToChange = this.getIndexesOfDiceScoreMatches(this.currentDiceScore)
         this.diceArray = this.currentDiceScore.map((num) => {
@@ -133,9 +135,9 @@ class Character {
         if (this.health <= 0) {
             this.dead = true;
             this.health = 0;
+            console.log('death logic in takeDamage', this.dead, this.health, this)
         }
-        // this.numberOfTurns = this.numberOfTurns + 1;
-
+        this.numberOfTurns = this.numberOfTurns + 1;
  }
 
     renderCharacter () {
