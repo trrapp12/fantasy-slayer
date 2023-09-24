@@ -26,6 +26,7 @@ export function tutorial() {
             <li>Spells come in different levels. From weakest to highest are Cantrips, Evocation Mastery, Spoken Arcana, Intermediate Elemental, Arcane Domain, and Cosmic.</li>
             <li>The higher the spell level, the more damage it inflicts on the enemy, but also the more drain effect it incurs.</li>
             <li>Casting a very powerful spell by a weakened hero may inflict great damage on the villain but simultaneously kill the hero.</li>
+            <li>There is a limited amount of spells.  Once exhausted you must continue with only your dice.</li>
             <li>In both dice attacks and spells, a win is considered when at least one hero remains with at least 1 point of health when the villain is defeated.</li>
             <li>A loss is the inverse—no more health, no more hero replacements, and the villain still has health points.</li>
             <li>A tie occurs when both the villain and all heroes reach 0 health points at the same time.</li>
