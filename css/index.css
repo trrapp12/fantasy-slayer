@@ -213,7 +213,7 @@ video {
   padding: 1em 2em;
   position: absolute;
   text-align: center;
-  top: 70vh;
+  top: 84vh;
   transition: all 1s ease;
   width: 14vw;
   background-color: var(--dark-blue-hex);
@@ -705,7 +705,7 @@ button:disabled {
   width: 100%;
   z-index: 50;
   /* take out display:none when ready for production */
-  display: none;
+  /* display: none; */
 }
 
 .intro-modal-text-container {
@@ -722,7 +722,7 @@ button:disabled {
   position: absolute;
   top: 101vh;
   /* take out display:none when ready for production */
-  display: none;
+  /* display: none; */
   border-image: linear-gradient(#F4FAFC00, #D9B68B, #F4FAFC00) 1 50 100;
 }
 
@@ -818,7 +818,7 @@ button:disabled {
 
 .power-hit-hero-container {
   position: absolute;
-  left: -32vw;
+  left: -60vw;
   top: -35vh;
   z-index: 200;
   background-color: var(--dark-blue-hex);
@@ -839,7 +839,7 @@ button:disabled {
 
 .power-hit-villain-container {
   position: absolute;
-  left: 41vw;
+  left: 12vw;
   top: -35vh;
   z-index: 200;
   background-color: var(--dark-blue-hex);
@@ -858,6 +858,7 @@ button.quest-button {
   text-align: center;
   padding: 1rem 2rem;
   margin: 6rem auto 0rem auto;
+  color: var(--sand-hex);
   width: fit-content;
   cursor: pointer;
   justify-self: center;
@@ -1068,37 +1069,37 @@ button.quest-button:hover {
 
 @keyframes fly-in-right {
   0% {
-    left: 41vw;
+    left: 12vw;
   }
 
   20% {
-    left: 23vw;
+    left: -6vw;
   }
 
   80% {
-    left: 23vw;
+    left: -6vw;
   }
 
   100% {
-    left: 41vw
+    left: 12vw
   }
 }
 
 @keyframes fly-in-left {
   0% {
-    left: -32vw;
+    left: -60vw;
   }
 
   20% {
-    left: -13vw;
+    left: -45vw;
   }
 
   80% {
-    left: -13vw;
+    left: -45vw;
   }
 
   100% {
-    left: -32vw
+    left: -60vw
   }
 }
 
