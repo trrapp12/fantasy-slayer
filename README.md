@@ -31,14 +31,64 @@
 >and the great castle of Cair Paravel on the eastern sea.”
 ― C.S. Lewis, The Chronicles of Narnia
 
+For the user, this is a visually stunning fantasy quest to save the world from the grasp of an eternal threat.  You will cycle through 5 heroes and use your attack dice and your spell cards to try and conquer the evil ZedFire.  
 
-This is an example of using Object constructors and classes in Javascript.  
+For prospective employers this is a portfolio project I have put together demonstrating Object constructors and classes in Javascript.  It utilizes classes to create separate types of characters (heroes and villains), and then another set of classes to create spell cards which get integrated into the character classes.
+
+It is a great example of using JavaScript classes with complex game logic.  
 
 ---
 
 ### QUICKSTART GUIDE: 
 
 To use the app simply click on the ```View Project``` button or visit <a href="https://fantasy-slayer.com">https://fantasy-slayer.com/</a>. 
+
+<br>
+
+**Game Play**
+
+* You are the player on the left.
+
+* The enemy will appear as the player on the right.
+
+* You will play through 5 separate heroes, attempting to defeat the villain—Zedfire.
+
+* Below each character are sets of dice. White dice are the hero attack dice, black dice are the villain attack dice, and red dice are rolled for defense.
+
+* Clicking 'To Battle' will roll all the dice simultaneously for both you and the enemy.
+
+* Attack dice are six-sided, and defense dice are ten-sided.
+
+* Attack points are calculated by summing up all the dice. For example, a roll of 1, 2, 3 would result in 1 + 2 + 3 = 6.
+
+* However, there is a chance for a boosted attack. If matching dice are rolled, all matches will be multiplied instead of added. All multiplicands will be calculated first, and remaining numbers will be added. For example, a roll of 1, 3, 3 would be (3 X 3) + 1 = 10. It's possible to get multiple sets of matches. For instance, a roll of 3, 3, 4, 4, 4 would be 3 X 3 X 4 X 4 X 4 = 576.
+
+* The amount you roll for defense represents a percentage out of 100. For example, a roll of 9 would mean you defended 90% of the attack. So if your opponent's original attack was 100 points, you would only receive 10 points of damage.
+
+*Every fifth turn, heroes earn enough mana to cast a spell. When this opportunity comes, three cards will be placed face down in front of you. Click to choose a spell. But choose wisely, as not all spells are created equally.
+
+* Spells have a damage effect (how attacks are calculated), a healing effect (meaning heroes can regain life), and a drain effect (energy actually expended in casting the spell).
+
+* This means several situations can become possible.
+
+* Obviously, spells can inflict enough damage to defeat the villain.
+
+* Spells can also heal the hero, even one that is at the brink of death.
+
+* Spells come in different levels. From weakest to highest are Cantrips, Evocation Mastery, Spoken Arcana, Intermediate Elemental, Arcane Domain, and Cosmic.
+
+* The higher the spell level, the more damage it inflicts on the enemy, but also the more drain effect it incurs.
+
+* Casting a very powerful spell by a weakened hero may inflict great damage on the villain but simultaneously kill the hero.
+
+* There is a limited amount of spells.  Once exhausted you must continue with only your dice.
+
+* In both dice attacks and spells, a win is considered when at least one hero remains with at least 1 point of health when the villain is defeated.
+
+* A loss is the inverse—no more health, no more hero replacements, and the villain still has health points.
+
+* A tie occurs when both the villain and all heroes reach 0 health points at the same time.
+
 
 ---
 
@@ -47,8 +97,10 @@ To use the app simply click on the ```View Project``` button or visit <a href="h
 - [X] Javascript Classes
     
 - [X] use of this
+
+- [X] Use of call back functions to access the state of wrapper functions
     
-- [X] use of .reduce
+- [X] method chaining of .reduce() and .filter()
     
 - [X] use of utitility functions.
     
@@ -73,13 +125,17 @@ To use the app simply click on the ```View Project``` button or visit <a href="h
 
 ### MY OWN PERSONAL CONTRIBUTIONS INCLUDED 
 
-- [X] Use of multiple players
+- [X] Use JavaScript classes to create multiple players, multiple characters, and multiple spells that can be generated in random order.  
       
-- [X] Use of Fisher-Yates shuffle algorithm
+- [X] Use of Fisher-Yates shuffle algorithm for a truely random distribution in my array sorting.
+
+- [X] A visually impressive health bar that both progress/decline and updates dynamically and in conjunction with the player status.
+
+
       
-- [X] More play options (defend dice)
+- [X] More play options (defend dice), and casting spells
       
-- [X] detecting when multiples of the same dice were rolled, detected which dice they belonged to, and differentiating if between multiples of multiples (i.e. pair of 3's and 3 5's rolled)
+- [X] I added the capability to detect when multiples of the same dice were rolled, detected which dice they belonged to, and differentiating if between multiples of multiples (i.e. pair of 3's and 3 5's rolled)
       
 - [X] use of .replace()
       
