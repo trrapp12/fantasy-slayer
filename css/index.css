@@ -981,6 +981,31 @@ button.quest-button:hover {
   border: 2px solid var(--sand-hex);
 }
 
+.tutorial-sizing::-webkit-scrollbar {
+  width: 18px;
+  /* Width of the scrollbar */
+}
+
+/* To style the scrollbar thumb (the draggable handle) */
+.tutorial-sizing::-webkit-scrollbar-thumb {
+  background-color: var(--sand-hex);
+  border-radius: 5pxx;
+  background: linear-gradient(145deg, var(--sand-hex), #a08564);
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+/* To style the scrollbar track */
+.tutorial-sizing::-webkit-scrollbar-track {
+  background-color: #ddd;
+  /* Color of the scrollbar track */
+}
+
+/* To style the scrollbar track when the mouse hovers over it */
+.tutorial-sizing::-webkit-scrollbar-track:hover {
+  background-color: #aaa;
+  /* Color when hovering */
+}
+
 .unwielding {
   color: #F2A341;
   font-weight: 900;
