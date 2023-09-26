@@ -857,7 +857,6 @@ button.quest-button {
   font-size: 2rem;
   text-align: center;
   padding: 1rem 2rem;
-  margin: 6rem auto 0rem auto;
   color: var(--sand-hex);
   width: fit-content;
   cursor: pointer;
@@ -966,14 +965,20 @@ button.quest-button:hover {
 
 .tutorial-inner-border {
   border-image: linear-gradient (to bottom, rgba(217, 182, 139, 10), #D9B68B, rgba(217, 182, 139, 10)) 1 100%;
-  margin: auto;
   background-color: black;
   padding: 12%;
-  margin-top: 5%;
-  border: 2px solid var(--royal-brown-hex);
-  display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.tutorial-inner-border>ol>li {
+  margin-top: 1.5rem
+}
+
+.tutorial-sizing {
+  height: 50vh;
+  overflow-y: scroll;
+  border: 2px solid var(--sand-hex);
 }
 
 .unwielding {

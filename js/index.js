@@ -99,7 +99,7 @@ function castSpells (renderFunc) {
     let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
     hero.spells.appendCards(cardRendering)
     hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
-    handleSpellDeath(hero, villain)
+    // handleSpellDeath(hero, villain)
     // render()
 }
 

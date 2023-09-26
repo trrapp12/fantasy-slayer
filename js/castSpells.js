@@ -95,6 +95,7 @@ class Spells {
                 document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
                 // hero.numberOfTurns = hero.numberOfTurns + 1;
                 // renderFunc()
+                console.log('inside handleCardChoice, about to call handleSpellDeath.  hero is' , hero, 'villain is ', villain)
                 handleSpellDeath(hero, villain)
                 setTimeout(() => {
                     document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
