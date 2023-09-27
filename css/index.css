@@ -704,8 +704,10 @@ button:disabled {
   top: 0;
   width: 100%;
   z-index: 50;
-  /* take out display:none when ready for production */
   /* display: none; */
+  /* take display none off when ready for production */
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .intro-modal-text-container {

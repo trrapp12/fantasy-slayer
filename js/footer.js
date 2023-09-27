@@ -360,161 +360,172 @@ footerHTML.setAttribute('class', 'footer')
                 </p>
             </li>
             <li>
-            <p>
-                'Empress. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586721156, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
+              <p>
+                  'Empress. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586721156, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Temperance. Esoteric Tarot card. Digital printable illustration. Generative AI', file #586721890, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Chariot. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586720941, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Star. Mystical witchcraft Tarot card. Digital printable illustration. Generative AI', file #586721617, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Moon. Magical spiritual Tarot card. Digital printable illustration. Generative AI', file #586721576, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Magician. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586721539, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Strength. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586721686, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Tower. Divination Tarot card. Digital printable illustration. Generative AI', file #586721988, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Hermit. Mystical witchcraft Tarot card. Digital printable illustration. Generative AI', file #586721256, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Hierophant. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586721293, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Fool. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586721186, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Emperor. Divination Tarot card. Digital printable illustration. Generative AI', file #586721119, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Justice. Divination Tarot card. Digital printable illustration. Generative AI', file #586721473, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Judgement. Esoteric Tarot card. Digital printable illustration. Generative AI', file #586721395, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Wheel of fortune. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586722101, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Sun. Classic Tarot card. Digital printable illustration. Generative AI', file #586721791, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'High priestess. Classic Tarot card. Digital printable illustration. Generative AI', file #586721343, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Death. Classic Tarot card. Digital printable illustration. Generative AI', file #586721011, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Lovers. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586721507, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'World. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586722142, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
+                  title="">BubertArt</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'A Starry Soothsayer: An Astrologer Tells Fortunes Against the Backdrop of Space - Generative AI', file #572721527, by <a href="https://stock.adobe.com/contributor/208618624/rysak?load_type=author&prev_url=detail"
+                  title="">Rysak</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Glowing blooming lotus with moon phases ornament', file #551207648, by <a href="https://stock.adobe.com/contributor/209688465/ekosuwandono?load_type=author&prev_url=detail"
+                  title="">ekosuwandono</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Cinematic and Atmospheric Close-up Shot of Scales that Lady Justice is Holding. The Statue is Blindfolded and Holding Sword. A Title Sequence for Court Show Mock-up.', file #583211956, by <a href="https://stock.adobe.com/contributor/210776841/im-imagery?load_type=author&prev_url=detail"
+                  title="">IM Imagery</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Powerful female in medieval armor of Joan of Arc lowering sword covered with blood and looking at camera after victory on battlefield. Strong medieval woman with bloodstained sword', file #396656517, by <a href="https://stock.adobe.com/contributor/205110669/procinemastock?load_type=author&prev_url=detail"
+                  title="">procinemastock</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'A faceless wraith lingers in the air the veil of death forever shrouding it. Fantasy art. AI generation.', file #630909246, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=630909246#:~:text=By-,Justlight,-Save%20to%20Library"
+                  title="">Justlight</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Sketch of game classes of multiplayer games. Mage, Warrior, Archer, Healer, Lancer and Berserk hand drawn isolated', file #320941009, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=320941009#:~:text=By-,Travel%20Drawn,-Save%20to%20Library"
+                  title="">Travel Dawn</a> used with Adobe Standard License.
+              </p>
+            </li>
+            <li>
+              <p>
+                  'Sketch of game classes of multiplayer games. Mage, Warrior, Archer, Healer, Lancer and Berserk hand drawn isolated', file #320941009, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=320941009#:~:text=By-,Travel%20Drawn,-Save%20to%20Library"
+                  title="">Travel Dawn</a> used with Adobe Standard License.
+              </p>
             </li>
             <li>
             <p>
-                'Temperance. Esoteric Tarot card. Digital printable illustration. Generative AI', file #586721890, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
+                The original idea for this came from a <a href="https://scrimba.com">Scrimba's</a> Front End Career Path certification.  That being said, I have completely revamped the project and added significant functionality.  For a fair comparison you can see the the original project <a href="https://scrimba.com/learn/frontend/congratulations-on-completing-module-7--coc0444f5aa8d25f994ea9ede">here</a>.  Much thanks to Tom Chant and the people at Scrimba for providing great instruction.  
             </p>
-            </li>
-            <li>
-            <p>
-                'Chariot. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586720941, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Star. Mystical witchcraft Tarot card. Digital printable illustration. Generative AI', file #586721617, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Moon. Magical spiritual Tarot card. Digital printable illustration. Generative AI', file #586721576, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Magician. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586721539, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Strength. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586721686, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Tower. Divination Tarot card. Digital printable illustration. Generative AI', file #586721988, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Hermit. Mystical witchcraft Tarot card. Digital printable illustration. Generative AI', file #586721256, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Hierophant. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586721293, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Fool. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586721186, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Emperor. Divination Tarot card. Digital printable illustration. Generative AI', file #586721119, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Justice. Divination Tarot card. Digital printable illustration. Generative AI', file #586721473, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Judgement. Esoteric Tarot card. Digital printable illustration. Generative AI', file #586721395, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Wheel of fortune. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586722101, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Sun. Classic Tarot card. Digital printable illustration. Generative AI', file #586721791, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'High priestess. Classic Tarot card. Digital printable illustration. Generative AI', file #586721343, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Death. Classic Tarot card. Digital printable illustration. Generative AI', file #586721011, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Lovers. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586721507, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'World. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586722142, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                title="">BubertArt</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'A Starry Soothsayer: An Astrologer Tells Fortunes Against the Backdrop of Space - Generative AI', file #572721527, by <a href="https://stock.adobe.com/contributor/208618624/rysak?load_type=author&prev_url=detail"
-                title="">Rysak</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Glowing blooming lotus with moon phases ornament', file #551207648, by <a href="https://stock.adobe.com/contributor/209688465/ekosuwandono?load_type=author&prev_url=detail"
-                title="">ekosuwandono</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Cinematic and Atmospheric Close-up Shot of Scales that Lady Justice is Holding. The Statue is Blindfolded and Holding Sword. A Title Sequence for Court Show Mock-up.', file #583211956, by <a href="https://stock.adobe.com/contributor/210776841/im-imagery?load_type=author&prev_url=detail"
-                title="">IM Imagery</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Powerful female in medieval armor of Joan of Arc lowering sword covered with blood and looking at camera after victory on battlefield. Strong medieval woman with bloodstained sword', file #396656517, by <a href="https://stock.adobe.com/contributor/205110669/procinemastock?load_type=author&prev_url=detail"
-                title="">procinemastock</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'A faceless wraith lingers in the air the veil of death forever shrouding it. Fantasy art. AI generation.', file #630909246, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=630909246#:~:text=By-,Justlight,-Save%20to%20Library"
-                title="">Justlight</a> used with Adobe Standard License.
-            </p>
-            </li>
-            <li>
-            <p>
-                'Sketch of game classes of multiplayer games. Mage, Warrior, Archer, Healer, Lancer and Berserk hand drawn isolated', file #320941009, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=320941009#:~:text=By-,Travel%20Drawn,-Save%20to%20Library"
-                title="">Travel Dawn</a> used with Adobe Standard License.
-            </p>
-            </li>
+          </li>
             
             
           </ul>
