@@ -42,11 +42,5 @@ import { tutorial } from './tutorial.js'
     
     // Start observing the target node
     observer.observe(targetNode, config);
-
-    setTimeout(() => {
-      targetNode.classList.add('new-class');
-      // observer.disconnect()
-    }, 2000);
-    
     
   })

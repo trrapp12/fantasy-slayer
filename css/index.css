@@ -231,7 +231,7 @@ video {
 button:disabled {
   border: 2px solid white;
   background-color: rgba(88, 22, 22, 0.278);
-  color: rgb(149, 149, 149);
+  color: rgba(255, 254, 254, 0);
   pointer-events: none;
 }
 

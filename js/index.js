@@ -16,7 +16,7 @@ function render() {
     console.log('inside render function', player1Container, player2Container, hero, villain)
     player1Container.innerHTML = hero.renderCharacter();
     player2Container.innerHTML = villain.renderCharacter();
-    setTimeout(enableAttackButton, 1000)
+    setTimeout(enableAttackButton, 3500)
 }
 
 function displayNoManaMessage () {
