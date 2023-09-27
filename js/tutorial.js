@@ -1,4 +1,5 @@
 export function tutorial() {
+    const title = document.getElementById('title')
     const docBody = document.getElementsByTagName('body')[0];
     const container = document.createElement('div')
     container.setAttribute('id', 'tutorial-modal-container')
@@ -39,7 +40,11 @@ export function tutorial() {
     container.innerHTML = content
     docBody.insertAdjacentElement("afterbegin", container)
     document.getElementById('quest-button').addEventListener('click', () => {
-        container.style.display = 'none'
+        container.style.display = 'none';
+        title.classList.add('backlight');
+        setTimeout(() => {
+            title.classList.add('title-disappear')
+        }, 5350)
 })
 };
     

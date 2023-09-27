@@ -263,7 +263,7 @@ button:disabled {
 
 .backlight {
   animation-name: backlight;
-  animation-duration: 10250ms;
+  animation-duration: 5250ms;
 }
 
 .belligerent {
@@ -953,9 +953,11 @@ button.quest-button:hover {
   margin-bottom: 2rem;
   text-align: center;
   text-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+
+.title-disappear {
   animation-name: title-disappear;
   animation-duration: 3000ms;
-  animation-delay: 69500ms;
   animation-fill-mode: forwards;
 }
 

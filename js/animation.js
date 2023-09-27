@@ -1,6 +1,6 @@
 import { tutorial } from './tutorial.js'
 
-  const title = document.getElementById('title')
+
   const introModal = document.getElementById('intro-modal');
   const introModalClose = document.getElementById('intro-modal-text-container');
   const skipIntroButton = document.getElementById('skip-intro')
@@ -10,10 +10,6 @@ import { tutorial } from './tutorial.js'
     introModal.style.display = "none"
   })
   window.addEventListener('load', () => {
-    setTimeout(() => {
-      title.classList.add('backlight');
-      
-    }, 6900)
     setTimeout(() => {
       introModal.style.display = "none"
       introModal.style.animation = "none"
