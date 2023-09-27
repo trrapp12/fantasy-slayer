@@ -872,7 +872,7 @@ button.quest-button:hover {
   font-size: 2rem;
   text-align: center;
   padding: 1rem 2rem;
-  margin: 6rem auto 0rem auto;
+  margin: 0rem auto 0rem auto;
   width: fit-content;
   cursor: pointer;
   justify-self: center;
