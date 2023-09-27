@@ -24,6 +24,9 @@ import { tutorial } from './tutorial.js'
         if(mutation.type === 'attributes' && mutation.attributeName === 'style') {
           console.log('Class attribute style.');
           setTimeout(tutorial, 5)
+          setTimeout(() => {
+            observer.disconnect()
+          }, 10)
         }
       }
     })
@@ -38,6 +41,7 @@ import { tutorial } from './tutorial.js'
 
     setTimeout(() => {
       targetNode.classList.add('new-class');
+      // observer.disconnect()
     }, 2000);
     
     
