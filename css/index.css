@@ -608,6 +608,7 @@ button:disabled {
   perspective: 2000px;
   transform: perspective(1100px) rotate3d(0, 1, 0, 170deg);
   -webkit-transform: perspective(1100px) rotate3d(0, 1, 0, 170deg);
+  min-width: fit-content;
 }
 
 .flip-card-inner {
@@ -617,6 +618,7 @@ button:disabled {
   transition: transform 2s;
   transform-style: preserve-3d;
   width: 100%;
+  min-width: fit-content;
   -webkit-transform-style: preserve-3d;
 }
 
@@ -634,6 +636,11 @@ button:disabled {
   -webkit-backface-visibility: hidden;
   /* Safari */
   width: 100%;
+  min-width: fit-content;
+}
+
+.flip-card-front>div {
+  min-width: fit-content;
 }
 
 .flip-card-front {

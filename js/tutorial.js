@@ -45,6 +45,9 @@ export function tutorial() {
         setTimeout(() => {
             title.classList.add('title-disappear')
         }, 5350)
+        setTimeout(()=> {
+            title.style.display = 'none'
+        }, 8400)
 })
 };
     
