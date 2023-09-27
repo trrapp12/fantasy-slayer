@@ -88,7 +88,7 @@ body {
   overflow-y: hidden;
 }
 
-button:not(.attack-button) {
+button:not(.attack-button, .skip-intro) {
   background-color: #fcc02a;
   border: 2px solid #963404;
   border-radius: 6px;
@@ -708,6 +708,46 @@ button:disabled {
   /* take display none off when ready for production */
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+.skip-intro {
+  border: none;
+  font-family: angars-runes;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 2rem;
+  color: var(--sand-hex);
+  width: fit-content;
+  cursor: pointer;
+  justify-self: center;
+  background-color: black;
+  box-shadow: 0px 0px 20px white;
+  transition: 200ms all linear;
+  position: sticky;
+  left: 67vw;
+  top: 2vh;
+  transform: translateX(19vw) translateY(10vh) translateZ(0);
+  padding: 1rem 3rem;
+  margin-top: 2rem;
+  z-index: 1000;
+}
+
+.skip-intro:hover {
+  border: none;
+  font-family: angars-runes;
+  font-size: 2rem;
+  text-align: center;
+  width: fit-content;
+  cursor: pointer;
+  justify-self: center;
+  background-color: rgba(19, 19, 19, 0.073);
+  box-shadow: 0px 0px 10px white;
+  transform: scale(1.1);
+  transition: 200ms all linear;
+  position: sticky;
+  left: 67vw;
+  top: 2vh;
+  transform: translateX(19vw) translateY(10vh) translateZ(0) scale(1.1);
 }
 
 .intro-modal-text-container {

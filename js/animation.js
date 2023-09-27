@@ -2,9 +2,13 @@ import { tutorial } from './tutorial.js'
 
   const title = document.getElementById('title')
   const introModal = document.getElementById('intro-modal');
-  
   const introModalClose = document.getElementById('intro-modal-text-container');
+  const skipIntroButton = document.getElementById('skip-intro')
 
+  skipIntroButton.addEventListener('click', (evt) => {
+    console.log('skip tutorial button clicked')
+    introModal.style.display = "none"
+  })
   window.addEventListener('load', () => {
     setTimeout(() => {
       title.classList.add('backlight');
