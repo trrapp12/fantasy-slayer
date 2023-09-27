@@ -213,7 +213,7 @@ video {
   padding: 1em 2em;
   position: absolute;
   text-align: center;
-  top: 84vh;
+  top: 62vh;
   transition: all 1s ease;
   width: 14vw;
   background-color: var(--dark-blue-hex);
