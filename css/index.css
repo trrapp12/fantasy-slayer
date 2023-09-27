@@ -525,7 +525,7 @@ button:disabled {
 
 .credits-modal>.exit-button {
   font-size: 2rem;
-  color: var(--sand-hex);
+  color: var(--royal-brown-hex);
   position: sticky;
   top: 0rem;
   left: 5vw;
@@ -535,7 +535,7 @@ button:disabled {
   align-self: start;
   justify-self: left;
   box-shadow: 0 0 10px;
-  border: 1px solid var(--sand-hex);
+  border: 1px solid var(--royal-brown-hex);
   max-width: 3.25rem;
   border-radius: 27%;
   display: flex;
@@ -780,7 +780,7 @@ button:disabled {
 }
 
 .modal-height {
-  background-color: white;
+  font-size: var(--dark-blue-rgba);
   backdrop-filter: blur(5px);
   color: var(--sand-hex);
   display: flex;
@@ -795,6 +795,8 @@ button:disabled {
   top: -100vh;
   width: 100vw;
   z-index: 1000;
+  background-color: white;
+  color: var(--royal-brown-hex);
 }
 
 .nav--toaster-text {
