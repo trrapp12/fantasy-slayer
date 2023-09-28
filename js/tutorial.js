@@ -2,6 +2,7 @@ export function tutorial() {
     const title = document.getElementById('title')
     const docBody = document.getElementsByTagName('body')[0];
     const container = document.createElement('div')
+    const attackButton = document.getElementById('attack-button')
     container.setAttribute('id', 'tutorial-modal-container')
     const content = `
         <h1>Welcome to Fantasy Slayer</h1>
@@ -47,6 +48,7 @@ export function tutorial() {
         }, 5350)
         setTimeout(()=> {
             title.style.display = 'none'
+            attackButton.classList.remove('display-none')
         }, 8400)
 })
 };

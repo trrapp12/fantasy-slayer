@@ -671,6 +671,7 @@ button:disabled {
   width: 100%;
   border: 5px solid var(--sand-hex);
   border-radius: 25px;
+  transition: all 1s ease-in;
 }
 
 .flip-card-back>p {

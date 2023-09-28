@@ -143,6 +143,7 @@
     max-height: 70%;
     max-width: 95vw;
     width: auto;
+    justify-self: center;
 }
 
 .icon-container {
@@ -164,6 +165,7 @@
     transform-style: preserve-3d;
     perspective: 1500px;
     top: 5vh;
+    transition: all 1s ease-in;
 }
 
 /* .card-front-back-container>div:hover {
@@ -175,13 +177,14 @@
 } */
 
 .disappear {
-    animation: 1500ms ease 3000ms;
+    animation: 1000ms ease 5000ms;
     animation-name: disappear;
     animation-fill-mode: forwards;
 }
 
 .flip {
     transform: rotateY(180deg);
+    transition: all 1s ease-in;
 }
 
 .no-more-spells {
@@ -243,6 +246,11 @@
     transform: rotateY(180deg);
     transition: all 1500ms;
     width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .gather-left-cards {

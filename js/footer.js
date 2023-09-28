@@ -15,7 +15,7 @@ footerHTML.setAttribute('class', 'footer')
     </div>
     <div class="footer-info">
       <p>
-        <a href="https://github.com/trrapp12">More from the author</a>
+        <a href="https://github.com/trrapp12">More from the Creator</a>
       </p>
     </div>
     <div class="footer-info">

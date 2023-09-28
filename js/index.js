@@ -49,36 +49,49 @@ function handleFlyOuts() {
 }
 
 function handleSpellDeath (hero, villain) {
-
     console.log('checking if someone is dead after spells were cast', hero.health, villain.health)
-    if (hero.health <= 0 || villain.health <= 0) {
-        console.log('one of them has health less than 0')
-        if (hero.health <= 0 && villain.health <= 0) {
-            console.log('tie')
+        render()
+        if (isDead(hero, villain)) {
+            if (hero.dead && villain.dead) {
+                setTimeout(() => {
+                    endGame()
+                }, 9000)
+            } else if (hero.dead) {
+                console.log('hero is dead')
+                isWaiting = true
+                if (shuffledArray.length > 0) {
+                    console.log('new character available')
+                    setTimeout(() => {
+                        console.log('in new character setTimeout')
+                        hero = setNextCharacter();
+                        console.log('setNextCharacter to: ', hero)
+                        render()
+                        isWaiting = false
+                    }, 9000)
+            }
+        } else {
+            console.log('villain dead')
             setTimeout(() => {
                 endGame()
-            }, 2510)
-        } else if (hero.health <= 0) {
-            hero.dead = true;
-            console.log('hero died from casting the spell') }
-            console.log('hero is dead')
-            isWaiting = true
-            if (shuffledArray.length > 0) {
-                console.log('new character available')
-                setTimeout(() => {
-                    console.log('in new character setTimeout')
-                    hero = setNextCharacter();
-                    console.log('setNextCharacter to: ', hero)
-                    render()
-                    isWaiting = false
-                }, 2510)
-            } else {
-                villain.dead = true;
-                console.log('villain died after casting the spell')
-                endGame();
-            }
-    } 
-    render()
+            }, 9000);
+        }
+    }
+}
+
+function isDead(hero, villain) {
+    if (hero.health <= 0 && villain.health <= 0) {
+        villain.dead = true;
+        hero.dead = true
+        return true;
+    } else if(hero.health <= 0) {
+        hero.dead = true
+        return true;
+    } else if(villain.health <=0) {
+        villain.dead = true;
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function disableAttackButton () {
@@ -123,6 +136,9 @@ function attack() {
             } else {
                 console.log('entering else statement for casting spells')
                 castSpells(render);
+                // setTimeout(() => {
+                //     render()
+                // }, 8500)
                 console.log('after castSpells, before render')
             }
 
@@ -184,13 +200,13 @@ function endGame() {
     isWaiting = true;
     
     const videoSource = document.getElementById('background-video')
-    const villainMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...Zedfire has won!</h1><video id="background-video" autoplay muted>
+    const villainMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...<strong>You have lost and Zedfire has won!</strong></h1><video id="background-video" autoplay muted>
     <source id="video-source" src="./assets/assets/AdobeStock_630909246.mov" type="video/mp4">
     </video>`
-    const heroMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >Only the integrity and fielty of a hero, combined with the unforseeable but infatigable friendship of this group of misfits could have saved us from such evil.</h1><video id="background-video" autoplay muted>
+    const heroMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" ><strong>You win!</strong>  Only the integrity and fielty of a hero, combined with the unforseeable but infatigable friendship of this group of misfits could have saved us from such evil.</h1><video id="background-video" autoplay muted>
     <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
     </video>`
-    const tieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >The Gods have not seen fit to determine how to which side to tip the scales of justice.  Both Hero and Villain have languised.  It seems it will lay with another to determine the outcome of this story.</h1><video id="background-video" autoplay muted>
+    const tieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >The Gods have not seen fit to determine how to which side to tip the scales of justice.  Both Hero and Villain have languised.  <strong>It is a draw</strong>It seems it will lay with another to determine the outcome of this story.</h1><video id="background-video" autoplay muted>
     <source id="video-source" src="./assets/assets/AdobeStock_583211956.mov" type="video/mp4">
     </video>`
     
