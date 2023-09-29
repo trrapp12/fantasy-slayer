@@ -48,18 +48,27 @@ function handleFlyOuts() {
     disableAttackButton()
 }
 
+function endGameWithDelay() {
+    setTimeout(() => {
+        endGame()
+    }, 2500)
+}
+
 function handleSpellDeath (hero, villain) {
+
     console.log('checking if someone is dead after spells were cast', hero.health, villain.health)
-        render()
-        if (isDead(hero, villain)) {
+            console.log('someone is dead after spells were cast')
+            // at this point someone is dead.  Options are: hero and villain, just hero, just villain
             if (hero.dead && villain.dead) {
-                setTimeout(() => {
-                    endGame()
-                }, 9000)
+                // both are dead
+                console.log('After Spells: both dead')
+                endGameWithDelay()
             } else if (hero.dead) {
-                console.log('hero is dead')
+                // hero is dead, are there more heroes?
+                console.log('After Spells: hero is dead')
                 isWaiting = true
                 if (shuffledArray.length > 0) {
+                    // there are still characters left
                     console.log('new character available')
                     setTimeout(() => {
                         console.log('in new character setTimeout')
@@ -67,32 +76,40 @@ function handleSpellDeath (hero, villain) {
                         console.log('setNextCharacter to: ', hero)
                         render()
                         isWaiting = false
-                    }, 9000)
-            }
-        } else {
-            console.log('villain dead')
-            setTimeout(() => {
-                endGame()
-            }, 9000);
-        }
-    }
-}
+                    }, 2510)
+                } else {
+                    // no more characters left
+                    console.log('After Spells: all heroes are dead, no more characters left')
+                    endGameWithDelay()
+                }
+            } else {
+                // villain is dead
+                console.log('After Spells: villain dead')
+                endGameWithDelay()
+            } 
+        } 
 
-function isDead(hero, villain) {
-    if (hero.health <= 0 && villain.health <= 0) {
-        villain.dead = true;
-        hero.dead = true
-        return true;
-    } else if(hero.health <= 0) {
-        hero.dead = true
-        return true;
-    } else if(villain.health <=0) {
-        villain.dead = true;
-        return true;
-    } else {
-        return false;
-    }
-}
+
+// function isDead(hero, villain) {
+//     console.log('inside is dead function')
+//     if (hero.health <= 0 && villain.health <= 0) {
+//         console.log('both dead')
+//         villain.dead = true;
+//         hero.dead = true
+//         return true;
+//     } else if(hero.health <= 0) {
+//         console.log('hero dead')
+//         hero.dead = true
+//         return true;
+//     } else if(villain.health <=0) {
+//         console.log('villain dead')
+//         villain.dead = true;
+//         return true;
+//     } else {
+//         console.log('no one is dead')
+//         return false;
+//     }
+// }
 
 function disableAttackButton () {
     console.log('attackButton.disabled', attackButton.disabled)
@@ -106,14 +123,18 @@ function enableAttackButton () {
     console.log('attackButton.disabled', attackButton.disabled)
 }
 
-function castSpells (renderFunc) {
+function castSpells () {
     let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
     console.log('nextThreeCard' , nextThreeCards)
     let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
     hero.spells.appendCards(cardRendering)
     hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
-    // handleSpellDeath(hero, villain)
-    // render()
+    console.log('right before if statement, hero.health, villain.health', hero.health, villain.health)
+    // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
+    // if (hero.health <= 0 || villain.health <= 0) {
+    //     console.log('someone is dead after spells were cast')
+    //     handleSpellDeath(hero, villain)
+    // }
 }
 
 function attack() {
@@ -122,12 +143,13 @@ function attack() {
     if (!isWaiting) {
         console.log('is not waiting')
         // creates a pause
-        if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
+        if (hero.numberOfTurns % 1 === 0 && hero.numberOfTurns >= 0) {
             hero.numberOfTurns = hero.numberOfTurns + 1;
             console.log('fifth turn, casting spells')
             // spell every 5th turn
             console.log('!hasNotDisplayedTheMessageBefore' , !hasNotDisplayedTheMessageBefore)
             if (!hasNotDisplayedTheMessageBefore) {
+                console.log('hasNotDisplayedTheMessageBefore is false')
                 return 
             } else if (shuffledSpellArr.length === 0) {
                 console.log('mana has displayed before')
@@ -135,13 +157,14 @@ function attack() {
                 return
             } else {
                 console.log('entering else statement for casting spells')
-                castSpells(render);
-                // setTimeout(() => {
-                //     render()
-                // }, 8500)
-                console.log('after castSpells, before render')
+                castSpells();
+                // can't put if logic after this because it evaluates before the event listener
+                // console.log('immediately after C    astSpells(), hero health and villain health', hero.health, villain.health)
+                //     if (hero.health <= 0 || villain.health <= 0) {
+                //         console.log('someone is dead after spells were cast')
+                //         handleSpellDeath(hero, villain)
+                //     }
             }
-
         } else {
             console.log('hitting the attack else statement')
             hero.getDiceHTML(hero.currentDiceScore);
@@ -155,8 +178,8 @@ function attack() {
             render()
             if (villain.dead) {
                 console.log('villain dead')
-                endGame();
-            } else if(hero.dead) {
+                endGameWithDelay()
+            } else if (hero.dead) {
                 console.log('hero is dead')
                 isWaiting = true
                 if (shuffledArray.length > 0) {
@@ -169,9 +192,7 @@ function attack() {
                         isWaiting = false
                     }, 2510)
                 } else {
-                    setTimeout(() => {
-                        endGame()
-                    }, 2510)
+                    endGameWithDelay()
                 }
             }
         }
@@ -200,15 +221,31 @@ function endGame() {
     isWaiting = true;
     
     const videoSource = document.getElementById('background-video')
-    const villainMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...<strong>You have lost and Zedfire has won!</strong></h1><video id="background-video" autoplay muted>
-    <source id="video-source" src="./assets/assets/AdobeStock_630909246.mov" type="video/mp4">
-    </video>`
-    const heroMovieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" ><strong>You win!</strong>  Only the integrity and fielty of a hero, combined with the unforseeable but infatigable friendship of this group of misfits could have saved us from such evil.</h1><video id="background-video" autoplay muted>
-    <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
-    </video>`
-    const tieHTML = `<h1 style="margin: 4em auto auto auto; color: white; width: 70%; text-align: center;" >The Gods have not seen fit to determine how to which side to tip the scales of justice.  Both Hero and Villain have languised.  <strong>It is a draw</strong>It seems it will lay with another to determine the outcome of this story.</h1><video id="background-video" autoplay muted>
-    <source id="video-source" src="./assets/assets/AdobeStock_583211956.mov" type="video/mp4">
-    </video>`
+    const villainMovieHTML = `
+        <div class="ending-message-container">
+            <h1>As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...<span class="ending-message">You have lost and Zedfire has won!</span></h1>
+            <video id="background-video" autoplay muted>
+                <source id="video-source" src="./assets/assets/AdobeStock_630909246.mov" type="video/mp4">
+            </video>
+            <button class="quest-button" id="reset-button">Play Again</button>
+        </div>`
+
+    const heroMovieHTML = `
+        <div class="ending-message-container">
+            <h1><span class="ending-message">You win!</span>  Only the integrity and fielty of a hero, combined with the unforseeable but infatigable friendship of this group of misfits could have saved us from such evil.</h1>
+            <video id="background-video" autoplay muted>
+                <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
+            </video>
+            <button class="quest-button" id="reset-button">Play Again</button>
+        </div>`
+    const tieHTML = `
+        <div class="ending-message-container">
+            <h1>The Gods have not seen fit to determine how to which side to tip the scales of justice.  Both Hero and Villain have languised.  <span class="ending-message">It is a draw</span>It seems it will lay with another to determine the outcome of this story.</h1>
+            <video id="background-video" autoplay muted>
+                <source id="video-source" src="./assets/assets/AdobeStock_583211956.mov" type="video/mp4">
+            </video>
+            <button class="quest-button" id="reset-button">Play Again</button>
+        </div>`
     
     if (villain.health <=0 && hero.health <=0) {
         mainContainer.innerHTML = tieHTML;
@@ -220,6 +257,9 @@ function endGame() {
         mainContainer.innerHTML = villainMovieHTML;
         videoSource.load()
     }
+    document.getElementById('reset-button').addEventListener('click', () => {
+        location.reload()
+    })
 }
 
 document.getElementById('attack-button').addEventListener('click', attack)

@@ -549,6 +549,40 @@ button:disabled {
   border: 2px solid (var--light-blue-hex);
 }
 
+.ending-message {
+  color: rgb(220 26 26);
+}
+
+.ending-message-container {
+  max-width: 56vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.ending-message-container>.quest-button {
+  background-color: #00000000;
+  margin: 2rem auto auto auto;
+}
+
+.ending-message-container>.quest-button:hover {
+  justify-self: center;
+  transform: scale(1.1);
+  transition: 200ms all linear;
+  margin: 2rem auto auto auto;
+}
+
+.ending-message-container>h1 {
+  margin: 4em auto auto auto;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+  text-shadow: 0px 0px 11px black;
+}
+
 .extended {
   left: 0;
   position: fixed;
@@ -870,7 +904,7 @@ button:disabled {
 
 .power-hit-hero-container {
   position: absolute;
-  left: -60vw;
+  left: -62vw;
   top: -35vh;
   z-index: 200;
   background-color: var(--dark-blue-hex);
@@ -879,7 +913,7 @@ button:disabled {
   padding: 2em;
   border: 5px inset;
   color: var(--sand-hex);
-  height: 15vw;
+  height: 13vw;
 }
 
 .power-hit-villain {
@@ -900,7 +934,7 @@ button:disabled {
   padding: 2em;
   border: 5px inset;
   color: var(--sand-hex);
-  height: 15vw;
+  height: 13vw;
 }
 
 button.quest-button {

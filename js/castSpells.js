@@ -74,11 +74,9 @@ class Spells {
     }
     // create a function to unappend cards???? ^^^^^
 
-    handleCardChoice (hero, arr, villain, renderFunc, handleSpellDeath) {
+    handleCardChoice (hero, arr, villain, render, handleSpellDeath) {
         console.log('entered handleCardChoice')
         return function(evt) {
-            console.log(evt, evt.target.id)
-            // console.log(evt , evt.target, evt.target.closest('.card-front-back-container').id)
             let cardClickedIndex = evt.target.id || evt.target.closest('.card-front-back-container').id
                 if (hero.skill.filter(item => arr[cardClickedIndex].spell_skills_it_magnifies.includes(item)).length > 0) {
                     // [cardClickedIndex] is set as the id in the rendering earlier to the same index as the array it's in, so it was an easy way to grab that info again instead of creating a global variable
@@ -87,24 +85,25 @@ class Spells {
                     villain.health = villain.health - arr[cardClickedIndex].spell_damage
                 }
                 hero.health = (hero.health + arr[cardClickedIndex].spell_heal_effect) - arr[cardClickedIndex].spell_drain_effect
-                // func() is the render function that updates the characters new stats visually
                 hero.health <= 0 ? hero.health = 0 : hero.health = hero.health;
                 villain.health <= 0 ? villain.health = 0 : villain.health = villain.health;
                 // prevents character health from displaying a negative number
                 console.log('inside handleCardChoice', hero.health, villain.health)
+                if (hero.health <= 0 || villain.health <= 0) {
+                    console.log('inside handleCardChoice, someone is dead')
+                    setTimeout(() => {
+                        render()
+                        handleSpellDeath(hero, villain)
+                    }, 8150)
+                } else {
+                    console.log('After Spells: no one is dead')
+                    render()
+                }
                 document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
-                // hero.numberOfTurns = hero.numberOfTurns + 1;
-                // renderFunc()
-                console.log('inside handleCardChoice, about to call handleSpellDeath.  hero is' , hero, 'villain is ', villain)
                 setTimeout(() => {
                     document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
-                },6000)
-                setTimeout(() => {
-                    console.log('inside set timeout that is supposed to do render func and handle spell death together')
-                    // renderFunc();
-                    handleSpellDeath(hero, villain);
-                }, 8500)
-                
+                    console.log('inside set timeout that handles the card flip')
+                },6000) 
         }
     }
     
