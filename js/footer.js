@@ -10,12 +10,12 @@ footerHTML.setAttribute('class', 'footer')
     </div>
     <div class="footer-info">
       <p>
-        <a href="mailto: trrapp@gmail.com">Contact me</a>
+        <a href="mailto: trrapp@gmail.com" target="_blank" rel="noopener noreferrer">Contact me</a>
       </p>
     </div>
     <div class="footer-info">
       <p>
-        <a href="https://github.com/trrapp12">More from the Creator</a>
+        <a href="https://github.com/trrapp12" target="_blank" rel="noopener noreferrer">More from the Creator</a>
       </p>
     </div>
     <div class="footer-info">
@@ -48,8 +48,8 @@ footerHTML.setAttribute('class', 'footer')
                 English healend), a noun use of a present participle, being a rough translation of the name (see
                 Joshua) or of Latin salvator.
               </blockquote>
-              <p>see <a href="https://www.etymonline.com/search?q=haeland">Healer</a>,
-                on <a href="https://www.etymonline.com/">etymonline</a></p>
+              <p>see <a href="https://www.etymonline.com/search?q=haeland" target="_blank" rel="noopener noreferrer">Healer</a>,
+                on <a href="https://www.etymonline.com/" target="_blank" rel="noopener noreferrer">etymonline</a></p>
             </li>
             <li>
               <p class="bold-underline">ignis fatuus (n.)</p>
@@ -57,9 +57,9 @@ footerHTML.setAttribute('class', 'footer')
                 igneous +
                 fatuous. "It seems to have been formerly a common phenomenon; but is now exceedingly rare" [OED].
               </blockquote>
-              <p>see <a href="https://www.etymonline.com/search?q=ignis%20fatuus&ref=searchbar_searchhint">ignis
+              <p>see <a href="https://www.etymonline.com/search?q=ignis%20fatuus&ref=searchbar_searchhint" target="_blank" rel="noopener noreferrer">ignis
                   fatuus</a>,
-                on <a href="https://www.etymonline.com/">etymonline</a></p>
+                on <a href="https://www.etymonline.com/" target="_blank" rel="noopener noreferrer">etymonline</a></p>
             </li>
             <li>
               <p class="bold-underline">Vliecke (n.)</p>
@@ -71,8 +71,8 @@ footerHTML.setAttribute('class', 'footer')
                 Low German fliuca, Middle Dutch vliecke), from PIE *pluk- "to fly," extended form of root *pleu- "to
                 flow."
               </blockquote>
-              <p>see <a href="https://www.etymonline.com/search?q=Vliecke">Vliecke</a>, on <a
-                  href="https://www.etymonline.com/">etymonline</a></p>
+              <p>see <a href="https://www.etymonline.com/search?q=Vliecke" target="_blank" rel="noopener noreferrer">Vliecke</a>, on <a
+                  href="https://www.etymonline.com/" target="_blank" rel="noopener noreferrer">etymonline</a></p>
             </li>
             <li>
               <p class="bold-underline">Dismorgrify</p>
@@ -91,7 +91,7 @@ footerHTML.setAttribute('class', 'footer')
                 verify if I was the first to use it, I could not find the word in any dictionary. My search of the OED
                 found 0 results, a search of ChapGPT found
                 0 results. However, an obscure article <a
-                  href="http://www.vincentstarrett.com/blog/2021/1/2/christopher-morley-goes-to-texas">
+                  href="http://www.vincentstarrett.com/blog/2021/1/2/christopher-morley-goes-to-texas" target="_blank" rel="noopener noreferrer">
                   Studies in Starrett</a> quotes a Christopher Morley as using the term 'dismorgrified intuitions.' As
                 there seems to be no
                 official recognition of the word, I don't feel inclined to remove
@@ -110,8 +110,8 @@ footerHTML.setAttribute('class', 'footer')
               </blockquote>
               <p>You can learn more about his amazing story, entitled with one of his name's you may be more familiar
                 with 'Geronimo: His Own Story.'</p>
-              <p>see <a href="https://www.britannica.com/biography/Geronimo">Geronimo
-                  Apache leader</a>, on <a href="https://www.britannica.com/">Britannica</a></p>
+              <p>see <a href="https://www.britannica.com/biography/Geronimo" target="_blank" rel="noopener noreferrer">Geronimo
+                  Apache leader</a>, on <a href="https://www.britannica.com/" target="_blank" rel="noopener noreferrer">Britannica</a></p>
             </li>
             <li>
               <p class="bold-underline">Sydney, son of Slugabed</p>
@@ -123,14 +123,14 @@ footerHTML.setAttribute('class', 'footer')
                 which is perhaps from Scandinavian (see sluggard, and compare slug (n.1)).
               </blockquote>
               <p>...aka, slothful ;)</p>
-              <p>see <a href='https://www.etymonline.com/search?q=slugabed'>slug-a-bed(n)</a>,
-                on <a href="https://www.etymonline.com/">Online Etymology Dictionary</a></p>
+              <p>see <a href='https://www.etymonline.com/search?q=slugabed' target="_blank" rel="noopener noreferrer">slug-a-bed(n)</a>,
+                on <a href="https://www.etymonline.com/" target="_blank" rel="noopener noreferrer">Online Etymology Dictionary</a></p>
             </li>
             <li>
               <p class="bold-underline">feohtende (v.)</p>
               <blockquote>'strong verb, class III; present participle of &lt;feohtan, feaht, fuhton, fohten&gt; fight'
               </blockquote>
-              <p>an example illustrated by <a href="https://lrc.la.utexas.edu/eieol/engol/30">The University of Texas
+              <p>an example illustrated by <a href="https://lrc.la.utexas.edu/eieol/engol/30" target="_blank" rel="noopener noreferrer">The University of Texas
                   at
                   Austin: Linguistics Research Center</a>can be found in an Anglo-Saxon Chronicle entry from 755,
                 where
@@ -161,8 +161,8 @@ footerHTML.setAttribute('class', 'footer')
                 hæfdon -- weak verb, class III; 3rd person plural preterite indicative of&lt;habban, hæfde, hæfd&gt;
                 have, possess -- <strong>had</strong><br>
               </blockquote>
-              <p>see <a href="https://lrc.la.utexas.edu/eieol/engol/30">Old English Online: Lesson 3, Jonathan
-                  Slocum</a>, on <a href="https://liberalarts.utexas.edu/lrc/">Linguistics Research Center: College of
+              <p>see <a href="https://lrc.la.utexas.edu/eieol/engol/30" target="_blank" rel="noopener noreferrer">Old English Online: Lesson 3, Jonathan
+                  Slocum</a>, on <a href="https://liberalarts.utexas.edu/lrc/" target="_blank" rel="noopener noreferrer">Linguistics Research Center: College of
                   Liberal Arts</a></p>
             </li>
             <li>
@@ -171,7 +171,7 @@ footerHTML.setAttribute('class', 'footer')
                 defend,
                 protect --'
               </blockquote>
-              <p>an example illustrated by <a href="https://lrc.la.utexas.edu/eieol/engol/30">The University of Texas
+              <p>an example illustrated by <a href="https://lrc.la.utexas.edu/eieol/engol/30" target="_blank" rel="noopener noreferrer">The University of Texas
                   at
                   Austin: Linguistics Research Center</a>can be found in an Anglo-Saxon Chronicle entry from 755,
                 where
@@ -232,8 +232,8 @@ footerHTML.setAttribute('class', 'footer')
                 gewundode -- weak verb, class II; 3rd person singular preterite of &lt;gewundian, gewundode,
                 gewundod&gt; wound -- <strong>wounded</strong><br>
               </blockquote>
-              <p>see <a href="https://lrc.la.utexas.edu/eieol/engol/30">Old English Online: Lesson 3, Jonathan
-                  Slocum</a>, on <a href="https://liberalarts.utexas.edu/lrc/">Linguistics Research Center: College of
+              <p>see <a href="https://lrc.la.utexas.edu/eieol/engol/30" target="_blank" rel="noopener noreferrer">Old English Online: Lesson 3, Jonathan
+                  Slocum</a>, on <a href="https://liberalarts.utexas.edu/lrc/" target="_blank" rel="noopener noreferrer">Linguistics Research Center: College of
                   Liberal Arts</a></p>
             </li>
             <li>
@@ -241,7 +241,7 @@ footerHTML.setAttribute('class', 'footer')
               <blockquote>strong verb, class VI; past participle of &lt;ofslean, ofslōh, ofslōgon, ofslægen&gt; slay,
                 destroy -- slain #
               </blockquote>
-              <p>an example illustrated by <a href="https://lrc.la.utexas.edu/eieol/engol/30">The University of Texas
+              <p>an example illustrated by <a href="https://lrc.la.utexas.edu/eieol/engol/30" target="_blank" rel="noopener noreferrer">The University of Texas
                   at
                   Austin: Linguistics Research Center</a>can be found in an Anglo-Saxon Chronicle entry from 755,
                 where
@@ -272,8 +272,8 @@ footerHTML.setAttribute('class', 'footer')
                 hæfdon -- weak verb, class III; 3rd person plural preterite indicative of&lt;habban, hæfde, hæfd&gt;
                 have, possess -- <strong>had</strong><br>
               </blockquote>
-              <p>see <a href="https://lrc.la.utexas.edu/eieol/engol/30">Old English Online: Lesson 3, Jonathan
-                  Slocum</a>, on <a href="https://liberalarts.utexas.edu/lrc/">Linguistics Research Center: College of
+              <p>see <a href="https://lrc.la.utexas.edu/eieol/engol/30" target="_blank" rel="noopener noreferrer">Old English Online: Lesson 3, Jonathan
+                  Slocum</a>, on <a href="https://liberalarts.utexas.edu/lrc/" target="_blank" rel="noopener noreferrer">Linguistics Research Center: College of
                   Liberal Arts</a></p>
             </li>
             <li>
@@ -289,15 +289,15 @@ footerHTML.setAttribute('class', 'footer')
                 הַקְטָלָה]
                 Start, beginning.
               </blockquote>
-              <p>see <a href="https://en.wiktionary.org/wiki/%D7%94%D7%AA%D7%97%D7%9C%D7%94">התחלה</a>, on <a
-                  href="https://en.wiktionary.org/wiki/Wiktionary:Main_Page">Wiktionary</a></p>
+              <p>see <a href="https://en.wiktionary.org/wiki/%D7%94%D7%AA%D7%97%D7%9C%D7%94" target="_blank" rel="noopener noreferrer">התחלה</a>, on <a
+                  href="https://en.wiktionary.org/wiki/Wiktionary:Main_Page" target="_blank" rel="noopener noreferrer">Wiktionary</a></p>
             </li>
             <li>
               <p class="bold-underline"> anræd (adj)</p><br />
               <blockquote>
                 resolute
               </blockquote>
-              <p>see <a href="https://www.st-andrews.ac.uk/~cr30/vocabulary/">Old English Core Vocabulary</a>.</p>
+              <p>see <a href="https://www.st-andrews.ac.uk/~cr30/vocabulary/" target="_blank" rel="noopener noreferrer">Old English Core Vocabulary</a>.</p>
             </li>
             <li>
               <p class="bold-underline"> The Spinner, the Giver, The Inflexible</p>
@@ -308,7 +308,7 @@ footerHTML.setAttribute('class', 'footer')
               <p>All were Greek Gods of the underworld.</p>
             </li>
             <li>
-              <p>Title font "Angars Ruins" created by <a href="http://www.mansgreback.com/">Mans Greback</a>. Used
+              <p>Title font "Angars Ruins" created by <a href="http://www.mansgreback.com/" target="_blank" rel="noopener noreferrer">Mans Greback</a>. Used
                 under
                 non-profit license QF121285258G as this is a public facing site, but with no way nor desire of making
                 a
@@ -316,214 +316,214 @@ footerHTML.setAttribute('class', 'footer')
             </li>
             <li>
               <p>File # 396656517, a video of Powerful Female in medieval armor by <a
-                  href="https://stock.adobe.com/contributor/205110669/procinemastock?load_type=author&prev_url=detail">procinemastock</a>.
+                  href="https://stock.adobe.com/contributor/205110669/procinemastock?load_type=author&prev_url=detail" target="_blank" rel="noopener noreferrer">procinemastock</a>.
                 Used under Adobe Stock license.</p>
             </li>
             <li>
               <p>File # 630909246, a faceless wraith lingers in the air, by <a
-                  href="https://stock.adobe.com/contributor/207618192/justlight?load_type=author&prev_url=detail">justlight</a>.
+                  href="https://stock.adobe.com/contributor/207618192/justlight?load_type=author&prev_url=detail" target="_blank" rel="noopener noreferrer">justlight</a>.
                 Used under Adobe Stock license.</p>
             </li>
             <li>
               <p>File # 199937353, realistic dry ice smoke, by <a
-                  href="https://stock.adobe.com/contributor/206637170/mputsylo?load_type=author&prev_url=detail">myputsylo</a>.
+                  href="https://stock.adobe.com/contributor/206637170/mputsylo?load_type=author&prev_url=detail" target="_blank" rel="noopener noreferrer">>myputsylo</a>.
                 Used under Adobe Stock license.</p>
             </li>
             <li>
               <p>Character Images created by "Travel Dawn," licensed under Adobe Standard license.</p>
             </li>
             <li>
-              <p>UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a></p>
+              <p>UIcons by <a href="https://www.flaticon.com/uicons" target="_blank" rel="noopener noreferrer">Flaticon</a></p>
             </li>
             <li>
               <p>
-                Skull icons created by <a href="https://www.flaticon.com/free-icons/skull" title="skull icons">yut1655
+                Skull icons created by <a href="https://www.flaticon.com/free-icons/skull" title="skull icons" target="_blank" rel="noopener noreferrer">yut1655
                   - Flaticon</a>
               </p>
             </li>
             <li>
               <p>
-                Hands icons created by <a href="https://www.flaticon.com/free-icons/hands" title="hands icons">surang
+                Hands icons created by <a href="https://www.flaticon.com/free-icons/hands" title="hands icons" target="_blank" rel="noopener noreferrer">surang
                   - Flaticon</a>
               </p>
             </li>
             <li>
               <p>
                 Doctor icons created by <a href="https://www.flaticon.com/free-icons/doctor"
-                  title="doctor icons">Freepik - Flaticon</a>
+                  title="doctor icons" target="_blank" rel="noopener noreferrer">Freepik - Flaticon</a>
               </p>
             </li>
             <li>
                 <p>
                     'Hanged man. Magical spiritual Tarot card. Digital printable illustration. Generative AI', file #586721215, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                    title="">BubertArt</a> used with Adobe Standard License.
+                    title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
                 </p>
             </li>
             <li>
               <p>
                   'Empress. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586721156, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Temperance. Esoteric Tarot card. Digital printable illustration. Generative AI', file #586721890, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Chariot. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586720941, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Star. Mystical witchcraft Tarot card. Digital printable illustration. Generative AI', file #586721617, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Moon. Magical spiritual Tarot card. Digital printable illustration. Generative AI', file #586721576, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Magician. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586721539, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Strength. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586721686, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Tower. Divination Tarot card. Digital printable illustration. Generative AI', file #586721988, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Hermit. Mystical witchcraft Tarot card. Digital printable illustration. Generative AI', file #586721256, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Hierophant. Magic occult vintage Tarot card. Digital printable illustration. Generative AI', file #586721293, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Fool. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586721186, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Emperor. Divination Tarot card. Digital printable illustration. Generative AI', file #586721119, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Justice. Divination Tarot card. Digital printable illustration. Generative AI', file #586721473, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Judgement. Esoteric Tarot card. Digital printable illustration. Generative AI', file #586721395, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Wheel of fortune. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586722101, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Sun. Classic Tarot card. Digital printable illustration. Generative AI', file #586721791, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'High priestess. Classic Tarot card. Digital printable illustration. Generative AI', file #586721343, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Death. Classic Tarot card. Digital printable illustration. Generative AI', file #586721011, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Lovers. Fortune-telling Tarot card. Digital printable illustration. Generative AI', file #586721507, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'World. Prediction future, Tarot card. Digital printable illustration. Generative AI', file #586722142, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=586721215#:~:text=By-,BubertArt,-Generated%20with%20AI"
-                  title="">BubertArt</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">BubertArt</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'A Starry Soothsayer: An Astrologer Tells Fortunes Against the Backdrop of Space - Generative AI', file #572721527, by <a href="https://stock.adobe.com/contributor/208618624/rysak?load_type=author&prev_url=detail"
-                  title="">Rysak</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">Rysak</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Glowing blooming lotus with moon phases ornament', file #551207648, by <a href="https://stock.adobe.com/contributor/209688465/ekosuwandono?load_type=author&prev_url=detail"
-                  title="">ekosuwandono</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">ekosuwandono</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Cinematic and Atmospheric Close-up Shot of Scales that Lady Justice is Holding. The Statue is Blindfolded and Holding Sword. A Title Sequence for Court Show Mock-up.', file #583211956, by <a href="https://stock.adobe.com/contributor/210776841/im-imagery?load_type=author&prev_url=detail"
-                  title="">IM Imagery</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">IM Imagery</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Powerful female in medieval armor of Joan of Arc lowering sword covered with blood and looking at camera after victory on battlefield. Strong medieval woman with bloodstained sword', file #396656517, by <a href="https://stock.adobe.com/contributor/205110669/procinemastock?load_type=author&prev_url=detail"
-                  title="">procinemastock</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">procinemastock</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'A faceless wraith lingers in the air the veil of death forever shrouding it. Fantasy art. AI generation.', file #630909246, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=630909246#:~:text=By-,Justlight,-Save%20to%20Library"
-                  title="">Justlight</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">Justlight</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Sketch of game classes of multiplayer games. Mage, Warrior, Archer, Healer, Lancer and Berserk hand drawn isolated', file #320941009, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=320941009#:~:text=By-,Travel%20Drawn,-Save%20to%20Library"
-                  title="">Travel Dawn</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">Travel Dawn</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
               <p>
                   'Sketch of game classes of multiplayer games. Mage, Warrior, Archer, Healer, Lancer and Berserk hand drawn isolated', file #320941009, by <a href="https://stock.adobe.com/Library/urn:aaid:sc:US:f11fa34d-1a0f-4b2f-8b64-4c1f4ba803ea?asset_id=320941009#:~:text=By-,Travel%20Drawn,-Save%20to%20Library"
-                  title="">Travel Dawn</a> used with Adobe Standard License.
+                  title="" target="_blank" rel="noopener noreferrer">Travel Dawn</a> used with Adobe Standard License.
               </p>
             </li>
             <li>
             <p>
-                The original idea for this came from a <a href="https://scrimba.com">Scrimba's</a> Front End Career Path certification.  That being said, I have completely revamped the project and added significant functionality.  For a fair comparison you can see the the original project <a href="https://scrimba.com/learn/frontend/congratulations-on-completing-module-7--coc0444f5aa8d25f994ea9ede">here</a>.  Much thanks to Tom Chant and the people at Scrimba for providing great instruction.  
+                The original idea for this came from a <a href="https://scrimba.com" target="_blank" rel="noopener noreferrer">Scrimba's</a> Front End Career Path certification.  That being said, I have completely revamped the project and added significant functionality.  For a fair comparison you can see the the original project <a href="https://scrimba.com/learn/frontend/congratulations-on-completing-module-7--coc0444f5aa8d25f994ea9ede" target="_blank" rel="noopener noreferrer">here</a>.  Much thanks to Tom Chant and the people at Scrimba for providing great instruction.  
             </p>
           </li>
             

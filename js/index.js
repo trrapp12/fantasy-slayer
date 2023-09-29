@@ -143,7 +143,7 @@ function attack() {
     if (!isWaiting) {
         console.log('is not waiting')
         // creates a pause
-        if (hero.numberOfTurns % 1 === 0 && hero.numberOfTurns >= 0) {
+        if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
             hero.numberOfTurns = hero.numberOfTurns + 1;
             console.log('fifth turn, casting spells')
             // spell every 5th turn
