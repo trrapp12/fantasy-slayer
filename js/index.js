@@ -89,28 +89,6 @@ function handleSpellDeath (hero, villain) {
             } 
         } 
 
-
-// function isDead(hero, villain) {
-//     console.log('inside is dead function')
-//     if (hero.health <= 0 && villain.health <= 0) {
-//         console.log('both dead')
-//         villain.dead = true;
-//         hero.dead = true
-//         return true;
-//     } else if(hero.health <= 0) {
-//         console.log('hero dead')
-//         hero.dead = true
-//         return true;
-//     } else if(villain.health <=0) {
-//         console.log('villain dead')
-//         villain.dead = true;
-//         return true;
-//     } else {
-//         console.log('no one is dead')
-//         return false;
-//     }
-// }
-
 function disableAttackButton () {
     console.log('attackButton.disabled', attackButton.disabled)
     attackButton.disabled = true;
@@ -131,10 +109,6 @@ function castSpells () {
     hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
     console.log('right before if statement, hero.health, villain.health', hero.health, villain.health)
     // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
-    // if (hero.health <= 0 || villain.health <= 0) {
-    //     console.log('someone is dead after spells were cast')
-    //     handleSpellDeath(hero, villain)
-    // }
 }
 
 function attack() {
@@ -159,11 +133,6 @@ function attack() {
                 console.log('entering else statement for casting spells')
                 castSpells();
                 // can't put if logic after this because it evaluates before the event listener
-                // console.log('immediately after C    astSpells(), hero health and villain health', hero.health, villain.health)
-                //     if (hero.health <= 0 || villain.health <= 0) {
-                //         console.log('someone is dead after spells were cast')
-                //         handleSpellDeath(hero, villain)
-                //     }
             }
         } else {
             console.log('hitting the attack else statement')
