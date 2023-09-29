@@ -24,8 +24,6 @@ footerHTML.setAttribute('class', 'footer')
         The History of Fantasy Slayer
       </p>
       <div class="credits-modal-container" id="credit-modal-container">
-        <!-- <p id="credits-default">Credits:<p> -->
-    
         <section class="credits-modal display-none" id="credits-modal">
           <p id="exit-button" class="exit-button angars-ruins"> X </p>
           <h4 class="angars-ruins">The History and Vocabulary of Fantasy Slayer</h4>

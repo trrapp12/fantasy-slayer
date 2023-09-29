@@ -88,7 +88,7 @@ body {
   overflow-y: hidden;
 }
 
-button:not(.attack-button, .skip-intro) {
+/* button:not(.attack-button, .skip-intro) {
   background-color: #fcc02a;
   border: 2px solid #963404;
   border-radius: 6px;
@@ -105,7 +105,7 @@ button:not(.attack-button, .skip-intro) {
   text-align: center;
   text-decoration: none;
   font-size: 1.5rem;
-}
+} */
 
 footer>div>p {
   color: var(--sand-hex);
@@ -126,7 +126,7 @@ html {
   font-family: 'Aboreto', cursive;
 }
 
-i {
+/* i {
   font-size: 1.8rem;
   text-shadow: 0px 0px 10px rgb(248 248 248);
   transition: ease 250ms;
@@ -135,7 +135,7 @@ i {
 i:hover,
 i:focus {
   font-size: 3rem;
-}
+} */
 
 img {
   /* background-color: rgba(255, 255, 255, .15);
@@ -148,7 +148,7 @@ img {
   width: auto;
 }
 
-nav {
+/* nav {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -171,7 +171,7 @@ nav:focus {
 nav>p {
   color: var(--sand-hex);
   font-size: 12px;
-}
+} */
 
 ul>li>q>em {
   margin-bottom: 2em;
@@ -291,7 +291,7 @@ button:disabled {
   justify-content: end;
 }
 
-.c1 {
+/* .c1 {
   grid-area: 1, 2;
   grid-area: 1 / 2;
 }
@@ -299,7 +299,7 @@ button:disabled {
 .c2 {
   grid-area: 1, 2;
   grid-area: 1 / 2;
-}
+} */
 
 .character-art {
   display: grid;
@@ -454,7 +454,6 @@ button:disabled {
 
 }
 
-
 .dice:nth-child(1) {
   color: black;
 }
@@ -564,14 +563,41 @@ button:disabled {
 }
 
 .ending-message-container>.quest-button {
-  background-color: #00000000;
+  background-color: var(--dark-blue-hex);
+  background: linear-gradient(145deg, #f0f0f030, #cacaca29);
+  border: 2px solid aliceblue;
+  border-radius: 0px;
+  box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px #ffffff;
+  color: white;
+  font-weight: 900;
+  font-family: 'angars-runes';
+  font-size: 2rem;
+  margin: auto;
+  padding: 1em 2em;
+  text-align: center;
+  transition: all 1s ease;
+  width: 14vw;
   margin: 2rem auto auto auto;
 }
 
 .ending-message-container>.quest-button:hover {
+  background-color: var(--dark-blue-hex);
   justify-self: center;
   transform: scale(1.1);
   transition: 200ms all linear;
+  background: linear-gradient(145deg, #f0f0f030, #cacaca29);
+  border: 2px solid aliceblue;
+  border-radius: 0px;
+  box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px #ffffff;
+  color: white;
+  font-family: 'angars-runes';
+  font-weight: 900;
+  font-size: 2rem;
+  margin: auto;
+  padding: 1em 2em;
+  text-align: center;
+  transition: all 1s ease;
+  width: 14vw;
   margin: 2rem auto auto auto;
 }
 
@@ -599,10 +625,8 @@ button:disabled {
   height: 4em;
   justify-content: space-evenly;
   min-width: 100vw;
-  /* padding: 1em; */
   position: sticky;
   z-index: 100;
-  /* align-content: center; */
   align-items: center;
 }
 
@@ -949,34 +973,46 @@ button:disabled {
 }
 
 button.quest-button {
-  border: none;
+  background-color: var(--dark-blue-hex);
+  background: linear-gradient(145deg, #f0f0f030, #cacaca29);
+  border: 2px solid aliceblue;
+  border-radius: 0px;
   font-family: angars-runes;
   font-size: 2rem;
+  font-weight: 900;
   text-align: center;
   padding: 1rem 2rem;
   color: var(--sand-hex);
   width: fit-content;
   cursor: pointer;
   justify-self: center;
-  background-color: black;
-  box-shadow: 0px 0px 20px white;
-  transition: 200ms all linear;
+  box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px white;
+  transition: all 1s ease;
+  margin-top: 2rem;
+  width: 14vw;
+  z-index: 1000;
 }
 
 button.quest-button:hover {
-  border: none;
+  background-color: var(--dark-blue-hex);
+  background: linear-gradient(145deg, #f0f0f030, #cacaca29);
+  border: 2px solid aliceblue;
+  border-radius: 0px;
   font-family: angars-runes;
   font-size: 2rem;
+  font-weight: 900;
   text-align: center;
   padding: 1rem 2rem;
-  margin: 0rem auto 0rem auto;
+  color: var(--sand-hex);
   width: fit-content;
   cursor: pointer;
   justify-self: center;
-  background-color: rgba(19, 19, 19, 0.073);
-  box-shadow: 0px 0px 10px white;
+  box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px white;
   transform: scale(1.1);
-  transition: 200ms all linear;
+  transition: all 1s ease;
+  margin-top: 2rem;
+  width: 14vw;
+  z-index: 1000;
 }
 
 
