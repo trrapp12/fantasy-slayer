@@ -238,6 +238,7 @@ document.getElementById('attack-button').addEventListener('click', attack)
 // create characters.  Don't move these up to the top or you get issues with initializing character's methods before characters are initialized
 
 let hero = setNextCharacter()
+console.log('HERO: ', hero)
 const villain = new Character(characterData.zedfire)
 // shuffledSpellArr has to be below hero
 let shuffledSpellArr = hero.spells.shuffleArr(spellData);

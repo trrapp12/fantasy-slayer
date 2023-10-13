@@ -46,26 +46,20 @@ function hasDuplicates (arr){
 }
 
 function calculateEnhancedScore (obj, arr){
-    console.log('object is: ', obj)
-    console.log('arr is: ', arr)
-    // obj is the result of calling findDuplicateIndices(attackScoreArray)  
-    // Returns an obj in the form { '1' : [2, 4]} where the 1 is the number repeated on the dice, 
-    // and the values in the array are the indices where 1 would appear on the dice
-    // arr is the original attackScoreArray, brought back in again to take into account numbers which weren't repeated
     let total = 0;
-    console.log('total is :', total)
-    // need to keep this total in here.  Without doing a += within the loop, it can't account for two sets of pairs i.e. a dice roll of [2, 2, 3, 3, 3]
-    let addends;
-    console.log('addends are: ', addends)
-    let multiplicant;
-    console.log('multiplicants are: ' , multiplicant)
-    for (const [key, value] of Object.entries(obj)) {
-        console.log('inside for loop, key is: ', key, 'value is: ', value)
-        multiplicant = Number(key) ** value.length
-        console.log('multiplicant is: ', multiplicant)
-        addends = arr.filter(arrValue => arrValue !== Number(key)).reduce((acc, curr) => { return acc += curr}, 0) 
-        total += addends + multiplicant
-    }
-    return total
+    // Calculate the product of all multiplicants (i.e., repeated number raised to its frequency)
+    let multiplicantTotal = Object.entries(obj).map(
+        ([key, value]) => Number(key) ** value.length
+    ).reduce((a, b) => a * b, 1); // Default value of 1 for multiplication
+
+    // Calculate the sum of numbers not repeated
+    let uniqueNumbers = arr.filter(arrValue => !obj.hasOwnProperty(arrValue));
+    let sumOfUniques = uniqueNumbers.reduce((acc, curr) => acc + curr, 0);
+
+    // Add the two values together for the final total
+    total = multiplicantTotal + sumOfUniques;
+    console.log('multiplicantTotal', multiplicantTotal, "sumOfUniques", sumOfUniques, "total", total)
+    return total;
   }
+  
 export { calculateEnhancedScore, diceAnimation, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

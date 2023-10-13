@@ -43,7 +43,7 @@ const characterData = {
     elId : 'ignisfatuus',
     health : 90, 
     numberOfTurns : 0,
-    originalHealth: 90,
+    originalHealth: 75,
     intelligence : 100,
     messages: '',
     race : '"Fire-Fool" Elf', 
