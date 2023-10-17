@@ -165,6 +165,69 @@ button:disabled {
   pointer-events: none;
 }
 
+.accept-audio--container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  position: fixed;
+  z-index: 1100;
+  background-color: black;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.accept-audio--container>button {
+  font-size: 2rem;
+  padding: 2rem 3rem;
+  transition: all 250ms;
+  font-family: 'angars-runes';
+  background: black;
+  color: white;
+  transition: all 2s ease;
+  position: relative;
+  z-index: 1101;
+}
+
+.accept-audio--container>button::before {
+  font-size: 2rem;
+  padding: 2rem 3rem;
+  transition: all 2s ease;
+  font-family: 'angars-runes';
+  color: black;
+  background: rgb(0, 0, 0);
+  background-image: linear-gradient(285deg, rgba(0, 0, 0, 1) 5%, rgba(36, 36, 36, 1) 33%, rgba(54, 54, 54, 1) 51%, rgba(0, 0, 0, 1) 100%), url('../assets/AdobeStock_565171456.png');
+  z-index: 1102;
+  position: absolute;
+  content: '';
+  opacity: 0;
+  transition: all 2s ease;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover, cover, cover;
+  /* Adjust background-size as needed */
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  /* Adjust background-repeat as needed */
+  background-position: center center, top left, top right;
+}
+
+.accept-audio--container>button:hover::before,
+.accept-audio--container>button:focus::before {
+  opacity: 1
+}
+
+.accept-audio--container>h1 {
+  width: 33%;
+  font-size: 2rem;
+  padding: 2rem 3rem;
+  color: white;
+}
+
 .attack-defend-label {
   color: var(--sand-hex);
   width: 100%;

@@ -2,6 +2,8 @@ import characterData from './characterData.js'
 import Character from './Character.js'
 import spellData from './spellsData.js'
 import Spells from "./castSpells.js"
+import { loadOutroAudio } from './audio.js'
+import { loadBackGroundAudio } from './audio.js'
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
@@ -11,6 +13,25 @@ const attackButton = document.getElementById('attack-button')
 let isWaiting = false;
 let hasNotDisplayedTheMessageBefore = true
 let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
+
+console.log(loadOutroAudio)
+const outroAudio = loadOutroAudio()
+const backGroundAudio = loadBackGroundAudio()
+
+// function playGameMusic () {
+
+//     if (navigator.getAutoplayPolicy('mediaelement' === 'allowed')) {
+//         setTimeout(() => {
+//             setInterval(() => {
+//                 backGroundAudio.play()
+//             }, 13000)
+//         }, 30000)
+//     } else if (navigator.getAutoplayPolicy('mediaelement' === 'user-gesture-required'))
+//      {
+
+
+// }
+// playGameMusic()
 
 function render() {
     console.log('inside render function', player1Container, player2Container, hero, villain)
@@ -218,13 +239,16 @@ function endGame() {
     
     if (villain.health <=0 && hero.health <=0) {
         mainContainer.innerHTML = tieHTML;
-        videoSource.load()
+        videoSource.load();
+        outroAudio.play();
     } else if (villain.health <=0) {
         mainContainer.innerHTML = heroMovieHTML;
-        videoSource.load()
+        videoSource.load();
+        outroAudio.play();
     } else {
         mainContainer.innerHTML = villainMovieHTML;
-        videoSource.load()
+        videoSource.load();
+        outroAudio.play();
     }
     document.getElementById('reset-button').addEventListener('click', () => {
         location.reload()
