@@ -113,7 +113,6 @@ const tutorialHTML = `
   }
 
   function buildScrollHTML() {
-    const title = document.getElementById('title')
     const docBody = document.getElementsByTagName('body')[0];
     const container = document.createElement('div')
     const attackButton = document.getElementById('attack-button')
@@ -154,37 +153,14 @@ const tutorialHTML = `
       console.log('skip tutorial button clicked', addBackLight)
       introModal.style.display = "none"
       tutorialModalContainer.style.display = "none"
+      setTimeout(addBackLight, 3000)
     })
-
+    // this repeats the same logic as the click, only after a longer timeout incase people read the whole content and the content needs to fade in
     setTimeout(() => {
       introModal.style.display = "none"
       introModal.style.animation = "none"
       tutorialModalContainer.style.display = "none"
     }, 69000)
-    
-    const targetNode = introModal
-    console.log('targetNode is ', targetNode)
-    const observer = new MutationObserver((mutationList) => {
-      console.log('mutationList is ', mutationList)
-      for (const mutation of mutationList) {
-        console.log('mutation is', mutation, "type is ", mutation.type, "attributeName is ", mutation.attributeName)
-        if(mutation.type === 'attributes' && mutation.attributeName === 'style') {
-          console.log('Class attribute style changed.');
-          setTimeout(addBackLight, 5)
-          setTimeout(() => {
-            observer.disconnect()
-          }, 10)
-        }
-      }
-    })
-
-    const config = {
-      attributes: true, // observe attribute changes
-      attributeOldValue: true, // record the previous value of the modified attributes
-    };
-    
-    // Start observing the target node
-    observer.observe(targetNode, config);
   }
 
   window.addEventListener('load', () => {
