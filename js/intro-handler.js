@@ -125,7 +125,9 @@ const tutorialHTML = `
   }
 
   function addBackLight() {
- 
+    console.log('add back light fired')
+    const title = document.getElementById('title')
+    console.log('title is', title)
     title.classList.add('backlight');
     setTimeout(() => {
         title.classList.add('title-disappear')
@@ -138,6 +140,7 @@ const tutorialHTML = `
 
   function addScrollHTMLHandler() {
     console.log('addScrollHTMLHandler fired')
+    console.log(addBackLight)
     // these consts aren't at the top because they won't be present until after they have clicked the tutorial
     const skipIntroButton = document.getElementById('skip-intro');
     console.log(skipIntroButton)
@@ -146,13 +149,13 @@ const tutorialHTML = `
     const tutorialModalContainer = document.getElementById('tutorial-modal-container')
 
     skipIntroButton.addEventListener('click', (evt) => {
-      console.log('skip tutorial button clicked')
-      // introModal.style.display = "none"
+      console.log('skip tutorial button clicked', addBackLight)
+      introModal.style.display = "none"
       tutorialModalContainer.style.display = "none"
     })
 
     setTimeout(() => {
-      // introModal.style.display = "none"
+      introModal.style.display = "none"
       introModal.style.animation = "none"
       tutorialModalContainer.style.display = "none"
     }, 69000)
@@ -182,12 +185,11 @@ const tutorialHTML = `
     observer.observe(targetNode, config);
   }
 
-    window.addEventListener('load', () => {
-      console.log('intro-handler window load event fired')
-        buildTutorial();
-        setTimerForTitleAnimation()
-        
-    });
+  window.addEventListener('load', () => {
+    console.log('intro-handler window load event fired')
+      buildTutorial();
+      setTimerForTitleAnimation()  
+  });
 
 
       
