@@ -1,4 +1,4 @@
-console.log('audio.js loaded')
+
 
 export const loadOutroAudio= () => {
     return new Audio('./assets/assets/audio/EPIC-TRAILER-ACTION-ADVENTURE-(TENSE-NERVE)_AdobeStock_637559773.wav');

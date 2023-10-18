@@ -1,15 +1,13 @@
 (() => {
 
     const acceptButton = document.querySelector('.accept-audio')
-    
-    if (acceptButton) {
+    const acceptScreen = document.querySelector('.accept-audio--container')
         acceptButton.addEventListener('click', () => {
-            const introAudio = new Audio('./assets/assets/audio/Evil-Trailer_AdobeStock_354668525.wav');
+            console.log('accept button being clicked')
+            acceptScreen.style.display = 'none'
+            const introAudio = new Audio('../assets/audio/Evil-Trailer_AdobeStock_354668525.wav');
+            console.log(introAudio)
             introAudio.volume = 0.5;
             introAudio.play();
         })
-    } else {
-        console.log('Fantasy Slayer: Accept button not found')
-    }
-
 })()

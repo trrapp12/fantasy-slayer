@@ -9,6 +9,7 @@ import { tutorial } from './tutorial.js'
     console.log('skip tutorial button clicked')
     introModal.style.display = "none"
   })
+  
   window.addEventListener('load', () => {
     setTimeout(() => {
       introModal.style.display = "none"

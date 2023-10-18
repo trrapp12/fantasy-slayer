@@ -167,7 +167,7 @@ button:disabled {
 
 .accept-audio--container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
@@ -182,7 +182,7 @@ button:disabled {
 
 .accept-audio--container>button {
   font-size: 2rem;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   transition: all 250ms;
   font-family: 'angars-runes';
   background: black;
@@ -190,14 +190,18 @@ button:disabled {
   transition: all 2s ease;
   position: relative;
   z-index: 1101;
+  height: fit-content;
+  /* border: none; */
+  width: fit-content;
+  margin: 0px auto;
 }
 
 .accept-audio--container>button::before {
   font-size: 2rem;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   transition: all 2s ease;
   font-family: 'angars-runes';
-  color: black;
+  color: white;
   background: rgb(0, 0, 0);
   background-image: linear-gradient(285deg, rgba(0, 0, 0, 1) 5%, rgba(36, 36, 36, 1) 33%, rgba(54, 54, 54, 1) 51%, rgba(0, 0, 0, 1) 100%), url('../assets/AdobeStock_565171456.png');
   z-index: 1102;
@@ -210,15 +214,14 @@ button:disabled {
   right: 0;
   bottom: 0;
   background-size: cover, cover, cover;
-  /* Adjust background-size as needed */
   background-repeat: no-repeat, no-repeat, no-repeat;
-  /* Adjust background-repeat as needed */
   background-position: center center, top left, top right;
 }
 
 .accept-audio--container>button:hover::before,
 .accept-audio--container>button:focus::before {
-  opacity: 1
+  opacity: .15;
+  filter: invert();
 }
 
 .accept-audio--container>h1 {
@@ -226,6 +229,7 @@ button:disabled {
   font-size: 2rem;
   padding: 2rem 3rem;
   color: white;
+  text-align: center;
 }
 
 .attack-defend-label {
@@ -246,6 +250,7 @@ button:disabled {
 .attributes-value {
   margin: 0em 0em 0em 1em;
   width: 6rem;
+  font-size: 1.75vh;
 }
 
 .attributes-key {
@@ -540,6 +545,27 @@ button:disabled {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+element.style {
+  font-size: 2rem;
+  color: white;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  width: 100%;
+  text-align: justify;
+  margin-top: 15rem;
+}
+
+element.style {
+  font-size: 6rem;
+  font-family: 'angars-runes';
+  padding: 0;
+  margin: 8rem;
+  color: white;
+  line-height: 1.5;
+  text-shadow: 0px 0px 11px white;
+  text-align: center;
 }
 
 .ending-message-container>.quest-button {
@@ -959,7 +985,8 @@ button.quest-button {
   box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px white;
   transition: all 1s ease;
   margin-top: 2rem;
-  width: 14vw;
+  /* width: 14vw; */
+  padding: .75rem 3rem;
   z-index: 1000;
 }
 
@@ -972,7 +999,6 @@ button.quest-button:hover {
   font-size: 2rem;
   font-weight: 900;
   text-align: center;
-  padding: 1rem 2rem;
   color: var(--sand-hex);
   width: fit-content;
   cursor: pointer;
@@ -981,7 +1007,7 @@ button.quest-button:hover {
   transform: scale(1.1);
   transition: all 1s ease;
   margin-top: 2rem;
-  width: 14vw;
+  padding: .75rem 3rem;
   z-index: 1000;
 }
 
@@ -1035,7 +1061,7 @@ button.quest-button:hover {
   top: 0;
   left: 0;
   bottom: 100vh;
-  padding: 0% 33%;
+  padding: 5% 33%;
   line-height: 1.5;
   font-size: 1rem;
   overflow: scroll;
@@ -1081,7 +1107,7 @@ button.quest-button:hover {
 }
 
 .tutorial-sizing {
-  height: 50vh;
+  height: 45vh;
   overflow-y: scroll;
   border: 2px solid var(--sand-hex);
 }

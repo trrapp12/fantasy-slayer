@@ -1,4 +1,4 @@
-export function tutorial() {
+window.addEventListener('DOMContentLoaded', () => {
     const title = document.getElementById('title')
     const docBody = document.getElementsByTagName('body')[0];
     const container = document.createElement('div')
@@ -40,16 +40,16 @@ export function tutorial() {
     container.classList.add('tutorial-modal')
     container.innerHTML = content
     docBody.insertAdjacentElement("afterbegin", container)
-    document.getElementById('quest-button').addEventListener('click', () => {
-        container.style.display = 'none';
-        title.classList.add('backlight');
-        setTimeout(() => {
-            title.classList.add('title-disappear')
-        }, 5350)
-        setTimeout(()=> {
-            title.style.display = 'none'
-            attackButton.classList.remove('display-none')
-        }, 8400)
-})
+//     document.getElementById('quest-button').addEventListener('click', () => {
+//         container.style.display = 'none';
+//         title.classList.add('backlight');
+//         setTimeout(() => {
+//             title.classList.add('title-disappear')
+//         }, 5350)
+//         setTimeout(()=> {
+//             title.style.display = 'none'
+//             attackButton.classList.remove('display-none')
+//         }, 8400)
+// })
 };
     
