@@ -1,3 +1,5 @@
+import { loadSpellAudio } from './audio.js'
+
 class Spells {
     constructor(character, opponent) {
         this.character = character;
@@ -109,10 +111,12 @@ class Spells {
     
     setCardChoiceHandler (handler, callback) {
         const cards = document.querySelectorAll('.card-front-back-container')
+        const spellAudio = loadSpellAudio();
         let isCardClicked = false;
 
         function cardClickListener(evt) {
             if (!isCardClicked) {
+                spellAudio.play()
                 handler(evt)
                 isCardClicked = true;
                 cards[0].classList.toggle('gather-left-cards');

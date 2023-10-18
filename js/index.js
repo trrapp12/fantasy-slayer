@@ -5,6 +5,7 @@ import Spells from "./castSpells.js"
 import { loadOutroAudio } from './audio.js'
 import { loadBackGroundAudio } from './audio.js'
 
+
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 const mainContainer = document.getElementById('main-container');
@@ -14,23 +15,20 @@ let isWaiting = false;
 let hasNotDisplayedTheMessageBefore = true
 let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
 
-const outroAudio = loadOutroAudio()
-const backGroundAudio = loadBackGroundAudio()
-
-// function playGameMusic () {
-
-//     if (navigator.getAutoplayPolicy('mediaelement' === 'allowed')) {
-//         setTimeout(() => {
-//             setInterval(() => {
-//                 backGroundAudio.play()
-//             }, 13000)
-//         }, 30000)
-//     } else if (navigator.getAutoplayPolicy('mediaelement' === 'user-gesture-required'))
-//      {
+// audio elements
+const outroAudio = loadOutroAudio();
+const backGroundAudio = loadBackGroundAudio();
 
 
-// }
-// playGameMusic()
+function playGameMusic () {
+        setTimeout(() => {
+            setInterval(() => {
+                backGroundAudio.play()
+            }, 13000)
+        }, 30000)
+}
+
+playGameMusic()
 
 function render() {
     console.log('inside render function', player1Container, player2Container, hero, villain)
@@ -125,7 +123,7 @@ function castSpells () {
     let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
     console.log('nextThreeCard' , nextThreeCards)
     let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
-    hero.spells.appendCards(cardRendering)
+    hero.spells.appendCards(cardRendering);
     hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
     console.log('right before if statement, hero.health, villain.health', hero.health, villain.health)
     // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
