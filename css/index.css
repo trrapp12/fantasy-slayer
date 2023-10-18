@@ -285,7 +285,7 @@ button:disabled {
   width: 100%;
   margin: auto;
   grid-row: 5/8;
-  padding-left: 5rem;
+  padding-left: 1rem;
   justify-content: end;
 }
 
@@ -533,8 +533,12 @@ button:disabled {
   border: 2px solid (var--light-blue-hex);
 }
 
-.ending-message {
-  color: rgb(220 26 26);
+.ending-message-container>h2 {
+  color: white;
+}
+
+.ending-message-container>h2>.ending-message {
+  color: red;
 }
 
 .ending-message-container {
@@ -579,11 +583,11 @@ element.style {
   font-family: 'angars-runes';
   font-size: 2rem;
   margin: auto;
-  padding: 1em 2em;
+  padding: .75rem 3rem;
   text-align: center;
   transition: all 1s ease;
-  width: 14vw;
-  margin: 2rem auto auto auto;
+  width: fit-content;
+  margin: 33vh auto auto auto;
 }
 
 .ending-message-container>.quest-button:hover {
@@ -600,11 +604,11 @@ element.style {
   font-weight: 900;
   font-size: 2rem;
   margin: auto;
-  padding: 1em 2em;
+  padding: .75rem 3rem;
   text-align: center;
   transition: all 1s ease;
-  width: 14vw;
-  margin: 2rem auto auto auto;
+  width: fit-content;
+  margin: 33vh auto auto auto;
 }
 
 .ending-message-container>h1 {
@@ -935,17 +939,23 @@ element.style {
 }
 
 .power-hit-hero-container {
-  position: absolute;
-  left: -62vw;
-  top: -35vh;
-  z-index: 200;
-  background-color: var(--dark-blue-hex);
-  width: 18vw;
   animation: fly-in-left 4500ms linear;
-  padding: 2em;
+  background-color: var(--dark-blue-hex);
   border: 5px inset;
   color: var(--sand-hex);
-  height: 13vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: space-between;
+  left: -50vw;
+  min-width: fit-content;
+  padding: 2em;
+  position: relative;
+  top: 16vh;
+  width: 24vw;
+  z-index: 200;
+  align-items: center;
 }
 
 .power-hit-villain {
@@ -953,20 +963,27 @@ element.style {
   font-size: .9em;
   opacity: .7;
   margin-bottom: 1em;
+  width: 18vw;
 }
 
 .power-hit-villain-container {
-  position: absolute;
-  left: 12vw;
-  top: -35vh;
-  z-index: 200;
-  background-color: var(--dark-blue-hex);
-  width: 18vw;
   animation: fly-in-right 4500ms linear;
-  padding: 2em;
+  background-color: var(--dark-blue-hex);
   border: 5px inset;
   color: var(--sand-hex);
-  height: 13vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: space-between;
+  left: 46vw;
+  min-width: fit-content;
+  padding: 2em;
+  position: relative;
+  top: 16vh;
+  width: 24vw;
+  z-index: 200;
+  align-items: center;
 }
 
 button.quest-button {
@@ -1231,37 +1248,37 @@ button.quest-button:hover {
 
 @keyframes fly-in-right {
   0% {
-    left: 12vw;
+    left: 50vw;
   }
 
   20% {
-    left: -6vw;
+    left: 22vw;
   }
 
   80% {
-    left: -6vw;
+    left: 22vw;
   }
 
   100% {
-    left: 12vw
+    left: 50vw
   }
 }
 
 @keyframes fly-in-left {
   0% {
-    left: -60vw;
+    left: -50vw;
   }
 
   20% {
-    left: -45vw;
+    left: -9vw;
   }
 
   80% {
-    left: -45vw;
+    left: -9vw;
   }
 
   100% {
-    left: -60vw
+    left: -50vw
   }
 }
 

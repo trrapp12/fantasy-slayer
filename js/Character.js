@@ -251,10 +251,10 @@ class Character {
                             </div>
                             <p class="attack-defend-label"> <strong> Werede  ( Defend ): </strong> ${characterName === 'Zedfire, Hælend of darkness' ? 'The Dark Lord' : 'You'} defended ${defendDiceValue}0%</p>
                             <div class="elemental"></div>
+                            </div>
+                            </div>
                             ${heroDisplayLogic}
                             ${villainDisplayLogic}
-                        </div>
-                        </div>
                     </div>
                     
                 </div>

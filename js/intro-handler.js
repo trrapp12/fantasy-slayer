@@ -125,10 +125,12 @@ const tutorialHTML = `
   }
 
   function addBackLight() {
-    console.log('add back light fired')
     const title = document.getElementById('title')
+    console.log('add back light fired. Title classlist is:', title.classList)
     console.log('title is', title)
     title.classList.add('backlight');
+    console.log('title classlist is: ', title.classList)
+    console.timeStamp
     setTimeout(() => {
         title.classList.add('title-disappear')
     }, 5350);
@@ -167,7 +169,7 @@ const tutorialHTML = `
       for (const mutation of mutationList) {
         console.log('mutation is', mutation, "type is ", mutation.type, "attributeName is ", mutation.attributeName)
         if(mutation.type === 'attributes' && mutation.attributeName === 'style') {
-          console.log('Class attribute style.');
+          console.log('Class attribute style changed.');
           setTimeout(addBackLight, 5)
           setTimeout(() => {
             observer.disconnect()
