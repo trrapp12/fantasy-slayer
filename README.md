@@ -234,8 +234,9 @@ But they were both
 * Under-Attack_AdobeStock_353737497.wav by <a href="https://stock.adobe.com/search/audio?k=353737497">Paul Werner</a>.  Used under Adobe Stock License.
 
 
+#### Illustrations on Spell Cards
 
-
+* all illustrations on spells cards were done by <a href="https://stock.adobe.com/contributor/211075182/bubertart?load_type=author&prev_url=detail">BubertArt</a>.  Used under Adobe Stock License.
 
 ---
 
