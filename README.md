@@ -233,6 +233,7 @@ But they were both
 
 * Under-Attack_AdobeStock_353737497.wav by <a href="https://stock.adobe.com/search/audio?k=353737497">Paul Werner</a>.  Used under Adobe Stock License.
 
+<br/>
 
 #### Illustrations on Spell Cards
 
