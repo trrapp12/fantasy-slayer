@@ -108,7 +108,6 @@ const tutorialHTML = `
       container.style.display = 'none';
       playAudio();
       buildScrollHTML();
-
     })
   }
 
@@ -140,8 +139,6 @@ const tutorialHTML = `
   }
 
   function addScrollHTMLHandler() {
-    console.log('addScrollHTMLHandler fired')
-    console.log(addBackLight)
     // these consts aren't at the top because they won't be present until after they have clicked the tutorial
     const skipIntroButton = document.getElementById('skip-intro');
     console.log(skipIntroButton)
@@ -150,7 +147,6 @@ const tutorialHTML = `
     const tutorialModalContainer = document.getElementById('tutorial-modal-container')
 
     skipIntroButton.addEventListener('click', (evt) => {
-      console.log('skip tutorial button clicked', addBackLight)
       introModal.style.display = "none"
       tutorialModalContainer.style.display = "none"
       setTimeout(addBackLight, 3000)
@@ -160,6 +156,7 @@ const tutorialHTML = `
       introModal.style.display = "none"
       introModal.style.animation = "none"
       tutorialModalContainer.style.display = "none"
+      addBackLight();
     }, 69000)
   }
 

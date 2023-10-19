@@ -2,8 +2,13 @@ import characterData from './characterData.js'
 import Character from './Character.js'
 import spellData from './spellsData.js'
 import Spells from "./castSpells.js"
-import { loadOutroAudio } from './audio.js'
-import { loadBackGroundAudio } from './audio.js'
+import {
+    spellAudio, 
+    backGroundAudio, 
+    outTroAudio, 
+    isPlaying, 
+    playAudio
+} from './audio.js'
 
 
 const player1Container = document.getElementById('character-1-art');
@@ -15,17 +20,12 @@ let isWaiting = false;
 let hasNotDisplayedTheMessageBefore = true
 let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
 
-// audio elements
-const outroAudio = loadOutroAudio();
-const backGroundAudio = loadBackGroundAudio();
-
-
 function playGameMusic () {
         setTimeout(() => {
             setInterval(() => {
-                backGroundAudio.play()
-            }, 13000)
-        }, 30000)
+                playAudio(backGroundAudio,spellAudio)
+            }, 30000)
+        }, 55000)
 }
 
 playGameMusic()
@@ -240,15 +240,15 @@ function endGame() {
     if (villain.health <=0 && hero.health <=0) {
         mainContainer.innerHTML = tieHTML;
         videoSource.load();
-        outroAudio.play();
+        playAudio(outTroAudio,backGroundAudio)
     } else if (villain.health <=0) {
         mainContainer.innerHTML = heroMovieHTML;
         videoSource.load();
-        outroAudio.play();
+        playAudio(outTroAudio,backGroundAudio)
     } else {
         mainContainer.innerHTML = villainMovieHTML;
         videoSource.load();
-        outroAudio.play();
+        playAudio(outTroAudio,backGroundAudio)
     }
     document.getElementById('reset-button').addEventListener('click', () => {
         location.reload()
