@@ -201,8 +201,17 @@ But they were both
 
 * 'Death may be the greatest of all human blessings.' --original quote by Socrates.
 
-#### Fonts
+<br/>
+
+#### Fonts:
+
 * Title font "Angars Ruins" created by <a href="http://www.mansgreback.com/">Mans Greback</a>. Used under non-profit license QF121285258G as this is a public facing site, but with no way nor desire of making a profit.
+
+<br/>
+
+#### Videos: 
+
+* File # 583211956, Cinematic and Atmospheric Close-up Shot of Scales that Lady Justice is Holding by <a href="https://stock.adobe.com/contributor/210776841/im-imagery?load_type=author&prev_url=detail">IM Imagery</a>.  Used under Adobe Stock license.
 
 * File # 396656517, a video of Powerful Female in medieval armor by <a href="https://stock.adobe.com/contributor/205110669/procinemastock?load_type=author&prev_url=detail">procinemastock</a>. Used under Adobe Stock license.
 
@@ -211,6 +220,20 @@ But they were both
 * File # 199937353, realistic dry ice smoke, by <a href="https://stock.adobe.com/contributor/206637170/mputsylo?load_type=author&prev_url=detail">myputsylo</a>. Used under Adobe Stock license.
 
 * UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+
+#### Audio 
+
+* EPIC-TRAILER-ACTION-ADVENTURE-(TENSE-NERVE)_AdobeStock_637559773.wav by <a href="https://stock.adobe.com/search/audio?album=&attribution=381fc15d3525a9b8d1de5ec43272050f&current_page=1&duration_max=1200000&duration_min=0&keywords=&loop=false&order=relevance&page_limit=50&tempo_max=300&tempo_min=1">Summer Nights</a>.  Used under Adobe Stock License.
+
+* Evil-Trailer_AdobeStock_354668525.wav by <a href="https://stock.adobe.com/search/audio?album=&attribution=0b7874d5914e4be600c4246fcac112db&current_page=1&duration_max=1200000&duration_min=0&keywords=&loop=false&order=relevance&page_limit=50&tempo_max=300&tempo_min=1">Stanislav Barantsov</a>.  Used under Adobe Stock License.
+
+* fantasmi-dell-opera-a-loop_AdobeStock_526744294.wav by <a href="https://stock.adobe.com/search/audio?k=526744294">nikproteus</a>.  Used under Adobe Stock License.
+
+* Under-Attack_AdobeStock_353737497.wav by <a href="https://stock.adobe.com/search/audio?k=353737497">Paul Werner</a>.  Used under Adobe Stock License.
+
+
+
+
 
 ---
 
