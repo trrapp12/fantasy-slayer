@@ -173,11 +173,8 @@ But they were both
 
 ### ATTRIBUTIONS
 
-* Character Images created by "Travel Dawn," licensed under Adobe Standard license.
+#### Definitions:
 
-* 'Choose not to be harmed—and you won't feel harmed. Don't feel harmed—and you haven't been.' --original quote by Marcus Aurelius.
-
-* 'Death may be the greatest of all human blessings.' --original quote by Socrates.
 
 * Definition of 'hæland': <a href="https://www.etymonline.com/search?q=haeland">Healer</a>, on <a href="https://www.etymonline.com/">etymonline</a>
 
@@ -193,7 +190,17 @@ But they were both
 
 * Definition of 'anræd': <a href="https://www.st-andrews.ac.uk/~cr30/vocabulary/">Old English Core Vocabulary</a>
 
-* itle font "Angars Ruins" created by <a href="http://www.mansgreback.com/">Mans Greback</a>. Used under non-profit license QF121285258G as this is a public facing site, but with no way nor desire of making a profit.
+* Character Images created by "Travel Dawn," licensed under Adobe Standard license.
+
+
+#### Quotes: 
+
+* 'Choose not to be harmed—and you won't feel harmed. Don't feel harmed—and you haven't been.' --original quote by Marcus Aurelius.
+
+* 'Death may be the greatest of all human blessings.' --original quote by Socrates.
+
+#### Fonts
+* Title font "Angars Ruins" created by <a href="http://www.mansgreback.com/">Mans Greback</a>. Used under non-profit license QF121285258G as this is a public facing site, but with no way nor desire of making a profit.
 
 * File # 396656517, a video of Powerful Female in medieval armor by <a href="https://stock.adobe.com/contributor/205110669/procinemastock?load_type=author&prev_url=detail">procinemastock</a>. Used under Adobe Stock license.
 
