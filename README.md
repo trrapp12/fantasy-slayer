@@ -173,8 +173,9 @@ But they were both
 
 ### ATTRIBUTIONS
 
-#### Definitions:
+<br/>
 
+#### Definitions:
 
 * Definition of 'hæland': <a href="https://www.etymonline.com/search?q=haeland">Healer</a>, on <a href="https://www.etymonline.com/">etymonline</a>
 
@@ -192,6 +193,7 @@ But they were both
 
 * Character Images created by "Travel Dawn," licensed under Adobe Standard license.
 
+<br/>
 
 #### Quotes: 
 
