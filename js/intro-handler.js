@@ -6,7 +6,7 @@ const attackButton = document.getElementById('attack-button');
 
 const scrollHTML = `
 <div class="intro-modal" id="intro-modal">
-  <button id="skip-intro" class="skip-intro">Skip</button>
+  <button id="skip-intro" class="quest-button">Skip</button>
   <div class="intro-modal-text-container" id="intro-modal-text-container">
     <p class="bold">In the Age Unremembered</p>
 

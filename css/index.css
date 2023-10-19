@@ -1028,6 +1028,18 @@ button.quest-button:hover {
   z-index: 1000;
 }
 
+.intro-modal>button.quest-button {
+  justify-self: center;
+  box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px white;
+  transition: all 1s ease;
+  left: 52vw;
+  top: 10vh;
+  transform: translateX(19vw) translateY(10vh) translateZ(0);
+  margin-top: 2rem;
+  z-index: 1000;
+  position: sticky;
+}
+
 
 .real-dice-container>.defend-dice {
   background: linear-gradient(145deg, #e17373, #673333);
