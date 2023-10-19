@@ -123,7 +123,24 @@ To use the app simply click on the ```View Project``` button or visit <a href="h
 
 ### CHALLENGES I OVERCAME...
 
+- [X] working integrating one JavaScript Class into another (heroes each have a class which controls their functionality and rendering.  Spells also have the same.
+But they were both 
 
+- [X] using callback functions to make return values available in the correct scope
+
+- [X] working with trigonometry and dynamic variables in SVG to create a health bar that resizes automatically and programmatically
+
+- [X] code splitting to prevent delays on load and to make code much more manageable
+
+- [X] using separation of concerns to keep complex logic functional, maintainable, and easy to understand
+
+- [X] integrating multiple sound tracks without them overlapping
+
+- [X] iterating through an object and outputting any matches that are found
+
+- [X] creating complex calculations (i.e. taking numbers on a random roll, multiplying all the matches, but ONLY the matches, and then adding the rest)
+
+- [X] working with conceptual 3D using standard CSS to get a card flip animation
 ---
 
 ### MY OWN PERSONAL CONTRIBUTIONS INCLUDED 
