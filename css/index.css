@@ -1002,7 +1002,7 @@ button.quest-button {
   box-shadow: 3px 3px 7px #c1c1c1, -3px -3px 7px white;
   transition: all 1s ease;
   margin-top: 2rem;
-  /* width: 14vw; */
+  width: 14vw;
   padding: .75rem 3rem;
   z-index: 1000;
 }
@@ -1025,6 +1025,7 @@ button.quest-button:hover {
   transition: all 1s ease;
   margin-top: 2rem;
   padding: .75rem 3rem;
+  width: 14vw;
   z-index: 1000;
 }
 

@@ -10,8 +10,6 @@ import {
     renderHealthChart,
 } from "./renderHealthChart.js"
 
-// import Spells from "./castSpells.js"
-
 class Character {
 
     constructor(data, spells = null) {
@@ -39,7 +37,7 @@ class Character {
 
     setDefendDiceHTML () {
         this.defendDiceScore = getDiceRollArray(1, 10)
-        // this is hard coded because each player will always only have 1 10-sided die
+        // this is hard coded because each player will always only have 1 ten-sided die
         this.defendDiceArray = this.defendDiceScore.map((num) => {
             this.defendDiceValue = num
             // defendDiceValue gets the same number printed out on the defend dice without rendering the dice

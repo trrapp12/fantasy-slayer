@@ -4,7 +4,7 @@ function getDiceRollArray(totalDiceCount, diceSides) {
     })
     // new Array creates a new array with the length of dicecount, .fill fills each spot with the parameter provided.
     // (Bad things happen if you fill an array with emptyness)
-    // It then immediately map over it to fill it with random values
+    // It then immediately maps over it to fill it with random values
 }
 
 function renderDicePlaceHolderArray(totalDiceCount) {
