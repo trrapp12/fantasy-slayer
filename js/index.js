@@ -20,6 +20,8 @@ let isWaiting = false;
 let hasNotDisplayedTheMessageBefore = true
 let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
 
+console.log(myArray)
+
 function playGameMusic () {
         setTimeout(() => {
             setInterval(() => {
@@ -163,39 +165,29 @@ function attack() {
             disableAttackButton();
             handleFlyOuts();
             render()
-            if (villain.dead && hero.dead) {
-                console.log('Both are dead');
-                if (shuffledArray.length > 0) {
-                    console.log('new character available');
-                    setTimeout(() => {
-                        console.log('in new character setTimeout');
-                        hero = setNextCharacter();
-                        console.log('setNextCharacter to: ', hero);
-                        render();
-                        isWaiting = false;
-                    }, 2510);
-                } else {
-                    // Handle the tie scenario
+            if (villain.dead || hero.dead) {
+                if (villain.dead && hero.dead) {
+                    console.log('Both are dead');
                     endGameWithDelay();
-                }
-            } else if (villain.dead) {
-                console.log('villain dead');
-                endGameWithDelay();
-            } else if (hero.dead) {
-                console.log('hero is dead');
-                isWaiting = true;
-                console.log(shuffledArray);
-                if (shuffledArray.length === 0) {
+                } else if (villain.dead) {
+                    console.log('villain dead');
                     endGameWithDelay();
-                } else if (shuffledArray.length > 0) {
-                    console.log('new character available');
-                    setTimeout(() => {
-                        console.log('in new character setTimeout');
-                        hero = setNextCharacter();
-                        console.log('setNextCharacter to: ', hero);
-                        render();
-                        isWaiting = false;
-                    }, 2510);
+                } else if (hero.dead) {
+                    console.log('hero is dead');
+                    isWaiting = true;
+                    console.log(shuffledArray);
+                    if (shuffledArray.length > 0) {
+                        console.log('new character available');
+                        setTimeout(() => {
+                            console.log('in new character setTimeout');
+                            hero = setNextCharacter();
+                            console.log('setNextCharacter to: ', hero);
+                            render();
+                            isWaiting = false;
+                        }, 2510);
+                    } else {
+                        endGameWithDelay();
+                    }
                 }
             }
 
@@ -225,8 +217,6 @@ function setNextCharacter() {
 
 function endGame() {
     isWaiting = true;
-
-
     const villainMovieHTML = `
         <div class="ending-message-container">
         <h1>Fantasy Slayer</h1>
