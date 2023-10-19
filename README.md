@@ -26,6 +26,9 @@ https://github.com/trrapp12/fantasy-slayer/assets/11747875/5c34ddfb-b261-438b-99
 
 ### Description:
 
+<br/>
+
+
 >“This is the land of Narnia,'
 >said the Faun,
 >'where we are now; all that lies between the lamp-post
@@ -41,6 +44,9 @@ It is a great example of using JavaScript classes with complex game logic.
 ---
 
 ### QUICKSTART GUIDE: 
+
+<br/>
+
 
 To use the app simply click on the ```View Project``` button or visit <a href="https://fantasy-slayer.com">https://fantasy-slayer.com/</a>. 
 
@@ -97,6 +103,9 @@ To use the app simply click on the ```View Project``` button or visit <a href="h
 
 ### Project demonstrates the following:
 
+<br/>
+
+
 - [X] Javascript Classes
     
 - [X] use of this
@@ -123,6 +132,9 @@ To use the app simply click on the ```View Project``` button or visit <a href="h
 
 ### CHALLENGES I OVERCAME...
 
+<br/>
+
+
 - [X] working integrating one JavaScript Class into another (heroes each have a class which controls their functionality and rendering.  Spells also have the same.
 But they were both 
 
@@ -145,13 +157,14 @@ But they were both
 
 ### MY OWN PERSONAL CONTRIBUTIONS INCLUDED 
 
+<br/>
+
+
 - [X] Use JavaScript classes to create multiple players, multiple characters, and multiple spells that can be generated in random order.  
       
 - [X] Use of Fisher-Yates shuffle algorithm for a truely random distribution in my array sorting.
 
 - [X] A visually impressive health bar that both progress/decline and updates dynamically and in conjunction with the player status.
-
-
       
 - [X] More play options (defend dice), and casting spells
       
