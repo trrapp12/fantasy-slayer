@@ -46,8 +46,9 @@ To use the app simply click on the ```View Project``` button or visit <a href="h
 
 <br>
 
-**Game Play**
-
+<details>
+  <summary>Game Play</summary>
+  
 * You are the player on the left.
 
 * The enemy will appear as the player on the right.
@@ -89,6 +90,12 @@ To use the app simply click on the ```View Project``` button or visit <a href="h
 * A loss is the inverse—no more health, no more hero replacements, and the villain still has health points.
 
 * A tie occurs when both the villain and all heroes reach 0 health points at the same time.
+</details>
+
+
+**Game Play**
+
+
 
 
 ---
