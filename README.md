@@ -93,11 +93,6 @@ To use the app simply click on the ```View Project``` button or visit <a href="h
 </details>
 
 
-**Game Play**
-
-
-
-
 ---
 
 ### Project demonstrates the following:
