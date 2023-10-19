@@ -163,25 +163,44 @@ function attack() {
             disableAttackButton();
             handleFlyOuts();
             render()
-            if (villain.dead) {
-                console.log('villain dead')
-                endGameWithDelay()
-            } else if (hero.dead) {
-                console.log('hero is dead')
-                isWaiting = true
+            if (villain.dead && hero.dead) {
+                console.log('Both are dead');
                 if (shuffledArray.length > 0) {
-                    console.log('new character available')
+                    console.log('new character available');
                     setTimeout(() => {
-                        console.log('in new character setTimeout')
+                        console.log('in new character setTimeout');
                         hero = setNextCharacter();
-                        console.log('setNextCharacter to: ', hero)
-                        render()
-                        isWaiting = false
-                    }, 2510)
+                        console.log('setNextCharacter to: ', hero);
+                        render();
+                        isWaiting = false;
+                    }, 2510);
                 } else {
-                    endGameWithDelay()
+                    // Handle the tie scenario
+                    endGameWithDelay();
+                }
+            } else if (villain.dead) {
+                console.log('villain dead');
+                endGameWithDelay();
+            } else if (hero.dead) {
+                console.log('hero is dead');
+                isWaiting = true;
+                console.log(shuffledArray);
+                if (shuffledArray.length === 0) {
+                    endGameWithDelay();
+                } else if (shuffledArray.length > 0) {
+                    console.log('new character available');
+                    setTimeout(() => {
+                        console.log('in new character setTimeout');
+                        hero = setNextCharacter();
+                        console.log('setNextCharacter to: ', hero);
+                        render();
+                        isWaiting = false;
+                    }, 2510);
                 }
             }
+
+            // ... (rest of the function below)
+
         }
     }
         
@@ -206,8 +225,8 @@ function setNextCharacter() {
 
 function endGame() {
     isWaiting = true;
-    
-    const videoSource = document.getElementById('background-video')
+
+
     const villainMovieHTML = `
         <div class="ending-message-container">
         <h1>Fantasy Slayer</h1>
@@ -237,16 +256,19 @@ function endGame() {
             <button class="quest-button" id="reset-button">Play Again</button>
         </div>`
     
-    if (villain.health <=0 && hero.health <=0) {
+    if (villain.dead && hero.dead && shuffledArray.length === 0) {
         mainContainer.innerHTML = tieHTML;
+        const videoSource = document.getElementById('background-video')
         videoSource.load();
         playAudio(outTroAudio,backGroundAudio)
-    } else if (villain.health <=0) {
+    } else if (villain.dead) {
         mainContainer.innerHTML = heroMovieHTML;
+        const videoSource = document.getElementById('background-video')
         videoSource.load();
         playAudio(outTroAudio,backGroundAudio)
     } else {
         mainContainer.innerHTML = villainMovieHTML;
+        const videoSource = document.getElementById('background-video')
         videoSource.load();
         playAudio(outTroAudio,backGroundAudio)
     }
