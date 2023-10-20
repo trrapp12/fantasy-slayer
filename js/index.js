@@ -30,6 +30,15 @@ function playGameMusic () {
         }, 55000)
 }
 
+function stopAllAudio() {
+    const audioElements = document.querySelectorAll('audio');
+    audioElements.forEach(audio => {
+        audio.pause(); // Pause the audio
+        audio.currentTime = 0; // Reset its time to the beginning
+    });
+}
+
+
 playGameMusic()
 
 function render() {
@@ -99,13 +108,6 @@ function handleSpellDeath (hero, villain) {
                     if (shuffledArray.length > 0) {
                         // there are still characters left
                         console.log('new character available')
-                        // setTimeout(() => {
-                        //     console.log('in new character setTimeout')
-                        //     hero = setNextCharacter();
-                        //     console.log('setNextCharacter to: ', hero)
-                        //     render()
-                        //     isWaiting = false
-                        // }, 2510)
                         setTimeout(handleCharacterDeathTiming, 2510)
                     } else {
                         // no more characters left
@@ -190,22 +192,12 @@ function attack() {
                     console.log(shuffledArray);
                     if (shuffledArray.length > 0) {
                         console.log('new character available');
-                        // setTimeout(() => {
-                        //     console.log('in new character setTimeout');
-                        //     hero = setNextCharacter();
-                        //     console.log('setNextCharacter to: ', hero);
-                        //     render();
-                        //     isWaiting = false;
-                        // }, 2510);
                         setTimeout(handleCharacterDeathTiming, 2510)
                     } else {
                         endGameWithDelay();
                     }
                 }
             }
-
-            // ... (rest of the function below)
-
         }
     }
         
@@ -276,7 +268,8 @@ function endGame() {
         playAudio(outTroAudio,backGroundAudio)
     }
     document.getElementById('reset-button').addEventListener('click', () => {
-        location.reload()
+        stopAllAudio();
+        location.reload();
     })
 }
 
