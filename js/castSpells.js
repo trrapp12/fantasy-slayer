@@ -124,7 +124,7 @@ class Spells {
         function cardClickListener(evt) {
             if (!isCardClicked) {
                 handler(evt)
-                // playAudio(spellAudio, backGroundAudio)
+                playAudio(spellAudio, backGroundAudio)
                 isCardClicked = true;
                 cards[0].classList.toggle('gather-left-cards');
                 cards[2].classList.toggle('gather-right-cards')

@@ -10,7 +10,6 @@ export const isPlaying = (audio) => {
 export const playAudio = (audioNodeToPlay, currentAudioNode) => {
     if(isPlaying(currentAudioNode)) {
         currentAudioNode.pause();
-    
         const savedTime = currentAudioNode.currentTime;
         audioNodeToPlay.play();
         audioNodeToPlay.onended = () => {
