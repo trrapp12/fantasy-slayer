@@ -94,6 +94,8 @@ class Spells {
                 hero.health = (hero.health + arr[cardClickedIndex].spell_heal_effect) - arr[cardClickedIndex].spell_drain_effect
                 hero.health <= 0 ? hero.health = 0 : hero.health = hero.health;
                 villain.health <= 0 ? villain.health = 0 : villain.health = villain.health;
+                hero.health <= 0 ? hero.dead = true : hero.dead = false;
+                villain.health <= 0 ? villain.dead = true : villain.dead = false; 
                 // prevents character health from displaying a negative number
                 console.log('inside handleCardChoice', hero.health, villain.health)
                 if (hero.health <= 0 || villain.health <= 0) {

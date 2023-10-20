@@ -74,39 +74,51 @@ function endGameWithDelay() {
     }, 2500)
 }
 
+function handleCharacterDeathTiming() {
+    console.log('in new character setTimeout')
+    hero = setNextCharacter();
+    console.log('setNextCharacter to: ', hero)
+    render()
+    isWaiting = false
+}
+
 function handleSpellDeath (hero, villain) {
 
     console.log('checking if someone is dead after spells were cast', hero.health, villain.health)
             console.log('someone is dead after spells were cast')
             // at this point someone is dead.  Options are: hero and villain, just hero, just villain
-            if (hero.dead && villain.dead) {
-                // both are dead
-                console.log('After Spells: both dead')
-                endGameWithDelay()
-            } else if (hero.dead) {
-                // hero is dead, are there more heroes?
-                console.log('After Spells: hero is dead')
-                isWaiting = true
-                if (shuffledArray.length > 0) {
-                    // there are still characters left
-                    console.log('new character available')
-                    setTimeout(() => {
-                        console.log('in new character setTimeout')
-                        hero = setNextCharacter();
-                        console.log('setNextCharacter to: ', hero)
-                        render()
-                        isWaiting = false
-                    }, 2510)
-                } else {
-                    // no more characters left
-                    console.log('After Spells: all heroes are dead, no more characters left')
+            if (hero.dead || villain.dead) {
+                if (hero.dead && villain.dead) {
+                    // both are dead
+                    console.log('After Spells: both dead')
                     endGameWithDelay()
-                }
-            } else {
-                // villain is dead
-                console.log('After Spells: villain dead')
-                endGameWithDelay()
-            } 
+                } else if (hero.dead) {
+                    // hero is dead, are there more heroes?
+                    console.log('After Spells: hero is dead')
+                    isWaiting = true
+                    if (shuffledArray.length > 0) {
+                        // there are still characters left
+                        console.log('new character available')
+                        // setTimeout(() => {
+                        //     console.log('in new character setTimeout')
+                        //     hero = setNextCharacter();
+                        //     console.log('setNextCharacter to: ', hero)
+                        //     render()
+                        //     isWaiting = false
+                        // }, 2510)
+                        setTimeout(handleCharacterDeathTiming, 2510)
+                    } else {
+                        // no more characters left
+                        console.log('After Spells: all heroes are dead, no more characters left')
+                        endGameWithDelay()
+                    }
+                } else {
+                    // villain is dead
+                    console.log('After Spells: villain dead')
+                    endGameWithDelay()
+                } 
+
+            }
         } 
 
 function disableAttackButton () {
@@ -178,13 +190,14 @@ function attack() {
                     console.log(shuffledArray);
                     if (shuffledArray.length > 0) {
                         console.log('new character available');
-                        setTimeout(() => {
-                            console.log('in new character setTimeout');
-                            hero = setNextCharacter();
-                            console.log('setNextCharacter to: ', hero);
-                            render();
-                            isWaiting = false;
-                        }, 2510);
+                        // setTimeout(() => {
+                        //     console.log('in new character setTimeout');
+                        //     hero = setNextCharacter();
+                        //     console.log('setNextCharacter to: ', hero);
+                        //     render();
+                        //     isWaiting = false;
+                        // }, 2510);
+                        setTimeout(handleCharacterDeathTiming, 2510)
                     } else {
                         endGameWithDelay();
                     }
@@ -267,7 +280,7 @@ function endGame() {
     })
 }
 
-document.getElementById('attack-button').addEventListener('click', attack)
+document.getElementById('attack-button').addEventListener('mousedown', attack)
 
 
 
