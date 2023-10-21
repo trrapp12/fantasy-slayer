@@ -35,11 +35,11 @@ https://github.com/trrapp12/fantasy-slayer/assets/11747875/5c34ddfb-b261-438b-99
 >and the great castle of Cair Paravel on the eastern sea.”
 ― C.S. Lewis, The Chronicles of Narnia
 
-For the user, this is a visually stunning fantasy quest to save the world from the grasp of an eternal threat.  You will cycle through 5 heroes and use your attack dice and your spell cards to try and conquer the evil ZedFire.  
+*For the user, this is a visually stunning fantasy quest to save the world from the grasp of an eternal threat.  You will cycle through 5 heroes and use your attack dice and your spell cards to try and conquer the evil ZedFire.*
 
-For prospective employers this is a portfolio project I have put together demonstrating Object constructors and classes in Javascript.  It utilizes classes to create separate types of characters (heroes and villains), and then another set of classes to create spell cards which get integrated into the character classes.
+*For prospective employers this is a portfolio project I have put together demonstrating Object constructors and classes in Javascript.  It utilizes classes to create separate types of characters (heroes and villains), and then another set of classes to create spell cards which get integrated into the character classes.*
 
-It is a great example of using JavaScript classes with complex game logic.  
+*It is a great example of using JavaScript classes with complex game logic.*
 
 ---
 
