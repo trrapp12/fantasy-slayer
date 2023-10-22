@@ -1,4 +1,6 @@
 # Fantasy Slayer
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1ef82717-63c6-4dba-8f18-bf85d08f1d90/deploy-status)](https://app.netlify.com/sites/fantasy-slayer/deploys)
  
  ---
 
