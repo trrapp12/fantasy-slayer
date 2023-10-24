@@ -29,6 +29,19 @@ export const playAudio = (audioNodeToPlay, currentAudioNode) => {
     }
 }
 
+// FUNCTION PURPOSE: sets up the background music to play at specified intervals
+// REQUIRED INPUT: uses playAudio as a callback, which turns on the backGround audio and turns of the spellAudio if it is interrupting.
+// It only checks for the spell because it is the only audio that happens during the game.
+// OUTPUT: n/a
+// SIDE EFFECTS: n/a turns music on and off
+export const playGameMusic = () => {
+    setTimeout(() => {
+        setInterval(() => {
+            playAudio(backGroundAudio,spellAudio)
+        }, 30000)
+    }, 55000)
+}
+
 // FUNCTION PURPOSE: does a search for all audio nodes and pauses all sounds
 // REQUIRED INPUT: n/a
 // OUTPUT: n/a
@@ -49,4 +62,4 @@ export const setAudioVolume = function (audio, volume) {
     audio.volume = volume;
 }
 
-export default { spellAudio, backGroundAudio, outTroAudio, isPlaying, playAudio}
+export default { spellAudio, backGroundAudio, outTroAudio, isPlaying, playAudio, playGameMusic}

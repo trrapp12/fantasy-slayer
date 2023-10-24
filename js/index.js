@@ -8,7 +8,8 @@ import {
     outTroAudio, 
     isPlaying, 
     playAudio,
-    stopAllAudio
+    stopAllAudio,
+    playGameMusic
 } from './audio.js'
 
 
@@ -18,16 +19,10 @@ const mainContainer = document.getElementById('main-container');
 const attackButton = document.getElementById('attack-button')
 
 let isWaiting = false;
+
+// this variable is for the message about running out of Mana
 let hasNotDisplayedTheMessageBefore = true
 let heroArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
-
-function playGameMusic () {
-        setTimeout(() => {
-            setInterval(() => {
-                playAudio(backGroundAudio,spellAudio)
-            }, 30000)
-        }, 55000)
-}
 
 playGameMusic()
 
