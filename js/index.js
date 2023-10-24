@@ -7,7 +7,8 @@ import {
     backGroundAudio, 
     outTroAudio, 
     isPlaying, 
-    playAudio
+    playAudio,
+    stopAllAudio
 } from './audio.js'
 
 
@@ -18,9 +19,7 @@ const attackButton = document.getElementById('attack-button')
 
 let isWaiting = false;
 let hasNotDisplayedTheMessageBefore = true
-let myArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
-
-console.log(myArray)
+let heroArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
 
 function playGameMusic () {
         setTimeout(() => {
@@ -29,15 +28,6 @@ function playGameMusic () {
             }, 30000)
         }, 55000)
 }
-
-function stopAllAudio() {
-    const audioElements = document.querySelectorAll('audio');
-    audioElements.forEach(audio => {
-        audio.pause(); // Pause the audio
-        audio.currentTime = 0; // Reset its time to the beginning
-    });
-}
-
 
 playGameMusic()
 
@@ -92,7 +82,6 @@ function handleCharacterDeathTiming() {
 }
 
 function handleSpellDeath (hero, villain) {
-
     console.log('checking if someone is dead after spells were cast', hero.health, villain.health)
             console.log('someone is dead after spells were cast')
             // at this point someone is dead.  Options are: hero and villain, just hero, just villain
@@ -211,7 +200,7 @@ const characterOrder = (array) => {
     return array
 };
 
-let shuffledArray = characterOrder(myArray)
+let shuffledArray = characterOrder(heroArray)
 
 function setNextCharacter() {
     console.log('entered set next characters')
