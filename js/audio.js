@@ -13,7 +13,7 @@ export const isPlaying = (audio) => {
 
 // FUNCTION PURPOSE: call this function to play a certain audio node(song)
 // REQUIRED INPUT: audio node you want to play and the current one you suspect might need to be switched off
-// OUTPUT: no output
+// OUTPUT: n/a
 // SIDE EFFECTS: if audio node 'b' is playing, pauses 'b', plays the desired one ('a') instead, then starts 'b' again when 'a' complete
 export const playAudio = (audioNodeToPlay, currentAudioNode) => {
     if(isPlaying(currentAudioNode)) {
