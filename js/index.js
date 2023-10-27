@@ -1,7 +1,7 @@
-import characterData from './characterData.js'
-import Character from './Character.js'
-import spellData from './spellsData.js'
-import Spells from "./castSpells.js"
+import characterData from './character-data.js'
+import Character from './character.js'
+import spellData from './spells-data.js'
+import Spells from "./spells-class.js"
 import {
     spellAudio, 
     backGroundAudio, 

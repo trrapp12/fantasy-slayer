@@ -8,7 +8,7 @@ import {
 
 import {
     renderHealthChart,
-} from "./renderHealthChart.js"
+} from "./render-health-chart.js"
 
 class Character {
 
