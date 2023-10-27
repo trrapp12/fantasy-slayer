@@ -13,6 +13,14 @@
 **Original score:** 56%
 **Improved score:**
 
+*these are things I've done, just trying to figure out what category to put them in*
+
+moved the js files so that they were in their proper of rendering
+separated CSS style sheets into the most basic from what could be rendered later and made what could be rendered later load asynchronously
+split out 800 lines of html from footer into it's own file that will only load when a user interacts with the link, thereby cleaning up the code and code splitting
+added async to the html tags for the last three script tags so they wouldn't have to load synchronously
+used a bundler to minify the code
+
 ##### First Contentful Paint
 
 - [X] 
