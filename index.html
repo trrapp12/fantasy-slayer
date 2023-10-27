@@ -4,14 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Defeat the masses of evil in this entertaining new dice game, Fantasy Slayer!">
   <title>Fantasy Slayer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="css/critical.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
-  <link rel="preload" href="css/index.css" as="style" onload=" this.rel='stylesheet'">
-  <link rel="preload" href="css/spell.css" as="style" onload=" this.rel='stylesheet'">
-
+  <!-- when the browser recognizes print is not the media type it will load the following css asynchronously.  -->
+  <!-- Source: Filament Group: https://www.filamentgroup.com/lab/load-css-simpler/-->
+  <link rel="stylesheet" href="css/index.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/spell.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/spell.css">
+  </noscript>
 </head>
 
 <body>
@@ -41,11 +47,12 @@
       <div id="villian"></div>
       <button id="attack-button" class="attack-button display-none">To Battle!</button>
     </div>
+    <!-- footer dynamically appended from footer.js here to improve code readability and load times -->
   </div>
-  <script type="module" src="js/index.js"></script>
   <script type="module" src="js/intro-handler.js"></script>
-  <script type="module" src="js/cast-spells.js"></script>
-  <script src="js/footer.js"></script>
+  <script type="module" src="js/index.js" async></script>
+  <script type="module" src="js/cast-spells.js" async></script>
+  <script src="js/footer.js" async></script>
 </body>
 
 </html>

@@ -1,3 +1,6 @@
+// footer is split out into it's own file because, by itself, it was 3X bigger than the rest of the html, plus by dynamically
+// loading it there is less load time
+
 window.addEventListener('load', () => {
 console.log('window event in footer.js fired')
 
@@ -521,7 +524,11 @@ footerHTML.setAttribute('class', 'footer')
             </li>
             <li>
             <p>
-                The original idea for this came from a <a href="https://scrimba.com" target="_blank" rel="noopener noreferrer">Scrimba's</a> Front End Career Path certification.  That being said, I have completely revamped the project and added significant functionality.  For a fair comparison you can see the the original project <a href="https://scrimba.com/learn/frontend/congratulations-on-completing-module-7--coc0444f5aa8d25f994ea9ede" target="_blank" rel="noopener noreferrer">here</a>.  Much thanks to Tom Chant and the people at Scrimba for providing great instruction.  
+                The original idea for this came from a <a href="https://scrimba.com" target="_blank" rel="noopener noreferrer">Scrimba's</a> 
+                Front End Career Path certification.  
+                That being said, I have completely revamped the project and added significant functionality.  
+                For a fair comparison you can <a href="https://scrimba.com/learn/frontend/congratulations-on-completing-module-7--coc0444f5aa8d25f994ea9ede" target="_blank" rel="noopener noreferrer" > see the the original project here</a>. 
+                 Much thanks to Tom Chant and the people at Scrimba for providing great instruction.  
             </p>
           </li>
             
