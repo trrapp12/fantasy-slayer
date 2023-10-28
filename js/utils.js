@@ -55,4 +55,4 @@ function calculateEnhancedScore (obj, arr){
     return total;
   }
   
-export { calculateEnhancedScore, diceAnimation, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
+export { calculateEnhancedScore, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

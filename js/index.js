@@ -12,19 +12,37 @@ import {
     playGameMusic
 } from './audio.js'
 
+// **********************  CONTAINER ELEMENTS **********************
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 const mainContainer = document.getElementById('main-container');
 const attackButton = document.getElementById('attack-button')
 
-let isWaiting = false;
+// **********************  GLOBAL VARIABLES **********************
 
+let isWaiting = false;
 // this variable is for the message about running out of Mana
 let hasNotDisplayedTheMessageBefore = true
-let heroArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
 
-playGameMusic()
+// **********************  LOGIC FOR BUILDING ARRAY OF HEROES **********************
+let heroArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
+const characterOrder = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]
+    };
+    return array
+};
+let shuffledArray = characterOrder(heroArray)
+
+// **********************  LOGIC FOR RENDERING CHARACTERS **********************
+
+let hero = setNextCharacter()
+console.log('HERO: ', hero)
+const villain = new Character(characterData.zedfire)
+// shuffledSpellArr has to be below hero
+let shuffledSpellArr = hero.spells.shuffleArr(spellData);
 
 function render() {
     console.log('inside render function', player1Container, player2Container, hero, villain)
@@ -33,47 +51,21 @@ function render() {
     setTimeout(enableAttackButton, 3500)
 }
 
-function displayNoManaMessage () {
-    hasNotDisplayedTheMessageBefore = false
-    let messageDiv = document.createElement('div')
-    messageDiv.setAttribute('class', 'no-more-spells')
-    messageDiv.setAttribute('id', 'no-more-spells')
-    messageDiv.innerHTML = `
-    <div class="no-spells-message">
-        <h1>Mana has been depleted</h1>
-        <p>You must continue without any more magical prowess</p>
-    </div>`
-    mainContainer.appendChild(messageDiv)
-    setTimeout(() => {
-        console.log('entered set timeout inside displaynoManaMessage')
-        document.getElementById('no-more-spells').classList.add('disappear');
-        messageDiv.addEventListener('animationend', () => {
-            messageDiv.style.display = "none"
-            console.log("messageDiv", messageDiv)
-        })
-    }, 2500)
-}
+render();
 
-function handleFlyOuts() {
-    hero.renderMultiplesForFlyOutMessage(villain.duplicates);
-    villain.renderMultiplesForFlyOutMessage(hero.duplicates);
-    hero.resetMultiplesForFlyOutMessage();
-    villain.resetMultiplesForFlyOutMessage();
-    disableAttackButton()
-}
+// **********************  LOGIC FOR PLAYING MUSIC **********************
 
-function endGameWithDelay() {
-    setTimeout(() => {
-        endGame()
-    }, 2500)
-}
+playGameMusic()
 
-function handleCharacterDeathTiming() {
-    console.log('in new character setTimeout')
-    hero = setNextCharacter();
-    console.log('setNextCharacter to: ', hero)
-    render()
-    isWaiting = false
+// **********************  LOGIC FOR SPELLS **********************
+function castSpells () {
+    let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
+    console.log('nextThreeCard' , nextThreeCards)
+    let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
+    hero.spells.appendCards(cardRendering);
+    hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
+    console.log('right before if statement, hero.health, villain.health', hero.health, villain.health)
+    // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
 }
 
 function handleSpellDeath (hero, villain) {
@@ -107,27 +99,29 @@ function handleSpellDeath (hero, villain) {
             }
         } 
 
-function disableAttackButton () {
-    console.log('attackButton.disabled', attackButton.disabled)
-    attackButton.disabled = true;
-    console.log('attackButton.disabled', attackButton.disabled)
+function displayNoManaMessage () {
+    hasNotDisplayedTheMessageBefore = false
+    let messageDiv = document.createElement('div')
+    messageDiv.setAttribute('class', 'no-more-spells')
+    messageDiv.setAttribute('id', 'no-more-spells')
+    messageDiv.innerHTML = `
+    <div class="no-spells-message">
+        <h1>Mana has been depleted</h1>
+        <p>You must continue without any more magical prowess</p>
+    </div>`
+    mainContainer.appendChild(messageDiv)
+    setTimeout(() => {
+        console.log('entered set timeout inside displaynoManaMessage')
+        document.getElementById('no-more-spells').classList.add('disappear');
+        messageDiv.addEventListener('animationend', () => {
+            messageDiv.style.display = "none"
+            console.log("messageDiv", messageDiv)
+        })
+    }, 2500)
 }
 
-function enableAttackButton () {
-    console.log('attackButton.disabled', attackButton.disabled)
-    attackButton.disabled = false
-    console.log('attackButton.disabled', attackButton.disabled)
-}
 
-function castSpells () {
-    let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
-    console.log('nextThreeCard' , nextThreeCards)
-    let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
-    hero.spells.appendCards(cardRendering);
-    hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
-    console.log('right before if statement, hero.health, villain.health', hero.health, villain.health)
-    // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
-}
+// **********************  LOGIC FOR BASIC ATTACKS **********************
 
 function attack() {
     console.log(hero.numberOfTurns)
@@ -187,15 +181,33 @@ function attack() {
         
 }
 
-const characterOrder = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]
-    };
-    return array
-};
+function disableAttackButton () {
+    console.log('attackButton.disabled', attackButton.disabled)
+    attackButton.disabled = true;
+    console.log('attackButton.disabled', attackButton.disabled)
+}
 
-let shuffledArray = characterOrder(heroArray)
+function enableAttackButton () {
+    console.log('attackButton.disabled', attackButton.disabled)
+    attackButton.disabled = false
+    console.log('attackButton.disabled', attackButton.disabled)
+}
+
+function handleFlyOuts() {
+    hero.renderMultiplesForFlyOutMessage(villain.duplicates);
+    villain.renderMultiplesForFlyOutMessage(hero.duplicates);
+    hero.resetMultiplesForFlyOutMessage();
+    villain.resetMultiplesForFlyOutMessage();
+    disableAttackButton()
+}
+
+function handleCharacterDeathTiming() {
+    console.log('in new character setTimeout')
+    hero = setNextCharacter();
+    console.log('setNextCharacter to: ', hero)
+    render()
+    isWaiting = false
+}
 
 function setNextCharacter() {
     console.log('entered set next characters')
@@ -203,6 +215,8 @@ function setNextCharacter() {
     console.log(nextCharacterData)
     return nextCharacterData ? new Character(nextCharacterData, new Spells()) : {}
 }
+
+// **********************  LOGIC FOR ENDING GAME **********************
 
 function endGame() {
     isWaiting = true;
@@ -257,16 +271,13 @@ function endGame() {
     })
 }
 
+function endGameWithDelay() {
+    setTimeout(() => {
+        endGame()
+    }, 2500)
+}
+
 document.getElementById('attack-button').addEventListener('mousedown', attack)
 
 
 
-// create characters.  Don't move these up to the top or you get issues with initializing character's methods before characters are initialized
-
-let hero = setNextCharacter()
-console.log('HERO: ', hero)
-const villain = new Character(characterData.zedfire)
-// shuffledSpellArr has to be below hero
-let shuffledSpellArr = hero.spells.shuffleArr(spellData);
-
-render();
