@@ -27,13 +27,6 @@ function renderDefenseDicePlaceHolderArray(totalDiceCount) {
     }).join('')
 }
 
-function diceAnimation(elClass) {
-    const dices = document.querySelectorAll(elClass)
-    for (const die of dices) {
-        die.classList.add('roll-animation')
-    }
-}
-
 function hasDuplicates (arr){
     let x = new Set();
     for (const value in arr) {
