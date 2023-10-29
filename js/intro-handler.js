@@ -1,9 +1,8 @@
-console.log('intro-handler.js fired')
+//  ***************************** CONSTANTS *****************************
 const title = document.getElementById('title');
 const docBody = document.getElementsByTagName('body')[0];
 const container = document.createElement('div');
 const attackButton = document.getElementById('attack-button');
-
 const scrollHTML = `
 <div class="intro-modal" id="intro-modal">
   <button id="skip-intro" class="quest-button">Skip</button>
@@ -54,7 +53,6 @@ const scrollHTML = `
       eternity.</p>
   </div>
 </div>`
-
 const tutorialHTML = `
     <h1>Welcome to Fantasy Slayer</h1>
     <br/>
@@ -89,79 +87,111 @@ const tutorialHTML = `
     </div>
     <button id="quest-button" class="quest-button">Begin Your Quest</button>`
 
+//  ***************************** FUNCTIONS *****************************
+
   function playAudio() {
     const introAudio = new Audio('./assets/assets/audio/Evil-Trailer_AdobeStock_354668525.wav');
     introAudio.volume = 0.5;
     introAudio.play(); 
   }
 
-  function buildTutorial() {
-    container.setAttribute('id', 'tutorial-modal-container');
-    container.classList.add('tutorial-modal');
-    container.innerHTML = tutorialHTML;
-    docBody.insertAdjacentElement("afterbegin", container);
-  }
+/*
+FUNCTION PURPOSE: this utility function will be used to create and insert the intro, the scrolling story, and the footer
+REQUIRED INPUT: id and classname are strings, content is interpolated strings if any JS is involved
+OUTPUT: a new section appended as the first child of the body
+SIDE EFFECTS: it will definitely affect the DOM and layout, so be sure to CSS accordingly*/
+function createModal(id, className, content) {
+  const container = document.createElement('div');
+  container.setAttribute('id', id);
+  container.classList.add(className);
+  container.innerHTML = content;
+  docBody.insertAdjacentElement('afterbegin', container);
+  return container;
+}
 
-  function setTimerForTitleAnimation () {
-    document.getElementById('quest-button').addEventListener('click', () => {
-      console.log('quest button pushed');
-      container.style.display = 'none';
-      playAudio();
-      buildScrollHTML();
-    })
-  }
+/*
+FUNCTION PURPOSE: this function builds the tutorial modal
+REQUIRED INPUT: id and classname are strings, content is interpolated strings if any JS is involved
+OUTPUT: the tutorial section -- appended as the first child of the body
+SIDE EFFECTS: alters the DOM.  Appends the tutorial, which will appear on top of everything else */
+function buildTutorial() {
+  createModal('tutorial-modal-container', 'tutorial-modal', tutorialHTML)
+}
 
-  function buildScrollHTML() {
-    const scrollContainer = document.createElement('div')
-    scrollContainer.setAttribute('id', 'tutorial-modal-container')
-    scrollContainer.classList.add('tutorial-modal')
-    scrollContainer.innerHTML = scrollHTML
-    docBody.insertAdjacentElement("afterbegin", scrollContainer)
-    addScrollHTMLHandler();
-  }
+/* 
+FUNCTION PURPOSE: this function builds the scroll intro, which comes right after the tutorial section
+REQUIRED INPUT: id and classname are strings, content is interpolated strings if any JS is involved
+OUTPUT: the scroll section -- appended as the first child of the body
+SIDE EFFECTS: alters the DOM.  Appends the tutorial, which will appear on top of everything else */
+function buildScrollHTML() {
+  const container = createModal('tutorial-modal-container', 'tutorial-modal', scrollHTML);
+  addScrollHTMLHandler(container)
+}
 
-  function addBackLight() {
-    console.log('add back light fired. Title classlist is:', title.classList)
-    console.log('title is', title)
-    title.classList.add('backlight');
-    console.log('title classlist is: ', title.classList)
-    console.timeStamp
-    setTimeout(() => {
-        title.classList.add('title-disappear')
-    }, 5350);
-    setTimeout(()=> {
-        title.style.display = 'none'
-        attackButton.classList.remove('display-none')
-    }, 8400);
-  }
+/* 
+FUNCTION PURPOSE: this function adds the backlighting behind the title 
+REQUIRED INPUT: n/a
+OUTPUT: n/a
+SIDE EFFECTS: affects visual display*/
 
-  function addScrollHTMLHandler() {
-    // these consts aren't at the top because they won't be present until after they have clicked the tutorial
-    const skipIntroButton = document.getElementById('skip-intro');
-    console.log(skipIntroButton)
-    const introModal = document.getElementById('intro-modal');
-    const introModalClose = document.getElementById('intro-modal-text-container');
-    const tutorialModalContainer = document.getElementById('tutorial-modal-container')
+function addBackLight() {
+  title.classList.add('backlight');
+  setTimeout(() => {
+      title.classList.add('title-disappear')
+  }, 5350);
+  setTimeout(()=> {
+      title.style.display = 'none'
+      attackButton.classList.remove('display-none')
+  }, 8400);
+}
 
-    skipIntroButton.addEventListener('click', (evt) => {
-      introModal.style.display = "none"
-      tutorialModalContainer.style.display = "none"
-      setTimeout(addBackLight, 3000)
-    })
-    // this repeats the same logic as the click, only after a longer timeout incase people read the whole content and the content needs to fade in
-    setTimeout(() => {
-      introModal.style.display = "none"
-      introModal.style.animation = "none"
-      tutorialModalContainer.style.display = "none"
-      addBackLight();
-    }, 69000)
-  }
+/* 
+FUNCTION PURPOSE: closes the Tutorial window and starts actions for scroll animation
+REQUIRED INPUT: n/a
+OUTPUT: n/a
+SIDE EFFECTS: affects visual display and starts audio playing
 
-  window.addEventListener('load', () => {
-    console.log('intro-handler window load event fired')
-      buildTutorial();
-      setTimerForTitleAnimation()  
-  });
+*/
+function closeTutorialStartScrollAnimation () {
+  document.getElementById('quest-button').addEventListener('click', () => {
+    const tutorialContainer = document.getElementById('tutorial-modal-container');
+    tutorialContainer.style.display = 'none';
+    playAudio();
+    buildScrollHTML();
+  })
+}
+
+/* 
+FUNCTION PURPOSE: closes the Tutorial window and starts actions for scroll animation
+REQUIRED INPUT: n/a
+OUTPUT: n/a
+SIDE EFFECTS: affects visual display and starts audio playing */
+
+function addScrollHTMLHandler(container) {
+  // these consts aren't set globally because they won't be present until after they have clicked the tutorial
+  const skipIntroButton = document.getElementById('skip-intro');
+  const introModal = document.getElementById('intro-modal');
+  const introModalClose = document.getElementById('intro-modal-text-container');
+  // const tutorialModalContainer = document.getElementById('tutorial-modal-container')
+
+  skipIntroButton.addEventListener('click', (evt) => {
+    introModal.style.display = "none"
+    container.style.display = "none"
+    setTimeout(addBackLight, 3000)
+  })
+  // this repeats the same logic as the click, only after a longer timeout incase people read the whole content and the content needs to fade in
+  setTimeout(() => {
+    introModal.style.display = "none"
+    introModal.style.animation = "none"
+    container.style.display = "none"
+    addBackLight();
+  }, 69000)
+}
+
+window.addEventListener('load', () => {
+    buildTutorial();
+    closeTutorialStartScrollAnimation()  
+});
 
 
       
