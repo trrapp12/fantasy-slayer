@@ -188,10 +188,13 @@ function addScrollHTMLHandler(container) {
   }, 69000)
 }
 
-window.addEventListener('load', () => {
-    buildTutorial();
-    closeTutorialStartScrollAnimation()  
-});
+function buildTutorialOnWindowLoadHandler() {
+  buildTutorial();
+  closeTutorialStartScrollAnimation()  
+}
+
+window.addEventListener('DOMContentLoaded', buildTutorialOnWindowLoadHandler);
+window.removeEventListener('load', buildTutorialOnWindowLoadHandler)
 
 
       
