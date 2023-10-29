@@ -14,13 +14,12 @@ function getAspectRatio(windowWidth, windowHeight) {
  function findCenterCoordinates (windowWidth, boxWidth, windowHeight, boxHeight) {
    return `${(windowWidth / 2) - (boxWidth / 2)} ${(windowHeight / 2) - (boxHeight / 2)}`
  }
-
-
+ 
 */
-
 
 let containerWidth = 110;
 const circumference = 220;
+
 /*
 
 so I previously had 220 represented by c, the circumference, but for some reason it was such a large number it drew itself 
@@ -28,7 +27,6 @@ three or four loops and the player would get a ton of hits and never show any da
 test a number, albeit arbitrarily that stopped as soon as the number connected.  It turned out to be 220.
 
 */
-
 
 function findRadius (circumference) {
   return circumference / Math.pow(Math.PI, 2)

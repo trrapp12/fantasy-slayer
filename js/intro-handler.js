@@ -112,18 +112,15 @@ const tutorialHTML = `
   }
 
   function buildScrollHTML() {
-    const docBody = document.getElementsByTagName('body')[0];
-    const container = document.createElement('div')
-    const attackButton = document.getElementById('attack-button')
-    container.setAttribute('id', 'tutorial-modal-container')
-    container.classList.add('tutorial-modal')
-    container.innerHTML = scrollHTML
-    docBody.insertAdjacentElement("afterbegin", container)
+    const scrollContainer = document.createElement('div')
+    scrollContainer.setAttribute('id', 'tutorial-modal-container')
+    scrollContainer.classList.add('tutorial-modal')
+    scrollContainer.innerHTML = scrollHTML
+    docBody.insertAdjacentElement("afterbegin", scrollContainer)
     addScrollHTMLHandler();
   }
 
   function addBackLight() {
-    const title = document.getElementById('title')
     console.log('add back light fired. Title classlist is:', title.classList)
     console.log('title is', title)
     title.classList.add('backlight');
