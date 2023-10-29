@@ -1,3 +1,20 @@
+// 28 OCT 2023: COMMENTING THESE OUT.  THEY ARE HERE FOR DYNAMICALLY CALCULATING SIZE OF CIRCLE COMPARED TO WINDOW ASPECT RATIO.  
+// MAY NEED WHEN MOVE TO A MOBILE RESPONSIVE DESIGN.  SEE LINES 58-60 AND LINES 65-67 FOR CORRESPONDING CODE
+
+// function getAspectRatio(windowWidth, windowHeight) {
+//   return windowWidth / windowHeight;
+// }
+
+
+
+// function getBoxHeight(boxWidth, aspectRatio) {
+//   return boxWidth / .4444
+// }
+
+// function findCenterCoordinates (windowWidth, boxWidth, windowHeight, boxHeight) {
+//   return `${(windowWidth / 2) - (boxWidth / 2)} ${(windowHeight / 2) - (boxHeight / 2)}`
+// }
+
 let containerWidth = 110;
 
 function findRadius (circumference) {
@@ -16,34 +33,17 @@ function setColor(health, originalHealth) {
     return x
 }
 
-function getAspectRatio(windowWidth, windowHeight) {
-  return windowWidth / windowHeight;
+function findCircumference (containerWidth) {
+    let r = containerWidth / 2;
+  return (2 * (Math.PI * r))
 }
 
 function getBoxWidth(windowWidth, percentage) {
   return (windowWidth * (percentage / 100))
 }
 
-function getBoxHeight(boxWidth, aspectRatio) {
-  return boxWidth / .4444
-}
-
-function findCircumference (containerWidth) {
-    let r = containerWidth / 2;
-  return (2 * (Math.PI * r))
-}
-
 function findDiameter (radius) {
   return radius * 2
-}
-
-function findCenterCoordinates (windowWidth, boxWidth, windowHeight, boxHeight) {
-
-  return `${(windowWidth / 2) - (boxWidth / 2)} ${(windowHeight / 2) - (boxHeight / 2)}`
-}
-
-function setStrokeWidth (num) {
-  return num
 }
 
 function setXInit (width) {
@@ -57,15 +57,14 @@ function setYInit(width, diameter) {
 function renderHealthChart(currentHealthForBar, totalHealth) {
     let color = setColor(currentHealthForBar, totalHealth)
     let healthPercentage = (currentHealthForBar / totalHealth)
-    let aspect = getAspectRatio(containerWidth, containerWidth)
+    // let aspect = getAspectRatio(containerWidth, containerWidth)
     let w = getBoxWidth(containerWidth, 100)
-    let h = getBoxHeight(w, aspect)
+    // let h = getBoxHeight(w, aspect)
     let c = findCircumference(w, 2)
     let nc = healthPercentage * 220;
     let r = findRadius(c)
     let d = findDiameter(r)
-    let coord = findCenterCoordinates(containerWidth, w, containerWidth, h)
-    let strokeWidth = setStrokeWidth(20)
+    // let coord = findCenterCoordinates(containerWidth, w, containerWidth, h)
     // let currentHealth = 360;
     // let totalHealth = 1000;
     let xInit = setXInit(containerWidth)
