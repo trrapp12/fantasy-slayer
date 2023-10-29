@@ -3,6 +3,8 @@ const title = document.getElementById('title');
 const docBody = document.getElementsByTagName('body')[0];
 const container = document.createElement('div');
 const attackButton = document.getElementById('attack-button');
+const timeToCloseIntroModalAfterClick = 3000;
+const timeToCloseIntroModalIfReadingScroll = 69000;
 const scrollHTML = `
 <div class="intro-modal" id="intro-modal">
   <button id="skip-intro" class="quest-button">Skip</button>
@@ -177,7 +179,7 @@ function addScrollHTMLHandler(container) {
   skipIntroButton.addEventListener('click', (evt) => {
     introModal.style.display = "none"
     container.style.display = "none"
-    setTimeout(addBackLight, 3000)
+    setTimeout(addBackLight, timeToCloseIntroModalAfterClick)
   })
   // this repeats the same logic as the click, only after a longer timeout incase people read the whole content and the content needs to fade in
   setTimeout(() => {
@@ -185,7 +187,7 @@ function addScrollHTMLHandler(container) {
     introModal.style.animation = "none"
     container.style.display = "none"
     addBackLight();
-  }, 69000)
+  }, timeToCloseIntroModalIfReadingScroll)
 }
 
 function buildTutorialOnWindowLoadHandler() {
