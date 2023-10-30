@@ -17,9 +17,21 @@ function getAspectRatio(windowWidth, windowHeight) {
  
 */
 
-let containerWidth = 110;
+let containerWidth = 155;
 const circumference = 220;
 
+
+function glowEffectCodeBlock (health, originalHealth) {
+  const glowOn = `url(#glow)`
+  const glowOff = ''
+
+  if (health > originalHealth) {
+    return glowOn
+  } else {
+    return glowOff
+  }
+
+}
 /*
 
 so I previously had 220 represented by c, the circumference, but for some reason it was such a large number it drew itself 
@@ -34,6 +46,7 @@ function findRadius (circumference) {
 
 function setColor(health, originalHealth) {
   // short hands for if/ else statements, but have to put the first value it will hit (i.e. highest health level) first
+  if (health > originalHealth) return "#FFFFFF";
   if (health >= 0.75 * originalHealth) return "#6D8BA6";
   if (health >= 0.5 * originalHealth) return "#F2A341";
   return "#BF0404";
@@ -63,6 +76,7 @@ function setYInit(width, diameter) {
 
 function renderHealthChart(currentHealthForBar, totalHealth) {
     const color = setColor(currentHealthForBar, totalHealth)
+    const glow = glowEffectCodeBlock(currentHealthForBar, totalHealth)
     const healthPercentage = (currentHealthForBar / totalHealth)
     // let aspect = getAspectRatio(containerWidth, containerWidth)
     const w = getBoxWidth(containerWidth, 100)
@@ -79,6 +93,20 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
     
     const container = `
       <svg viewBox="0 0 ${w} ${w}">
+      <defs>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <style>
+          path {
+            transition: stroke-dasharray 0.5s ease, stroke 0.5s ease;
+          }
+        </style>
+      </defs>
         <path
           d="M${xInit} ${yInit}
             a ${r} ${r} 0 0 1 0 ${d}
@@ -87,10 +115,10 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
           stroke="${color}";
           stroke-width="8";
           stroke-dasharray="${nc}, ${circumference}"
-
+          filter="${glow}"
         />
       </svg>
-    `
+    `;
     return container
 }
 

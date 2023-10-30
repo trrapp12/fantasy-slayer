@@ -251,7 +251,6 @@ button:disabled {
 }
 
 .character-stats--health {
-  backdrop-filter: saturate(100%) blur(10px);
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #d8e4f0;
   color: #fff0;
