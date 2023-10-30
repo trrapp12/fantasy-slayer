@@ -18,8 +18,8 @@ function getAspectRatio(windowWidth, windowHeight) {
 */
 
 let containerWidth = 155;
-const circumference = 220;
-
+const circumference = 310;
+// circumference must be twice the containerWidth for the lines to meet in the end to form a circle
 
 function glowEffectCodeBlock (health, originalHealth) {
   const glowOn = `url(#glow)`
@@ -95,7 +95,7 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
       <svg viewBox="0 0 ${w} ${w}">
       <defs>
         <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
             <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -113,7 +113,7 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
             a ${r} ${r} 0 0 1 0 -${d}"
           fill="none"
           stroke="${color}";
-          stroke-width="8";
+          stroke-width="9.125";
           stroke-dasharray="${nc}, ${circumference}"
           filter="${glow}"
         />
