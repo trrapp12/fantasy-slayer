@@ -6,6 +6,7 @@
     font-weight: normal;
     src: url('../assets/angars_ruins/AngarsRunes.woff2') format('woff2'),
         url('../assets/angars_ruins/AngarsRunes.woff') format('woff');
+    font-display: swap;
 }
 
 /* *******************************************VARIABLES******************************************* */
