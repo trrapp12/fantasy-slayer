@@ -2,6 +2,7 @@ import characterData from './character-data.js'
 import Character from './character.js'
 import spellData from './spells-data.js'
 import Spells from "./spells-class.js"
+import { updateHealthChart } from "./render-health-chart.js"
 import {
     spellAudio, 
     backGroundAudio, 
@@ -156,6 +157,7 @@ function attack() {
             villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
             disableAttackButton();
             handleFlyOuts();
+            updateHealthChart();
             render()
             if (villain.dead || hero.dead) {
                 if (villain.dead && hero.dead) {

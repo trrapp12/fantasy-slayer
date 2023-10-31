@@ -103,17 +103,19 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
         </filter>
         <style>
           path {
-            transition: stroke-dasharray 0.5s ease, stroke 0.5s ease;
+            transition: stroke-dasharray 5s ease, stroke 5s ease;
           }
         </style>
       </defs>
         <path
+          id="path"
+          class="health-path"
           d="M${xInit} ${yInit}
             a ${r} ${r} 0 0 1 0 ${d}
             a ${r} ${r} 0 0 1 0 -${d}"
           fill="none"
-          stroke="${color}";
-          stroke-width="9.125";
+          stroke="${color}"
+          stroke-width="9.125"
           stroke-dasharray="${nc}, ${circumference}"
           filter="${glow}"
         />
@@ -122,6 +124,33 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
     return container
 }
 
-export { renderHealthChart }
+function updateHealthChart(currentHealthForBar, totalHealth) {
+  console.log('updateHealthChart firing')
+  const healthPercentage = (currentHealthForBar / totalHealth)
+  const color = setColor(currentHealthForBar, totalHealth);
+  const healthPath = document.querySelectorAll('.health-path');
+  const glow = glowEffectCodeBlock(currentHealthForBar, totalHealth);
+  const nc = healthPercentage * circumference;
+
+  console.log('healthPath', healthPath)
+
+  for (const paths of healthPath) {
+    console.log('inside paths for of', paths, 'healthPath')
+    if (currentHealthForBar > totalHealth) {
+      console.log('inside paths for of if statement, ', currentHealthForBar, totalHealth, healthPath)
+      paths.setAttribute('filter', `${glow}`)
+    } else {
+      console.log('inside paths for of else statement, ', currentHealthForBar, totalHealth, healthPath)
+      paths.removeAttribute('filter')
+    }
+    console.log('outside paths for of else statement, ', currentHealthForBar, totalHealth, healthPath)
+    paths.setAttribute('stroke', `${color}`);
+    paths.setAttribute('stroke-dasharray', `${nc}, ${circumference}`);
+    paths.setAttribute('stroke', `${color}`);
+  }
+  
+}
+
+export { renderHealthChart, updateHealthChart }
 
   

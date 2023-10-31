@@ -8,6 +8,7 @@ import {
 
 import {
     renderHealthChart,
+    updateHealthChart
 } from "./render-health-chart.js"
 
 class Character {
@@ -189,9 +190,17 @@ class Character {
             } else {
                 villainDisplayLogic = ''
             }       
-            
-        let graph = renderHealthChart(health , originalHealth)
         
+        const graphContainer = document.querySelectorAll('.character-stats--health-graph')
+        console.log('graphContainers are ', graphContainer)
+        let graph; 
+        console.log('graph', graph)
+
+        if (graphContainer.length < 3) {
+            console.log('inside graphContainer.length < 3', graph)
+            graph = renderHealthChart(health, originalHealth)
+            console.log('after renderHealthChart, graphContainers are', graphContainer, 'and graph is ', graph)
+        } 
         return `
 
             <h4>${characterName}</h4>

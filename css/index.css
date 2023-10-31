@@ -41,6 +41,12 @@ video {
   min-width: 100vw;
 }
 
+/* *******************************************IDs arranged alphabeticallys******************************************* */
+
+#path {
+  transition: all 5s ease;
+}
+
 /* *******************************************Classes arranged alphabeticallys******************************************* */
 .actions-container {
   margin: 2em 0em 0em 0em;

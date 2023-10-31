@@ -148,10 +148,6 @@ class Spells {
         
     }
 
-    returnToGame () {
-
-    }
-
 }
 
 export default Spells
