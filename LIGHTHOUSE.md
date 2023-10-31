@@ -20,7 +20,16 @@ separated CSS style sheets into the most basic from what could be rendered later
 split out 800 lines of html from footer into it's own file that will only load when a user interacts with the link, thereby cleaning up the code and code splitting
 added async to the html tags for the last three script tags so they wouldn't have to load synchronously
 used a bundler to minify the code
+To prevent FOIT: 
 
+added following to preload:
+
+  <link rel="preload" href="css/critical.css" as="style">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap">
+
+added font-display: optional;
+
+ 
 ##### First Contentful Paint
 
 - [X] 
