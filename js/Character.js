@@ -208,10 +208,10 @@ class Character {
                     
                     <div class="character-stats--container" style="order: ${cssOrder}">
                         <ul>
-                            <li class="attributes alive"><p class="attributes-key">Status: </p><p class="attributes-value ${health >= .75 * originalHealth ? 'belligerent'
+                            <li class="attributes alive"><p class="attributes-key">Status: </p><p class="attributes-value ${health > 1 * originalHealth ? 'empowered' : health >= .75 * originalHealth ? 'belligerent'
                             : health >= .5 * originalHealth ? 'unwielding'
                              : health >= 1 ? 'distraught'
-                              : 'ofslægen-slain'}">${health >= .75 * originalHealth ? 'Belligerent'
+                              : 'ofslægen-slain'}">${health > 1 * originalHealth ? 'empowered' : health >= .75 * originalHealth ? 'Belligerent'
                              : health >= .5 * originalHealth ? 'unwielding'
                               : health >= 1 ? 'distraught'
                                : 'ofslægen / slain'}</p>

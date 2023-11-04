@@ -872,12 +872,12 @@ element.style {
   flex-wrap: wrap;
   height: fit-content;
   justify-content: space-between;
-  left: -50vw;
-  min-width: fit-content;
+  left: -44vw;
+  /* min-width: fit-content; */
   padding: 2em;
-  position: relative;
-  top: 16vh;
-  width: 24vw;
+  position: absolute;
+  top: 46vh;
+  max-width: 24vw;
   z-index: 200;
   align-items: center;
 }
@@ -900,11 +900,11 @@ element.style {
   flex-wrap: wrap;
   height: fit-content;
   justify-content: space-between;
-  left: 46vw;
+  left: 120vw;
   min-width: fit-content;
   padding: 2em;
-  position: relative;
-  top: 16vh;
+  position: absolute;
+  top: 46vh;
   width: 24vw;
   z-index: 200;
   align-items: center;
@@ -1013,6 +1013,23 @@ button.quest-button:hover {
   margin: 0;
 }
 
+.empowered {
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
+}
+
+video::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  display: block;
+  color: papayawhip;
+  width: 100%;
+  height: 5rem;
+  position: absolute;
+  z-index: 1000;
+}
+
 @keyframes backlight {
   0% {
     text-shadow: -12px 0px 10px rgb(248 248 248)
@@ -1100,37 +1117,37 @@ button.quest-button:hover {
 
 @keyframes fly-in-right {
   0% {
-    left: 50vw;
+    left: 120vw;
   }
 
   20% {
-    left: 22vw;
+    left: 76vw;
   }
 
   80% {
-    left: 22vw;
+    left: 76vw;
   }
 
   100% {
-    left: 50vw
+    left: 120vw
   }
 }
 
 @keyframes fly-in-left {
   0% {
-    left: -50vw;
+    left: -44vw;
   }
 
   20% {
-    left: -9vw;
+    left: 0vw;
   }
 
   80% {
-    left: -9vw;
+    left: 0vw;
   }
 
   100% {
-    left: -50vw
+    left: -44vw
   }
 }
 
