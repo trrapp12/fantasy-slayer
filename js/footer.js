@@ -9,7 +9,7 @@ footerHTML.setAttribute('id', 'footer')
 footerHTML.setAttribute('class', 'footer')
      footerHTML.innerHTML = `
     <div class="footer-contents-container">
-      <h6 class="angars-ruins footer-logo">Fantasy + Slayer</h6>
+      <div class="angars-ruins footer-logo">Fantasy + Slayer</div>
     </div>
     <div class="footer-info">
       <p>
@@ -29,7 +29,7 @@ footerHTML.setAttribute('class', 'footer')
       <div class="credits-modal-container" id="credit-modal-container">
         <section class="credits-modal display-none" id="credits-modal">
           <p id="exit-button" class="exit-button angars-ruins"> X </p>
-          <h4 class="angars-ruins">The History and Vocabulary of Fantasy Slayer</h4>
+          <h1 class="angars-ruins">The History and Vocabulary of Fantasy Slayer</h1>
           <ul>
             <li>
               <p><q>Choose not to be harmed—and you won't feel harmed. Don't feel harmed—and you haven't

@@ -203,7 +203,7 @@ class Character {
         } 
         return `
 
-            <h4>${characterName}</h4>
+            <h2>${characterName}</h2>
                 <div class="character-card" style="flex-direction: ${characterCardFlexDirection}">
                     
                     <div class="character-stats--container" style="order: ${cssOrder}">

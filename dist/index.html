@@ -4,20 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Defeat the masses of evil in this entertaining new dice game, Fantasy Slayer!">
   <title>Fantasy Slayer</title>
+  <link rel="canonical" href="https://www.fantasy-slayer.com" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap">
+  <link rel="preload" href="/assets/zed-fire-a6db2721.webp" as="image">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap">
+  <!-- when the browser recognizes print is not the media type it will load the following css asynchronously.  -->
+  <!-- Source: Filament Group: https://www.filamentgroup.com/lab/load-css-simpler/-->
   
-  
-
-  <script type="module" crossorigin src="/assets/index-a25051ea.js"></script>
-  <link rel="stylesheet" href="/assets/index-edc637ab.css">
+  <link rel="stylesheet" href="/assets/index-e3b19f3d.css" media="print" onload="this.media='all'">
+  <!-- <link rel="stylesheet" href="css/spell.css" media="print" onload="this.media='all'"> -->
+  <noscript>
+    
+    <!-- <link rel="stylesheet" href="css/spell.css"> -->
+  </noscript>
+  <script type="module" crossorigin src="/assets/index-dd018a2e.js"></script>
+  <link rel="stylesheet" href="/assets/index-2fabe7cd.css">
 </head>
 
 <body>
-  <!-- end intro modal -->
   <div id="main-container" class="main-container">
     <video id="background-video" autoplay loop muted>
       <source id="video-source" src="/assets/AdobeStock_199937353-ec86d56f.mov" type="video/mp4">
@@ -44,11 +54,11 @@
       <div id="villian"></div>
       <button id="attack-button" class="attack-button display-none">To Battle!</button>
     </div>
+    <!-- footer dynamically appended from footer.js here to improve code readability and load times -->
   </div>
   
   
-  
-  <script src="js/footer.js"></script>
+  <script src="js/footer.js" async></script>
 </body>
 
 </html>
