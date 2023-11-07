@@ -59,14 +59,33 @@ render();
 playGameMusic()
 
 // **********************  LOGIC FOR SPELLS **********************
+
+function importSpellCSS () {
+    if (document.getElementById('spellCSS')) {
+        return
+    } else {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet',
+        link.type = 'text/css'
+        link.href = 'css/spell.css'
+        link.id = 'spellCss'
+    
+        document.head.appendChild(link)
+    }
+}
 function castSpells () {
-    let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
-    console.log('nextThreeCard' , nextThreeCards)
-    let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
-    hero.spells.appendCards(cardRendering);
-    hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
-    console.log('right before if statement, hero.health, villain.health', hero.health, villain.health)
-    // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
+    // import spells here to prevent heavy load on first page load
+    importSpellCSS()
+    // set timeout gives imperceptible space to let CSS load before DOM refreshes, or else there is glitchiness
+    setTimeout(() => {
+        let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
+        console.log('nextThreeCard' , nextThreeCards)
+        let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
+        hero.spells.appendCards(cardRendering);
+        hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
+        console.log('right before if statement, hero.health, villain.health', hero.health, villain.health)
+        // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
+    }, 100)
 }
 
 function handleSpellDeath (hero, villain) {
@@ -228,7 +247,7 @@ function endGame() {
             <h2>As Death descends from heights, and obscurity from the shadows, The hope of men has floundered and the memories of elves are no more...<span class="ending-message">You have lost and Zedfire has won!</span></h2>
             <video id="background-video" autoplay muted>
                 <source id="video-source" src="./assets/assets/AdobeStock_630909246.mov" type="video/mp4">
-                <track src="./assets/assets/defeat_captions.vtt" kind="captions" srclang="en" label="english_captions">
+                <track src="./assets/assets/defeat_captions.vtt" kind="captions" srclang="en" label="english_captions" type="text/vtt" default>
             </video>
             <button class="quest-button" id="reset-button">Play Again</button>
         </div>`
@@ -237,10 +256,10 @@ function endGame() {
         <div class="ending-message-container">
         <h1>Fantasy Slayer</h1>
             <h2><span class="ending-message">You win!</span>  Only the integrity and fielty of a hero, combined with the unforseeable but infatigable friendship of this group of misfits could have saved us from such evil.</h2>
-            video::cue {
-                background-image: linear-gradient(to bottom, dimgray, lightgray);
-                color: papayawhip;
-              }
+            <video id="background-video" autoplay muted>
+                <source id="video-source" src="./assets/assets/AdobeStock_396656517.mov" type="video/mp4">
+                <track src="./assets/assets/victory_captions.vtt" kind="captions" srclang="en" label="english_captions" type="text/vtt" default>
+            </video>
             <button class="quest-button" id="reset-button">Play Again</button>
         </div>`
     const tieHTML = `
@@ -249,7 +268,7 @@ function endGame() {
             <h2>The Gods have not seen fit to determine how to which side to tip the scales of justice.  Both Hero and Villain have languised.  <span class="ending-message">It is a draw</span>It seems it will lay with another to determine the outcome of this story.</h2>
             <video id="background-video" autoplay muted>
                 <source id="video-source" src="./assets/assets/AdobeStock_583211956.mov" type="video/mp4">
-                <track src="./assets/assets/tie_captions.vtt" kind="captions" srclang="en" label="english_captions">
+                <track src="./assets/assets/tie_captions.vtt" kind="captions" srclang="en" label="english_captions" type="text/vtt" default>
             </video>
             <button class="quest-button" id="reset-button">Play Again</button>
         </div>`

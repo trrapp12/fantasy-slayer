@@ -1,13 +1,3 @@
-/* *******************************************FONTS******************************************* */
-
-@font-face {
-    font-family: 'angars-runes';
-    font-style: normal;
-    font-weight: normal;
-    src: url('../assets/angars_ruins/AngarsRunes.woff2') format('woff2'),
-        url('../assets/angars_ruins/AngarsRunes.woff') format('woff');
-}
-
 /* *******************************************VARIABLES******************************************* */
 
 :root {
@@ -217,7 +207,6 @@
 
 }
 
-
 .spell-card-front {
     background: url("../assets/assets/cards_small/front.webp");
     width: 100%;
@@ -247,22 +236,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.gather-left-cards {
-    animation-name: 'gather-left-card';
-    animation-delay: 4500ms;
-    animation-duration: 2000ms;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-}
-
-.gather-right-cards {
-    animation-name: 'gather-right-card';
-    animation-delay: 4500ms;
-    animation-duration: 2000ms;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
 }
 
 .skull {
@@ -297,26 +270,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-}
-
-@keyframes gather-left-card {
-    from {
-        transform: rotate(0deg) translateX(0%) translateY(0%);
-    }
-
-    to {
-        transform: rotate(-10deg) translateX(104%) translateY(8%);
-    }
-}
-
-@keyframes gather-right-card {
-    from {
-        transform: rotate(0deg) translateX(0%) translateY(0%);
-    }
-
-    to {
-        transform: rotate(11deg) translateX(-98%) translateY(5%);
-    }
 }
 
 @keyframes disappear {

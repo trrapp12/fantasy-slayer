@@ -1022,12 +1022,9 @@ button.quest-button:hover {
 
 video::cue {
   background-image: linear-gradient(to bottom, dimgray, lightgray);
-  display: block;
   color: papayawhip;
   width: 100%;
   height: 5rem;
-  position: absolute;
-  z-index: 1000;
 }
 
 @keyframes backlight {
