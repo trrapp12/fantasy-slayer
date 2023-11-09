@@ -4,7 +4,7 @@ const docBody = document.getElementsByTagName('body')[0];
 const container = document.createElement('div');
 const attackButton = document.getElementById('attack-button');
 const timeToCloseIntroModalAfterClick = 3000;
-const timeToCloseIntroModalIfReadingScroll = 69000;
+const timeToCloseIntroModalIfReadingScroll = 110000;
 const scrollHTML = `
 <div class="intro-modal" id="intro-modal">
   <button id="skip-intro" class="quest-button">Skip</button>

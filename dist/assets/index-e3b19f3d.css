@@ -755,7 +755,7 @@ element.style {
 }
 
 .intro-modal-text-container {
-  animation: 69000ms linear scroll;
+  animation: 99000ms linear scroll;
   border-left: 10px solid var(--sand-hex);
   border-image: linear-gradient (to bottom, rgba(217, 182, 139, 10), #D9B68B, rgba(217, 182, 139, 10)) 1 100%;
   color: white;
