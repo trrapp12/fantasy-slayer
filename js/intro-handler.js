@@ -17,21 +17,19 @@ const scrollHTML = `
       In the rise of the sun and the gathering of the clouds it could be seen. Even the lowliest of creatures bore
       magical fruit.</p>
 
-    <p>Yet even the magic was not always here. Before the calignious breathe of stars bore fire and light into the
-      belly of the
-      three earths,
-      before the vastness of the skies blushed before the immensity of blackness the stars bathed in, before even
-      this, there was a single
-      harmonious song whose vibration was defined the existence of everything. </p>
+    <p class="bold">A Time Before Magic</p>
 
-    <p>Yet even that was not the beginning, yea betwoxt the dawn of song and the expanse of pre-time, the world
-      existed as naught but a mere Word—a concept, a notion, awaiting
-      its moment of realization. And antecedent to the conception of the Word, the universe was a canvas of pure
-      thought and radiant light, an epoch of purity and boundless potential.</p>
+    <p>But magic was not always present. Before the calignious breathe of stars bore fire and light into the
+      belly of the three earths, before skies blushed at the immensity of blackness the stars bathed in, 
+      ...yea, before even this, there was a single harmonious song whose vibration defined the existence of everything.
+      It was at this moment, betwoxt the dawn of song and the expanse of pre-time, that everything existed in one 
+      physical point at one measurable moment, as a word on the lips of the one would begin the creation.</p>
 
-    <p>But in the recesses of time, prior to the advent of all ages, both Elven and human, before the epochs of magic
-      and song could coalesce into the Word, an enigmatic shadow lingered. It cast a veil over existence, embodying an
-      ancient malevolence that whispered forgotten fears.</p>
+    <p class="bold">The Creators Brother</p>
+
+    <p>Many stories have been told from this point -- the moment all was spoken into creation.  But not many know of the battle that
+      occurred before it.  The one that left an enigmatic shadow lingering over Creation, ancient malevolence that whispered forgotten fears -- The Creators Brothers. His name is Zedfire,
+      taken from "Z" the last syllable in the creation, the finality, the end, and the fire of chaotic evil for which he is known.</p>
 
     <p>The shadow, with the maleficence it concealed, faded into the forgotten corridors of history. Yet now, its
       patience wears thin, and its slumbering malevolence stirs.</p>
@@ -39,8 +37,8 @@ const scrollHTML = `
     <p class="bold">A Memory Awakens</p>
 
     <p>Yet one being holds the fragments of memory, as ancient as the universe and as enduring as light itself. He
-      bore witness to creation's genesis, standing sentinel at the threshold of time. Though his mind now dances on
-      the edges of obscurity, the shadow of that bygone memory lingers. Yet, will this remnant be sufficient?</p>
+      bore witness to creation's genesis, standing sentinel at the threshold of time. One of the original four brothers.  
+      Though his mind now dances on the edges of obscurity, the shadow of that bygone memory lingers. Yet, will this remnant be sufficient?</p>
 
     <p>Can he, amidst the discord of wars between Elves and humans, rally a respite against an unending evil?</p>
 
@@ -49,10 +47,6 @@ const scrollHTML = `
     <p>The symphony of destiny plays on, as an eternal question beckons. Can the cacophony of strife be silenced, if
       only momentarily, to confront an evil that defies finite understanding? Or shall the world confront the revival
       of an ancient malevolence, a malevolence it labored millennia to consign to oblivion?</p>
-
-    <p>Amidst the whispering winds of time, the answers echo, as the tapestry of existence unravels in the hands of an
-      immortal guardian. The journey unfolds, in a tale where forgotten echoes collide with the inevitability of
-      eternity.</p>
   </div>
 </div>`
 const tutorialHTML = `

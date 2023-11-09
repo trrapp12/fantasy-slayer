@@ -688,7 +688,7 @@ element.style {
 }
 
 .intro-modal {
-  animation: 69000ms linear identifier;
+  animation: 99000ms linear identifier;
   background-color: rgba(1, 1, 1, 0.5);
   display: block;
   left: 0;
