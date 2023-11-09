@@ -13,6 +13,15 @@ import {
     playGameMusic
 } from './audio.js'
 
+// **********************  REGISTER SERVICE WORKER **********************
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/js/sw.js').then(function(reg) {
+      console.log('Yey!', reg);
+    }).catch(function(err) {
+      console.log('Boo!', err);
+    });
+  }
 // **********************  CONTAINER ELEMENTS **********************
 
 const player1Container = document.getElementById('character-1-art');
