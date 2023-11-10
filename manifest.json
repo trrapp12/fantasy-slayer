@@ -11,9 +11,9 @@
     "display": "fullscreen",
     "icons": [
         {
-            "src": "../assets/assets/icon_512.webp",
+            "src": "../assets/assets/icon_512.png",
             "sizes": "512x512",
-            "type": "image/webp"
+            "type": "image/png"
         },
         {
             "src": "../assets/assets/icon_384.webp",
