@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/trrapp12/fantasy-slayer#readme",
   "devDependencies": {
+    "@hint/configuration-progressive-web-apps": "^7.0.28",
+    "hint": "^7.1.10",
     "vite": "^4.5.0"
   }
 }

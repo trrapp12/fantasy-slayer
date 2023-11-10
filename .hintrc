@@ -1,0 +1,8 @@
+{
+    "extends": [
+        "progressive-web-apps"
+    ],
+    "hints": {
+        "manifest-is-valid": "error"
+    }
+}
