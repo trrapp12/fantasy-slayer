@@ -31,11 +31,9 @@ https://github.com/trrapp12/fantasy-slayer/assets/11747875/5c34ddfb-b261-438b-99
 <br/>
 
 
->“This is the land of Narnia,'
->said the Faun,
->'where we are now; all that lies between the lamp-post
->and the great castle of Cair Paravel on the eastern sea.”
-― C.S. Lewis, The Chronicles of Narnia
+> “One day, you will be old enough to start reading fairytales again.”
+> 
+> -― C.S. Lewis, The Chronicles of Narnia
 
 *For the user, this is a visually stunning fantasy quest to save the world from the grasp of an eternal threat.  You will cycle through 5 heroes and use your attack dice and your spell cards to try and conquer the evil ZedFire.*
 
