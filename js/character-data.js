@@ -165,7 +165,7 @@ const characterData = {
     strength : 90, 
     totalDiceCount: 3,
     weakness : ['rage'], 
-    weapon : 'Broad Sword', 
+    weapon : 'Styx Battle Axe', 
   },
   zedfire : {
     avatar : 'assets/assets/zed-fire.webp',
