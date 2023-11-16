@@ -3,23 +3,27 @@ const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 svg.setAttribute("width", "400");
 svg.setAttribute("height", "400");
 
-// Create and append defs for gradient
-const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-const linearGradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
-linearGradient.setAttribute("id", "myGradient");
-linearGradient.setAttribute("x1", "0%");
-linearGradient.setAttribute("y1", "0%");
-linearGradient.setAttribute("x2", "100%");
-linearGradient.setAttribute("y2", "0%");
+function createGradient(id, angle, defs) {
+  const linearGradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+  linearGradient.setAttribute("id", id);
+  // Calculate the direction of the gradient
+  const x1 = Math.round(50 + 50 * Math.cos(angle - Math.PI / 2));
+  const y1 = Math.round(50 + 50 * Math.sin(angle - Math.PI / 2));
+  const x2 = Math.round(50 + 50 * Math.cos(angle + Math.PI / 2));
+  const y2 = Math.round(50 + 50 * Math.sin(angle + Math.PI / 2));
 
+  linearGradient.setAttribute("x1", x1 + "%");
+  linearGradient.setAttribute("y1", y1 + "%");
+  linearGradient.setAttribute("x2", x2 + "%");
+  linearGradient.setAttribute("y2", y2 + "%");
 
-const stops = [
-  { offset: "0%", color: "rgb(59,45,89)", opacity: "1" },
-  { offset: "50%", color: "rgb(162,160,217)", opacity: "1" },
-  { offset: "100%", color: "rgb(247,247,247)", opacity: "1" }
+  const stops = [
+  { offset: "0%", color: "rgba(30,98,176,73)", opacity: ".95" },
+  { offset: "70%", color: "rgba(2,19,115,45)", opacity: ".15" },
+  { offset: "100%", color: "rgba(2,19,115,45)", opacity: ".15" }
 ];
-
-stops.forEach(stopInfo => {
+  
+  stops.forEach(stopInfo => {
   const stop = document.createElementNS("http://www.w3.org/2000/svg", "stop");
   stop.setAttribute("offset", stopInfo.offset);
   stop.setAttribute("stop-color", stopInfo.color);
@@ -27,7 +31,12 @@ stops.forEach(stopInfo => {
   linearGradient.appendChild(stop);
 });
 
-defs.appendChild(linearGradient);
+  defs.appendChild(linearGradient);
+}
+
+const highlight = 'black'
+
+const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 svg.appendChild(defs);
 
 const numberOfSides = 7;
@@ -45,7 +54,6 @@ function createTriangleVertices(centerX, centerY, radius, index, totalSides) {
     return `${centerX},${centerY} ${x1},${y1} ${x2},${y2}`;
 }
 
-
 // Create a triangle
 function createTriangle(number, fillColor, strokeColor, strokeWidth) {
   let triangleArray = []
@@ -56,7 +64,7 @@ function createTriangle(number, fillColor, strokeColor, strokeWidth) {
     triangle.setAttribute("fill", fillColor);
     triangle.setAttribute("stroke", strokeColor);
     triangle.setAttribute("stroke-width", strokeWidth);
-    
+
     triangleArray.push(triangle)
 }
   return triangleArray
@@ -64,10 +72,25 @@ function createTriangle(number, fillColor, strokeColor, strokeWidth) {
 
 const gradientFillColor = `url(#myGradient)`
 
-let triangles = createTriangle(numberOfSides, gradientFillColor, 'black', 1);
+let triangles = createTriangle(numberOfSides, gradientFillColor, highlight, .5);
 
 triangles.forEach(triangle => {
   svg.appendChild(triangle);
 });
+
+for (let i = 0; i < numberOfSides; i++) {
+  const angle = 2 * Math.PI / numberOfSides * i;
+  const gradientId = `gradient-${i}`;
+  createGradient(gradientId, angle, defs);
+
+  const points = createTriangleVertices(centerX, centerY, radius, i, numberOfSides);
+  const triangle = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+  triangle.setAttribute("points", points);
+  triangle.setAttribute("fill", `url(#${gradientId})`);
+  triangle.setAttribute("stroke", highlight);
+  triangle.setAttribute("stroke-width", "1");
+
+  svg.appendChild(triangle);
+}
 
 document.body.appendChild(svg);
