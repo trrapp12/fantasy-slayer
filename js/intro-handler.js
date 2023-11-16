@@ -11,42 +11,40 @@ const scrollHTML = `
   <div class="intro-modal-text-container" id="intro-modal-text-container">
     <p class="bold">In the Age Unremembered</p>
 
-    <p>In an era preceding the dominion of mankind, a realm once thrived under the sovereign grace of Elves. But ere
-      the age of Elves, yea &apos;een before elven tongue was heard beyond the border of the ancient lands, magic held
-      sway.
-      In the rise of the sun and the gathering of the clouds it could be seen. Even the lowliest of creatures bore
-      magical fruit.</p>
+    <p>Before men, there were the Gods who created them.  Before the God's of Men, there were elves.  
+    Before the Elves, there were the Gods who created them.  But before the Gods who spoke the the elven tongue 
+    were heard beyond the border of the ancient lands, only magic held sway. 
+    It was seen in the rise of the sun and the gathering of the clouds.  Magic democratized all, for
+    even the lowliest of creatures bore magical fruit.  It was then there was peace.</p>
 
     <p class="bold">A Time Before Magic</p>
 
-    <p>But magic was not always present. Before the calignious breathe of stars bore fire and light into the
-      belly of the three earths, before skies blushed at the immensity of blackness the stars bathed in, 
-      ...yea, before even this, there was a single harmonious song whose vibration defined the existence of everything.
-      It was at this moment, betwoxt the dawn of song and the expanse of pre-time, that everything existed in one 
-      physical point at one measurable moment, as a word on the lips of the one would begin the creation.</p>
+    <p>But there was a time even before magic.  A time of chaos and creation.
+
+    <p class="bold">A Time of Song</p>
+
+    Before the caliginous breath of stars bore fire and light into the belly of the three earths, 
+    before skies blushed at the immensity of blackness the stars bathed in, ...yea, before even this, 
+    the vibration of a a single harmonious song defined everything. In this moment, 
+    betwixt the dawn of song and the expanse of pre-time, everything was 
+    --in one measurable moment-- only a word on the lips of the first God.  The Creator.</p>
 
     <p class="bold">The Creators Brother</p>
 
-    <p>Many stories have been told from this point -- the moment all was spoken into creation.  But not many know of the battle that
-      occurred before it.  The one that left an enigmatic shadow lingering over Creation, ancient malevolence that whispered forgotten fears -- The Creators Brothers. His name is Zedfire,
-      taken from "Z" the last syllable in the creation, the finality, the end, and the fire of chaotic evil for which he is known.</p>
+    <p>Many stories tell of moments after creation. But few tell of the battle that occurred before. 
+    Or the enigmatic shadow that lingered over Creation – 
+    the ancient malevolence that whispered forgotten fears -- 
+    The Creator's Brother. Zedfire.</p>
 
-    <p>The shadow, with the maleficence it concealed, faded into the forgotten corridors of history. Yet now, its
-      patience wears thin, and its slumbering malevolence stirs.</p>
+    <p>Today the shadow lies in the forgotten corridors of history. It once slumbered.  Now it stirs.</p>
 
     <p class="bold">A Memory Awakens</p>
 
-    <p>Yet one being holds the fragments of memory, as ancient as the universe and as enduring as light itself. He
-      bore witness to creation's genesis, standing sentinel at the threshold of time. One of the original four brothers.  
-      Though his mind now dances on the edges of obscurity, the shadow of that bygone memory lingers. Yet, will this remnant be sufficient?</p>
+    <p>But one witness lives. One of the original four brothers. 
+    Though his memory lingers, it is obscured by time and darkness. 
+    Can the mage remember what the Elves and Humans have forgotten?</p>
 
-    <p>Can he, amidst the discord of wars between Elves and humans, rally a respite against an unending evil?</p>
-
-    <p class="bold">A Symphony of Redemption</p>
-
-    <p>The symphony of destiny plays on, as an eternal question beckons. Can the cacophony of strife be silenced, if
-      only momentarily, to confront an evil that defies finite understanding? Or shall the world confront the revival
-      of an ancient malevolence, a malevolence it labored millennia to consign to oblivion?</p>
+    <p>Can he, amidst the discord of wars between Elves and humans, rally a respite against the unending evil?</p>
   </div>
 </div>`
 const tutorialHTML = `
