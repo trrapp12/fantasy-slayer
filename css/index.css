@@ -43,6 +43,16 @@ video {
 
 /* *******************************************IDs arranged alphabeticallys******************************************* */
 
+#mana {
+  position: fixed;
+  left: calc((100vw - 400px) / 2);
+  border: 1px solid red;
+  z-index: -100;
+  top: 14vh;
+  transform: scale(1.15);
+}
+
+
 #path {
   transition: all 5s ease;
 }

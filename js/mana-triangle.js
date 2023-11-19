@@ -1,7 +1,11 @@
+
+/* ************************************** CREATE THE HEPTAGON ************************************** */
+
 // Create SVG element
 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 svg.setAttribute("width", "400");
 svg.setAttribute("height", "400");
+svg.setAttribute("id", "mana")
 
 function createGradient(id, angle, defs) {
   const linearGradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
@@ -19,8 +23,8 @@ function createGradient(id, angle, defs) {
 
   const stops = [
   { offset: "0%", color: "rgba(30,98,176,73)", opacity: ".95" },
-  { offset: "70%", color: "rgba(2,19,115,45)", opacity: ".15" },
-  { offset: "100%", color: "rgba(2,19,115,45)", opacity: ".15" }
+  { offset: "70%", color: "rgba(109, 139, 166, .5)", opacity: ".15" },
+  { offset: "100%", color: "rgba(109, 139, 166, .5)", opacity: ".15" }
 ];
   
   stops.forEach(stopInfo => {
@@ -34,7 +38,7 @@ function createGradient(id, angle, defs) {
   defs.appendChild(linearGradient);
 }
 
-const highlight = 'black'
+const highlight = '#433626'
 
 const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 svg.appendChild(defs);
@@ -94,3 +98,36 @@ for (let i = 0; i < numberOfSides; i++) {
 }
 
 document.body.appendChild(svg);
+
+/* ************************************** CREATE FUNCTIONALITY OF HEPTAGON ************************************** */
+
+/* CREATE AN ARRAY OF THE 'PIE SLICES' THAT WILL NEED TO APPEAR/DISAPPEAR.  
+HEPTAGON HAS 13 CONSTITUENT POLYGONS.  NUMBERS 7 - 13 ARE THE VISIBLE PIE SLICES */
+
+const heptagonNode = document.querySelectorAll("#mana > polygon")
+
+function parseHeptagonArray (obj) {
+  let heptagonArray = []
+
+  Object.values(heptagonNode).forEach((value) => {
+    heptagonArray.push(value)
+  })
+  return heptagonArray.slice(7,14)
+}
+
+function hideAPolygon (arr) {
+  console.log('inside hideAPolygon, arr is: ', arr, "arr[-1] is: ", arr[-1])
+  arr[arr.length - 1].style.display = 'none';
+}
+
+function removeAPolygon (arr) {
+  arr.pop()
+  return arr
+}
+
+
+
+// onlySevenPolygons = parseHeptagonArray(heptagonNode)
+
+
+export { heptagonNode, parseHeptagonArray, hideAPolygon, removeAPolygon }

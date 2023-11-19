@@ -38,6 +38,10 @@ function hasDuplicates (arr){
     // because a set can only have unique values, where the array would have that same value multiple times
 }
 
+function hideElement (element) {
+    element.style.display = 'none'
+  }
+
 function calculateEnhancedScore (obj, arr){
     let total = 0;
     // Calculate the product of all multiplicants (i.e., repeated number raised to its frequency)
@@ -55,4 +59,4 @@ function calculateEnhancedScore (obj, arr){
     return total;
   }
   
-export { calculateEnhancedScore, getDiceRollArray, hasDuplicates, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
+export { calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

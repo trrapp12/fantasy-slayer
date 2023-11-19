@@ -2,6 +2,13 @@ import characterData from './character-data.js'
 import Character from './character.js'
 import spellData from './spells-data.js'
 import Spells from "./spells-class.js"
+import { hideElement } from "./utils.js"
+import {
+    heptagonNode, 
+    parseHeptagonArray, 
+    hideAPolygon, 
+    removeAPolygon
+} from "./mana-triangle.js"
 import { updateHealthChart } from "./render-health-chart.js"
 import {
     spellAudio, 
@@ -12,6 +19,7 @@ import {
     stopAllAudio,
     playGameMusic
 } from './audio.js'
+
 
 // **********************  REGISTER SERVICE WORKER **********************
 
@@ -28,12 +36,15 @@ const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
 const mainContainer = document.getElementById('main-container');
 const attackButton = document.getElementById('attack-button')
+const manaContainer = document.getElementById('mana')
 
 // **********************  GLOBAL VARIABLES **********************
 
 let isWaiting = false;
 // this variable is for the message about running out of Mana
 let hasNotDisplayedTheMessageBefore = true
+// this variable will create an array of the polygons that combine to form the Mana Heptagon
+let polygonArr = parseHeptagonArray(heptagonNode)
 
 // **********************  LOGIC FOR BUILDING ARRAY OF HEROES **********************
 let heroArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
@@ -49,13 +60,11 @@ let shuffledArray = characterOrder(heroArray)
 // **********************  LOGIC FOR RENDERING CHARACTERS **********************
 
 let hero = setNextCharacter()
-console.log('HERO: ', hero)
 const villain = new Character(characterData.zedfire)
 // shuffledSpellArr has to be below hero
 let shuffledSpellArr = hero.spells.shuffleArr(spellData);
 
 function render() {
-    console.log('inside render function', player1Container, player2Container, hero, villain)
     player1Container.innerHTML = hero.renderCharacter();
     player2Container.innerHTML = villain.renderCharacter();
     setTimeout(enableAttackButton, 3500)
@@ -88,40 +97,34 @@ function castSpells () {
     // set timeout gives imperceptible space to let CSS load before DOM refreshes, or else there is glitchiness
     setTimeout(() => {
         let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
-        console.log('nextThreeCard' , nextThreeCards)
         let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
         hero.spells.appendCards(cardRendering);
         hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
-        console.log('right before if statement, hero.health, villain.health', hero.health, villain.health)
+        // parseHeptagonArray manages the heptagon and subtracts a section each time
+        hideAPolygon(polygonArr)
+        removeAPolygon(polygonArr)
         // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
     }, 100)
 }
 
 function handleSpellDeath (hero, villain) {
-    console.log('checking if someone is dead after spells were cast', hero.health, villain.health)
-            console.log('someone is dead after spells were cast')
             // at this point someone is dead.  Options are: hero and villain, just hero, just villain
             if (hero.dead || villain.dead) {
                 if (hero.dead && villain.dead) {
                     // both are dead
-                    console.log('After Spells: both dead')
                     endGameWithDelay()
                 } else if (hero.dead) {
                     // hero is dead, are there more heroes?
-                    console.log('After Spells: hero is dead')
                     isWaiting = true
                     if (shuffledArray.length > 0) {
                         // there are still characters left
-                        console.log('new character available')
                         setTimeout(handleCharacterDeathTiming, 2510)
                     } else {
                         // no more characters left
-                        console.log('After Spells: all heroes are dead, no more characters left')
                         endGameWithDelay()
                     }
                 } else {
                     // villain is dead
-                    console.log('After Spells: villain dead')
                     endGameWithDelay()
                 } 
 
@@ -140,11 +143,9 @@ function displayNoManaMessage () {
     </div>`
     mainContainer.appendChild(messageDiv)
     setTimeout(() => {
-        console.log('entered set timeout inside displaynoManaMessage')
         document.getElementById('no-more-spells').classList.add('disappear');
         messageDiv.addEventListener('animationend', () => {
             messageDiv.style.display = "none"
-            console.log("messageDiv", messageDiv)
         })
     }, 2500)
 }
@@ -153,30 +154,22 @@ function displayNoManaMessage () {
 // **********************  LOGIC FOR BASIC ATTACKS **********************
 
 function attack() {
-    console.log(hero.numberOfTurns)
-    console.log("attack function firing" , hero.numberOfTurns)
     if (!isWaiting) {
-        console.log('is not waiting')
         // creates a pause
         if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0) {
             hero.numberOfTurns = hero.numberOfTurns + 1;
-            console.log('fifth turn, casting spells')
             // spell every 5th turn
-            console.log('!hasNotDisplayedTheMessageBefore' , !hasNotDisplayedTheMessageBefore)
             if (!hasNotDisplayedTheMessageBefore) {
-                console.log('hasNotDisplayedTheMessageBefore is false')
                 return 
             } else if (shuffledSpellArr.length === 0) {
-                console.log('mana has displayed before')
                 displayNoManaMessage();
+                hideElement(manaContainer)
                 return
             } else {
-                console.log('entering else statement for casting spells')
                 castSpells();
                 // can't put if logic after this because it evaluates before the event listener
             }
         } else {
-            console.log('hitting the attack else statement')
             hero.getDiceHTML(hero.currentDiceScore);
             villain.getDiceHTML(villain.currentDiceScore);
             hero.setDefendDiceHTML();
@@ -189,17 +182,12 @@ function attack() {
             render()
             if (villain.dead || hero.dead) {
                 if (villain.dead && hero.dead) {
-                    console.log('Both are dead');
                     endGameWithDelay();
                 } else if (villain.dead) {
-                    console.log('villain dead');
                     endGameWithDelay();
                 } else if (hero.dead) {
-                    console.log('hero is dead');
                     isWaiting = true;
-                    console.log(shuffledArray);
                     if (shuffledArray.length > 0) {
-                        console.log('new character available');
                         setTimeout(handleCharacterDeathTiming, 2510)
                     } else {
                         endGameWithDelay();
@@ -212,15 +200,11 @@ function attack() {
 }
 
 function disableAttackButton () {
-    console.log('attackButton.disabled', attackButton.disabled)
     attackButton.disabled = true;
-    console.log('attackButton.disabled', attackButton.disabled)
 }
 
 function enableAttackButton () {
-    console.log('attackButton.disabled', attackButton.disabled)
     attackButton.disabled = false
-    console.log('attackButton.disabled', attackButton.disabled)
 }
 
 function handleFlyOuts() {
@@ -232,17 +216,13 @@ function handleFlyOuts() {
 }
 
 function handleCharacterDeathTiming() {
-    console.log('in new character setTimeout')
     hero = setNextCharacter();
-    console.log('setNextCharacter to: ', hero)
     render()
     isWaiting = false
 }
 
 function setNextCharacter() {
-    console.log('entered set next characters')
     const nextCharacterData = characterData[shuffledArray.shift()]
-    console.log(nextCharacterData)
     return nextCharacterData ? new Character(nextCharacterData, new Spells()) : {}
 }
 
@@ -283,16 +263,19 @@ function endGame() {
         </div>`
     
     if (villain.dead && hero.dead && shuffledArray.length === 0) {
+        hideElement(manaContainer)
         mainContainer.innerHTML = tieHTML;
         const videoSource = document.getElementById('background-video')
         videoSource.load();
         playAudio(outTroAudio,backGroundAudio)
     } else if (villain.dead) {
+        hideElement(manaContainer)
         mainContainer.innerHTML = heroMovieHTML;
         const videoSource = document.getElementById('background-video')
         videoSource.load();
         playAudio(outTroAudio,backGroundAudio)
     } else {
+        hideElement(manaContainer)
         mainContainer.innerHTML = villainMovieHTML;
         const videoSource = document.getElementById('background-video')
         videoSource.load();
