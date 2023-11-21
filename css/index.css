@@ -43,15 +43,6 @@ video {
 
 /* *******************************************IDs arranged alphabeticallys******************************************* */
 
-#mana {
-  position: fixed;
-  left: calc((100vw - 400px) / 2);
-  z-index: -100;
-  top: 14vh;
-  transform: scale(1.15);
-  animation: 120s infinite linear spin, 60s infinite linear glow;
-
-}
 
 #path {
   transition: all 5s ease;
@@ -65,11 +56,26 @@ video {
   z-index: 100px;
   transform-style: preserve-3d;
   position: fixed;
-  top: calc(50% - 36svh);
-  left: calc(50% - 19.6svw);
-  z-index: -10;
-  animation: 120s infinite linear spin, 60s infinite linear glow;
+  top: 10svh;
+  left: 20.5svw;
+  z-index: -9;
 }
+
+.mana-rotate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  animation: 120s infinite linear spin, 60s infinite linear glow;
+  position: fixed;
+  z-index: -104;
+  left: 50svw;
+  top: 114svh;
+  max-width: 10px;
+  max-height: 10px;
+  /* align-items: center; */
+}
+
 
 #mana-container:before {
   content: '';
@@ -86,7 +92,6 @@ video {
   animation-duration: 30s;
   animation-iteration-count: infinite;
   perspective: 1000px;
-  z-index: 10px;
   -webkit-transform-style: preserve-3d;
 }
 
@@ -105,7 +110,6 @@ video {
   animation-duration: 10s;
   animation-iteration-count: infinite;
   perspective: 1000px;
-  z-index: 10px;
   -webkit-transform-style: preserve-3d;
 }
 

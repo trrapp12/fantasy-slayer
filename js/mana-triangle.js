@@ -104,7 +104,7 @@ manaContainer.appendChild(svg);
 /* CREATE AN ARRAY OF THE 'PIE SLICES' THAT WILL NEED TO APPEAR/DISAPPEAR.  
 HEPTAGON HAS 13 CONSTITUENT POLYGONS.  NUMBERS 7 - 13 ARE THE VISIBLE PIE SLICES */
 
-const heptagonNode = document.querySelectorAll("#mana > polygon")
+const heptagonNode = document.querySelectorAll("#heptagon > polygon")
 
 function parseHeptagonArray (obj) {
   let heptagonArray = []
