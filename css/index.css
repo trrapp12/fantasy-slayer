@@ -56,25 +56,30 @@ video {
   z-index: 100px;
   transform-style: preserve-3d;
   position: fixed;
-  top: 10svh;
-  left: 20.5svw;
+  top: 0;
+  left: 0;
   z-index: -9;
+  /* width: 352px; */
 }
 
 .mana-rotate {
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   justify-content: center;
   align-content: center;
   animation: 120s infinite linear spin, 60s infinite linear glow;
   position: fixed;
   z-index: -104;
-  left: 50svw;
-  top: 114svh;
-  max-width: 10px;
-  max-height: 10px;
+  left: 26vw;
+  top: 27%;
+  min-width: 50%;
+  max-height: 100;
   /* align-items: center; */
+  /* bottom: 100%; */
+  /* right: 100%; */
 }
+
+
 
 
 #mana-container:before {
@@ -111,6 +116,21 @@ video {
   animation-iteration-count: infinite;
   perspective: 1000px;
   -webkit-transform-style: preserve-3d;
+}
+
+.relative {
+  position: relative;
+}
+
+.relative>h2 {
+  position: absolute;
+  top: 23vh;
+  left: 23vw;
+  color: white;
+  opacity: .5;
+  animation: 120s infinite linear counterSpin;
+  /* z-index: -8; */
+  transform-style: preserve-3d;
 }
 
 /* *******************************************Classes arranged alphabeticallys******************************************* */
@@ -1238,6 +1258,16 @@ video::cue {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes counterSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
   }
 }
 
