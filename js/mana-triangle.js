@@ -1,11 +1,8 @@
-
-/* ************************************** CREATE THE HEPTAGON ************************************** */
-
 // Create SVG element
 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 svg.setAttribute("width", "400");
 svg.setAttribute("height", "400");
-svg.setAttribute("id", "mana")
+svg.setAttribute("id", "heptagon")
 
 function createGradient(id, angle, defs) {
   const linearGradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
@@ -22,9 +19,11 @@ function createGradient(id, angle, defs) {
   linearGradient.setAttribute("y2", y2 + "%");
 
   const stops = [
-  { offset: "0%", color: "rgba(30,98,176,73)", opacity: ".95" },
-  { offset: "70%", color: "rgba(109, 139, 166, .5)", opacity: ".15" },
-  { offset: "100%", color: "rgba(109, 139, 166, .5)", opacity: ".15" }
+  { offset: "0%", color: "rgba(242,169,34,1)", opacity: "1" },
+  { offset: "16%", color: "rgba(242,123,19,1)", opacity: "1" },
+  { offset: "35%", color: "rgba(242,93,7,1)", opacity: "1" },
+  { offset: "62%", color: "rgba(191,4,38,1)", opacity: "1" },
+  { offset: "89%", color: "rgba(89,18,2,1)", opacity: "1" }
 ];
   
   stops.forEach(stopInfo => {
@@ -38,7 +37,7 @@ function createGradient(id, angle, defs) {
   defs.appendChild(linearGradient);
 }
 
-const highlight = '#433626'
+const highlight = '#f2e3d520'
 
 const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 svg.appendChild(defs);
@@ -96,8 +95,9 @@ for (let i = 0; i < numberOfSides; i++) {
 
   svg.appendChild(triangle);
 }
+const manaContainer = document.getElementById('mana-container')
+manaContainer.appendChild(svg);
 
-document.body.appendChild(svg);
 
 /* ************************************** CREATE FUNCTIONALITY OF HEPTAGON ************************************** */
 
@@ -124,6 +124,14 @@ function removeAPolygon (arr) {
   arr.pop()
   return arr
 }
+
+function buildRingContainers() {
+  const ringContainer = document.createElement('div')
+  ringContainer.setAttribute("id", "ringContainer")
+  svg.appendChild(ringContainer)
+}
+
+buildRingContainers()
 
 
 
