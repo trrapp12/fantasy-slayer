@@ -24,6 +24,7 @@ img {
   height: 60vh;
   max-width: 95vw;
   width: auto;
+  aspect-ratio: 14/25 auto;
 }
 
 ul>li>q>em {
@@ -79,9 +80,6 @@ video {
   /* right: 100%; */
 }
 
-
-
-
 #mana-container:before {
   content: '';
   position: relative;
@@ -124,13 +122,14 @@ video {
 
 .relative>h2 {
   position: absolute;
-  top: 23vh;
-  left: 23vw;
+  top: 23.5vh;
+  left: 25vw;
   color: white;
   opacity: .5;
   animation: 120s infinite linear counterSpin;
   /* z-index: -8; */
   transform-style: preserve-3d;
+  font-size: 1rem;
 }
 
 /* *******************************************Classes arranged alphabeticallys******************************************* */
@@ -309,7 +308,7 @@ button:disabled {
 
 .character-art>h2 {
   width: 100%;
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   color: white;
   text-align: center;
   margin-top: .5em;
@@ -897,6 +896,7 @@ element.style {
   flex-direction: column;
   flex-wrap: wrap;
   width: 40%;
+  padding: 2rem;
 }
 
 .middle-third-right-column {
@@ -907,6 +907,7 @@ element.style {
   flex-shrink: 1;
   flex-wrap: wrap;
   width: 40%;
+  padding: 2rem;
 }
 
 .modal-height {

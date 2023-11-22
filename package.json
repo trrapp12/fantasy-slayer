@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/1ef82717-63c6-4dba-8f18-bf85d08f1d90/deploy-status)](https://app.netlify.com/sites/fantasy-slayer/deploys)",
   "main": "index.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trrapp12/fantasy-slayer.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,9 @@
   "homepage": "https://github.com/trrapp12/fantasy-slayer#readme",
   "devDependencies": {
     "@hint/configuration-progressive-web-apps": "^7.0.28",
-    "hint": "^7.1.10",
-    "vite": "^4.5.0"
+    "hint": "^7.1.10"
+  },
+  "dependencies": {
+    "vite": "^5.0.2"
   }
 }

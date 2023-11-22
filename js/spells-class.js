@@ -32,6 +32,7 @@ class Spells {
         const rendering = arr.map((card) => {
             return `
             <div class="card-front-back-container" id="${arr.indexOf(card)}">
+            
                 <div class="spell-card-front">
                 </div>
                 <div class="spell-card-container spell-card-back" data-card-number="${arr.indexOf(card)}">
@@ -65,13 +66,22 @@ class Spells {
         })
         return rendering
     }
+
+    appendCardsTitle (parentElId) {
+        let spellsTitleText = "Select a spell";
+        let spellElement = document.createElement("h2");
+        spellElement.setAttribute("id", "spellTitle");
+        spellElement.setAttribute('class', 'spellTitle')
+        spellElement.innerHTML = spellsTitleText;
+        document.getElementById(parentElId).prepend(spellElement);
+    }
     
     appendCards (cards) {
-        let parentDiv = document.createElement('div')
-        parentDiv.setAttribute('class', 'spells-container')
-        parentDiv.setAttribute('id', 'spells-container')
-        parentDiv.innerHTML = cards
-        document.getElementById('main-container').appendChild(parentDiv)
+        let parentDiv = document.createElement('div');
+        parentDiv.setAttribute('class', 'spells-container');
+        parentDiv.setAttribute('id', 'spells-container');
+        parentDiv.innerHTML = cards;
+        document.getElementById('main-container').appendChild(parentDiv);
     }
 
     removeAppendedCards() {

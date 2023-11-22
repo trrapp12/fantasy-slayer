@@ -67,7 +67,7 @@
     color: var(--sand-hex);
     width: fit-content;
     display: block;
-    font-size: .85vw;
+    font-size: .75svw;
 }
 
 .icon-container {
@@ -210,7 +210,7 @@
 .spell-card-front {
     background: url("../assets/assets/cards_small/front.webp");
     width: 100%;
-    height: clamp(400px, 90vh, 1040px);
+    height: 80svh;
     background-color: black;
     border-radius: 20px;
     border: 2px solid var(--sand-hex);
@@ -222,6 +222,7 @@
     /* z-index: 500; */
     backface-visibility: hidden;
     transition: all 1500ms;
+    margin-top: 5rem;
 }
 
 .spell-card-back {
@@ -236,6 +237,24 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    height: 80svh;
+    margin-top: 5rem;
+}
+
+.spellTitle {
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    z-index: 900;
+    /* margin-top: 0rem; */
+    font-size: 3rem;
+    top: 3rem;
+    border-style: double;
+    color: var(--sand-hex);
+    text-align: center;
+    /* text-shadow: white 10px 13px; */
+    /* text-shadow: 1px 4px 6px rgb(235 231 181); */
+    background-color: #282828;
 }
 
 .skull {

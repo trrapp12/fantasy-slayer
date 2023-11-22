@@ -38,8 +38,8 @@ function hasDuplicates (arr){
     // because a set can only have unique values, where the array would have that same value multiple times
 }
 
-function hideElement (element) {
-    element.style.display = 'none'
+function hideElement (el) {
+    el.style.display = 'none'
   }
 
 function calculateEnhancedScore (obj, arr){

@@ -50,7 +50,7 @@ const scrollHTML = `
 const tutorialHTML = `
     <h1 id="game-rules">Welcome to Fantasy Slayer</h1>
     <br/>
-    <div class="tutorial-sizing" aria-labelledby="game-rules" role="instructions" tabindex="0">
+    <div class="tutorial-sizing" aria-labelledby="game-rules" tabindex="0">
         <div class="tutorial-inner-border">
             <p>This is a simple tutorial to acquaint you with gameplay</p>
             <br/>
