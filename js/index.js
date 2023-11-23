@@ -24,7 +24,9 @@ import {
 // **********************  REGISTER SERVICE WORKER **********************
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/js/sw.js').then(function(reg) {
+    navigator.serviceWorker.register(
+        new URL('/js/sw.js', import.meta.url), {type: 'module'}
+    ).then(function(reg) {
       console.log('Yey!', reg);
     }).catch(function(err) {
       console.log('Boo!', err);

@@ -2,28 +2,26 @@
   "name": "fantasy-slayer",
   "version": "1.0.0",
   "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/1ef82717-63c6-4dba-8f18-bf85d08f1d90/deploy-status)](https://app.netlify.com/sites/fantasy-slayer/deploys)",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trrapp12/fantasy-slayer.git"
   },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "https://github.com/trrapp12/fantasy-slayer#readme",
   "bugs": {
     "url": "https://github.com/trrapp12/fantasy-slayer/issues"
   },
-  "homepage": "https://github.com/trrapp12/fantasy-slayer#readme",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
   "devDependencies": {
     "@hint/configuration-progressive-web-apps": "^7.0.28",
-    "hint": "^7.1.10"
-  },
-  "dependencies": {
-    "vite": "^5.0.2"
+    "@parcel/packager-raw-url": "^2.10.3",
+    "@parcel/transformer-webmanifest": "^2.10.3",
+    "hint": "^7.1.10",
+    "parcel": "^2.10.3"
   }
 }

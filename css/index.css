@@ -213,7 +213,7 @@ button:disabled {
   font-family: 'angars-runes';
   color: white;
   background: rgb(0, 0, 0);
-  background-image: linear-gradient(285deg, rgba(0, 0, 0, 1) 5%, rgba(36, 36, 36, 1) 33%, rgba(54, 54, 54, 1) 51%, rgba(0, 0, 0, 1) 100%), url('../assets/AdobeStock_565171456.webp');
+  background-image: linear-gradient(285deg, rgba(0, 0, 0, 1) 5%, rgba(36, 36, 36, 1) 33%, rgba(54, 54, 54, 1) 51%, rgba(0, 0, 0, 1) 100%), url('../assets/assets/AdobeStock_565171456.webp');
   z-index: 1102;
   position: absolute;
   content: '';
