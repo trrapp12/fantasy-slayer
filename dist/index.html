@@ -1,1 +1,88 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Defeat the masses of evil in this entertaining new dice game, Fantasy Slayer!"><title>Fantasy Slayer</title><link rel="manifest" href="/manifest.webmanifest"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="application-name" content="Fantasy Slayer"><meta name="apple-mobile-web-app-title" content="Fantasy Slayer"><meta name="theme-color" content="#6D8BA6"><meta name="msapplication-navbutton-color" content="#6D8BA6"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="msapplication-starturl" content="index.html"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link rel="icon" type="png" sizes="512x512" href="/icon_512.bebd4924.png"><link rel="apple-touch-icon" type="png" sizes="512x512" href="/icon_512.bebd4924.png"><link rel="icon" type="webp" sizes="384x384" href="/icon_384.ef96153b.webp"><link rel="apple-touch-icon" type="webp" sizes="384x384" href="/icon_384.ef96153b.webp"><link rel="icon" type="webp" sizes="192x192" href="/icon_192.234ebb19.webp"><link rel="apple-touch-icon" type="webp" sizes="192x192" href="/icon_192.234ebb19.webp"><link rel="icon" type="webp" sizes="144x144" href="/icon_144.496f57e4.webp"><link rel="apple-touch-icon" type="webp" sizes="144x144" href="/icon_144.496f57e4.webp"><link rel="canonical" href="https://www.fantasy-slayer.com"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" href="/critical.2d195f88.css" as="style"><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap"><link rel="preload" href="/zed-fire.58361b0b.webp" as="image"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap"><link rel="stylesheet" href="/critical.2d195f88.css"><link rel="stylesheet" href="/index.f852b74b.css" media="print" onload="this.media='all'"><noscript> <link rel="stylesheet" href="/index.f852b74b.css">  </noscript></head><body> <div id="main-container" class="main-container"> <video id="background-video" autoplay loop muted> <source id="video-source" src="/AdobeStock_199937353.adafe39d.webm" type="video/webm"> </video> <div class="top-third"> <h1 class="angars-ruins title" id="title">Fantasy + Slayer</h1> <section id="player1" class="card"></section> </div> <div class="middle-third"> <div class="middle-third-left-column"> <div class="character-art" id="character-1-art"> </div> </div> <div class="middle-third-right-column"> <div class="character-art" id="character-2-art"> </div> </div> </div> <div class="bottom-third"> <section id="player2" class="card"></section> </div> <div class="actions-container"> <div id="hero"></div> <div id="villian"></div> <button id="attack-button" class="attack-button display-none">To Battle!</button> </div> <div class="mana-rotate" id="mana-rotate"> <div class="relative"> <h2>Mana Remaining</h2> </div> <div id="mana-container"> </div> </div>  </div> <script type="module" src="/index.78df6512.js"></script> <script type="module" src="/index.cab5acd6.js" async></script> <script type="module" src="/index.6a01cf5f.js" async></script> <script src="/index.71a61bb5.js" async></script> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Defeat the masses of evil in this entertaining new dice game, Fantasy Slayer!">
+  <title>Fantasy Slayer</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Fantasy Slayer">
+  <meta name="apple-mobile-web-app-title" content="Fantasy Slayer">
+  <meta name="theme-color" content="#6D8BA6">
+  <meta name="msapplication-navbutton-color" content="#6D8BA6">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="png" sizes="512x512" href="/icon_512.02ec31c8.png">
+  <link rel="apple-touch-icon" type="png" sizes="512x512" href="/icon_512.02ec31c8.png">
+  <link rel="icon" type="webp" sizes="384x384" href="/icon_384.3fd80392.webp">
+  <link rel="apple-touch-icon" type="webp" sizes="384x384" href="/icon_384.3fd80392.webp">
+  <link rel="icon" type="webp" sizes="192x192" href="/icon_192.e34c61e0.webp">
+  <link rel="apple-touch-icon" type="webp" sizes="192x192" href="/icon_192.e34c61e0.webp">
+  <link rel="icon" type="webp" sizes="144x144" href="/icon_144.915d438e.webp">
+  <link rel="apple-touch-icon" type="webp" sizes="144x144" href="/icon_144.915d438e.webp">
+  <link rel="canonical" href="https://www.fantasy-slayer.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="preload" href="/critical.9bbfe556.css" as="style">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap">
+  <link rel="preload" href="/zed-fire.cda6dde0.webp" as="image">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap">
+  <!-- when the browser recognizes print is not the media type it will load the following css asynchronously.  -->
+  <!-- Source: Filament Group: https://www.filamentgroup.com/lab/load-css-simpler/-->
+  <link rel="stylesheet" href="/critical.9bbfe556.css">
+  <link rel="stylesheet" href="/index.e9a92ad8.css" media="print" onload="this.media='all'">
+  <!-- <link rel="stylesheet" href="css/spell.css" media="print" onload="this.media='all'"> -->
+  <noscript>
+    <link rel="stylesheet" href="/index.e9a92ad8.css">
+    <!-- <link rel="stylesheet" href="css/spell.css"> -->
+  </noscript>
+</head>
+
+<body>
+  <div id="main-container" class="main-container">
+    <video id="background-video" autoplay="" loop="" muted="">
+      <source id="video-source" src="/AdobeStock_199937353.5ab4e0b4.webm" type="video/webm">
+    </video>
+    <div class="top-third">
+      <h1 class="angars-ruins title" id="title">Fantasy + Slayer</h1>
+      <section id="player1" class="card"></section>
+    </div>
+    <div class="middle-third">
+      <div class="middle-third-left-column">
+        <div class="character-art" id="character-1-art">
+        </div>
+      </div>
+      <div class="middle-third-right-column">
+        <div class="character-art" id="character-2-art">
+        </div>
+      </div>
+    </div>
+    <div class="bottom-third">
+      <section id="player2" class="card"></section>
+    </div>
+    <div class="actions-container">
+      <div id="hero"></div>
+      <div id="villian"></div>
+      <button id="attack-button" class="attack-button display-none">To Battle!</button>
+    </div>
+    <div class="mana-rotate" id="mana-rotate">
+      <div class="relative">
+        <h2>Mana Remaining</h2>
+      </div>
+      <div id="mana-container">
+      </div>
+    </div>
+    <!-- footer dynamically appended from footer.js here to improve code readability and load times -->
+  </div>
+
+  <script src="/index.d91f9dd3.js" defer=""></script>
+  <script src="/index.8d8841ea.js" async="" defer=""></script>
+  <script src="/index.c277bbfe.js" async="" defer=""></script>
+  <script src="/index.56f91f8b.js" async=""></script>
+</body>
+
+</html>

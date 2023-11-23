@@ -84,7 +84,7 @@ const tutorialHTML = `
 //  ***************************** FUNCTIONS *****************************
 
   function playAudio() {
-    const introAudio = new Audio('./assets/assets/audio/Evil-Trailer_AdobeStock_354668525.wav');
+    const introAudio = new Audio('./assets/assets/audio/Evil-Trailer_AdobeStock_354668525.mp3');
     introAudio.volume = 0.5;
     introAudio.play(); 
   }

@@ -1,7 +1,7 @@
 // All audio clips used, except audio that is native to video elements
-export const spellAudio = new Audio('./assets/assets/audio/Under-Attack_AdobeStock_353737497.wav');
-export const backGroundAudio = new Audio('./assets/assets/audio/fantasmi-dell-opera-a-loop_AdobeStock_526744294.wav');
-export const outTroAudio = new Audio('./assets/assets/audio/EPIC-TRAILER-ACTION-ADVENTURE-(TENSE-NERVE)_AdobeStock_637559773.wav');
+export const spellAudio = new Audio('./assets/assets/audio/Under-Attack_AdobeStock_353737497.mp3');
+export const backGroundAudio = new Audio('./assets/assets/audio/fantasmi-dell-opera-a-loop_AdobeStock_526744294.mp3');
+export const outTroAudio = new Audio('./assets/assets/audio/EPIC-TRAILER-ACTION-ADVENTURE-(TENSE-NERVE)_AdobeStock_637559773.mp3');
 
 // FUNCTION PURPOSE: run this to check if audio is playing (as opposed to being in a paused, ended, or 0 length state)
 // REQUIRED INPUT: the audio node (song), that you want to check to see is playing

@@ -238,13 +238,13 @@ But they were both
 
 #### Audio 
 
-* EPIC-TRAILER-ACTION-ADVENTURE-(TENSE-NERVE)_AdobeStock_637559773.wav by <a href="https://stock.adobe.com/search/audio?album=&attribution=381fc15d3525a9b8d1de5ec43272050f&current_page=1&duration_max=1200000&duration_min=0&keywords=&loop=false&order=relevance&page_limit=50&tempo_max=300&tempo_min=1">Summer Nights</a>.  Used under Adobe Stock License.
+* EPIC-TRAILER-ACTION-ADVENTURE-(TENSE-NERVE)_AdobeStock_637559773.mp3 by <a href="https://stock.adobe.com/search/audio?album=&attribution=381fc15d3525a9b8d1de5ec43272050f&current_page=1&duration_max=1200000&duration_min=0&keywords=&loop=false&order=relevance&page_limit=50&tempo_max=300&tempo_min=1">Summer Nights</a>.  Used under Adobe Stock License.
 
-* Evil-Trailer_AdobeStock_354668525.wav by <a href="https://stock.adobe.com/search/audio?album=&attribution=0b7874d5914e4be600c4246fcac112db&current_page=1&duration_max=1200000&duration_min=0&keywords=&loop=false&order=relevance&page_limit=50&tempo_max=300&tempo_min=1">Stanislav Barantsov</a>.  Used under Adobe Stock License.
+* Evil-Trailer_AdobeStock_354668525.mp3 by <a href="https://stock.adobe.com/search/audio?album=&attribution=0b7874d5914e4be600c4246fcac112db&current_page=1&duration_max=1200000&duration_min=0&keywords=&loop=false&order=relevance&page_limit=50&tempo_max=300&tempo_min=1">Stanislav Barantsov</a>.  Used under Adobe Stock License.
 
-* fantasmi-dell-opera-a-loop_AdobeStock_526744294.wav by <a href="https://stock.adobe.com/search/audio?k=526744294">nikproteus</a>.  Used under Adobe Stock License.
+* fantasmi-dell-opera-a-loop_AdobeStock_526744294.mp3 by <a href="https://stock.adobe.com/search/audio?k=526744294">nikproteus</a>.  Used under Adobe Stock License.
 
-* Under-Attack_AdobeStock_353737497.wav by <a href="https://stock.adobe.com/search/audio?k=353737497">Paul Werner</a>.  Used under Adobe Stock License.
+* Under-Attack_AdobeStock_353737497.mp3 by <a href="https://stock.adobe.com/search/audio?k=353737497">Paul Werner</a>.  Used under Adobe Stock License.
 
 <br/>
 

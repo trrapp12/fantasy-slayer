@@ -19,10 +19,10 @@ const ASSETS = [
   '/assets/assets/conscript.webp',
   '/assets/assets/zed-fire.webp',
   '/assets/AdobeStock_199937353-ec86d56f.webm',
-  '/assets/assets/audio/fantasmi-dell-opera-a-loop_AdobeStock_526744294.wav',
-  '/assets/assets/audio/EPIC-TRAILER-ACTION-ADVENTURE-(TENSE-NERVE)_AdobeStock_637559773.wav',
+  '/assets/assets/audio/fantasmi-dell-opera-a-loop_AdobeStock_526744294.mp3',
+  '/assets/assets/audio/EPIC-TRAILER-ACTION-ADVENTURE-(TENSE-NERVE)_AdobeStock_637559773.mp3',
   '/assets/assets/AdobeStock_460700032.webp',
-  '/assets/assets/audio/Under-Attack_AdobeStock_353737497.wav'
+  '/assets/assets/audio/Under-Attack_AdobeStock_353737497.mp3'
 
   // Add other assets required by your game
 ];

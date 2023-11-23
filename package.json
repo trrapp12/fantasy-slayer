@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build index.html"
   },
   "devDependencies": {
     "@hint/configuration-progressive-web-apps": "^7.0.28",
