@@ -1,3 +1,5 @@
+
+
 function getDiceRollArray(totalDiceCount, diceSides) {
     return new Array(totalDiceCount).fill(0).map(() => {
         return Math.floor((Math.random() * diceSides) + 1)
@@ -39,6 +41,7 @@ function hasDuplicates (arr){
 }
 
 function hideElement (el) {
+    console.log('inside hide element, el is: ', el, 'el.style.display is: ', el.style.display)
     el.style.display = 'none'
   }
 
@@ -58,5 +61,9 @@ function calculateEnhancedScore (obj, arr){
     console.log('multiplicantTotal', multiplicantTotal, "sumOfUniques", sumOfUniques, "total", total)
     return total;
   }
+
+
+
+
   
 export { calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

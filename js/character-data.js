@@ -181,7 +181,7 @@ const characterData = {
     dead : false,
     duplicates : {},
     elId : 'zedfire',
-    health : 2,
+    health : 2111,
     numberOfTurns : 0,
     originalHealth: 2111,
     intelligence : 100,

@@ -7,7 +7,9 @@ import {
     heptagonNode, 
     parseHeptagonArray, 
     hideAPolygon, 
-    removeAPolygon
+    removeAPolygon,
+    polygonArr,
+    onSpellCast
 } from "./mana-triangle.js"
 import { updateHealthChart } from "./render-health-chart.js"
 import {
@@ -43,10 +45,10 @@ const manaRotateContainer = document.getElementById('mana-rotate')
 // **********************  GLOBAL VARIABLES **********************
 
 let isWaiting = false;
+let numberOfSpellsCast = 0
 // this variable is for the message about running out of Mana
 let hasNotDisplayedTheMessageBefore = true
 // this variable will create an array of the polygons that combine to form the Mana Heptagon
-let polygonArr = parseHeptagonArray(heptagonNode)
 
 // **********************  LOGIC FOR BUILDING ARRAY OF HEROES **********************
 let heroArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
@@ -93,21 +95,29 @@ function importSpellCSS () {
         document.head.appendChild(link)
     }
 }
+
+
+
+
+
 function castSpells () {
     // import spells here to prevent heavy load on first page load
     importSpellCSS()
+    numberOfSpellsCast++;
     // set timeout gives imperceptible space to let CSS load before DOM refreshes, or else there is glitchiness
     setTimeout(() => {
         let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
         let cardRendering = hero.spells.renderCards(nextThreeCards).join('')
         hero.spells.appendCards(cardRendering);
         hero.spells.appendCardsTitle('spells-container');
-        hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath), hero.spells.removeAppendedCards)
+        hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath, numberOfSpellsCast), hero.spells.removeAppendedCards)
         // parseHeptagonArray manages the heptagon and subtracts a section each time
-        hideAPolygon(polygonArr)
-        removeAPolygon(polygonArr)
+        
         // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
     }, 100)
+
+
+
 }
 
 function handleSpellDeath (hero, villain) {
@@ -165,12 +175,19 @@ function attack() {
             if (!hasNotDisplayedTheMessageBefore) {
                 return 
             } else if (shuffledSpellArr.length === 0) {
+                
+                // hideElement(manaRotateContainer)
                 displayNoManaMessage();
-                hideElement(manaRotateContainer)
-                return
+                // return
+                console.log('this is where the previous displayNoManaMessage fired')
             } else {
                 castSpells();
                 // can't put if logic after this because it evaluates before the event listener
+                // if (shuffledSpellArr.length === 0) {
+                //     hideElement(manaRotateContainer)
+                //     displayNoManaMessage();
+                //     return
+                // }
             }
         } else {
             hero.getDiceHTML(hero.currentDiceScore);

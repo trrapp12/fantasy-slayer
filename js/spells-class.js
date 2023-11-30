@@ -4,15 +4,17 @@ import {
     isPlaying, 
     playAudio
 } from './audio.js'
+import { hideElement } from "./utils.js"
+import { onSpellCast } from "./mana-triangle.js"
 
 class Spells {
     constructor(character, opponent) {
         this.character = character;
-        this.opponent = opponent
+        this.opponent = opponent;
     }
 
     cardClickedIndex; 
-
+    manaRotateContainer = document.getElementById('mana-rotate')
     shuffleArr (arr) {
         for (let i = arr.length - 1; i > 0; i--) { 
             const j = Math.floor(Math.random() * (i + 1)); 
@@ -25,6 +27,27 @@ class Spells {
     pickThreeCards (arr) {
         return arr.splice(0,3)
     }
+
+    displayNoManaMessage () {
+        hasNotDisplayedTheMessageBefore = false
+        let messageDiv = document.createElement('div')
+        messageDiv.setAttribute('class', 'no-more-spells')
+        messageDiv.setAttribute('id', 'no-more-spells')
+        messageDiv.innerHTML = `
+        <div class="no-spells-message">
+            <h1>Mana has been depleted</h1>
+            <p>You must continue without any more magical prowess</p>
+        </div>`
+        mainContainer.appendChild(messageDiv)
+        setTimeout(() => {
+            document.getElementById('no-more-spells').classList.add('disappear');
+            messageDiv.addEventListener('animationend', () => {
+                messageDiv.style.display = "none"
+            })
+        }, 2500)
+    }
+
+
 
     // COME BACK AND GET CARDS SET UP WITH CLASS SO THEY ARE TURNED AROUND.
     
@@ -91,7 +114,7 @@ class Spells {
     }
     // create a function to unappend cards???? ^^^^^
 
-    handleCardChoice (hero, arr, villain, render, handleSpellDeath) {
+    handleCardChoice (hero, arr, villain, render, handleSpellDeath, numberOfSpellsCast) {
         console.log('entered handleCardChoice')
         return function(evt) {
             let cardClickedIndex = evt.target.id || evt.target.closest('.card-front-back-container').id
@@ -118,8 +141,11 @@ class Spells {
                 } else {
                     console.log('After Spells: no one is dead')
                     render()
-                }
-                document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
+                };
+                numberOfSpellsCast++;
+                console.log(numberOfSpellsCast)
+                onSpellCast(numberOfSpellsCast)
+                document.getElementById(`${cardClickedIndex}`).classList.toggle('flip');
                 setTimeout(() => {
                     document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
                     console.log('inside set timeout that handles the card flip')
