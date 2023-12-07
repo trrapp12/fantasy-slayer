@@ -48,7 +48,7 @@ https://github.com/trrapp12/fantasy-slayer/assets/11747875/5c34ddfb-b261-438b-99
 <br/>
 
 
-To use the app simply click on the ```View Project``` button or visit <a href="https://fantasy-slayer.com">https://fantasy-slayer.com/</a>. 
+To use the app simply click on the ```View Project``` button or visit  <a href="https://fantasy-slayer.com">https://fantasy-slayer.com/</a>. 
 
 <br>
 
