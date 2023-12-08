@@ -4,7 +4,9 @@ import {
     isPlaying, 
     playAudio
 } from './audio.js'
-import { hideElement } from "./utils.js"
+import { hideElement,
+         manaRotateContainer
+} from "./utils.js"
 import { onSpellCast } from "./mana-triangle.js"
 
 class Spells {
@@ -14,7 +16,8 @@ class Spells {
     }
 
     cardClickedIndex; 
-    manaRotateContainer = document.getElementById('mana-rotate')
+    
+    
     shuffleArr (arr) {
         for (let i = arr.length - 1; i > 0; i--) { 
             const j = Math.floor(Math.random() * (i + 1)); 
@@ -115,7 +118,7 @@ class Spells {
     // create a function to unappend cards???? ^^^^^
 
     handleCardChoice (hero, arr, villain, render, handleSpellDeath, numberOfSpellsCast) {
-        console.log('entered handleCardChoice')
+        console.log('entered handleCardChoice, numberOfSpellsCast is: ', numberOfSpellsCast)
         return function(evt) {
             let cardClickedIndex = evt.target.id || evt.target.closest('.card-front-back-container').id
                 if (hero.skill.filter(item => arr[cardClickedIndex].spell_skills_it_magnifies.includes(item)).length > 0) {
@@ -142,13 +145,20 @@ class Spells {
                     console.log('After Spells: no one is dead')
                     render()
                 };
-                numberOfSpellsCast++;
+                
                 console.log(numberOfSpellsCast)
                 onSpellCast(numberOfSpellsCast)
                 document.getElementById(`${cardClickedIndex}`).classList.toggle('flip');
                 setTimeout(() => {
                     document.getElementById(`${cardClickedIndex}`).classList.toggle('flip')
-                    console.log('inside set timeout that handles the card flip')
+                    console.log('inside set timeout that handles the card flip, numberOfSpellsCast is: ', numberOfSpellsCast, "hideElement is: ", hideElement, "manaRotateContainer is: ", manaRotateContainer)
+                    if (numberOfSpellsCast === 6) {
+                        console.log('inside if numberOfSpellsCast statement, numberOfSpellsCast is: ', numberOfSpellsCast)
+                        hideElement(manaRotateContainer)
+                        setTimeout(
+                            () => { this.displayNoManaMessage()
+                        }, 8000)
+                    }
                 },6000) 
         }
     }

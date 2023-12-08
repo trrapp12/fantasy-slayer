@@ -103,7 +103,8 @@ function importSpellCSS () {
 function castSpells () {
     // import spells here to prevent heavy load on first page load
     importSpellCSS()
-    numberOfSpellsCast++;
+    
+    console.log('inside castSpells(), numberOfSpellsCast is: ', numberOfSpellsCast)
     // set timeout gives imperceptible space to let CSS load before DOM refreshes, or else there is glitchiness
     setTimeout(() => {
         let nextThreeCards = hero.spells.pickThreeCards(shuffledSpellArr) 
@@ -112,7 +113,7 @@ function castSpells () {
         hero.spells.appendCardsTitle('spells-container');
         hero.spells.setCardChoiceHandler(hero.spells.handleCardChoice(hero, nextThreeCards, villain, render, handleSpellDeath, numberOfSpellsCast), hero.spells.removeAppendedCards)
         // parseHeptagonArray manages the heptagon and subtracts a section each time
-        
+        numberOfSpellsCast++
         // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
     }, 100)
 

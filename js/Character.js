@@ -263,9 +263,7 @@ class Character {
         */ 
 
         if (graphContainer.length < 3) {
-            console.log('inside graphContainer.length < 3', graph)
             graph = renderHealthChart(health, originalHealth)
-            console.log('after renderHealthChart, graphContainers are', graphContainer, 'and graph is ', graph)
         } 
         return `
 

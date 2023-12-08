@@ -1,4 +1,4 @@
-
+const manaRotateContainer = document.getElementById('mana-rotate')
 
 function getDiceRollArray(totalDiceCount, diceSides) {
     return new Array(totalDiceCount).fill(0).map(() => {
@@ -66,4 +66,4 @@ function calculateEnhancedScore (obj, arr){
 
 
   
-export { calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
+export { manaRotateContainer, calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

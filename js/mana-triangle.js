@@ -138,18 +138,8 @@ let polygonArr = parseHeptagonArray(heptagonNode)
 
 function onSpellCast(numberOfSpellsCast) {
   console.log('inside onSpellCast, numberOfSpellsCast is: ', numberOfSpellsCast)
-  if (numberOfSpellsCast === 6) {
-      hideElement(manaRotateContainer)
-      displayNoManaMessage();
-  } else {
       hideAPolygon(polygonArr)
       removeAPolygon(polygonArr)
-  }
-
-  // if (shuffledSpellArr.length === 0) {
-  //     hideElement(manaRotateContainer)
-  //     displayNoManaMessage();
-  // }
 }
 // onlySevenPolygons = parseHeptagonArray(heptagonNode)
 
