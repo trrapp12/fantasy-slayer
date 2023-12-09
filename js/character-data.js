@@ -1,7 +1,7 @@
 const characterData = {
   conscript : {
     avatar : 'assets/assets/conscript2.webp', 
-    backstory : 'Rose to the rank of captain during the Simerian wars.  In one night he saw his company run through with the arrows of the Naqalkuan archers.  To add to his shame they refused to take him prisoner, but sent him home to bear his shame in front of his land and people.  He vowed he would not return until his honor was restored.  So for ten years he lay in the wilderness, learning every type of war nature wages, from the persistence of the sun to the brutality of a hungry mother bear, to the coordination of an invading ant colony, to the stealth of moon-silk spider. Now he stands ready to complete his vow.', 
+    backstory : 'Rose to the rank of Captain during the Simerian wars. Witnessed his entire company run through with Naqalkuan arrows.  They refused to take him prisoner solely to force him to wear his guilt in front of his land and people.  Determined to restore his honor, he studied fifteen years in solitude, learning every way nature wages war. The persistence of the sun.  The brutality of a starving mother bear. The coordination of an invading ant colonies. Even the stealth of moon-silk spider. Now he is ready to return.', 
     catchphrase : 'Bravery only takes you so far.', 
     characterCardFlexDirection: 'row',
     characterClass : 'hero',

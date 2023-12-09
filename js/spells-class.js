@@ -154,9 +154,12 @@ class Spells {
                     console.log('inside set timeout that handles the card flip, numberOfSpellsCast is: ', numberOfSpellsCast, "hideElement is: ", hideElement, "manaRotateContainer is: ", manaRotateContainer)
                     if (numberOfSpellsCast === 6) {
                         console.log('inside if numberOfSpellsCast statement, numberOfSpellsCast is: ', numberOfSpellsCast)
-                        hideElement(manaRotateContainer)
+                        
                         setTimeout(
-                            () => { this.displayNoManaMessage()
+                            () => { 
+                                console.log('hitting displayNoManaMessage in setTimeOut')
+                                displayNoManaMessage();
+                                hideElement(manaRotateContainer)
                         }, 8000)
                     }
                 },6000) 

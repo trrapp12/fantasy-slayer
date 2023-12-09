@@ -178,6 +178,7 @@ function attack() {
             } else if (shuffledSpellArr.length === 0) {
                 
                 // hideElement(manaRotateContainer)
+                console.log('hitting displayNoManaMessage in index.js')
                 displayNoManaMessage();
                 // return
                 console.log('this is where the previous displayNoManaMessage fired')
