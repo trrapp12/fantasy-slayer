@@ -2,6 +2,9 @@ import characterData from './character-data.js'
 import Character from './character.js'
 import spellData from './spells-data.js'
 import Spells from "./spells-class.js"
+import { hasNotDisplayedTheMessageBefore,
+    mainContainer
+ } from "./utils.js"
 import { hideElement } from "./utils.js"
 import {
     heptagonNode, 
@@ -38,7 +41,6 @@ if ('serviceWorker' in navigator) {
 
 const player1Container = document.getElementById('character-1-art');
 const player2Container = document.getElementById('character-2-art');
-const mainContainer = document.getElementById('main-container');
 const attackButton = document.getElementById('attack-button')
 const manaRotateContainer = document.getElementById('mana-rotate')
 
@@ -47,7 +49,7 @@ const manaRotateContainer = document.getElementById('mana-rotate')
 let isWaiting = false;
 let numberOfSpellsCast = 0
 // this variable is for the message about running out of Mana
-let hasNotDisplayedTheMessageBefore = true
+
 // this variable will create an array of the polygons that combine to form the Mana Heptagon
 
 // **********************  LOGIC FOR BUILDING ARRAY OF HEROES **********************

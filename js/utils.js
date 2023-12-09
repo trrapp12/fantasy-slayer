@@ -1,4 +1,25 @@
-const manaRotateContainer = document.getElementById('mana-rotate')
+const manaRotateContainer = document.getElementById('mana-rotate');
+const mainContainer = document.getElementById('main-container');
+let hasNotDisplayedTheMessageBefore = true
+
+function displayNoManaMessage (hasNotDisplayedTheMessageBefore) {
+    hasNotDisplayedTheMessageBefore = false
+    let messageDiv = document.createElement('div')
+    messageDiv.setAttribute('class', 'no-more-spells')
+    messageDiv.setAttribute('id', 'no-more-spells')
+    messageDiv.innerHTML = `
+    <div class="no-spells-message">
+        <h1>Mana has been depleted</h1>
+        <p>You must continue without any more magical prowess</p>
+    </div>`
+    mainContainer.appendChild(messageDiv)
+    setTimeout(() => {
+        document.getElementById('no-more-spells').classList.add('disappear');
+        messageDiv.addEventListener('animationend', () => {
+            messageDiv.style.display = "none"
+        })
+    }, 2500)
+}
 
 function getDiceRollArray(totalDiceCount, diceSides) {
     return new Array(totalDiceCount).fill(0).map(() => {
@@ -66,4 +87,4 @@ function calculateEnhancedScore (obj, arr){
 
 
   
-export { manaRotateContainer, calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
+export { manaRotateContainer, mainContainer, hasNotDisplayedTheMessageBefore, displayNoManaMessage, calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

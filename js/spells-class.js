@@ -5,7 +5,10 @@ import {
     playAudio
 } from './audio.js'
 import { hideElement,
-         manaRotateContainer
+         manaRotateContainer,
+         displayNoManaMessage,
+         hasNotDisplayedTheMessageBefore,
+         mainContainer
 } from "./utils.js"
 import { onSpellCast } from "./mana-triangle.js"
 
@@ -31,24 +34,7 @@ class Spells {
         return arr.splice(0,3)
     }
 
-    displayNoManaMessage () {
-        hasNotDisplayedTheMessageBefore = false
-        let messageDiv = document.createElement('div')
-        messageDiv.setAttribute('class', 'no-more-spells')
-        messageDiv.setAttribute('id', 'no-more-spells')
-        messageDiv.innerHTML = `
-        <div class="no-spells-message">
-            <h1>Mana has been depleted</h1>
-            <p>You must continue without any more magical prowess</p>
-        </div>`
-        mainContainer.appendChild(messageDiv)
-        setTimeout(() => {
-            document.getElementById('no-more-spells').classList.add('disappear');
-            messageDiv.addEventListener('animationend', () => {
-                messageDiv.style.display = "none"
-            })
-        }, 2500)
-    }
+
 
 
 
@@ -158,9 +144,9 @@ class Spells {
                         setTimeout(
                             () => { 
                                 console.log('hitting displayNoManaMessage in setTimeOut')
-                                displayNoManaMessage();
+                                displayNoManaMessage(hasNotDisplayedTheMessageBefore);
                                 hideElement(manaRotateContainer)
-                        }, 8000)
+                        }, 500)
                     }
                 },6000) 
         }
