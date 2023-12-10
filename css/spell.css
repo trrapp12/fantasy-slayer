@@ -67,7 +67,7 @@
     color: var(--sand-hex);
     width: fit-content;
     display: block;
-    font-size: .75svw;
+    font-size: .6svw;
 }
 
 .icon-container {
@@ -125,11 +125,11 @@
     border: solid rgba(67, 54, 38, .30) 5px;
     border-radius: 25px;
     box-shadow: var(--shadow-elevation-medium);
-    max-height: 70%;
-    max-width: 95vw;
-    width: 85%;
+    /* max-height: 60%; */
+    /* max-width: 95vw; */
+    width: auto;
     justify-self: center;
-    height: auto;
+    height: 40svh;
 }
 
 .icon-container {
@@ -229,7 +229,6 @@
     position: absolute;
     /* z-index: 500; */
     backface-visibility: hidden;
-    transform: rotateY(180deg);
     transition: all 1500ms;
     width: 100%;
     min-width: 100%;
@@ -239,6 +238,8 @@
     justify-content: center;
     height: 80svh;
     margin-top: 5rem;
+    align-content: space-around;
+    transform: rotateY(180deg)
 }
 
 .spellTitle {
