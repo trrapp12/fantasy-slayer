@@ -274,5 +274,5 @@ But they were both
 ### YOU CAN FIND ME AT:
 <br/>
 
-*For more information see my [LinkedIn]() or return to my [Github](https://github.com/trrapp12)*
+*For more information see my [LinkedIn](www.linkedin.com/in/trevor-rapp-89772029b) or return to my [Github](https://github.com/trrapp12)*
 
