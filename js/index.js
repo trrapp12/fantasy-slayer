@@ -37,6 +37,21 @@ if ('serviceWorker' in navigator) {
       console.log('Boo!', err);
     });
   }
+
+// ********************** LOCK THE SCREEN ORIENTATION TO LANDSCAPE ******
+
+if ('orientation' in screen && 'lock' in screen.orientation) {
+    screen.orientation.lock('landscape-primary')
+    .then(() => {
+        console.log('screen orientation locked to landscape');
+    })
+    .catch((error)=> {
+        console.error('Failed to lock screen orientation: ', error)
+    });
+} else {
+    console.log('Screen orientation api not supported')
+}
+
 // **********************  CONTAINER ELEMENTS **********************
 
 const player1Container = document.getElementById('character-1-art');
