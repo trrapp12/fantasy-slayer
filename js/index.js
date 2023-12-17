@@ -40,8 +40,9 @@ if ('serviceWorker' in navigator) {
 
 // ********************** LOCK THE SCREEN ORIENTATION TO LANDSCAPE ******
 
-if ('orientation' in screen && 'lock' in screen.orientation) {
-    screen.orientation.lock('landscape-primary')
+if (screen.orientation) {
+    console.log('screen.orientation true')
+    screen.orientation.lock('landscape')
     .then(() => {
         console.log('screen orientation locked to landscape');
     })
