@@ -141,7 +141,7 @@ const characterData = {
   },
   soulforge : {
     avatar : 'assets/assets/soulforge2.webp', 
-    backstory : 'Priests call it "dismorgrification."  Commoners use the more vulgar "soul-tearing" and "soul-forging."  The tearing happens while yet alive.  By committing acts so insidious it tears the anatomy of their soul.  The more painful forging is the forsaken act of stitching together their own soul, one act of redemption at time. Can it be done? No one knows, but everyone has a tale of the screams of the Soul Forge stalking the late hours, scavenging for parts of their lost soul.', 
+    backstory : 'Priests call it "dismorgrification."  Commoners use the more vulgar "soul-tearing" and "soul-forging."  The tearing happens while yet alive.  By committing acts so insidious it tears the anatomy of their soul.  The more painful "forging" is the forsaken act of stitching together their own soul, one act of redemption at time. Can it be done? No one knows, but everyone has a tale of the screams of the Soul Forge stalking the late hours, scavenging for parts of their lost soul.', 
     catchphrase : 'Death may be the greatest of all human blessings', 
     characterCardFlexDirection: 'row',
     characterClass : 'hero',
