@@ -190,5 +190,8 @@ function buildTutorialOnWindowLoadHandler() {
 window.addEventListener('DOMContentLoaded', buildTutorialOnWindowLoadHandler);
 window.removeEventListener('load', buildTutorialOnWindowLoadHandler)
 
-
-      
+// these exports statements are purely for JEST testing, which does not support ES6 syntax out-of-the-box
+// therefore, do not update the syntax
+module.exports = {
+  createModal
+}
