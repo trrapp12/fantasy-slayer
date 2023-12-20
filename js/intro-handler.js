@@ -95,6 +95,16 @@ REQUIRED INPUT: id and classname are strings, content is interpolated strings if
 OUTPUT: a new section appended as the first child of the body
 SIDE EFFECTS: it will definitely affect the DOM and layout, so be sure to CSS accordingly*/
 function createModal(id, className, content) {
+
+  if (typeof id === 'undefined') {
+    throw new Error('createModal received a "null" or "undefined" value for "id"')
+  }
+  if (typeof className === 'undefined') {
+    throw new Error('createModal received a "null" or "undefined" value for "className"')
+  }
+  if (typeof content === 'undefined') {
+    throw new Error('createModal received a "null" or "undefined" value for "content"')
+  }
   const container = document.createElement('div');
   container.setAttribute('id', id);
   container.classList.add(className);

@@ -24,4 +24,32 @@ describe('createModal()', ()=> {
         expect(result.classList.contains(className)).toBe(true);
         expect(result.innerHTML).toBe(content);
       });
+
+      it('should set the innerHTML of the created div element to the given content', () => {
+        const id = 'test-id';
+        const className = 'test-class';
+        const content = 'test content';
+  
+        const result = createModal(id, className, content);
+  
+        expect(result.innerHTML).toBe(content);
+      });
+
+      it('should throw an error when content is not provided', () => {
+        const id = 'test-id';
+        const className = 'test-class';
+  
+        expect(() => {
+          createModal(id, className, undefined);
+        }).toThrow();
+      });
+
+      it('should throw an error when className is not provided', () => {
+        const id = 'test-id';
+        const content = 'test content';
+  
+        expect(() => {
+          createModal(id, undefined, content);
+        }).toThrow();
+      });
 })
