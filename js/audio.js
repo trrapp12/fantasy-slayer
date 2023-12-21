@@ -59,6 +59,8 @@ export const stopAllAudio = () => {
 // OUTPUT: n/a
 // SIDE EFFECTS: adjusts audio volume for audio nodes
 export const setAudioVolume = function (audio, volume) {
+    // volume must be less than 1, greater than 0, and in a number format
+    volume = volume > 1 ? 1 : volume < 0 ? 0 : isNaN(volume) ? 0 : volume;
     audio.volume = volume;
 }
 
