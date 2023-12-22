@@ -83,7 +83,7 @@ describe('intro-handler.js -> createModal()', ()=> {
 // })
 
 describe('intro-handler.js -> addBackLight()', () => {
-    it('should add the "backlight" class to the "title" element', () => {
+    it('should add the "backlight" class to the "title" element', async () => {
         // Arrange
         const title = document.createElement('div');
         title.id = 'title';
@@ -91,6 +91,9 @@ describe('intro-handler.js -> addBackLight()', () => {
   
         // Act
         addBackLight();
+
+          // Wait for the timeout to complete
+        await new Promise(resolve => setTimeout(resolve, 5500));
   
         // Assert
         expect(title.classList.contains('backlight')).toBe(true);
