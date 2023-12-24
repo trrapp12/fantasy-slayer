@@ -11,6 +11,8 @@ const { createModal, buildTutorial, addBackLight } = require('../js/intro-handle
 // playAudio() -> test for large file
 // playAudio() -> test for file with incorrect path
 
+const title = document.getElementById('title')
+
 describe('intro-handler.js -> createModal()', ()=> {
     // Creates a new div element with the given id and class name
     it('should create a new div element with the given id and class name', () => {
@@ -120,7 +122,7 @@ describe('intro-handler.js -> addBackLight()', () => {
     it('should set the "display" property of the "title" element to "none" after 8400ms', (done) => {
         // Arrange
         const title = document.createElement('div');
-        title.id = 'title';
+        title.setAttribute('id', 'title')
         document.body.appendChild(title);
   
         // Act
@@ -137,7 +139,7 @@ describe('intro-handler.js -> addBackLight()', () => {
     it('should not have any additional side effects', () => {
         // Arrange
         const title = document.createElement('div');
-        title.id = 'title';
+        title.setAttribute('id', 'title')
         document.body.appendChild(title);
   
         // Act

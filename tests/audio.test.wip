@@ -5,7 +5,15 @@
  jest.useFakeTimers();
  jest.spyOn(global, 'setTimeout');
 
- const { isPlaying, playAudio, playGameMusic, stopAllAudio, setAudioVolume } = require('../js/audio.js')
+ const {
+  spellAudio, 
+  backGroundAudio, 
+  outTroAudio, 
+  isPlaying, 
+  playAudio,
+  stopAllAudio,
+  playGameMusic
+} = require("../js/audio.js")
 
 describe("audio.js -> isPlaying()", () => {
         // Returns True if the audio is playing.

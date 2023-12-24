@@ -17,8 +17,9 @@ function getAspectRatio(windowWidth, windowHeight) {
  
 */
 
-let containerWidth = 155;
-const circumference = 310;
+let containerWidth = (document.querySelector('#main-container > div.middle-third > div.middle-third-left-column').clientWidth / 5000);
+console.log("containerWidth: ", containerWidth)
+const circumference = 100;
 // circumference must be twice the containerWidth for the lines to meet in the end to form a circle
 
 function glowEffectCodeBlock (health, originalHealth) {
@@ -41,7 +42,7 @@ test a number, albeit arbitrarily that stopped as soon as the number connected. 
 */
 
 function findRadius (circumference) {
-  return circumference / Math.pow(Math.PI, 2)
+  return Math.abs(circumference / (Math.PI * 2))
 }
 
 function setColor(health, originalHealth) {
@@ -54,12 +55,12 @@ function setColor(health, originalHealth) {
 
 
 function findCircumference (containerWidth) {
-    let r = containerWidth / 2;
-  return (2 * (Math.PI * r))
+    
+  return containerWidth * Math.PI 
 }
 
-function getBoxWidth(windowWidth, percentage) {
-  return (windowWidth * (percentage / 100))
+function getBoxWidth(r, percentage) {
+  return (r * 2 * (percentage / 100))
 }
 
 function findDiameter (radius) {
@@ -68,10 +69,11 @@ function findDiameter (radius) {
 
 function setXInit (width) {
     return width / 2
+
 }
 
 function setYInit(width, diameter) {
-    return ((width - diameter) / 2)
+    return 0
 }
 
 function renderHealthChart(currentHealthForBar, totalHealth) {
@@ -79,9 +81,9 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
     const glow = glowEffectCodeBlock(currentHealthForBar, totalHealth)
     const healthPercentage = (currentHealthForBar / totalHealth)
     // let aspect = getAspectRatio(containerWidth, containerWidth)
-    const w = getBoxWidth(containerWidth, 100)
+    const w = containerWidth
     // let h = getBoxHeight(w, aspect)
-    const c = findCircumference(w, 2)
+    const c = findCircumference(w)
     const nc = healthPercentage * circumference;
     const r = findRadius(c)
     const d = findDiameter(r)
@@ -115,7 +117,7 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
             a ${r} ${r} 0 0 1 0 -${d}"
           fill="none"
           stroke="${color}"
-          stroke-width="9.125"
+          stroke-width=".01"
           stroke-dasharray="${nc}, ${circumference}"
           filter="${glow}"
         />
@@ -151,6 +153,6 @@ function updateHealthChart(currentHealthForBar, totalHealth) {
   
 }
 
-export { renderHealthChart, updateHealthChart }
+export { glowEffectCodeBlock, findRadius, setColor, findCircumference, getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart }
 
   
