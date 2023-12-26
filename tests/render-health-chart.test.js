@@ -1,28 +1,22 @@
 /**
  * @jest-environment jsdom
  */
-
- const { glowEffectCodeBlock, findRadius, setColor, findCircumference, getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart } = require('../js/render-health-chart.js')
-
-    // describe('glowEffectCodeBlock()', () => {
-    //     it("")
-    // }
+ import {expect, jest, test} from '@jest/globals';
+ const { containerWidth, circumference, glowEffectCodeBlock, findRadius, setColor, findCircumference, getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart } = require('../js/render-health-chart.js')
 
 describe('findRadius()', () => {
     it("should return the right radius when given a valid circumference", () => {
         const circumference = 220;
-        const expectedResult = circumference / Math.pow(Math.PI, 2) 
+        const expectedResult = 35.01408748021697
         const result = findRadius(circumference)
-
         expect(result).toBe(expectedResult)
     })
 
     // returns a radius of 0 when given a circumference of 0
-    it('should return a radius of 0 when given a circumference of 0', () => {
+    it('should throw an error when given a circumference of 0', () => {
         const circumference = 0;
-        const expected = 0;
-        const result = findRadius(circumference);
-        expect(result).toBe(expected);
+        const testFunc = () => findRadius(circumference)
+        expect(testFunc).toThrowError("findRadius either received NaN, 0, or a negative number as an input");
         });
 
     // returns a radius of 1 when given a circumference of 2π
@@ -33,17 +27,17 @@ describe('findRadius()', () => {
         expect(result).toBe(expected);
       });
     // returns NaN when given a negative circumference
-    it('should return NaN when given a negative circumference', () => {
+    it('should throw an error when given a negative number', () => {
         const circumference = -10;
-        const result = findRadius(circumference);
-        expect(result).toBeNaN();
+        const testFunc = () => findRadius(circumference)
+        expect(testFunc).toThrow("findRadius either received NaN, 0, or a negative number as an input");
       });
     
     // returns NaN when given a circumference of NaN
-    it('should return NaN when given a circumference of NaN', () => {
+    it('should throw an error when given a circumference of NaN', () => {
         const circumference = NaN;
-        const result = findRadius(circumference);
-        expect(result).toBeNaN();
+        const testFunc = () => findRadius(circumference)
+        expect(testFunc).toThrow("findRadius either received NaN, 0, or a negative number as an input");
         });
 
     // returns Infinity when given a circumference of Infinity
@@ -52,37 +46,4 @@ describe('findRadius()', () => {
         const result = findRadius(circumference);
         expect(result).toBe(Infinity);
       });
-
-    // describe('setColor()', () => {
-    //     it("")
-    // }
-    
-    // describe('findCircumference()', () => {
-    //     it("")
-    // }
-    
-    // describe('getBoxWidth()', () => {
-    //     it("")
-    // }
-    
-    // describe('findDiameter()', () => {
-    //     it("")
-    // }
-    
-    // describe('setXInit()', () => {
-    //     it("")
-    // }
-    
-    // describe('setYInit()', () => {
-    //     it("")
-    // }
-    // describe('renderHealthChart()', () => {
-    //     it("")
-    // }
-    
-    // describe('updateHealthChart()', () => {
-    //     it("", () => {
-    
-    // })
-    // }
 })

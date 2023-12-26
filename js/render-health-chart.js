@@ -17,7 +17,8 @@ function getAspectRatio(windowWidth, windowHeight) {
  
 */
 
-let containerWidth = (document.querySelector('#main-container > div.middle-third > div.middle-third-left-column').clientWidth / 5000);
+const containerElement = document.querySelector('#main-container > div.middle-third > div.middle-third-left-column');
+const containerWidth = containerElement ? containerElement.clientWidth / 5000 : 0;
 console.log("containerWidth: ", containerWidth)
 const circumference = 100;
 // circumference must be twice the containerWidth for the lines to meet in the end to form a circle
@@ -42,7 +43,11 @@ test a number, albeit arbitrarily that stopped as soon as the number connected. 
 */
 
 function findRadius (circumference) {
-  return Math.abs(circumference / (Math.PI * 2))
+  if (isNaN(circumference) || circumference <= 0) {
+    throw new Error("findRadius either received NaN, 0, or a negative number as an input")
+  } 
+  return circumference / (Math.PI * 2)
+
 }
 
 function setColor(health, originalHealth) {
@@ -55,8 +60,13 @@ function setColor(health, originalHealth) {
 
 
 function findCircumference (containerWidth) {
-    
-  return containerWidth * Math.PI
+  if (isNaN(circumference)) {
+    return NaN
+  } else if(circumference <= 0) {
+    return NaN
+  } else {
+    return containerWidth * Math.PI
+  }
 }
 
 function getBoxWidth(r, percentage) {
