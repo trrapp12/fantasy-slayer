@@ -337,3 +337,4 @@ document.getElementById('attack-button').addEventListener('mousedown', attack)
 
 
 
+module.exports = { characterOrder }

@@ -1,6 +1,8 @@
 /**
  * @jest-environment jsdom
  */
+ const { Character, getIndexesOfDiceScoreMatches } = require('../js/Character.js')
+
 
 describe("getIndexesOfDiceScoreMatches", () => {
     // Returns an empty array when given an empty array

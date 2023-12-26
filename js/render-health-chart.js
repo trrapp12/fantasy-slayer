@@ -56,7 +56,7 @@ function setColor(health, originalHealth) {
 
 function findCircumference (containerWidth) {
     
-  return containerWidth * Math.PI 
+  return containerWidth * Math.PI
 }
 
 function getBoxWidth(r, percentage) {
@@ -72,8 +72,9 @@ function setXInit (width) {
 
 }
 
-function setYInit(width, diameter) {
-    return 0
+function setYInit(width, circumference) {
+  let offset = ((width - circumference) * .75)
+    return ((width - offset) / 16)
 }
 
 function renderHealthChart(currentHealthForBar, totalHealth) {
@@ -83,7 +84,7 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
     // let aspect = getAspectRatio(containerWidth, containerWidth)
     const w = containerWidth
     // let h = getBoxHeight(w, aspect)
-    const c = findCircumference(w)
+    const c = findCircumference(w) * .75
     const nc = healthPercentage * circumference;
     const r = findRadius(c)
     const d = findDiameter(r)
@@ -91,7 +92,7 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
     // let currentHealth = 360;
     // let totalHealth = 1000;
     const xInit = setXInit(containerWidth)
-    const yInit = setYInit(containerWidth, d)
+    const yInit = setYInit(containerWidth, c)
     
     const container = `
       <svg viewBox="0 0 ${w} ${w}">
