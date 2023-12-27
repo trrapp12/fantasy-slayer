@@ -12,35 +12,31 @@ describe('findRadius()', () => {
         expect(result).toBe(expectedResult)
     })
 
-    // returns a radius of 0 when given a circumference of 0
     it('should throw an error when given a circumference of 0', () => {
         const circumference = 0;
         const testFunc = () => findRadius(circumference)
         expect(testFunc).toThrowError("findRadius either received NaN, 0, or a negative number as an input");
         });
 
-    // returns a radius of 1 when given a circumference of 2π
     it('should return a radius of 1 when given a circumference of 2π', () => {
         const circumference = 2 * Math.PI;
         const expected = 1;
         const result = findRadius(circumference);
         expect(result).toBe(expected);
       });
-    // returns NaN when given a negative circumference
+
     it('should throw an error when given a negative number', () => {
         const circumference = -10;
         const testFunc = () => findRadius(circumference)
         expect(testFunc).toThrow("findRadius either received NaN, 0, or a negative number as an input");
       });
     
-    // returns NaN when given a circumference of NaN
     it('should throw an error when given a circumference of NaN', () => {
         const circumference = NaN;
         const testFunc = () => findRadius(circumference)
         expect(testFunc).toThrow("findRadius either received NaN, 0, or a negative number as an input");
         });
 
-    // returns Infinity when given a circumference of Infinity
     it('should return Infinity when given a circumference of Infinity', () => {
         const circumference = Infinity;
         const result = findRadius(circumference);
@@ -52,7 +48,6 @@ describe('findRadius()', () => {
 
 describe('setColor', () => {
 
-  // Returns white color when health is greater than original health
   it('should return white color when health is greater than original health', () => {
     const health = 100;
     const originalHealth = 50;
@@ -60,7 +55,6 @@ describe('setColor', () => {
     expect(result).toBe("#FFFFFF");
   });
 
-  // Returns blue color when health is greater than or equal to 75% of original health
   it('should return blue color when health is greater than or equal to 75% of original health', () => {
     const health = 75;
     const originalHealth = 100;
@@ -68,7 +62,6 @@ describe('setColor', () => {
     expect(result).toBe("#6D8BA6");
   });
 
-  // Returns orange color when health is greater than or equal to 50% of original health
   it('should return orange color when health is greater than or equal to 50% of original health', () => {
     const health = 50;
     const originalHealth = 100;
@@ -76,7 +69,6 @@ describe('setColor', () => {
     expect(result).toBe("#F2A341");
   });
 
-  // Returns white color when health is equal to original health
   it('should return Bermuda Gray when health is equal to original health', () => {
     const health = 100;
     const originalHealth = 100;
@@ -84,7 +76,6 @@ describe('setColor', () => {
     expect(result).toBe('#6D8BA6');
   });
 
-  // Returns red color when health is equal to 0
   it('should return red color when health is equal to 0', () => {
     const health = 0;
     const originalHealth = 100;
@@ -92,7 +83,6 @@ describe('setColor', () => {
     expect(result).toBe("#BF0404");
   });
 
-  // Returns red color when health is less than 50% of original health
   it('should return red color when health is less than 50% of original health', () => {
     const health = 25;
     const originalHealth = 100;
