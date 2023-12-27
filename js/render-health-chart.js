@@ -60,10 +60,9 @@ function setColor(health, originalHealth) {
 
 
 function findCircumference (containerWidth) {
-  if (isNaN(circumference)) {
-    return NaN
-  } else if(circumference <= 0) {
-    return NaN
+  if (isNaN(containerWidth) || containerWidth <= 0) {
+    throw new Error("findCircumference either received NaN, 0, or a negative number as an input")
+  
   } else {
     return containerWidth * Math.PI
   }
