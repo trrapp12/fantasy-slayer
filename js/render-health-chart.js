@@ -27,11 +27,7 @@ function glowEffectCodeBlock (health, originalHealth) {
   const glowOn = `url(#glow)`
   const glowOff = ''
 
-  if (health > originalHealth) {
-    return glowOn
-  } else {
-    return glowOff
-  }
+  return health < originalHealth ? glowOff : glowOn
 
 }
 /*
@@ -73,7 +69,11 @@ function getBoxWidth(r, percentage) {
 }
 
 function findDiameter (radius) {
-  return radius * 2
+  if (isNaN(radius) || radius <= 0) {
+    throw new Error("findDiameter either received NaN, 0, or a negative number as an input")
+  } else {
+    return radius * 2
+  }
 }
 
 function setXInit (width) {
