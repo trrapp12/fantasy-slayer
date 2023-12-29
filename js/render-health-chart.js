@@ -69,7 +69,7 @@ function getBoxWidth(r, percentage) {
 }
 
 function findDiameter (radius) {
-  if (isNaN(radius) || radius <= 0) {
+  if (isNaN(radius) || radius < 0) {
     throw new Error("findDiameter either received NaN, 0, or a negative number as an input")
   } else {
     return radius * 2

@@ -257,19 +257,18 @@ it('should return the correct diameter when given a valid radius', () => {
     const radius = -5;
 
     // Act & Assert
-    expect(() => {
-      findDiameter(radius);
-    }).toThrowError("findDiameter either received NaN, 0, or a negative number as an input");
-  });
+
+      const testFunc = () => findDiameter(radius)
+      expect(testFunc).toThrowError("findDiameter either received NaN, 0, or a negative number as an input");
+     });
 
   it('should throw an error when given a non-numeric radius', () => {
     // Arrange
-    const radius = '5';
+    const radius = 's';
 
     // Act & Assert
-    expect(() => {
-      findDiameter(radius);
-    }).toThrowError("findDiameter either received NaN, 0, or a negative number as an input");
+    const testFunc = () => findDiameter(radius)
+    expect(testFunc).toThrowError("findDiameter either received NaN, 0, or a negative number as an input");
   });
 
   it('should return a decimal value when given a radius with decimal places', () => {
