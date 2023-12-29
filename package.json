@@ -16,7 +16,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "jest",
+    "test:audio": "jest --config=jest.config.audio.js"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
