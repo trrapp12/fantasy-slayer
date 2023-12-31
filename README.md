@@ -105,6 +105,7 @@ To use the app simply click on the ```View Project``` button or visit  <a href="
 
 <br/>
 
+- [X] Unit Testing with Jest
 
 - [X] Javascript Classes
     
@@ -114,7 +115,7 @@ To use the app simply click on the ```View Project``` button or visit  <a href="
     
 - [X] method chaining of .reduce() and .filter()
     
-- [X] use of utitility functions.
+- [X] use of utitility functions
     
 - [X] multiple logical step processes
     
