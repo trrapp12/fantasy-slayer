@@ -19,6 +19,10 @@
     "test": "jest",
     "test:audio": "jest --config=jest.config.audio.js"
   },
+  "exclude": [
+    "/path/to/excluded/file.js",
+    "/path/to/excluded/directory/"
+  ],
   "devDependencies": {
     "@babel/core": "^7.23.6",
     "@babel/preset-env": "^7.23.6",

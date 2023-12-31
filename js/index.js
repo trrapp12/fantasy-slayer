@@ -29,14 +29,15 @@ import {
 // **********************  REGISTER SERVICE WORKER **********************
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register(
-        new URL('/js/sw.js', import.meta.url), {type: 'module'}
-    ).then(function(reg) {
-      console.log('Yey!', reg);
-    }).catch(function(err) {
-      console.log('Boo!', err);
-    });
+    navigator.serviceWorker.register('/js/sw.js', { type: 'module' })
+      .then(function (reg) {
+        console.log('Yey!', reg);
+      })
+      .catch(function (err) {
+        console.log('Boo!', err);
+      });
   }
+  
 
 // ********************** LOCK THE SCREEN ORIENTATION TO LANDSCAPE ******
 
@@ -113,10 +114,6 @@ function importSpellCSS () {
         document.head.appendChild(link)
     }
 }
-
-
-
-
 
 function castSpells () {
     // import spells here to prevent heavy load on first page load
