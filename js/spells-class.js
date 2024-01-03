@@ -34,10 +34,6 @@ class Spells {
         return arr.splice(0,3)
     }
 
-
-
-
-
     // COME BACK AND GET CARDS SET UP WITH CLASS SO THEY ARE TURNED AROUND.
     
     renderCards(arr) {

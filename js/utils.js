@@ -41,11 +41,17 @@ function renderDicePlaceHolderArray(totalDiceCount) {
 }
 
 function renderDefenseDicePlaceHolderArray(totalDiceCount) {
-    return new Array(totalDiceCount).fill(0).map(()=> {
+    if (isNaN(totalDiceCount)) {
+        throw new Error('renderDefenseDicePlaceHolder received a value that is NaN')
+    } 
+    if (totalDiceCount < 0 || !Number.isInteger(totalDiceCount)) {
+        return ''
+    }
+     return new Array(totalDiceCount).fill(0).map(()=> {
         return `
-            <div class="dice defend-dice">
-                <div class="dice-inset">0</div>
-            </div>
+        <div class="dice defend-dice">
+          <div class="dice-inset">0</div>
+        </div>
         `
     }).join('')
 }

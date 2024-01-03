@@ -131,9 +131,6 @@ function castSpells () {
         numberOfSpellsCast++
         // can't put the if statement here because it is getting set as a handler on an event listener.  Have to do the logic on the event listener
     }, 100)
-
-
-
 }
 
 function handleSpellDeath (hero, villain) {
@@ -331,7 +328,5 @@ function endGameWithDelay() {
 }
 
 document.getElementById('attack-button').addEventListener('mousedown', attack)
-
-
 
 module.exports = { characterOrder }
