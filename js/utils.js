@@ -22,6 +22,9 @@ function displayNoManaMessage (hasNotDisplayedTheMessageBefore) {
 }
 
 function getDiceRollArray(totalDiceCount, diceSides) {
+    if (isNaN(totalDiceCount) || isNaN(diceSides)) {
+        throw new Error('getDiceRollArray received a value that is NaN for either totalDiceCount or diceSides')
+    } 
     return new Array(totalDiceCount).fill(0).map(() => {
         return Math.floor((Math.random() * diceSides) + 1)
     })
@@ -45,9 +48,6 @@ function renderDicePlaceHolderArray(totalDiceCount) {
         `
     }).join('')
 }
-
-
-
 
 function renderDefenseDicePlaceHolderArray(totalDiceCount) {
     if (isNaN(totalDiceCount)) {
@@ -77,7 +77,10 @@ function hasDuplicates (arr){
 }
 
 function hideElement (el) {
-    console.log('inside hide element, el is: ', el, 'el.style.display is: ', el.style.display)
+    if (!el) {
+        console.log('hideElement received a value that is either null or undefined');
+        return
+    } 
     el.style.display = 'none'
   }
 
