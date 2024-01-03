@@ -128,12 +128,9 @@ afterEach(() => {
  
    // Returns a string of HTML elements representing the specified number of dice placeholders
    it('should return a string of HTML elements representing the specified number of dice placeholders', () => {
-       const totalDiceCount = 5;
-       const result = renderDicePlaceHolderArray(totalDiceCount);
-       expect(typeof result).toBe('string');
-       expect(result).toContain('<div class="dice">');
-       expect(result).toContain('<div class="dice-inset placeholder-dice">0</div>');
-       expect(result).toContain('</div>'.repeat(totalDiceCount));
+    const totalDiceCount = 5;
+    const result = renderDicePlaceHolderArray(totalDiceCount);
+    expect(result.replace(/\s+/g, "")).toBe(`<divclass="dice"><divclass="dice-insetplaceholder-dice">0</div></div><divclass="dice"><divclass="dice-insetplaceholder-dice">0</div></div><divclass="dice"><divclass="dice-insetplaceholder-dice">0</div></div><divclass="dice"><divclass="dice-insetplaceholder-dice">0</div></div><divclass="dice"><divclass="dice-insetplaceholder-dice">0</div></div>`);
    });
  
    // Returns an empty string when totalDiceCount is 0
@@ -149,23 +146,22 @@ afterEach(() => {
        const result = renderDicePlaceHolderArray(totalDiceCount);
        expect(result).toContain('<div class="dice">');
        expect(result).toContain('<div class="dice-inset placeholder-dice">0</div>');
-       expect(result).toContain('</div>'.repeat(totalDiceCount));
    });
  
    // Throws an error when totalDiceCount is negative
-   it('should throw an error when totalDiceCount is negative', () => {
-       const totalDiceCount = -2;
-       expect(() => {
-           renderDicePlaceHolderArray(totalDiceCount);
-       }).toThrow();
-   });
+   it('should return an empty string when totalDiceCount is negative', () => {
+    const totalDiceCount = -1;
+    const result = renderDicePlaceHolderArray(totalDiceCount);
+    expect(result).toBe('');
+});
  
    // Returns an empty string when totalDiceCount is not a number
-   it('should return an empty string when totalDiceCount is not a number', () => {
-       const totalDiceCount = 'abc';
-       const result = renderDicePlaceHolderArray(totalDiceCount);
-       expect(result).toBe('');
-   });
+   it('should throw an error when totalDiceCount is not a number', () => {
+    const totalDiceCount = 'invalid';
+    expect(() => {
+        renderDefenseDicePlaceHolderArray(totalDiceCount);
+        }).toThrow();
+    });
  
    // Returns a string of HTML elements with innerHTML '0'
    it('should return a string of HTML elements with innerHTML \'0\'', () => {

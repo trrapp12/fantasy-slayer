@@ -31,6 +31,12 @@ function getDiceRollArray(totalDiceCount, diceSides) {
 }
 
 function renderDicePlaceHolderArray(totalDiceCount) {
+    if (isNaN(totalDiceCount)) {
+        throw new Error('renderDicePlaceHolderArray received a value that is NaN')
+    } 
+    if (totalDiceCount < 0 || !Number.isInteger(totalDiceCount)) {
+        return ''
+    }
     return new Array(totalDiceCount).fill(0).map(()=> {
         return `
             <div class="dice">
@@ -39,6 +45,9 @@ function renderDicePlaceHolderArray(totalDiceCount) {
         `
     }).join('')
 }
+
+
+
 
 function renderDefenseDicePlaceHolderArray(totalDiceCount) {
     if (isNaN(totalDiceCount)) {
