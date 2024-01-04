@@ -75,6 +75,9 @@ let numberOfSpellsCast = 0
 // **********************  LOGIC FOR BUILDING ARRAY OF HEROES **********************
 let heroArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'soulforge'];
 const characterOrder = (array) => {
+    if (!Array.isArray(array)) {
+        throw new Error ("characterOrder received an input that is not an array")
+    }
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]]
@@ -300,4 +303,4 @@ function endGameWithDelay() {
 
 document.getElementById('attack-button').addEventListener('mousedown', attack)
 
-module.exports = { characterOrder }
+module.exports = { characterOrder, importSpellCSS, disableAttackButton, enableAttackButton, endGameWithDelay, handleFlyOuts, handleCharacterDeathTiming, setNextCharacter }
