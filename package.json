@@ -17,6 +17,13 @@
     "start": "parcel",
     "build": "parcel build index.html",
     "test": "jest",
+    "index": "npm run test -- index.test.js",
+    "intro": "npm run test -- intro-handler.test.js",
+    "mana": "npm run test -- mana-triangle.test.js",
+    "render": "npm run test -- render-health-chart.test.js",
+    "spells": "npm run test -- spells-class.test.js",
+    "sw": "npm run test -- sw.test.js",
+    "utils": "npm run test -- utils.test.js",
     "test:audio": "jest --config=jest.config.audio.js"
   },
   "exclude": [
