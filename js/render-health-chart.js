@@ -21,7 +21,8 @@ const containerElement = document.querySelector('#main-container > div.middle-th
 const containerWidth = containerElement ? containerElement.clientWidth / 5000 : 0;
 console.log("containerWidth: ", containerWidth)
 const circumference = containerWidth * 2.355;
-// circumference must be twice the containerWidth for the lines to meet in the end to form a circle
+// 2.355 is admittedly somewhat of a magical number.  It mostly worked at circumference x2, but I had to use some back 
+// and forth to tease out the optimum number
 
 function glowEffectCodeBlock (health, originalHealth) {
   const glowOn = `url(#glow)`
@@ -30,13 +31,6 @@ function glowEffectCodeBlock (health, originalHealth) {
   return health < originalHealth ? glowOff : glowOn
 
 }
-/*
-
-so I previously had 220 represented by c, the circumference, but for some reason it was such a large number it drew itself 
-three or four loops and the player would get a ton of hits and never show any damage until suddenly they did.  So I had to 
-test a number, albeit arbitrarily that stopped as soon as the number connected.  It turned out to be 220.
-
-*/
 
 function findRadius (circumference) {
   if (isNaN(circumference) || circumference <= 0) {
@@ -98,8 +92,6 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
     const r = findRadius(c)
     const d = findDiameter(r)
     // let coord = findCenterCoordinates(containerWidth, w, containerWidth, h)
-    // let currentHealth = 360;
-    // let totalHealth = 1000;
     const xInit = setXInit(containerWidth)
     const yInit = setYInit(containerWidth, c)
     
