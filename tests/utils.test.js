@@ -309,10 +309,9 @@ afterEach(() => {
     // Function throws an error if no argument is passed
     it('should throw an error when called with no argument', () => {
       // Arrange
-      const element = undefined;
       
       // Act & Assert
-      expect(() => hideElement(element)).toThrow();
+      expect(() => hideElement()).toThrow('hideElement did not receive any arguments');
     });
     
     // Function throws an error if the argument is not an HTML element

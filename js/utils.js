@@ -22,7 +22,7 @@ function displayNoManaMessage (hasNotDisplayedTheMessageBefore) {
 }
 
 function getDiceRollArray(totalDiceCount, diceSides) {
-    if (isNaN(totalDiceCount) || isNaN(diceSides)) {
+    if (isNaN(totalDiceCount) || isNaN(diceSides) || typeof(totalDiceCount) === 'string') {
         throw new Error('getDiceRollArray received a value that is NaN for either totalDiceCount or diceSides')
     } 
     return new Array(totalDiceCount).fill(0).map(() => {
@@ -77,6 +77,9 @@ function hasDuplicates (arr){
 }
 
 function hideElement (el) {
+    if (arguments.length === 0) {
+        throw new Error('hideElement did not receive any arguments')
+    } 
     if (!el) {
         console.log('hideElement received a value that is either null or undefined');
         return
