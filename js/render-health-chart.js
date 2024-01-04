@@ -20,7 +20,7 @@ function getAspectRatio(windowWidth, windowHeight) {
 const containerElement = document.querySelector('#main-container > div.middle-third > div.middle-third-left-column');
 const containerWidth = containerElement ? containerElement.clientWidth / 5000 : 0;
 console.log("containerWidth: ", containerWidth)
-const circumference = 100;
+const circumference = containerWidth * 2.355;
 // circumference must be twice the containerWidth for the lines to meet in the end to form a circle
 
 function glowEffectCodeBlock (health, originalHealth) {
