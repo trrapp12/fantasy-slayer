@@ -162,29 +162,19 @@ function handleSpellDeath (hero, villain) {
 // **********************  LOGIC FOR BASIC ATTACKS **********************
 
 function attack() {
-    console.log('attack function step 1: firing')
+
     if (!isWaiting) {
-        console.log('attack function step 2: isWaiting')
         // creates a pause
         if (hero.numberOfTurns % 1 === 0 && hero.numberOfTurns > 0 && shuffledSpellArr.length !== 0) {
-            console.log('attack function step 3: which turn for spells')
             hero.numberOfTurns = hero.numberOfTurns + 1;
             // spell every 5th turn
             if (!hasNotDisplayedTheMessageBefore) {
-                console.log('attack function step 4: has not displayed no Mana before, return')
                 return 
             } else {
-                console.log('attack function step 6: castSpells')
                 castSpells();
                 // can't put if logic after this because it evaluates before the event listener
-                // if (shuffledSpellArr.length === 0) {
-                //     hideElement(manaRotateContainer)
-                //     displayNoManaMessage();
-                //     return
-                // }
             }
         } else {
-            console.log('attack function step 7: attack dice')
             hero.getDiceHTML(hero.currentDiceScore);
             villain.getDiceHTML(villain.currentDiceScore);
             hero.setDefendDiceHTML();
