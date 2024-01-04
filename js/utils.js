@@ -3,7 +3,7 @@ const mainContainer = document.getElementById('main-container');
 let hasNotDisplayedTheMessageBefore = true
 
 function displayNoManaMessage (hasNotDisplayedTheMessageBefore) {
-    hasNotDisplayedTheMessageBefore = false
+    console.log('inside displayNoManaMessage')
     let messageDiv = document.createElement('div')
     messageDiv.setAttribute('class', 'no-more-spells')
     messageDiv.setAttribute('id', 'no-more-spells')
@@ -105,4 +105,4 @@ function calculateEnhancedScore (obj, arr){
 
 
   
-export { manaRotateContainer, mainContainer, hasNotDisplayedTheMessageBefore, displayNoManaMessage, calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 
+export { manaRotateContainer, hasNotDisplayedTheMessageBefore, mainContainer, displayNoManaMessage, calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } 

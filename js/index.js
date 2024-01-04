@@ -3,7 +3,8 @@ import Character from './character.js'
 import spellData from './spells-data.js'
 import Spells from "./spells-class.js"
 import { hasNotDisplayedTheMessageBefore,
-    mainContainer
+    mainContainer,
+    displayNoManaMessage
  } from "./utils.js"
 import { hideElement } from "./utils.js"
 import {
@@ -25,6 +26,8 @@ import {
     playGameMusic
 } from './audio.js'
 
+
+console.log('hasNotDisplayedTheMessageBefore is: ', hasNotDisplayedTheMessageBefore, "and displayNoManaMessage is: ", displayNoManaMessage)
 
 // **********************  REGISTER SERVICE WORKER **********************
 
@@ -156,45 +159,22 @@ function handleSpellDeath (hero, villain) {
 
             }
         } 
-
-function displayNoManaMessage () {
-    hasNotDisplayedTheMessageBefore = false
-    let messageDiv = document.createElement('div')
-    messageDiv.setAttribute('class', 'no-more-spells')
-    messageDiv.setAttribute('id', 'no-more-spells')
-    messageDiv.innerHTML = `
-    <div class="no-spells-message">
-        <h1>Mana has been depleted</h1>
-        <p>You must continue without any more magical prowess</p>
-    </div>`
-    mainContainer.appendChild(messageDiv)
-    setTimeout(() => {
-        document.getElementById('no-more-spells').classList.add('disappear');
-        messageDiv.addEventListener('animationend', () => {
-            messageDiv.style.display = "none"
-        })
-    }, 2500)
-}
-
-
 // **********************  LOGIC FOR BASIC ATTACKS **********************
 
 function attack() {
+    console.log('attack function step 1: firing')
     if (!isWaiting) {
+        console.log('attack function step 2: isWaiting')
         // creates a pause
-        if (hero.numberOfTurns % 1 === 0 && hero.numberOfTurns > 0) {
+        if (hero.numberOfTurns % 1 === 0 && hero.numberOfTurns > 0 && shuffledSpellArr.length !== 0) {
+            console.log('attack function step 3: which turn for spells')
             hero.numberOfTurns = hero.numberOfTurns + 1;
             // spell every 5th turn
             if (!hasNotDisplayedTheMessageBefore) {
+                console.log('attack function step 4: has not displayed no Mana before, return')
                 return 
-            } else if (shuffledSpellArr.length === 0) {
-                
-                // hideElement(manaRotateContainer)
-                console.log('hitting displayNoManaMessage in index.js')
-                displayNoManaMessage();
-                // return
-                console.log('this is where the previous displayNoManaMessage fired')
             } else {
+                console.log('attack function step 6: castSpells')
                 castSpells();
                 // can't put if logic after this because it evaluates before the event listener
                 // if (shuffledSpellArr.length === 0) {
@@ -204,6 +184,7 @@ function attack() {
                 // }
             }
         } else {
+            console.log('attack function step 7: attack dice')
             hero.getDiceHTML(hero.currentDiceScore);
             villain.getDiceHTML(villain.currentDiceScore);
             hero.setDefendDiceHTML();
