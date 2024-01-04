@@ -74,7 +74,7 @@ class Spells {
     }
 
     appendCardsTitle (parentElId) {
-        let spellsTitleText = "Select a spell";
+        let spellsTitleText = "Reveal your Sorcery";
         let spellElement = document.createElement("h2");
         spellElement.setAttribute("id", "spellTitle");
         spellElement.setAttribute('class', 'spellTitle')

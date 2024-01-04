@@ -76,8 +76,6 @@ function setXInit (width) {
 }
 
 function setYInit(width, circumference) {
-  // let offset = ((width - circumference) * .75)
-  //   return ((width - offset) / 16)
   return width / 10.25
 }
 
