@@ -95,7 +95,6 @@ class Spells {
         let childNode = document.getElementById('spells-container')
         parentNode.removeChild(childNode)
     }
-    // create a function to unappend cards???? ^^^^^
 
     handleCardChoice (hero, arr, villain, render, handleSpellDeath, numberOfSpellsCast) {
         console.log('entered handleCardChoice, numberOfSpellsCast is: ', numberOfSpellsCast)
@@ -164,7 +163,6 @@ class Spells {
             }
         }
         
-        
         function callCallBack () {
             cards.forEach(el => el.removeEventListener('click', cardClickListener))
             callback();
@@ -174,9 +172,8 @@ class Spells {
   // remove setTimout.  Just putting it here so I can fix a CSS issue without them disappearing on me
             cards.forEach(el => el.addEventListener('click', cardClickListener))
         }, 300)
-        
-    }
 
+    }
 }
 
 export default Spells

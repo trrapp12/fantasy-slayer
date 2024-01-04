@@ -20,7 +20,7 @@ function getAspectRatio(windowWidth, windowHeight) {
 const containerElement = document.querySelector('#main-container > div.middle-third > div.middle-third-left-column');
 const containerWidth = containerElement ? containerElement.clientWidth / 5000 : 0;
 console.log("containerWidth: ", containerWidth)
-const circumference = containerWidth * 2.355;
+const circumference = containerWidth * 2.669;
 // 2.355 is admittedly somewhat of a magical number.  It mostly worked at circumference x2, but I had to use some back 
 // and forth to tease out the optimum number
 
@@ -71,13 +71,14 @@ function findDiameter (radius) {
 }
 
 function setXInit (width) {
-    return width / 2
+    return width / 2.03
 
 }
 
 function setYInit(width, circumference) {
-  let offset = ((width - circumference) * .75)
-    return ((width - offset) / 16)
+  // let offset = ((width - circumference) * .75)
+  //   return ((width - offset) / 16)
+  return width / 10.25
 }
 
 function renderHealthChart(currentHealthForBar, totalHealth) {
@@ -87,7 +88,7 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
     // let aspect = getAspectRatio(containerWidth, containerWidth)
     const w = containerWidth
     // let h = getBoxHeight(w, aspect)
-    const c = findCircumference(w) * .75
+    const c = findCircumference(w) * .85
     const nc = healthPercentage * circumference;
     const r = findRadius(c)
     const d = findDiameter(r)
