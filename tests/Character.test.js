@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
- const { Character, getIndexesOfDiceScoreMatches } = require('../js/Character.js')
+ const { Character, getIndexesOfDiceScoreMatches, setDefendDiceHTML, getDiceHTML, renderMultiplesForFlyOutMessage, resetMultiplesForFlyOutMessage, takeDamage, renderCharacter } = require('../js/Character.js')
 
 describe('Character', () => {
 

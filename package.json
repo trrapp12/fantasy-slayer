@@ -17,6 +17,8 @@
     "start": "parcel",
     "build": "parcel build index.html",
     "test": "jest",
+    "audio": "npm run test -- audio.test.js",
+    "character": "npm run test -- character.test.js",
     "index": "npm run test -- index.test.js",
     "intro": "npm run test -- intro-handler.test.js",
     "mana": "npm run test -- mana-triangle.test.js",
