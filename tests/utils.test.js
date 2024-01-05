@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { displayNoManaMessage, calculateEnhancedScore, getDiceRollArray, hasDuplicates, hideElement, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray } = require("../js/utils.js")
+const { displayNoManaMessage, getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray, hasDuplicates, hideElement, calculateEnhancedScore } = require("../js/utils.js")
 
 let mainContainer;
 // mock elements needed for the DOM
