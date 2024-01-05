@@ -4,6 +4,31 @@
  import {expect, jest, test} from '@jest/globals';
  const { containerWidth, circumference, glowEffectCodeBlock, findRadius, setColor, findCircumference, getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart } = require('../js/render-health-chart.js')
 
+ describe('glowEffectCodeBlock', () => {
+
+  it('should return an empty string when health is less than or equal to originalHealth', () => {
+    const health = 10;
+    const originalHealth = 20;
+    const result = glowEffectCodeBlock(health, originalHealth);
+    expect(result).toBe('');
+  });
+
+  it('should return a url string when health is greater than originalHealth', () => {
+    const health = 30;
+    const originalHealth = 20;
+    const result = glowEffectCodeBlock(health, originalHealth);
+    expect(result).toBe('url(#glow)');
+  });
+
+  it('should return an empty string when health is equal to originalHealth', () => {
+    const health = 20;
+    const originalHealth = 20;
+    const result = glowEffectCodeBlock(health, originalHealth);
+    expect(result).toBe(`url(#glow)`);
+  });
+
+});
+
 describe('findRadius()', () => {
     it("should return the right radius when given a valid circumference", () => {
         const circumference = 220;
@@ -126,31 +151,6 @@ describe('findCircumference', () => {
     const result = findCircumference(containerWidth);
     expect(result).toBe(containerWidth * Math.PI);
   })
-});
-
-describe('glowEffectCodeBlock', () => {
-
-  it('should return an empty string when health is less than or equal to originalHealth', () => {
-    const health = 10;
-    const originalHealth = 20;
-    const result = glowEffectCodeBlock(health, originalHealth);
-    expect(result).toBe('');
-  });
-
-  it('should return a url string when health is greater than originalHealth', () => {
-    const health = 30;
-    const originalHealth = 20;
-    const result = glowEffectCodeBlock(health, originalHealth);
-    expect(result).toBe('url(#glow)');
-  });
-
-  it('should return an empty string when health is equal to originalHealth', () => {
-    const health = 20;
-    const originalHealth = 20;
-    const result = glowEffectCodeBlock(health, originalHealth);
-    expect(result).toBe(`url(#glow)`);
-  });
-
 });
 
 describe('getBoxWidth', () => {
@@ -360,6 +360,202 @@ describe('setXInit', () => {
 
     // Assert
     expect(result).toBeNaN();
+  });
+});
+
+describe('setYInit', () => {
+
+  // Returns a number
+  it('should return a number', () => {
+    const width = 10;
+    const circumference = 20;
+    const result = setYInit(width, circumference);
+    expect(typeof result).toBe('number');
+  });
+
+  // Returns a positive number
+  it('should return a positive number', () => {
+    const width = 10;
+    const circumference = 20;
+    const result = setYInit(width, circumference);
+    expect(result).toBeGreaterThan(0);
+  });
+
+  // Returns a number smaller than the width parameter
+  it('should return a number smaller than the width parameter', () => {
+    const width = 10;
+    const circumference = 20;
+    const result = setYInit(width, circumference);
+    expect(result).toBeLessThan(width);
+  });
+
+  // Returns 0 when width parameter is 0
+  it('should return 0 when width parameter is 0', () => {
+    const width = 0;
+    const circumference = 20;
+    const result = setYInit(width, circumference);
+    expect(result).toBe(0);
+  });
+
+  // Returns 0 when circumference parameter is 0
+  it('should return 0 when circumference parameter is 0', () => {
+    const width = 10;
+    const circumference = 0;
+    const result = setYInit(width, circumference);
+    expect(result).toBe(0);
+  });
+
+  // Returns 0 when width parameter is negative
+  it('should return 0 when width parameter is negative', () => {
+    const width = -10;
+    const circumference = 20;
+    const result = setYInit(width, circumference);
+    expect(result).toBe(0);
+  });
+});
+
+describe('renderHealthChart', () => {
+
+  // Given valid input values for currentHealthForBar and totalHealth, it should return a valid SVG string
+  it('should return a valid SVG string when given valid input values', () => {
+    const currentHealthForBar = 50;
+    const totalHealth = 100;
+    const result = renderHealthChart(currentHealthForBar, totalHealth);
+    expect(typeof result).toBe('string');
+    expect(result).toMatch(/<svg.*<\/svg>/);
+  });
+
+  // When currentHealthForBar is equal to totalHealth, it should return an SVG string with a full circle
+  it('should return an SVG string with a full circle when currentHealthForBar is equal to totalHealth', () => {
+    const currentHealthForBar = 100;
+    const totalHealth = 100;
+    const result = renderHealthChart(currentHealthForBar, totalHealth);
+    expect(result).toContain('stroke-dasharray="');
+    expect(result).toContain('stroke-dasharray="267');
+  });
+
+  // When currentHealthForBar is equal to zero, it should return an SVG string with an empty circle
+  it('should return an SVG string with an empty circle when currentHealthForBar is equal to zero', () => {
+    const currentHealthForBar = 0;
+    const totalHealth = 100;
+    const result = renderHealthChart(currentHealthForBar, totalHealth);
+    expect(result).toContain('stroke-dasharray="');
+    expect(result).toContain('stroke-dasharray="0');
+  });
+
+  // When containerWidth is zero, it should throw an error
+  it('should throw an error when containerWidth is zero', () => {
+    const currentHealthForBar = 50;
+    const totalHealth = 100;
+    const containerElement = { clientWidth: 0 };
+    expect(() => renderHealthChart(currentHealthForBar, totalHealth, containerElement)).toThrowError("findCircumference either received NaN, 0, or a negative number as an input");
+  });
+
+  // When containerWidth is negative, it should throw an error
+  it('should throw an error when containerWidth is negative', () => {
+    const currentHealthForBar = 50;
+    const totalHealth = 100;
+    const containerElement = { clientWidth: -500 };
+    expect(() => renderHealthChart(currentHealthForBar, totalHealth, containerElement)).toThrowError("findCircumference either received NaN, 0, or a negative number as an input");
+  });
+
+  // When circumference is zero, it should throw an error
+  it('should throw an error when circumference is zero', () => {
+    const currentHealthForBar = 50;
+    const totalHealth = 100;
+    const containerElement = { clientWidth: 500 };
+    expect(() => renderHealthChart(currentHealthForBar, totalHealth, containerElement)).toThrowError("findRadius either received NaN, 0, or a negative number as an input");
+  });
+});
+
+describe('updateHealthChart', () => {
+
+  // updates the health chart with correct stroke color and stroke-dasharray
+  it('should update the health chart with correct stroke color and stroke-dasharray when current health is greater than total health', () => {
+    // Arrange
+    const currentHealthForBar = 80;
+    const totalHealth = 50;
+
+    // Act
+    updateHealthChart(currentHealthForBar, totalHealth);
+
+    // Assert
+    const healthPath = document.querySelectorAll('.health-path');
+    expect(healthPath[0].getAttribute('stroke')).toBe('#FFFFFF');
+    expect(healthPath[0].getAttribute('stroke-dasharray')).toBe(`${currentHealthForBar * 2.669}, ${circumference}`);
+  });
+
+  // removes filter attribute if current health is not greater than total health
+  it('should remove filter attribute if current health is not greater than total health', () => {
+    // Arrange
+    const currentHealthForBar = 40;
+    const totalHealth = 50;
+
+    // Act
+    updateHealthChart(currentHealthForBar, totalHealth);
+
+    // Assert
+    const healthPath = document.querySelectorAll('.health-path');
+    expect(healthPath[0].getAttribute('filter')).toBeNull();
+  });
+
+  // sets filter attribute to glow effect if current health is greater than total health
+  it('should set filter attribute to glow effect if current health is greater than total health', () => {
+    // Arrange
+    const currentHealthForBar = 60;
+    const totalHealth = 50;
+
+    // Act
+    updateHealthChart(currentHealthForBar, totalHealth);
+
+    // Assert
+    const healthPath = document.querySelectorAll('.health-path');
+    expect(healthPath[0].getAttribute('filter')).toBe('url(#glow)');
+  });
+
+  // handles current health greater than total health
+  it('should handle current health greater than total health', () => {
+    // Arrange
+    const currentHealthForBar = 60;
+    const totalHealth = 50;
+
+    // Act
+    updateHealthChart(currentHealthForBar, totalHealth);
+
+    // Assert
+    const healthPath = document.querySelectorAll('.health-path');
+    expect(healthPath[0].getAttribute('stroke')).toBe('#FFFFFF');
+    expect(healthPath[0].getAttribute('stroke-dasharray')).toBe(`${currentHealthForBar * 2.669}, ${circumference}`);
+  });
+
+  // handles current health equal to total health
+  it('should handle current health equal to total health', () => {
+    // Arrange
+    const currentHealthForBar = 50;
+    const totalHealth = 50;
+
+    // Act
+    updateHealthChart(currentHealthForBar, totalHealth);
+
+    // Assert
+    const healthPath = document.querySelectorAll('.health-path');
+    expect(healthPath[0].getAttribute('stroke')).toBe('#FFFFFF');
+    expect(healthPath[0].getAttribute('stroke-dasharray')).toBe(`${currentHealthForBar * 2.669}, ${circumference}`);
+  });
+
+  // handles current health less than or equal to zero
+  it('should handle current health less than or equal to zero', () => {
+    // Arrange
+    const currentHealthForBar = 0;
+    const totalHealth = 50;
+
+    // Act
+    updateHealthChart(currentHealthForBar, totalHealth);
+
+    // Assert
+    const healthPath = document.querySelectorAll('.health-path');
+    expect(healthPath[0].getAttribute('stroke')).toBe('#BF0404');
+    expect(healthPath[0].getAttribute('stroke-dasharray')).toBe(`${currentHealthForBar * 2.669}, ${circumference}`);
   });
 });
 
