@@ -2,7 +2,8 @@
  * @jest-environment jsdom
  */
  import {expect, jest, test} from '@jest/globals';
- const { containerWidth, circumference, glowEffectCodeBlock, findRadius, setColor, findCircumference, getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart } = require('../js/render-health-chart.js')
+
+ const { containerWidth, circumference, glowEffectCodeBlock, findRadius, setColor, findCircumference,  getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart } = require('../js/render-health-chart.js')
 
  describe('glowEffectCodeBlock', () => {
 
