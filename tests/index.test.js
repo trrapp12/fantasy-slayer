@@ -2,84 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { characterOrder, importSpellCSS, disableAttackButton, enableAttackButton, endGameWithDelay, handleFlyOuts, handleCharacterDeathTiming, setNextCharacter } = require('../js/index.js')
-
-describe('endGameWithDelay', () => {
-  
-  // Calls the function "endGame" after a delay of 2500ms
-  it('should call the function "endGame" after a delay of 2500ms', () => {
-    jest.useFakeTimers();
-    const endGameSpy = jest.spyOn(global, 'endGame');
-    
-    endGameWithDelay();
-    
-    expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 2500);
-    jest.runAllTimers();
-    expect(endGameSpy).toHaveBeenCalledTimes(1);
-    
-    jest.useRealTimers();
-  });
-  
-  // If "endGame" throws an error, it is not caught and propagated
-  it('should not catch and propagate an error thrown by "endGame"', () => {
-    jest.useFakeTimers();
-    const endGameSpy = jest.spyOn(global, 'endGame').mockImplementation(() => {
-      throw new Error('Test error');
-    });
-    
-    expect(() => {
-      endGameWithDelay();
-      jest.runAllTimers();
-    }).toThrow('Test error');
-    
-    expect(endGameSpy).toHaveBeenCalledTimes(1);
-    
-    jest.useRealTimers();
-  });
-  
-  // If "endGame" takes longer than 2500ms to execute, subsequent code execution is not blocked
-  it('should not block subsequent code execution if "endGame" takes longer than 2500ms to execute', () => {
-    jest.useFakeTimers();
-    const endGameSpy = jest.spyOn(global, 'endGame').mockImplementation(() => {
-      jest.advanceTimersByTime(3000);
-    });
-    
-    endGameWithDelay();
-    
-    expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 2500);
-    jest.runAllTimers();
-    expect(endGameSpy).toHaveBeenCalledTimes(1);
-    
-    jest.useRealTimers();
-  });
-  
-  // If "endGame" is not a function, an error is thrown
-  it('should throw an error if "endGame" is not a function', () => {
-    jest.useFakeTimers();
-    global.endGame = 'not a function';
-    
-    expect(() => {
-      endGameWithDelay();
-      jest.runAllTimers();
-    }).toThrow('endGame is not a function');
-    
-    jest.useRealTimers();
-  });
-  
-  // If the delay parameter is not a number, an error is thrown
-  it('should throw an error if the delay parameter is not a number', () => {
-    jest.useFakeTimers();
-    
-    expect(() => {
-      endGameWithDelay('not a number');
-      jest.runAllTimers();
-    }).toThrow('delay must be a number');
-    
-    jest.useRealTimers();
-  });
-});
+const { characterOrder, render, importSpellCSS, castSpells, handleSpellDeath, attack, disableAttackButton, enableAttackButton, handleFlyOuts, handleCharacterDeathTiming, setNextCharacter, endGameWithDelay } = require('../js/index.js')
 
 describe('characterOrder', () => {
   
@@ -123,6 +46,84 @@ describe('characterOrder', () => {
     expect(() => {
       characterOrder("not an array");
     }).toThrow();
+  });
+});
+
+describe('render', () => {
+
+  // Renders the hero and villain characters in their respective containers.
+  it('should render hero and villain characters in their respective containers', () => {
+    const player1Container = document.createElement('div');
+    const player2Container = document.createElement('div');
+    const hero = new Character(characterData.hero);
+    const villain = new Character(characterData.villain);
+
+    render();
+
+    expect(player1Container.innerHTML).toBe(hero.renderCharacter());
+    expect(player2Container.innerHTML).toBe(villain.renderCharacter());
+  });
+
+  // Enables the attack button after a timeout of 3.5 seconds.
+  it('should enable the attack button after a timeout of 3.5 seconds', () => {
+    const attackButton = document.createElement('button');
+    attackButton.disabled = true;
+
+    render();
+
+    jest.useFakeTimers();
+    expect(attackButton.disabled).toBe(true);
+    jest.advanceTimersByTime(3500);
+    expect(attackButton.disabled).toBe(false);
+  });
+
+  // Calls the 'enableAttackButton' function after a timeout of 3.5 seconds.
+  it('should call the enableAttackButton function after a timeout of 3.5 seconds', () => {
+    const enableAttackButton = jest.fn();
+
+    render();
+
+    jest.useFakeTimers();
+    expect(enableAttackButton).not.toHaveBeenCalled();
+    jest.advanceTimersByTime(3500);
+    expect(enableAttackButton).toHaveBeenCalled();
+  });
+
+  // Handles the case where the hero object is empty.
+  it('should handle the case where the hero object is empty', () => {
+    const player1Container = document.createElement('div');
+    const player2Container = document.createElement('div');
+    const villain = new Character(characterData.villain);
+
+    render();
+
+    expect(player1Container.innerHTML).toBe('');
+    expect(player2Container.innerHTML).toBe(villain.renderCharacter());
+  });
+
+  // Handles the case where the villain object is empty.
+  it('should handle the case where the villain object is empty', () => {
+    const player1Container = document.createElement('div');
+    const player2Container = document.createElement('div');
+    const hero = new Character(characterData.hero);
+
+    render();
+
+    expect(player1Container.innerHTML).toBe(hero.renderCharacter());
+    expect(player2Container.innerHTML).toBe('');
+  });
+
+  // Handles the case where the 'enableAttackButton' function is not called due to an error.
+  it('should handle the case where the enableAttackButton function is not called due to an error', () => {
+    const attackButton = document.createElement('button');
+    attackButton.disabled = true;
+
+    render();
+
+    jest.useFakeTimers();
+    expect(attackButton.disabled).toBe(true);
+    jest.advanceTimersByTime(3500);
+    expect(attackButton.disabled).toBe(true);
   });
 });
 
@@ -224,6 +225,303 @@ describe('importSpellCSS', () => {
   });
 });
 
+describe('castSpells', () => {
+
+  // should import spell CSS if it doesn't exist
+  it("should import spell CSS if it doesn't exist", () => {
+    const importSpellCSSSpy = jest.spyOn(global.document, 'getElementById').mockReturnValue(null);
+    const appendChildSpy = jest.spyOn(global.document.head, 'appendChild');
+
+    castSpells();
+
+    expect(importSpellCSSSpy).toHaveBeenCalledTimes(1);
+    expect(appendChildSpy).toHaveBeenCalledTimes(1);
+    expect(appendChildSpy).toHaveBeenCalledWith(expect.objectContaining({
+      rel: 'stylesheet',
+      type: 'text/css',
+      href: 'css/spell.css',
+      id: 'spellCss'
+    }));
+
+    importSpellCSSSpy.mockRestore();
+    appendChildSpy.mockRestore();
+  });
+
+  // should render three spell cards and append them to the DOM
+  it('should render three spell cards and append them to the DOM', () => {
+    const pickThreeCardsSpy = jest.spyOn(hero.spells, 'pickThreeCards').mockReturnValue(['spell1', 'spell2', 'spell3']);
+    const renderCardsSpy = jest.spyOn(hero.spells, 'renderCards').mockReturnValue(['<div>spell1</div>', '<div>spell2</div>', '<div>spell3</div>']);
+    const appendCardsSpy = jest.spyOn(hero.spells, 'appendCards');
+    const appendCardsTitleSpy = jest.spyOn(hero.spells, 'appendCardsTitle');
+
+    castSpells();
+
+    expect(pickThreeCardsSpy).toHaveBeenCalledTimes(1);
+    expect(renderCardsSpy).toHaveBeenCalledTimes(1);
+    expect(renderCardsSpy).toHaveBeenCalledWith(['spell1', 'spell2', 'spell3']);
+    expect(appendCardsSpy).toHaveBeenCalledTimes(1);
+    expect(appendCardsSpy).toHaveBeenCalledWith('<div>spell1</div><div>spell2</div><div>spell3</div>');
+    expect(appendCardsTitleSpy).toHaveBeenCalledTimes(1);
+    expect(appendCardsTitleSpy).toHaveBeenCalledWith('spells-container');
+
+    pickThreeCardsSpy.mockRestore();
+    renderCardsSpy.mockRestore();
+    appendCardsSpy.mockRestore();
+    appendCardsTitleSpy.mockRestore();
+  });
+
+  // should set a card choice handler on the spell cards
+  it('should set a card choice handler on the spell cards', () => {
+    const pickThreeCardsSpy = jest.spyOn(hero.spells, 'pickThreeCards').mockReturnValue(['spell1', 'spell2', 'spell3']);
+    const renderCardsSpy = jest.spyOn(hero.spells, 'renderCards').mockReturnValue(['<div>spell1</div>', '<div>spell2</div>', '<div>spell3</div>']);
+    const appendCardsSpy = jest.spyOn(hero.spells, 'appendCards');
+    const appendCardsTitleSpy = jest.spyOn(hero.spells, 'appendCardsTitle');
+    const setCardChoiceHandlerSpy = jest.spyOn(hero.spells, 'setCardChoiceHandler');
+
+    castSpells();
+
+    expect(setCardChoiceHandlerSpy).toHaveBeenCalledTimes(1);
+    expect(setCardChoiceHandlerSpy).toHaveBeenCalledWith(expect.any(Function), expect.any(Function));
+
+    pickThreeCardsSpy.mockRestore();
+    renderCardsSpy.mockRestore();
+    appendCardsSpy.mockRestore();
+    appendCardsTitleSpy.mockRestore();
+    setCardChoiceHandlerSpy.mockRestore();
+  });
+
+  // should not import spell CSS if it already exists
+  it('should not import spell CSS if it already exists', () => {
+    const importSpellCSSSpy = jest.spyOn(global.document, 'getElementById').mockReturnValue({});
+    const appendChildSpy = jest.spyOn(global.document.head, 'appendChild');
+
+    castSpells();
+
+    expect(importSpellCSSSpy).toHaveBeenCalledTimes(1);
+    expect(appendChildSpy).not.toHaveBeenCalled();
+
+    importSpellCSSSpy.mockRestore();
+    appendChildSpy.mockRestore();
+  });
+
+  // should not render spell cards if shuffledSpellArr is empty
+  it('should not render spell cards if shuffledSpellArr is empty', () => {
+    const pickThreeCardsSpy = jest.spyOn(hero.spells, 'pickThreeCards').mockReturnValue([]);
+    const renderCardsSpy = jest.spyOn(hero.spells, 'renderCards');
+    const appendCardsSpy = jest.spyOn(hero.spells, 'appendCards');
+    const appendCardsTitleSpy = jest.spyOn(hero.spells, 'appendCardsTitle');
+
+    castSpells();
+
+    expect(pickThreeCardsSpy).toHaveBeenCalledTimes(1);
+    expect(renderCardsSpy).not.toHaveBeenCalled();
+    expect(appendCardsSpy).not.toHaveBeenCalled();
+    expect(appendCardsTitleSpy).not.toHaveBeenCalled();
+
+    pickThreeCardsSpy.mockRestore();
+    renderCardsSpy.mockRestore();
+    appendCardsSpy.mockRestore();
+    appendCardsTitleSpy.mockRestore();
+  });
+
+  // should not set a card choice handler if nextThreeCards is empty
+  it('should not set a card choice handler if nextThreeCards is empty', () => {
+    const pickThreeCardsSpy = jest.spyOn(hero.spells, 'pickThreeCards').mockReturnValue([]);
+    const renderCardsSpy = jest.spyOn(hero.spells, 'renderCards');
+    const appendCardsSpy = jest.spyOn(hero.spells, 'appendCards');
+    const appendCardsTitleSpy = jest.spyOn(hero.spells, 'appendCardsTitle');
+    const setCardChoiceHandlerSpy = jest.spyOn(hero.spells, 'setCardChoiceHandler');
+
+    castSpells();
+
+    expect(setCardChoiceHandlerSpy).not.toHaveBeenCalled();
+
+    pickThreeCardsSpy.mockRestore();
+    renderCardsSpy.mockRestore();
+    appendCardsSpy.mockRestore();
+    appendCardsTitleSpy.mockRestore();
+    setCardChoiceHandlerSpy.mockRestore();
+  });
+});
+
+describe('handleSpellDeath', () => {
+
+  // handles the case where neither hero nor villain is dead
+  it('should not end the game when neither hero nor villain is dead', () => {
+    const hero = new Character(characterData[0], new Spells());
+    const villain = new Character(characterData[1], new Spells());
+
+    handleSpellDeath(hero, villain);
+
+    // Assert that the game has not ended
+    // ...
+  });
+
+  // handles the case where hero is dead and there are more characters left
+  it('should set the next character and render when hero is dead and there are more characters left', () => {
+    const hero = new Character(characterData[0], new Spells());
+    const villain = new Character(characterData[1], new Spells());
+    const shuffledArray = [2, 3, 4]; // Example shuffled array of character order
+
+    handleSpellDeath(hero, villain);
+
+    // Assert that the next character is set and rendered
+    // ...
+  });
+
+  // handles the case where hero is dead and there are no more characters left
+  it('should end the game when hero is dead and there are no more characters left', () => {
+    const hero = new Character(characterData[0], new Spells());
+    const villain = new Character(characterData[1], new Spells());
+    const shuffledArray = []; // Empty shuffled array of character order
+
+    handleSpellDeath(hero, villain);
+
+    // Assert that the game has ended
+    // ...
+  });
+
+  // handles the case where hero is dead and villain is not dead
+  it('should end the game when hero is dead and villain is not dead', () => {
+    const hero = new Character(characterData[0], new Spells());
+    const villain = new Character(characterData[1], new Spells());
+
+    handleSpellDeath(hero, villain);
+
+    // Assert that the game has ended
+    // ...
+  });
+
+  // handles the case where villain is dead and hero is not dead
+  it('should end the game when villain is dead and hero is not dead', () => {
+    const hero = new Character(characterData[0], new Spells());
+    const villain = new Character(characterData[1], new Spells());
+
+    handleSpellDeath(hero, villain);
+
+    // Assert that the game has ended
+    // ...
+  });
+
+  // handles the case where both hero and villain are dead
+  it('should end the game when both hero and villain are dead', () => {
+    const hero = new Character(characterData[0], new Spells());
+    const villain = new Character(characterData[1], new Spells());
+
+    handleSpellDeath(hero, villain);
+
+    // Assert that the game has ended
+    // ...
+  });
+});
+
+describe('attack', () => {
+
+  // attack successfully damages villain and updates health chart
+  it('should damage villain and update health chart when attacking', () => {
+    // Arrange
+    const initialVillainHealth = villain.health;
+    const initialHeroHealth = hero.health;
+    const initialVillainDuplicateCount = villain.duplicates.length;
+    const initialHeroDuplicateCount = hero.duplicates.length;
+
+    // Act
+    attack();
+
+    // Assert
+    expect(villain.health).toBeLessThan(initialVillainHealth);
+    expect(hero.health).toBe(initialHeroHealth);
+    expect(villain.duplicates.length).toBeLessThan(initialVillainDuplicateCount);
+    expect(hero.duplicates.length).toBe(initialHeroDuplicateCount);
+    expect(updateHealthChart).toHaveBeenCalled();
+  });
+
+  // attack successfully damages hero and updates health chart
+  it('should damage hero and update health chart when attacking', () => {
+    // Arrange
+    const initialVillainHealth = villain.health;
+    const initialHeroHealth = hero.health;
+    const initialVillainDuplicateCount = villain.duplicates.length;
+    const initialHeroDuplicateCount = hero.duplicates.length;
+
+    // Act
+    attack();
+
+    // Assert
+    expect(villain.health).toBe(initialVillainHealth);
+    expect(hero.health).toBeLessThan(initialHeroHealth);
+    expect(villain.duplicates.length).toBe(initialVillainDuplicateCount);
+    expect(hero.duplicates.length).toBeLessThan(initialHeroDuplicateCount);
+    expect(updateHealthChart).toHaveBeenCalled();
+  });
+
+  // attack successfully damages both hero and villain and updates health chart
+  it('should damage both hero and villain and update health chart when attacking', () => {
+    // Arrange
+    const initialVillainHealth = villain.health;
+    const initialHeroHealth = hero.health;
+    const initialVillainDuplicateCount = villain.duplicates.length;
+    const initialHeroDuplicateCount = hero.duplicates.length;
+
+    // Act
+    attack();
+
+    // Assert
+    expect(villain.health).toBeLessThan(initialVillainHealth);
+    expect(hero.health).toBeLessThan(initialHeroHealth);
+    expect(villain.duplicates.length).toBeLessThan(initialVillainDuplicateCount);
+    expect(hero.duplicates.length).toBeLessThan(initialHeroDuplicateCount);
+    expect(updateHealthChart).toHaveBeenCalled();
+  });
+
+  // hero and villain both have 0 health and end game is called
+  it('should end the game when both hero and villain have 0 health', () => {
+    // Arrange
+    hero.health = 0;
+    villain.health = 0;
+
+    // Act
+    attack();
+
+    // Assert
+    expect(endGameWithDelay).toHaveBeenCalled();
+  });
+
+  // hero and villain both have 1 health and end game is called
+  it('should end the game when both hero and villain have 1 health', () => {
+    // Arrange
+    hero.health = 1;
+    villain.health = 1;
+
+    // Act
+    attack();
+
+    // Assert
+    expect(endGameWithDelay).toHaveBeenCalled();
+  });
+
+  // hero and villain both have 100 health and attack is called
+  it('should damage both hero and villain when attacking with 100 health each', () => {
+    // Arrange
+    hero.health = 100;
+    villain.health = 100;
+    const initialVillainHealth = villain.health;
+    const initialHeroHealth = hero.health;
+    const initialVillainDuplicateCount = villain.duplicates.length;
+    const initialHeroDuplicateCount = hero.duplicates.length;
+
+    // Act
+    attack();
+
+    // Assert
+    expect(villain.health).toBeLessThan(initialVillainHealth);
+    expect(hero.health).toBeLessThan(initialHeroHealth);
+    expect(villain.duplicates.length).toBeLessThan(initialVillainDuplicateCount);
+    expect(hero.duplicates.length).toBeLessThan(initialHeroDuplicateCount);
+    expect(updateHealthChart).toHaveBeenCalled();
+  });
+});
+
 describe('disableAttackButton', () => {
 
   // disables the attack button
@@ -285,52 +583,7 @@ describe('enableAttackButton', () => {
   });
 });
 
-describe('handleCharacterDeathTiming', () => {
-
-  // should update the hero character with the next character data
-  it('should update the hero character with the next character data when there are characters left', () => {
-    const hero = new Character(characterData[shuffledArray[0]], new Spells());
-    const oldHero = { ...hero };
-    handleCharacterDeathTiming();
-    expect(hero).not.toEqual(oldHero);
-  });
-
-  // should call render function to update the player containers
-  it('should call render function to update the player containers when there are characters left', () => {
-    const renderSpy = jest.spyOn(global, 'render');
-    handleCharacterDeathTiming();
-    expect(renderSpy).toHaveBeenCalled();
-    renderSpy.mockRestore();
-  });
-
-  // should set isWaiting to false
-  it('should set isWaiting to false when there are characters left', () => {
-    isWaiting = true;
-    handleCharacterDeathTiming();
-    expect(isWaiting).toBe(false);
-  });
-
-  // should handle empty shuffledArray by returning an empty object
-  it('should handle empty shuffledArray by returning an empty object', () => {
-    shuffledArray = [];
-    const result = handleCharacterDeathTiming();
-    expect(result).toEqual({});
-  });
-
-  // should handle undefined nextCharacterData by returning an empty object
-  it('should handle undefined nextCharacterData by returning an empty object', () => {
-    characterData[shuffledArray[0]] = undefined;
-    const result = handleCharacterDeathTiming();
-    expect(result).toEqual({});
-  });
-
-  // should handle shuffledArray with only one character left
-  it('should handle shuffledArray with only one character left', () => {
-    shuffledArray = [0];
-    const result = handleCharacterDeathTiming();
-    expect(result).toEqual({});
-  });
-});
+// endGame() goes here
 
 describe('handleFlyOuts', () => {
 
@@ -405,6 +658,53 @@ describe('handleFlyOuts', () => {
   });
 });
 
+describe('handleCharacterDeathTiming', () => {
+
+  // should update the hero character with the next character data
+  it('should update the hero character with the next character data when there are characters left', () => {
+    const hero = new Character(characterData[shuffledArray[0]], new Spells());
+    const oldHero = { ...hero };
+    handleCharacterDeathTiming();
+    expect(hero).not.toEqual(oldHero);
+  });
+
+  // should call render function to update the player containers
+  it('should call render function to update the player containers when there are characters left', () => {
+    const renderSpy = jest.spyOn(global, 'render');
+    handleCharacterDeathTiming();
+    expect(renderSpy).toHaveBeenCalled();
+    renderSpy.mockRestore();
+  });
+
+  // should set isWaiting to false
+  it('should set isWaiting to false when there are characters left', () => {
+    isWaiting = true;
+    handleCharacterDeathTiming();
+    expect(isWaiting).toBe(false);
+  });
+
+  // should handle empty shuffledArray by returning an empty object
+  it('should handle empty shuffledArray by returning an empty object', () => {
+    shuffledArray = [];
+    const result = handleCharacterDeathTiming();
+    expect(result).toEqual({});
+  });
+
+  // should handle undefined nextCharacterData by returning an empty object
+  it('should handle undefined nextCharacterData by returning an empty object', () => {
+    characterData[shuffledArray[0]] = undefined;
+    const result = handleCharacterDeathTiming();
+    expect(result).toEqual({});
+  });
+
+  // should handle shuffledArray with only one character left
+  it('should handle shuffledArray with only one character left', () => {
+    shuffledArray = [0];
+    const result = handleCharacterDeathTiming();
+    expect(result).toEqual({});
+  });
+});
+
 describe('setNextCharacter', () => {
   
   // Returns a new instance of Character with data from the next character in shuffledArray.
@@ -450,6 +750,83 @@ describe('setNextCharacter', () => {
     const shuffledArray = ['conscript', 'ignisfatuus', 'mage', 'naqualk', 'ogre', 'soulforge', 'zedfire'];
     const nextCharacter = setNextCharacter();
     expect(nextCharacter.defendDiceValue).toBe('');
+  });
+});
+
+describe('endGameWithDelay', () => {
+  
+  // Calls the function "endGame" after a delay of 2500ms
+  it('should call the function "endGame" after a delay of 2500ms', () => {
+    jest.useFakeTimers();
+    const endGameSpy = jest.spyOn(global, 'endGame');
+    
+    endGameWithDelay();
+    
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 2500);
+    jest.runAllTimers();
+    expect(endGameSpy).toHaveBeenCalledTimes(1);
+    
+    jest.useRealTimers();
+  });
+  
+  // If "endGame" throws an error, it is not caught and propagated
+  it('should not catch and propagate an error thrown by "endGame"', () => {
+    jest.useFakeTimers();
+    const endGameSpy = jest.spyOn(global, 'endGame').mockImplementation(() => {
+      throw new Error('Test error');
+    });
+    
+    expect(() => {
+      endGameWithDelay();
+      jest.runAllTimers();
+    }).toThrow('Test error');
+    
+    expect(endGameSpy).toHaveBeenCalledTimes(1);
+    
+    jest.useRealTimers();
+  });
+  
+  // If "endGame" takes longer than 2500ms to execute, subsequent code execution is not blocked
+  it('should not block subsequent code execution if "endGame" takes longer than 2500ms to execute', () => {
+    jest.useFakeTimers();
+    const endGameSpy = jest.spyOn(global, 'endGame').mockImplementation(() => {
+      jest.advanceTimersByTime(3000);
+    });
+    
+    endGameWithDelay();
+    
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 2500);
+    jest.runAllTimers();
+    expect(endGameSpy).toHaveBeenCalledTimes(1);
+    
+    jest.useRealTimers();
+  });
+  
+  // If "endGame" is not a function, an error is thrown
+  it('should throw an error if "endGame" is not a function', () => {
+    jest.useFakeTimers();
+    global.endGame = 'not a function';
+    
+    expect(() => {
+      endGameWithDelay();
+      jest.runAllTimers();
+    }).toThrow('endGame is not a function');
+    
+    jest.useRealTimers();
+  });
+  
+  // If the delay parameter is not a number, an error is thrown
+  it('should throw an error if the delay parameter is not a number', () => {
+    jest.useFakeTimers();
+    
+    expect(() => {
+      endGameWithDelay('not a number');
+      jest.runAllTimers();
+    }).toThrow('delay must be a number');
+    
+    jest.useRealTimers();
   });
 });
 
