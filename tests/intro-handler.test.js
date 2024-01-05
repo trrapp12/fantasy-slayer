@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { createModal, buildTutorial, addBackLight } = require('../js/intro-handler.js')
+const { playAudio, createModal, buildTutorial, buildScrollHTML, addBackLight, closeTutorialStartScrollAnimation, addScrollHTMLHandler, buildTutorialOnWindowLoadHandler } = require('../js/intro-handler.js')
 
 // future tests to consider: 
 // playAudio() -> test false for paused if audio playing
