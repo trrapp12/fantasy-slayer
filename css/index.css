@@ -1353,3 +1353,11 @@ video::cue {
     transform: rotate3d(-1, 0, 0, 360deg);
   }
 }
+
+/* HORIZONTAL ORIENTATION FOR PHONES */
+
+@media only screen and (orientation: landscape) and (max-device-width: 900px) {
+  button.quest-button {
+    width: 40vw;
+  }
+}

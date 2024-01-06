@@ -168,3 +168,28 @@ html {
     background-color: #aaa;
     /* Color when hovering */
 }
+
+/* HORIZONTAL ORIENTATION FOR PHONES */
+
+@media only screen and (orientation: landscape) and (max-device-width: 900px) {
+    .tutorial-modal {
+        padding: 5% 15%;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-device-width: 650px) {
+    .tutorial-modal {
+        padding: 5% 0%;
+    }
+
+    .tutorial-inner-border {
+        padding: 0%;
+        width: 90%;
+    }
+
+    .tutorial-sizing {
+        display: flex;
+        justify-content: center;
+        border: none;
+    }
+}

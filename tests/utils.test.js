@@ -4,29 +4,45 @@
 
 const { displayNoManaMessage, getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray, hasDuplicates, hideElement, calculateEnhancedScore } = require("../js/utils.js")
 
-let mainContainer;
-// mock elements needed for the DOM
 
-// Create and append the mocked main container element before each test
-beforeEach(() => {
-  mainContainer = document.createElement('div');
-  mainContainer.setAttribute('id', 'main-container');
-  document.body.appendChild(mainContainer);
-});
-
-
-afterEach(() => {
-  if (mainContainer && mainContainer.parentNode) {
-    mainContainer.parentNode.removeChild(mainContainer);
-  }
-});
-
- 
  describe('displayNoManaMessage', () => {
- 
+
+  beforeEach(() => {
+    // Mock the timer functions
+    jest.useFakeTimers();
+
+    // Set up the required DOM structure
+    document.body.innerHTML = '<div id="mainContainer"></div>';
+  });
+
+  afterEach(() => {
+    // Clean up the DOM and reset timers
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
+    document.body.innerHTML = '';
+  });
+
+  test('displays and then hides the no mana message', () => {
+    // Call your function
+    displayNoManaMessage(true);
+
+    // Fast-forward time to let the setTimeout callback execute
+    jest.advanceTimersByTime(2500);
+
+    // Assertions to check if the message is displayed and then hidden
+    const messageDiv = document.getElementById('no-more-spells');
+    expect(messageDiv).toBeInTheDocument();
+    expect(messageDiv.textContent).toContain('Mana has been depleted');
+
+    // Check if the 'disappear' class was added
+    expect(messageDiv.classList.contains('disappear')).toBe(true);
+
+    // Further testing can be done here, like checking if the element is eventually hidden
+    // This might require additional manipulation of timers or DOM events
+  });
+
    it('should create a new div element with class \'no-more-spells\' and id \'no-more-spells\'', () => {
      displayNoManaMessage(true);
-     const messageDiv = document.getElementById('no-more-spells');
      expect(messageDiv).toBeTruthy();
      expect(messageDiv.getAttribute('class')).toBe('no-more-spells');
      expect(messageDiv.getAttribute('id')).toBe('no-more-spells');
