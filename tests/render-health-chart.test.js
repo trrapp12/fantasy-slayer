@@ -3,7 +3,7 @@
  */
  import {expect, jest, test} from '@jest/globals';
 
- const { containerWidth, circumference, glowEffectCodeBlock, findRadius, setColor, findCircumference,  getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart } = require('../js/render-health-chart.js')
+ const { circumference, glowEffectCodeBlock, findRadius, setColor, findCircumference,  getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart } = require('../js/render-health-chart.js')
 
  describe('glowEffectCodeBlock', () => {
 
@@ -421,16 +421,18 @@ describe('renderHealthChart', () => {
   it('should return a valid SVG string when given valid input values', () => {
     const currentHealthForBar = 50;
     const totalHealth = 100;
-    const result = renderHealthChart(currentHealthForBar, totalHealth);
+    const containerWidth = 50;
+    const result = renderHealthChart(currentHealthForBar, totalHealth, containerWidth);
     expect(typeof result).toBe('string');
-    expect(result).toMatch(/<svg.*<\/svg>/);
+    expect(result).toMatch(/<svg.*<\/svg>/s);
   });
 
   // When currentHealthForBar is equal to totalHealth, it should return an SVG string with a full circle
   it('should return an SVG string with a full circle when currentHealthForBar is equal to totalHealth', () => {
     const currentHealthForBar = 100;
     const totalHealth = 100;
-    const result = renderHealthChart(currentHealthForBar, totalHealth);
+    const containerWidth = 1;
+    const result = renderHealthChart(currentHealthForBar, totalHealth, containerWidth);
     expect(result).toContain('stroke-dasharray="');
     expect(result).toContain('stroke-dasharray="267');
   });
@@ -439,7 +441,8 @@ describe('renderHealthChart', () => {
   it('should return an SVG string with an empty circle when currentHealthForBar is equal to zero', () => {
     const currentHealthForBar = 0;
     const totalHealth = 100;
-    const result = renderHealthChart(currentHealthForBar, totalHealth);
+    const containerWidth = 0;
+    const result = renderHealthChart(currentHealthForBar, totalHealth, containerWidth);
     expect(result).toContain('stroke-dasharray="');
     expect(result).toContain('stroke-dasharray="0');
   });

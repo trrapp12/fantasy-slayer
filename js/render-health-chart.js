@@ -17,27 +17,23 @@ function getAspectRatio(windowWidth, windowHeight) {
  
 */
 
-const containerElement = document.querySelector('#main-container > div.middle-third > div.middle-third-left-column');
-const containerWidth = containerElement ? containerElement.clientWidth / 5000 : 0;
-console.log("containerWidth: ", containerWidth)
-const circumference = containerWidth * 2.669;
 // 2.355 is admittedly somewhat of a magical number.  It mostly worked at circumference x2, but I had to use some back 
 // and forth to tease out the optimum number
 
 function glowEffectCodeBlock (health, originalHealth) {
   const glowOn = `url(#glow)`
   const glowOff = ''
-
+  
   return health < originalHealth ? glowOff : glowOn
-
 }
+
 
 function findRadius (circumference) {
   if (isNaN(circumference) || circumference <= 0) {
     throw new Error("findRadius either received NaN, 0, or a negative number as an input")
   } 
   return circumference / (Math.PI * 2)
-
+  
 }
 
 function setColor(health, originalHealth) {
@@ -52,7 +48,7 @@ function setColor(health, originalHealth) {
 function findCircumference (containerWidth) {
   if (isNaN(containerWidth) || containerWidth <= 0) {
     throw new Error("findCircumference either received NaN, 0, or a negative number as an input")
-  
+    
   } else {
     return containerWidth * Math.PI
   }
@@ -71,18 +67,21 @@ function findDiameter (radius) {
 }
 
 function setXInit (width) {
-    return width / 2.03
-
+  return width / 2.03
+  
 }
 
 function setYInit(width, circumference) {
   return width / 10.25
 }
 
-function renderHealthChart(currentHealthForBar, totalHealth) {
-    const color = setColor(currentHealthForBar, totalHealth)
-    const glow = glowEffectCodeBlock(currentHealthForBar, totalHealth)
-    const healthPercentage = (currentHealthForBar / totalHealth)
+function renderHealthChart(currentHealthForBar, totalHealth, containerWidth) {
+
+  const circumference = containerWidth * 2.669;
+  
+  const color = setColor(currentHealthForBar, totalHealth)
+  const glow = glowEffectCodeBlock(currentHealthForBar, totalHealth)
+  const healthPercentage = (currentHealthForBar / totalHealth)
     // let aspect = getAspectRatio(containerWidth, containerWidth)
     const w = containerWidth
     // let h = getBoxHeight(w, aspect)
@@ -94,8 +93,7 @@ function renderHealthChart(currentHealthForBar, totalHealth) {
     const xInit = setXInit(containerWidth)
     const yInit = setYInit(containerWidth, c)
     
-    const container = `
-      <svg viewBox="0 0 ${w} ${w}">
+    const container = `<svg viewBox="0 0 ${w} ${w}">
       <defs>
         <filter id="glow">
             <feGaussianBlur stdDeviation="2.5" result="blur" />

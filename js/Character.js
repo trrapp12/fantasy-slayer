@@ -263,7 +263,10 @@ class Character {
         */ 
 
         if (graphContainer.length < 3) {
-            graph = renderHealthChart(health, originalHealth)
+            const containerElement = document.querySelector('#main-container > div.middle-third > div.middle-third-left-column');
+            const containerWidth = containerElement ? containerElement.clientWidth / 5000 : 0;
+            console.log("containerWidth: ", containerWidth, "containerWidth is", typeof containerWidth)
+            graph = renderHealthChart(health, originalHealth, containerWidth)
         } 
         return `
 
