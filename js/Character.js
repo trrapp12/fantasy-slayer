@@ -8,7 +8,8 @@ import {
 
 import {
     renderHealthChart,
-    updateHealthChart
+    updateHealthChart,
+    returnContainerWidth
 } from "./render-health-chart.js"
 
 class Character {
@@ -264,7 +265,7 @@ class Character {
 
         if (graphContainer.length < 3) {
             const containerElement = document.querySelector('#main-container > div.middle-third > div.middle-third-left-column');
-            const containerWidth = containerElement ? containerElement.clientWidth / 5000 : 0;
+            let containerWidth = returnContainerWidth(containerElement)
             console.log("containerWidth: ", containerWidth, "containerWidth is", typeof containerWidth)
             graph = renderHealthChart(health, originalHealth, containerWidth)
         } 

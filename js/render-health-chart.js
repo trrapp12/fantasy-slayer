@@ -20,6 +20,10 @@ function getAspectRatio(windowWidth, windowHeight) {
 // 2.355 is admittedly somewhat of a magical number.  It mostly worked at circumference x2, but I had to use some back 
 // and forth to tease out the optimum number
 
+function returnContainerWidth(containerElement) {
+  return containerElement ? containerElement.clientWidth / 5000 : 0;
+};
+
 function glowEffectCodeBlock (health, originalHealth) {
   const glowOn = `url(#glow)`
   const glowOff = ''
@@ -88,12 +92,11 @@ function setYInit(width) {
 
 function renderHealthChart(currentHealthForBar, totalHealth, containerWidth) {
 
+  const circumference = containerWidth * 2.669;
+  
   if (circumference === 0) {
     throw new Error('renderHealthChart received a 0 value for containerWidth')
   }
-
-  const circumference = containerWidth * 2.669;
-  
   const color = setColor(currentHealthForBar, totalHealth)
   const glow = glowEffectCodeBlock(currentHealthForBar, totalHealth)
   const healthPercentage = (currentHealthForBar / totalHealth)
@@ -140,7 +143,9 @@ function renderHealthChart(currentHealthForBar, totalHealth, containerWidth) {
     return container
 }
 
-function updateHealthChart(currentHealthForBar, totalHealth) {
+function updateHealthChart(currentHealthForBar, totalHealth, containerWidth) {
+
+  const circumference = containerWidth * 2.669;
   console.log('updateHealthChart firing')
   const healthPercentage = (currentHealthForBar / totalHealth)
   const color = setColor(currentHealthForBar, totalHealth);
@@ -167,6 +172,6 @@ function updateHealthChart(currentHealthForBar, totalHealth) {
   
 }
 
-export { glowEffectCodeBlock, findRadius, setColor, findCircumference, getBoxWidth, findDiameter, setXInit, setYInit, renderHealthChart, updateHealthChart }
+export { glowEffectCodeBlock, findRadius, setColor, findCircumference, getBoxWidth, findDiameter, setXInit, setYInit, returnContainerWidth, renderHealthChart, updateHealthChart }
 
   

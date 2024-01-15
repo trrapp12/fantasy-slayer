@@ -15,7 +15,10 @@ import {
     polygonArr,
     onSpellCast
 } from "./mana-triangle.js"
-import { updateHealthChart } from "./render-health-chart.js"
+import { 
+    updateHealthChart,
+    returnContainerWidth
+ } from "./render-health-chart.js"
 import {
     spellAudio, 
     backGroundAudio, 
@@ -186,7 +189,8 @@ function attack() {
             villain.takeDamage(hero.currentDiceScore, villain.currentDefendDiceScore);
             disableAttackButton();
             handleFlyOuts();
-            updateHealthChart();
+            let containerWidth = returnContainerWidth(document.querySelector('#main-container > div.middle-third > div.middle-third-left-column'))
+            updateHealthChart(containerWidth);
             render()
             if (villain.dead || hero.dead) {
                 if (villain.dead && hero.dead) {
