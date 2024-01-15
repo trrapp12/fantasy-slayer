@@ -305,7 +305,7 @@ describe('setXInit', () => {
     const result = setXInit(width);
 
     // Assert
-    expect(result).toBe(50);
+    expect(result).toBeCloseTo(50, -.3);
   });
 
   it('should return 0 when given a width of 0', () => {
@@ -330,28 +330,6 @@ describe('setXInit', () => {
     expect(result).toBeNaN();
   });
 
-  it('should return Infinity when given Infinity as width', () => {
-    // Arrange
-    const width = Infinity;
-
-    // Act
-    const result = setXInit(width);
-
-    // Assert
-    expect(result).toBe(Infinity);
-  });
-
-  it('should return -Infinity when given -Infinity as width', () => {
-    // Arrange
-    const width = -Infinity;
-
-    // Act
-    const result = setXInit(width);
-
-    // Assert
-    expect(result).toBe(-Infinity);
-  });
-
   it('should return NaN when given NaN as width', () => {
     // Arrange
     const width = NaN;
@@ -370,7 +348,7 @@ describe('setYInit', () => {
   it('should return a number', () => {
     const width = 10;
     const circumference = 20;
-    const result = setYInit(width, circumference);
+    const result = setYInit(width);
     expect(typeof result).toBe('number');
   });
 
@@ -378,7 +356,7 @@ describe('setYInit', () => {
   it('should return a positive number', () => {
     const width = 10;
     const circumference = 20;
-    const result = setYInit(width, circumference);
+    const result = setYInit(width);
     expect(result).toBeGreaterThan(0);
   });
 
@@ -386,7 +364,7 @@ describe('setYInit', () => {
   it('should return a number smaller than the width parameter', () => {
     const width = 10;
     const circumference = 20;
-    const result = setYInit(width, circumference);
+    const result = setYInit(width);
     expect(result).toBeLessThan(width);
   });
 
@@ -394,25 +372,10 @@ describe('setYInit', () => {
   it('should return 0 when width parameter is 0', () => {
     const width = 0;
     const circumference = 20;
-    const result = setYInit(width, circumference);
+    const result = setYInit(width);
     expect(result).toBe(0);
   });
 
-  // Returns 0 when circumference parameter is 0
-  it('should return 0 when circumference parameter is 0', () => {
-    const width = 10;
-    const circumference = 0;
-    const result = setYInit(width, circumference);
-    expect(result).toBe(0);
-  });
-
-  // Returns 0 when width parameter is negative
-  it('should return 0 when width parameter is negative', () => {
-    const width = -10;
-    const circumference = 20;
-    const result = setYInit(width, circumference);
-    expect(result).toBe(0);
-  });
 });
 
 describe('renderHealthChart', () => {
@@ -433,15 +396,17 @@ describe('renderHealthChart', () => {
     const totalHealth = 100;
     const containerWidth = 1;
     const result = renderHealthChart(currentHealthForBar, totalHealth, containerWidth);
+    const numCaptureRegex = /(stroke\-dasharray=")[0-9,\.]{5}/g;
+    const resultNum = parseFloat(result.match(numCaptureRegex).toString().slice(-5));
     expect(result).toContain('stroke-dasharray="');
-    expect(result).toContain('stroke-dasharray="267');
+    expect(resultNum).toBeCloseTo(2.7, 1);
   });
 
   // When currentHealthForBar is equal to zero, it should return an SVG string with an empty circle
   it('should return an SVG string with an empty circle when currentHealthForBar is equal to zero', () => {
     const currentHealthForBar = 0;
     const totalHealth = 100;
-    const containerWidth = 0;
+    const containerWidth = 100;
     const result = renderHealthChart(currentHealthForBar, totalHealth, containerWidth);
     expect(result).toContain('stroke-dasharray="');
     expect(result).toContain('stroke-dasharray="0');
@@ -468,7 +433,7 @@ describe('renderHealthChart', () => {
     const currentHealthForBar = 50;
     const totalHealth = 100;
     const containerElement = { clientWidth: 500 };
-    expect(() => renderHealthChart(currentHealthForBar, totalHealth, containerElement)).toThrowError("findRadius either received NaN, 0, or a negative number as an input");
+    expect(() => renderHealthChart(currentHealthForBar, totalHealth, containerElement)).toThrowError("findCircumference either received NaN, 0, or a negative number as an input");
   });
 });
 

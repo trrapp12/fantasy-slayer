@@ -1,3 +1,6 @@
 # .DS_Store files are hidden Mac files used to describe files and locations in the computer directory, not the git directory
 .DS_Store
 node_modules
+.tar
+.gz
+git-lfs-3.2.0/

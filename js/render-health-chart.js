@@ -67,15 +67,30 @@ function findDiameter (radius) {
 }
 
 function setXInit (width) {
-  return width / 2.03
-  
+  if (width === Infinity) {
+    return Infinity;
+  } else if (width === -Infinity) {
+    return -Infinity
+  } else {
+    return parseInt(width) / 2.03
+  }
 }
 
-function setYInit(width, circumference) {
-  return width / 10.25
+function setYInit(width) {
+  if (width === Infinity) {
+    return Infinity;
+  } else if (width === -Infinity) {
+    return -Infinity
+  } else {
+    return parseInt(width) / 10.25
+  }
 }
 
 function renderHealthChart(currentHealthForBar, totalHealth, containerWidth) {
+
+  if (circumference === 0) {
+    throw new Error('renderHealthChart received a 0 value for containerWidth')
+  }
 
   const circumference = containerWidth * 2.669;
   
