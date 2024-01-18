@@ -137,7 +137,7 @@ class Spells {
                         setTimeout(
                             () => { 
                                 console.log('hitting displayNoManaMessage in setTimeOut')
-                                displayNoManaMessage(hasNotDisplayedTheMessageBefore);
+                                displayNoManaMessage(hasNotDisplayedTheMessageBefore, mainContainer);
                                 hideElement(manaRotateContainer)
                         }, 500)
                     }

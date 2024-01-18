@@ -88,6 +88,9 @@ function hideElement (el) {
   }
 
 function calculateEnhancedScore (obj, arr){
+    if (!obj || !arr || Object.keys(obj).length === 0 || arr.length === 0 ) {
+        throw new Error('calculateEnhancedScore failed to receive either an object or an array')
+    }
     let total = 0;
     // Calculate the product of all multiplicants (i.e., repeated number raised to its frequency)
     let multiplicantTotal = Object.entries(obj).map(

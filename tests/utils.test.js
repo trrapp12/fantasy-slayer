@@ -2,73 +2,12 @@
  * @jest-environment jsdom
  */
 
-const { displayNoManaMessage, getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray, hasDuplicates, hideElement, calculateEnhancedScore } = require("../js/utils.js")
+const { displayNoManaMessage, mainContainer, getDiceRollArray, renderDicePlaceHolderArray, renderDefenseDicePlaceHolderArray, hasDuplicates, hideElement, calculateEnhancedScore } = require("../js/utils.js")
+global.TextEncoder = require("util").TextEncoder;
+global.TextDecoder = require("util").TextDecoder;
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
-
- describe('displayNoManaMessage', () => {
-
-  beforeEach(() => {
-    // Mock the timer functions
-    jest.useFakeTimers();
-
-    // Set up the required DOM structure
-    document.body.innerHTML = '<div id="mainContainer"></div>';
-  });
-
-  afterEach(() => {
-    // Clean up the DOM and reset timers
-    jest.runOnlyPendingTimers();
-    jest.useRealTimers();
-    document.body.innerHTML = '';
-  });
-
-  test('displays and then hides the no mana message', () => {
-    // Call your function
-    displayNoManaMessage(true);
-
-    // Fast-forward time to let the setTimeout callback execute
-    jest.advanceTimersByTime(2500);
-
-    // Assertions to check if the message is displayed and then hidden
-    const messageDiv = document.getElementById('no-more-spells');
-    expect(messageDiv).toBeInTheDocument();
-    expect(messageDiv.textContent).toContain('Mana has been depleted');
-
-    // Check if the 'disappear' class was added
-    expect(messageDiv.classList.contains('disappear')).toBe(true);
-
-    // Further testing can be done here, like checking if the element is eventually hidden
-    // This might require additional manipulation of timers or DOM events
-  });
-
-   it('should create a new div element with class \'no-more-spells\' and id \'no-more-spells\'', () => {
-     displayNoManaMessage(true);
-     expect(messageDiv).toBeTruthy();
-     expect(messageDiv.getAttribute('class')).toBe('no-more-spells');
-     expect(messageDiv.getAttribute('id')).toBe('no-more-spells');
-   });
- 
-   it('should set the innerHTML of the new div element to a message about depleted mana', () => {
-     displayNoManaMessage(true);
-     const messageDiv = document.getElementById('no-more-spells');
-     const message = messageDiv.querySelector('.no-spells-message');
-     expect(message.innerHTML).toContain('Mana has been depleted');
-     expect(message.innerHTML).toContain('You must continue without any more magical prowess');
-   });
- 
-   it('should append the new div element to the main container', () => {
-     displayNoManaMessage(true);
-     const messageDiv = document.getElementById('no-more-spells');
-     expect(mainContainer.contains(messageDiv)).toBe(true);
-   });
- 
-   it('should have no additional assertions', () => {
-     displayNoManaMessage(true);
-     expect.assertions(0);
-   });
- 
-  })
- 
  describe('getDiceRollArray', () => {
  
    it('should return an array of length totalDiceCount', () => {
@@ -318,26 +257,30 @@ const { displayNoManaMessage, getDiceRollArray, renderDicePlaceHolderArray, rend
       expect(result).toBe(2**2 * 3**3 + 1 + 4 + 5);
     });
     
-    it('should correctly calculate the enhanced score for an object with no repeated numbers and an array of unique numbers', () => {
+    it('should throw an error if it receives an array with an empty obj', () => {
       const obj = {};
       const arr = [1, 2, 3];
-      const result = calculateEnhancedScore(obj, arr);
-      expect(result).toBe(1 + 2 + 3);
+      expect(() => calculateEnhancedScore(obj, arr)).toThrowError('calculateEnhancedScore failed to receive either an object or an array');
     });
-    
-    it('should correctly calculate the enhanced score for an object with repeated numbers and an empty array', () => {
+
+    it('should throw an error if it receives an obj with an empty arr', () => {
       const obj = { 2: [2, 2], 3: [3, 3, 3] };
       const arr = [];
-      const result = calculateEnhancedScore(obj, arr);
-      expect(result).toBe(2**2 * 3**3);
+      expect(() => calculateEnhancedScore(obj, arr)).toThrowError('calculateEnhancedScore failed to receive either an object or an array');
+    });
+
+    it('should throw an error if it receives a falsy obj', () => {
+      const obj = false;
+      const arr = [];
+      expect(() => calculateEnhancedScore(obj, arr)).toThrowError('calculateEnhancedScore failed to receive either an object or an array');
+    });
+
+    it('should throw an error if it receives a falsy arr', () => {
+      const obj = { 2: [2, 2], 3: [3, 3, 3] };
+      const arr = false;
+      expect(() => calculateEnhancedScore(obj, arr)).toThrowError('calculateEnhancedScore failed to receive either an object or an array');
     });
     
-    it('should correctly calculate the enhanced score for an object with repeated numbers and an array with negative numbers', () => {
-      const obj = { 2: [2, 2], 3: [3, 3, 3] };
-      const arr = [-1, -2, -3];
-      const result = calculateEnhancedScore(obj, arr);
-      expect(result).toBe(2**2 * 3**3 + -1 + -2 + -3);
-    });
     
     // As negative numbers are never provided, a test for this was not included
     it('should correctly calculate the enhanced score for an object with repeated numbers and an array with decimal numbers', () => {

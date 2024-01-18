@@ -4,6 +4,7 @@
 
 const { characterOrder, render, importSpellCSS, castSpells, handleSpellDeath, attack, disableAttackButton, enableAttackButton, handleFlyOuts, handleCharacterDeathTiming, setNextCharacter, endGameWithDelay } = require('../js/index.js')
 
+
 describe('characterOrder', () => {
   
   // Returns a shuffled array with the same length as the input array
