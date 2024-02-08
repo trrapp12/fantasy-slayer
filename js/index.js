@@ -171,7 +171,7 @@ function attack() {
 
     if (!isWaiting) {
         // creates a pause
-        if (hero.numberOfTurns % 1 === 0 && hero.numberOfTurns > 0 && shuffledSpellArr.length !== 0) {
+        if (hero.numberOfTurns % 5 === 0 && hero.numberOfTurns > 0 && shuffledSpellArr.length !== 0) {
             hero.numberOfTurns = hero.numberOfTurns + 1;
             // spell every 5th turn
             if (!hasNotDisplayedTheMessageBefore) {
