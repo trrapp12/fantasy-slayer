@@ -92,21 +92,19 @@ function setYInit(width) {
 
 function renderHealthChart(currentHealthForBar, totalHealth, containerWidth) {
 
-  const circumference = containerWidth * 2.669;
-  
-  if (circumference === 0) {
-    throw new Error('renderHealthChart received a 0 value for containerWidth')
-  }
   const color = setColor(currentHealthForBar, totalHealth)
   const glow = glowEffectCodeBlock(currentHealthForBar, totalHealth)
   const healthPercentage = (currentHealthForBar / totalHealth)
     // let aspect = getAspectRatio(containerWidth, containerWidth)
+    const c = findCircumference(containerWidth)
+    if (c === 0) {
+      throw new Error('renderHealthChart received a 0 value for containerWidth')
+    }
     const w = containerWidth
     // let h = getBoxHeight(w, aspect)
-    const c = findCircumference(w) * .85
-    const nc = healthPercentage * circumference;
+    const nc = healthPercentage * c;
     const r = findRadius(c)
-    const d = findDiameter(r)
+    const d = findDiameter(c)
     // let coord = findCenterCoordinates(containerWidth, w, containerWidth, h)
     const xInit = setXInit(containerWidth)
     const yInit = setYInit(containerWidth, c)
@@ -135,7 +133,7 @@ function renderHealthChart(currentHealthForBar, totalHealth, containerWidth) {
           fill="none"
           stroke="${color}"
           stroke-width=".01"
-          stroke-dasharray="${nc}, ${circumference}"
+          stroke-dasharray="${nc}, ${c}"
           filter="${glow}"
         />
       </svg>
