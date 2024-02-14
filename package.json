@@ -46,6 +46,6 @@
   },
   "dependencies": {
     "canvas": "^2.11.2",
-    "jsdom": "^23.1.0"
+    "jsdom": "^23.2.0"
   }
 }
