@@ -45,7 +45,7 @@
     "parcel": "^2.10.3"
   },
   "dependencies": {
-    "canvas": "^2.11.2",
+    "canvas": "^3.0.0",
     "jsdom": "^23.1.0"
   }
 }
